@@ -140,7 +140,8 @@ function factorial(n,total){
     if(n===1) return total;
     return factorial(n-1,n*total);
 } //es6强制使用尾递归
-</code></pre><p>细数尾递归<br>实例一：</p>
+</code></pre><p>细数尾递归</p>
+<p>实例一：</p>
 <pre><code>function sum(n){
     if(n===1)return 1;
     return n + sum(n-1);
@@ -312,8 +313,8 @@ IO.prototype.map = function(f){
     .bufferCount(2)
     .subscribe(x =&gt; console.log(x)); //打印出两次点击事件
 </code></pre><ol>
-<li><p>Cycle.js 是一个基于Rxjs的框架，它是一个彻彻底底的 FRP 理念的框架，和 React一样支持virtual DOM 、<br> JSX语法，但现在似乎还没有看到大型的应用经验。</p>
-<p> 本质的讲，它就是在 Rxjs的基础上加入了对 virtual DOM、容器和组件的支持，比如下面就是一个简单的【开关】按钮：</p>
+<li><p>Cycle.js 是一个基于Rxjs的框架，它是一个彻彻底底的 FRP 理念的框架，和 React一样支持virtual DOM 、JSX语法，但现在似乎还没有看到大型的应用经验。</p>
+<p>本质的讲，它就是在 Rxjs的基础上加入了对 virtual DOM、容器和组件的支持，比如下面就是一个简单的【开关】按钮：</p>
 </li>
 </ol>
 <pre><code>function main(sources){
@@ -337,16 +338,14 @@ const drivers={
 
 run(main,drivers);
 </code></pre><ol>
-<li>Underscore 是一个 javascript工具库，它提供了一整套函数式编程实用功能，但是没有扩展任何 javascript内置对象。<blockquote>
-<ul>
-<li>它解决了这个问题：”如果我面对一个空白的html页面，并希望立即开始工作，我需要什么？”它你不了jquery没有实现的功能，<br>同时又是backbone必不可少的部分。</li>
-</ul>
-</blockquote>
-</li>
+<li>Underscore 是一个 javascript工具库，它提供了一整套函数式编程实用功能，但是没有扩展任何 javascript内置对象。</li>
 </ol>
 <blockquote>
 <ul>
-<li>underscore提供了100多个函数，包括常用的：map、filter、invoke 当然还有更专业的辅助函数，如：函数绑定、javascript模板功能、<br> 创建快速索引、强类型相等测试等等。</li>
+<li><p>它解决了这个问题：”如果我面对一个空白的html页面，并希望立即开始工作，我需要什么？”它你不了jquery没有实现的功能，<br> 同时又是backbone必不可少的部分。</p>
+</li>
+<li><p>underscore提供了100多个函数，包括常用的：map、filter、invoke 当然还有更专业的辅助函数，如：函数绑定、javascript模板功能、<br> 创建快速索引、强类型相等测试等等。</p>
+</li>
 </ul>
 </blockquote>
 <ol>
@@ -407,7 +406,7 @@ addSquare(1,2);
 </li>
 </ul>
 </blockquote>
-<h2 id="总结与补充"><a href="#总结与补充" class="headerlink" title="总结与补充"></a>总结与补充</h2><p>函数式编程不应被视为灵丹妙药。相反的，它应被视为我们现有工具箱的一个很自然的补充—它带来的更高的可组合型，灵活性以及<br>容错性。现代的javascript库已经开始尝试拥抱函数式编程的概念以获取这些优势。Redux作为一种 FLUX的变种实现，核心理念也是<br>状态机和函数式编程。</p>
+<h2 id="总结与补充"><a href="#总结与补充" class="headerlink" title="总结与补充"></a>总结与补充</h2><p>函数式编程不应被视为灵丹妙药。相反的，它应被视为我们现有工具箱的一个很自然的补充—它带来的更高的可组合型，灵活性以及容错性。现代的javascript库已经开始尝试拥抱函数式编程的概念以获取这些优势。Redux作为一种 FLUX的变种实现，核心理念也是<br>状态机和函数式编程。</p>
 ]]></content>
       
         
@@ -416,58 +415,6 @@ addSquare(1,2);
             <tag> javascript </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[我的博客之es6]]></title>
-      <url>http://yoursite.com/2017/03/27/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E4%B9%8Bes6/</url>
-      <content type="html"></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[pageabout]]></title>
-      <url>http://yoursite.com/2017/03/27/pageabout/</url>
-      <content type="html"></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[娇娇博客]]></title>
-      <url>http://yoursite.com/2017/03/27/%E5%A8%87%E5%A8%87%E5%8D%9A%E5%AE%A2/</url>
-      <content type="html"><![CDATA[<h1 id="不好不好不好不好"><a href="#不好不好不好不好" class="headerlink" title="不好不好不好不好"></a>不好不好不好不好</h1><h1 id="生活是需要自己慢慢体会领悟"><a href="#生活是需要自己慢慢体会领悟" class="headerlink" title="生活是需要自己慢慢体会领悟"></a>生活是需要自己慢慢体会领悟</h1><h1 id="你得好坏无需别人评价"><a href="#你得好坏无需别人评价" class="headerlink" title="你得好坏无需别人评价"></a>你得好坏无需别人评价</h1><h1 id="走好人生的路，这是一本没有排练的戏"><a href="#走好人生的路，这是一本没有排练的戏" class="headerlink" title="走好人生的路，这是一本没有排练的戏"></a>走好人生的路，这是一本没有排练的戏</h1><blockquote>
-<ul>
-<li><p>整理日志</p>
-</li>
-<li><p>发布日志</p>
-</li>
-</ul>
-</blockquote>
-<h3 id="平台呵护"><a href="#平台呵护" class="headerlink" title="平台呵护"></a>平台呵护</h3><blockquote>
-<p>说明书</p>
-</blockquote>
-<h3 id="高亮一段代码-code"><a href="#高亮一段代码-code" class="headerlink" title="高亮一段代码[^code]"></a>高亮一段代码[^code]</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@=retue er</span></div></pre></td></tr></table></figure>]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>http://yoursite.com/2017/03/25/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-      
         
     </entry>
     
@@ -521,6 +468,12 @@ addSquare(1,2);
     
     <entry>
       <title></title>
+      <url>http://yoursite.com/photo/output.json</url>
+      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
       <url>http://yoursite.com/photo/tool.js</url>
       <content type="html"><![CDATA["use strict";
 const fs = require("fs");
@@ -548,12 +501,6 @@ fs.readdir(path, function (err, files) {
         })
     }(0));
 });]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>http://yoursite.com/photo/output.json</url>
-      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
     </entry>
     
     <entry>
