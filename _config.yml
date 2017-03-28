@@ -3,10 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: WJJ的博客
-subtitle:
+title: WJJ博客
+toc: true
+subtitle: 真正的才智是刚毅的志向
 description:
-author: 王娇娇
+author: WJJ
 language:
 timezone:
 
