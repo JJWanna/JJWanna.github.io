@@ -4,6 +4,50 @@
   
     
     <entry>
+      <title><![CDATA[javascript函数式编程]]></title>
+      <url>http://yoursite.com/2017/03/28/javascript%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<h1 id="javascript函数式编程"><a href="#javascript函数式编程" class="headerlink" title="javascript函数式编程"></a>javascript函数式编程</h1><ul>
+<li>函数式编程思维</li>
+<li>函数式编程常用核心概念</li>
+<li>当下函数式编程最热的库</li>
+</ul>
+<h2 id="函数式编程基础理论"><a href="#函数式编程基础理论" class="headerlink" title="函数式编程基础理论"></a>函数式编程基础理论</h2><ol>
+<li>函数式编程（Functional Programming）相对计算机历史而言是一个古老的概念，甚至早于第一台计算机的诞生。函数式编程的基础模型来源于 ℷ (lambda x=x&gt;x<em>2)演算，<br>  而 ℷ 演算并非设计于在计算机上执行，</em>它是一套用于研究函数定义、函数应用和递归的形式系统*。    </li>
+<li>函数式编程不是用函数来编程，也不是传统的面向过程编程。是将复杂的函数符合成简单的函数（计算理论、递归论、ℷ 演算）。<em>运算过程尽量写成一系列嵌套的函数调用</em>。</li>
+<li>javascript是披着 C 外衣的lisp。</li>
+<li>真正的火热是随着React的高阶函数而逐步升温。</li>
+</ol>
+<blockquote>
+<ul>
+<li><em>函数</em>：函数是一等公民，指的是<em>函数与其他数据类型一样</em>，处于平等地位，可以赋值给其他变量，也可以作为参数，传入另一个函数，或者作为别的函数的返回值。</li>
+<li><em>不可变量</em>：在函数编程中，我们通常理解的变量在函数式编程中也被函数代替了。<em>在函数编程中变量仅仅代表某个表达式</em>。这里所说的’变量’是不能被修改的。<br>  所有的变量只能被赋值一次初值。</li>
+<li>map &amp; reduce 他们是最常用的函数式编程的方法。</li>
+</ul>
+</blockquote>
+<h2 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h2><ul>
+<li>纯函数</li>
+<li>函数的柯里化</li>
+<li>函数组合</li>
+<li>Point Free</li>
+<li>声明式与命令式代码</li>
+<li>惰性求值</li>
+</ul>
+<ol>
+<li>纯函数：对于相同的输入，永远会得到相同的输出，而且没有任何可观察的副作用，也不依赖外部环境的状态。</li>
+</ol>
+<p>、、、<br>var arr=[1,2,3,4,5];<br>// Array.slice是纯函数，因为它没有副作用，对于固定的输入，输出总是固定的<br>xs.slice(0,3);<br>xs.slice(0,3);<br>xs.slice(0,3);<br>xs.slice(0,3);<br>、、、</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[我的博客之es6]]></title>
       <url>http://yoursite.com/2017/03/27/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E4%B9%8Bes6/</url>
       <content type="html"></content>
@@ -101,6 +145,15 @@
     </entry>
     
     <entry>
+      <title><![CDATA[相册]]></title>
+      <url>http://yoursite.com/photo/index.html</url>
+      <content type="html"><![CDATA[<p><link type="text/css" href="/fancybox/jquery.fancybox.css" rel="stylesheet"></p>
+<div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div>
+
+<script src="/js/photo.js"></script>]]></content>
+    </entry>
+    
+    <entry>
       <title></title>
       <url>http://yoursite.com/photo/tool.js</url>
       <content type="html"><![CDATA["use strict";
@@ -129,15 +182,6 @@ fs.readdir(path, function (err, files) {
         })
     }(0));
 });]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[相册]]></title>
-      <url>http://yoursite.com/photo/index.html</url>
-      <content type="html"><![CDATA[<p><link type="text/css" href="/fancybox/jquery.fancybox.css" rel="stylesheet"></p>
-<div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div>
-
-<script src="/js/photo.js"></script>]]></content>
     </entry>
     
     <entry>
