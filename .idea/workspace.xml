@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d9e3ce76-ae7a-4080-ae86-9c325167e79e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/yilia" afterPath="$PROJECT_DIR$/themes/yilia" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/javascript函数式编程.md" afterPath="$PROJECT_DIR$/source/_posts/javascript函数式编程.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/小程序面向个人开发者开放.md" afterPath="$PROJECT_DIR$/source/_posts/小程序面向个人开发者开放.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,12 +65,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="javascript函数式编程.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="javascript函数式编程.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/_posts/javascript函数式编程.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="305">
-                <caret line="464" column="60" lean-forward="false" selection-start-line="464" selection-start-column="60" selection-end-line="464" selection-end-column="60" />
+              <first_editor relative-caret-position="-310">
+                <caret line="425" column="2" lean-forward="false" selection-start-line="425" selection-start-column="2" selection-end-line="425" selection-end-column="2" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -77,12 +78,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="小程序面向个人开发者开放.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="小程序面向个人开发者开放.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/小程序面向个人开发者开放.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="140">
-                <caret line="55" column="2" lean-forward="false" selection-start-line="55" selection-start-column="2" selection-end-line="55" selection-end-column="2" />
+              <first_editor relative-caret-position="165">
+                <caret line="74" column="3" lean-forward="false" selection-start-line="74" selection-start-column="3" selection-end-line="74" selection-end-column="3" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -141,8 +142,8 @@
         <option value="$PROJECT_DIR$/themes/yilia/layout/_partial/post/toc.ejs" />
         <option value="$PROJECT_DIR$/themes/yilia/_config.yml" />
         <option value="$PROJECT_DIR$/source/archives/index.md" />
-        <option value="$PROJECT_DIR$/source/_posts/javascript函数式编程.md" />
         <option value="$PROJECT_DIR$/source/_posts/小程序面向个人开发者开放.md" />
+        <option value="$PROJECT_DIR$/source/_posts/javascript函数式编程.md" />
       </list>
     </option>
   </component>
@@ -779,12 +780,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1490669763451</updated>
-      <workItem from="1490669765192" duration="22054000" />
+      <workItem from="1490669765192" duration="22287000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22054000" />
+    <option name="totallyTimeSpent" value="22287000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="803" extended-state="6" />
@@ -1037,22 +1038,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/javascript函数式编程.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/小程序面向个人开发者开放.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="305">
-            <caret line="464" column="60" lean-forward="false" selection-start-line="464" selection-start-column="60" selection-end-line="464" selection-end-column="60" />
+          <first_editor relative-caret-position="165">
+            <caret line="74" column="3" lean-forward="false" selection-start-line="74" selection-start-column="3" selection-end-line="74" selection-end-column="3" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/小程序面向个人开发者开放.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/javascript函数式编程.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="140">
-            <caret line="55" column="2" lean-forward="false" selection-start-line="55" selection-start-column="2" selection-end-line="55" selection-end-column="2" />
+          <first_editor relative-caret-position="-310">
+            <caret line="425" column="2" lean-forward="false" selection-start-line="425" selection-start-column="2" selection-end-line="425" selection-end-column="2" />
             <folding />
           </first_editor>
           <second_editor />
