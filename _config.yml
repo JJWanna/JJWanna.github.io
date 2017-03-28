@@ -19,7 +19,7 @@ permalink_defaults:
 
 
 #头像
-avatar: source/touxiang.jpg
+avatar: /images/avatar.jpg
 
 # Directory
 source_dir: source
