@@ -77,9 +77,9 @@
     </entry>
     
     <entry>
-      <title><![CDATA[RESULT]]></title>
+      <title></title>
       <url>http://yoursite.com/search/index.html</url>
-      <content type="html"><![CDATA[<div id="st-results-container"><br></div>]]></content>
+      <content type="html"></content>
     </entry>
     
   
