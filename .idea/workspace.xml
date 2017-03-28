@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d9e3ce76-ae7a-4080-ae86-9c325167e79e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/yilia" afterPath="$PROJECT_DIR$/themes/yilia" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/javascript函数式编程.md" afterPath="$PROJECT_DIR$/source/_posts/javascript函数式编程.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -67,8 +69,8 @@
         <entry file="file://$PROJECT_DIR$/source/_posts/javascript函数式编程.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="432">
-                <caret line="45" column="14" lean-forward="true" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+              <first_editor relative-caret-position="390">
+                <caret line="39" column="18" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -765,12 +767,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1490669763451</updated>
-      <workItem from="1490669765192" duration="8644000" />
+      <workItem from="1490669765192" duration="8868000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8644000" />
+    <option name="totallyTimeSpent" value="8868000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="404" y="24" width="1224" height="803" extended-state="0" />
@@ -1026,8 +1028,8 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/javascript函数式编程.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="432">
-            <caret line="45" column="14" lean-forward="true" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+          <first_editor relative-caret-position="390">
+            <caret line="39" column="18" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
             <folding />
           </first_editor>
           <second_editor />
