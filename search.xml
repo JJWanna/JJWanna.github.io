@@ -83,6 +83,12 @@
     </entry>
     
     <entry>
+      <title><![CDATA[categories]]></title>
+      <url>http://yoursite.com/categories/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[相册]]></title>
       <url>http://yoursite.com/photo/index.html</url>
       <content type="html"><![CDATA[<p><link type="text/css" href="/fancybox/jquery.fancybox.css" rel="stylesheet"></p>
@@ -129,10 +135,9 @@ fs.readdir(path, function (err, files) {
     </entry>
     
     <entry>
-      <title></title>
+      <title><![CDATA[tags]]></title>
       <url>http://yoursite.com/tags/index.html</url>
-      <content type="html"><![CDATA[<p>title: tags<br>date: 2015-10-20 06:49:50<br>type: “tags”<br>comments: false</p>
-]]></content>
+      <content type="html"></content>
     </entry>
     
   
