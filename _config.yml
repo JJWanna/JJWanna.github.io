@@ -17,6 +17,10 @@ root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
+
+#头像
+avatar: source/touxiang.jpg
+
 # Directory
 source_dir: source
 public_dir: public
