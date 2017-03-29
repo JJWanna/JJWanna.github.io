@@ -477,8 +477,7 @@ addSquare(1,2);
       <title><![CDATA[相册]]></title>
       <url>http://yoursite.com/photo/index.html</url>
       <content type="html"><![CDATA[<p><link type="text/css" href="/fancybox/jquery.fancybox.css" rel="stylesheet"></p>
-<div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div>
-
+<p><div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div></p>
 <script src="/js/photo.js"></script>]]></content>
     </entry>
     
