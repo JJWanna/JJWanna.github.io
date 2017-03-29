@@ -35,21 +35,21 @@
 </li>
 </ul>
 </blockquote>
-<p>请访问：微信公众平台([mp.weixin.qq.com])</p>
+<p>请访问：微信公众平台<a href="mp.weixin.qq.com"></a></p>
 <p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Sl2B4aOmG2MdomPTjz8wt5AhZ9eJvcD1tM4L4YnHKDibxRicaWwK0pmxSqT4YGKDdGY2k4XMdHtnSVyOxPb9Hyzg/640?wx_fmt=jpeg" alt=""></p>
 <p>2.<strong>公众号自定义菜单点击可打开相关小程序</strong></p>
 <p><img src="http://mmbiz.qpic.cn/mmbiz_png/Sl2B4aOmG2MdomPTjz8wt5AhZ9eJvcD1V9w0XyibD2zmNYSEAECoz89USoxEWZoia2g9YFicEkWwPibVv41uic2HrAA/640?wx_fmt=png" alt=""></p>
 <p>公众号可将已关联的小程序页面放置到自定义菜单中，用户点击后可打开该小程序页面。公众号运营者可在公众平台进行设置，也可以通过自定义菜单接口进行设置。</p>
-<p>详见开发文档：微信公众平台文档([mp.weixin.qq.com/wiki])-自定义菜单</p>
+<p>详见开发文档：微信公众平台文档<a href="mp.weixin.qq.com/wiki"></a>-自定义菜单</p>
 <p>3.<strong>公众号模版消息可打开相关小程序</strong></p>
 <p>公众号已关联的小程序页面可以配置到公众号的模版消息中，用户点击公众号下发的模版消息，可以打开对应的小程序页面。</p>
 <p>详见开发文档：微信公众平台文档(mp.weixin.qq.com/wiki)-模版消息</p>
 <p>4.<strong>公众号关联小程序时，可选择给粉丝下发通知</strong></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_png/Sl2B4aOmG2MdomPTjz8wt5AhZ9eJvcD1V9w0XyibD2zmNYSEAECoz89USoxEWZoia2g9YFicEkWwPibVv41uic2HrAA/640?wx_fmt=png" alt=""></p>
+<p><img src="https://mmbiz.qlogo.cn/mmbiz_png/Sl2B4aOmG2MdomPTjz8wt5AhZ9eJvcD1ZqTbVmKAmSibaCZppvxrYl293fhmSasBl68dKYhGtsLGtAiaN2CE37RA/0?wx_fmt=png" alt=""></p>
 <p>公众号关联小程序时，可选择给粉丝下发通知消息，粉丝点击该通知消息可以打开小程序。该消息不占用原有群发条数。</p>
 <p>5.<strong>移动App可分享小程序页面</strong></p>
 <p>开发者可以把小程序绑定到微信开放平台。绑定后，同一微信开放平台帐号下的App可分享已绑定的小程序页面到微信内的会话或群聊。APP链接分享到微信，点开就是小程序。</p>
-<p>详见开发文档：微信开放平台([open.weixin.qq.com])-资源中心-移动应用-分享与收藏功能</p>
+<p>详见开发文档：微信开放平台<a href="open.weixin.qq.com"></a>-资源中心-移动应用-分享与收藏功能</p>
 <p>6.<strong>扫描普通链接二维码可打开小程序</strong></p>
 <p>商户如果在线下已铺设了普通链接二维码，可在公众平台的小程序管理后台进行配置，用户扫描该原有线下普通链接二维码可直接打开小程序。</p>
 <p>微信官方称，摩拜单车扫描单车二维码直接进入小程序的能力，现在通用了。</p>
@@ -477,18 +477,24 @@ addSquare(1,2);
     </entry>
     
     <entry>
-      <title><![CDATA[categories]]></title>
-      <url>http://yoursite.com/categories/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[相册]]></title>
       <url>http://yoursite.com/photo/index.html</url>
       <content type="html"><![CDATA[<p><link type="text/css" href="/fancybox/jquery.fancybox.css" rel="stylesheet"></p>
 <div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div>
 
 <script src="/js/photo.js"></script>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[categories]]></title>
+      <url>http://yoursite.com/categories/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://yoursite.com/photo/output.json</url>
+      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
     </entry>
     
     <entry>
@@ -520,12 +526,6 @@ fs.readdir(path, function (err, files) {
         })
     }(0));
 });]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>http://yoursite.com/photo/output.json</url>
-      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
     </entry>
     
     <entry>
