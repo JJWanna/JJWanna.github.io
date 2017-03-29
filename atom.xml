@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-29T07:10:46.000Z</updated>
+  <updated>2017-03-29T07:44:37.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>http协议背后的事</title>
+    <link href="http://yoursite.com/2017/03/29/http%E5%8D%8F%E8%AE%AE%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%8B/"/>
+    <id>http://yoursite.com/2017/03/29/http协议背后的事/</id>
+    <published>2017-03-29T07:27:02.000Z</published>
+    <updated>2017-03-29T07:44:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>当我们输入网址后发生了什么</li>
+<li>HTTP协议详解</li>
+<li>HTTP协议安全</li>
+<li>后台服务与HTTP</li>
+<li>反向代理与web服务</li>
+</ul>
+<h3 id="浏览器行为与HTTP协议"><a href="#浏览器行为与HTTP协议" class="headerlink" title="浏览器行为与HTTP协议"></a>浏览器行为与HTTP协议</h3><p>处理流程：</p>
+<ol>
+<li>输入网址并回车</li>
+<li>解析域名</li>
+<li>浏览器发送http请求</li>
+<li>服务器处理请求</li>
+<li>服务器返回HTML响应</li>
+<li>浏览器处理HTML页面</li>
+<li>继续请求其他资源</li>
+</ol>
+<h3 id="什么是HTTP协议"><a href="#什么是HTTP协议" class="headerlink" title="什么是HTTP协议"></a>什么是HTTP协议</h3><ul>
+<li>HTTP是超文本传输协议，从www浏览器传输到本地浏览器的一种传输协议，网站是基于HTTP协议的，例如网站的图片、CSS、JS等都是基于HTTP协议进行传输的。</li>
+<li>HTTP协议是由从客户机到服务器的请求(Reuqest)和从服务器到客户机的响应(response)进行约束和规范。</li>
+</ul>
+<h3 id="了解TCP-IP协议栈"><a href="#了解TCP-IP协议栈" class="headerlink" title="了解TCP/IP协议栈"></a>了解TCP/IP协议栈</h3><ol>
+<li>应用层：为用户提供所需要的各种服务，例如：HTTP、FTP、DNS、SMTP等。</li>
+<li>传输层：为应用层实体提供端到端通信功能，保证数据包的顺序传送及数据的完整性。该层定义了两个主要协议：<strong>传输控制协议(TCP)和用户数据报协议(UDP)</strong>。</li>
+<li>网络层：主要解决主机到主机的通信问题。IP协议是网际互联层最重要的协议。</li>
+<li>网络接口层：负责监视数据在主机和网络之间的交换。</li>
+</ol>
+<p>###</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;当我们输入网址后发生了什么&lt;/li&gt;
+&lt;li&gt;HTTP协议详解&lt;/li&gt;
+&lt;li&gt;HTTP协议安全&lt;/li&gt;
+&lt;li&gt;后台服务与HTTP&lt;/li&gt;
+&lt;li&gt;反向代理与web服务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;浏览器行为与HTTP协议&quot;&gt;&lt;a href=&quot;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>小程序面向个人开发者开放</title>
