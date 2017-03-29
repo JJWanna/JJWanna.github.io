@@ -462,14 +462,14 @@ addSquare(1,2);
     </entry>
     
     <entry>
-      <title><![CDATA[archives]]></title>
-      <url>http://yoursite.com/archives/index.html</url>
+      <title><![CDATA[categories]]></title>
+      <url>http://yoursite.com/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[categories]]></title>
-      <url>http://yoursite.com/categories/index.html</url>
+      <title><![CDATA[archives]]></title>
+      <url>http://yoursite.com/archives/index.html</url>
       <content type="html"></content>
     </entry>
     
