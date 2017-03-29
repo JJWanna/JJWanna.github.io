@@ -35,7 +35,7 @@
 </li>
 </ul>
 </blockquote>
-<p>请访问：微信公众平台<a href="https://mp.weixin.qq.com/" target="_blank" rel="external">https://mp.weixin.qq.com/</a></p>
+<p>请访问：<a href="微信公众平台mp.weixin.qq.com/">mp.weixin.qq.com/</a></p>
 <p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Sl2B4aOmG2MdomPTjz8wt5AhZ9eJvcD1tM4L4YnHKDibxRicaWwK0pmxSqT4YGKDdGY2k4XMdHtnSVyOxPb9Hyzg/640?wx_fmt=jpeg" alt=""></p>
 <p>2.<strong>公众号自定义菜单点击可打开相关小程序</strong></p>
 <p><img src="http://mmbiz.qpic.cn/mmbiz_png/Sl2B4aOmG2MdomPTjz8wt5AhZ9eJvcD1V9w0XyibD2zmNYSEAECoz89USoxEWZoia2g9YFicEkWwPibVv41uic2HrAA/640?wx_fmt=png" alt=""></p>
@@ -472,12 +472,6 @@ addSquare(1,2);
     </entry>
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://yoursite.com/tags/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[相册]]></title>
       <url>http://yoursite.com/photo/index.html</url>
       <content type="html"><![CDATA[<p><link type="text/css" href="/fancybox/jquery.fancybox.css" rel="stylesheet"></p>
@@ -521,6 +515,12 @@ fs.readdir(path, function (err, files) {
         })
     }(0));
 });]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://yoursite.com/tags/index.html</url>
+      <content type="html"></content>
     </entry>
     
   
