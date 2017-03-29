@@ -33,6 +33,14 @@ menu:
 excerpt_link: 阅读更多
 fancybox: true
 
+
+subnav:
+  github: "https://github.com/litten"
+  weibo: "http://weibo.com/litten225"
+  rss: "http://feed.feedsky.com/litten"
+
+rss: /atom.xml
+
 # Directory
 source_dir: source
 public_dir: public
