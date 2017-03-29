@@ -52,9 +52,9 @@ tags:
 * 状态行组成:服务器HTTP协议的版本,服务器发回的响应状态代码和状态代码的文本描述。
 
 *请求报文
-![](images/request.png)
+![](/images/request.png)
 *响应报文
-![](images/response.png)
+![](/images/response.png)
 
 ### 请求方法
 * GET: 请求获取Request-URI所标识的资源
@@ -117,10 +117,10 @@ tags:
    2. 减少网络带宽消耗
    
 ### 浏览器缓存机制-浏览器第一次请求
-![](images/request1.png)
+![](/images/request1.png)
 
 ### 浏览器缓存机制-浏览器再次请求
-![](images/request2.png)
+![](/images/request2.png)
 
 ### Etag/if-None-Match策略
 * Etag:web服务器响应请求时,告诉浏览器当前资源在服务器的唯一标识(生成规则由服务器决定)
@@ -143,10 +143,10 @@ tags:
 
 ### http与反向代理
 * 什么是代理,什么又是反向代理?
-*为什么要使用反向代理? 
+* 为什么要使用反向代理? 
 * 都有哪些反向代理服务器?
 
-反向代理的用途
+### 反向代理的用途
 * 加密和SSL加速 
 * 负载均衡 
 * 缓存静态内容 
@@ -155,10 +155,10 @@ tags:
 * 安全
 * 外网发布
 
-反向代理做负载均衡
-![](images/daili.png)
+#### 反向代理做负载均衡
+![](/images/daili.png)
 
-让nginx跑起来
+#### 让nginx跑起来
 * 准备环境:Linux服务器、gcc编译器、nginx源代码 
 * 获取nginx源码:http://nginx.org 
 * 编译安装nginx源码
