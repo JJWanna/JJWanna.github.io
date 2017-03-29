@@ -15,7 +15,7 @@
 <p>1.<strong>个人开发者可申请小程序</strong></p>
 <p>   小程序开放个人开发者申请注册，个人用户可访问微信公众平台，扫码验证个人身份后即可完成小程序帐号申请并进行代码开发。</p>
 <p>   申请个人开发者的个人需要实名。现在，对小程序感兴趣，并且有开发能力者，可以在开放的类目范围内，通过开发小程序，把自己的“一个想法”变成“一件作品”，并为微信用户所使用，进一步发挥开发者的个人价值。</p>
-<a id="more"></a>     
+<a id="more"></a>    
 <blockquote>
 <ul>
 <li><p>个人开发者可以做些什么？</p>
@@ -474,12 +474,6 @@ addSquare(1,2);
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://yoursite.com/photo/output.json</url>
-      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[相册]]></title>
       <url>http://yoursite.com/photo/index.html</url>
       <content type="html"><![CDATA[<p><link type="text/css" href="/fancybox/jquery.fancybox.css" rel="stylesheet"></p>
@@ -517,6 +511,12 @@ fs.readdir(path, function (err, files) {
         })
     }(0));
 });]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://yoursite.com/photo/output.json</url>
+      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
     </entry>
     
     <entry>
