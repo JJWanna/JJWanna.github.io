@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-29T02:53:14.000Z</updated>
+  <updated>2017-03-29T02:55:44.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/03/28/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E5%90%91%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E8%80%85%E5%BC%80%E6%94%BE/"/>
     <id>http://yoursite.com/2017/03/28/小程序面向个人开发者开放/</id>
     <published>2017-03-28T12:12:26.000Z</published>
-    <updated>2017-03-29T02:53:14.000Z</updated>
+    <updated>2017-03-29T02:55:44.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <ul>
@@ -51,7 +51,7 @@
 </li>
 </ul>
 </blockquote>
-<p>请访问：微信公众平台<a href="https://mp.weixin.qq.com/" target="_blank" rel="external">wx</a></p>
+<p>请访问：微信公众平台<a href="https://mp.weixin.qq.com/" target="_blank" rel="external">https://mp.weixin.qq.com/</a></p>
 <p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Sl2B4aOmG2MdomPTjz8wt5AhZ9eJvcD1tM4L4YnHKDibxRicaWwK0pmxSqT4YGKDdGY2k4XMdHtnSVyOxPb9Hyzg/640?wx_fmt=jpeg" alt=""></p>
 <p>2.<strong>公众号自定义菜单点击可打开相关小程序</strong></p>
 <p><img src="http://mmbiz.qpic.cn/mmbiz_png/Sl2B4aOmG2MdomPTjz8wt5AhZ9eJvcD1V9w0XyibD2zmNYSEAECoz89USoxEWZoia2g9YFicEkWwPibVv41uic2HrAA/640?wx_fmt=png" alt=""></p>
