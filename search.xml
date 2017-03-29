@@ -462,14 +462,14 @@ addSquare(1,2);
     </entry>
     
     <entry>
-      <title><![CDATA[categories]]></title>
-      <url>http://yoursite.com/categories/index.html</url>
+      <title><![CDATA[archives]]></title>
+      <url>http://yoursite.com/archives/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[archives]]></title>
-      <url>http://yoursite.com/archives/index.html</url>
+      <title><![CDATA[categories]]></title>
+      <url>http://yoursite.com/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
@@ -478,7 +478,7 @@ addSquare(1,2);
       <url>http://yoursite.com/photo/index.html</url>
       <content type="html"><![CDATA[<p><link type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.css" rel="stylesheet"></p>
 <p><div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div></p>
-<script src="/themes/yillia/source-src/js/photo.js"></script>
+<script src="/source-src/js/photo.js"></script>
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/source-src/js/main.js" type="text/javascript"></script>
 ]]></content>
