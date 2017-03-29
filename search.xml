@@ -84,6 +84,7 @@
 <li>map &amp; reduce 他们是最常用的函数式编程的方法。</li>
 </ul>
 </blockquote>
+<a id="more"></a>
 <h2 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h2><ul>
 <li>纯函数</li>
 <li>函数的柯里化</li>
@@ -420,7 +421,7 @@ addSquare(1,2);
 </li>
 </ul>
 </blockquote>
-<h2 id="总结与补充"><a href="#总结与补充" class="headerlink" title="总结与补充"></a>总结与补充</h2><p>函数式编程不应被视为灵丹妙药。相反的，它应被视为我们现有工具箱的一个很自然的补充—它带来的更高的可组合型，灵活性以及容错性。现代的javascript库已经开始尝试拥抱函数式编程的概念以获取这些优势。Redux作为一种 FLUX的变种实现，核心理念也是<br>状态机和函数式编程。</p>
+<h2 id="总结与补充"><a href="#总结与补充" class="headerlink" title="总结与补充"></a>总结与补充</h2><p>函数式编程不应被视为灵丹妙药。相反的，它应被视为我们现有工具箱的一个很自然的补充—它带来的更高的可组合型，灵活性以及容错性。现代的javascript库已经开始尝试拥抱函数式编程的概念以获取这些优势。Redux作为一种 FLUX的变种实现，核心理念也是<br>状态机和函数式编程。<br><!--more--></p>
 ]]></content>
       
         

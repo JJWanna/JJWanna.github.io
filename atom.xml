@@ -96,7 +96,7 @@
     <link href="http://yoursite.com/2017/03/28/javascript%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/03/28/javascript函数式编程/</id>
     <published>2017-03-28T07:52:35.000Z</published>
-    <updated>2017-03-29T02:51:32.000Z</updated>
+    <updated>2017-03-29T03:21:14.000Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li>函数式编程思维</li>
@@ -111,6 +111,7 @@
 <li>map &amp; reduce 他们是最常用的函数式编程的方法。</li>
 </ul>
 </blockquote>
+<a id="more"></a>
 <h2 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h2><ul>
 <li>纯函数</li>
 <li>函数的柯里化</li>
@@ -447,7 +448,7 @@ addSquare(1,2);
 </li>
 </ul>
 </blockquote>
-<h2 id="总结与补充"><a href="#总结与补充" class="headerlink" title="总结与补充"></a>总结与补充</h2><p>函数式编程不应被视为灵丹妙药。相反的，它应被视为我们现有工具箱的一个很自然的补充—它带来的更高的可组合型，灵活性以及容错性。现代的javascript库已经开始尝试拥抱函数式编程的概念以获取这些优势。Redux作为一种 FLUX的变种实现，核心理念也是<br>状态机和函数式编程。</p>
+<h2 id="总结与补充"><a href="#总结与补充" class="headerlink" title="总结与补充"></a>总结与补充</h2><p>函数式编程不应被视为灵丹妙药。相反的，它应被视为我们现有工具箱的一个很自然的补充—它带来的更高的可组合型，灵活性以及容错性。现代的javascript库已经开始尝试拥抱函数式编程的概念以获取这些优势。Redux作为一种 FLUX的变种实现，核心理念也是<br>状态机和函数式编程。<br><!--more--></p>
 ]]></content>
     
     <summary type="html">
@@ -457,7 +458,14 @@ addSquare(1,2);
 &lt;li&gt;函数式编程常用核心概念&lt;/li&gt;
 &lt;li&gt;当下函数式编程最热的库&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;函数式编程基础理论&quot;&gt;&lt;a href=&quot;#函数式编程基础理论&quot; class=&quot;headerlink&quot; title=&quot;函数式编
+&lt;h2 id=&quot;函数式编程基础理论&quot;&gt;&lt;a href=&quot;#函数式编程基础理论&quot; class=&quot;headerlink&quot; title=&quot;函数式编程基础理论&quot;&gt;&lt;/a&gt;函数式编程基础理论&lt;/h2&gt;&lt;p&gt;1.函数式编程（Functional Programming）相对计算机历史而言是一个古老的概念，甚至早于第一台计算机的诞生。函数式编程的基础模型来源于 ℷ (lambda x=x&amp;gt;x*2)演算，&lt;br&gt;     而 ℷ 演算并非设计于在计算机上执行，它是一套用于研究函数定义、函数应用和递归的形式系统。&lt;br&gt;2.函数式编程不是用函数来编程，也不是传统的面向过程编程。是将复杂的函数符合成简单的函数（计算理论、递归论、ℷ 演算）。运算过程尽量写成一系列嵌套的函数调用。&lt;br&gt;3.javascript是披着 C 外衣的lisp。&lt;br&gt;4.真正的火热是随着React的高阶函数而逐步升温。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;函数&lt;/strong&gt;：函数是一等公民，指的是&lt;strong&gt;函数与其他数据类型一样&lt;/strong&gt;，处于平等地位，可以赋值给其他变量，也可以作为参数，传入另一个函数，或者作为别的函数的返回值。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不可变量&lt;/strong&gt;：在函数编程中，我们通常理解的变量在函数式编程中也被函数代替了。&lt;strong&gt;在函数编程中变量仅仅代表某个表达式&lt;/strong&gt;。这里所说的’变量’是不能被修改的。&lt;br&gt;  所有的变量只能被赋值一次初值。&lt;/li&gt;
+&lt;li&gt;map &amp;amp; reduce 他们是最常用的函数式编程的方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
