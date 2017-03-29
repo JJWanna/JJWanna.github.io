@@ -22,7 +22,7 @@
 当下函数式编程最热的库
 
 函数式编程基础理论1.函数式编程（Functional Programming）相对计算机历史而言是一个古老的概念，甚至早于第一台计算机的诞生。函数式编程的基础模型来源于 ℷ (lambda x=x&amp;gt;x*2)演算，     而 ℷ 演算并非设计于在计算机上执行，它是一套用于研究函数定义、函数应用和递归的形式系统。2.函数式编">
-<meta property="og:updated_time" content="2017-03-29T01:23:42.000Z">
+<meta property="og:updated_time" content="2017-03-29T02:51:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript函数式编程">
 <meta name="twitter:description" content="函数式编程思维
@@ -351,7 +351,7 @@ sum(1,14)
 15
 </code></pre><p>整个计算过程是线性的，调用一次 sum(x,total)后，会进入下一个栈，相关的数据信息跟随进入，不再放在堆栈上保存。<br>当计算完最后的值之后，直接返回到最上层的sum(5,0)。这能有效的防止堆栈溢出。<br>在ECMAScript6,我们将迎来尾递归优化，通过尾递归优化，javascript代码在解释成机器码的时候，将会向while看起，也就是说，同事拥有数学表达式能力和while的效能。</p>
 <p>3.闭包</p>
-<p>如下例子，虽然外层的makePowerFn函数执行完毕，栈上的调用帧被释放，但是堆上的作用域并不被释放，因此power依旧可以被powerFn函数访问，<br>这样就形成了闭包。</p>
+<p>如下例子，虽然外层的makePowerFn函数执行完毕，栈上的调用帧被释放，但是堆上的作用域并不被释放，因此power依旧可以被powerFn函数访问，这样就形成了闭包。</p>
 <pre><code>function makePowerFn(power){
     function powerFn(base){
         return Math.pow(base,power);
@@ -365,7 +365,7 @@ square(3); //9
 <ul>
 <li>$(…)返回的对象并不是一个原生的DOM对象，而是对于原生对象的一种封装，这在某种意义上就是一个”容器”（但它并不函数式）。</li>
 <li>Functor(函子)遵守一些特定规则的容器类型。</li>
-<li>Functor是一个对于函数调用的抽象，我们赋予容器自己去调用函数的能力。把东西装进一个容器，只留出一个接口map给容器外的函数，<br> map一个函数时，我们让容器自己来运行这个函数，这样容器就可以自由的选择何时何地如何操作这个函数，以至于拥有惰性求值、错误处理、<br> 异步调用等等非常棒的特性。</li>
+<li>Functor是一个对于函数调用的抽象，我们赋予容器自己去调用函数的能力。把东西装进一个容器，只留出一个接口map给容器外的函数，map一个函数时，我们让容器自己来运行这个函数，这样容器就可以自由的选择何时何地如何操作这个函数，以至于拥有惰性求值、错误处理、异步调用等等非常棒的特性。</li>
 </ul>
 </blockquote>
 <pre><code>var Container = fuunction(x){
@@ -399,7 +399,8 @@ Maybe.prototype.isNothing = function(){
 <blockquote>
 <ul>
 <li>我们的容器能做的事情太少，try/catch/throw 并不是”纯”的，因为它从外部接管了我们的函数，并且在这个函数出错时抛弃了它的返回值。</li>
-<li>Promise 是可以调用 catch来集中处理错误的。<br>*事实上Either并不只是用来做错误处理的，它表示了逻辑或，范畴学里的coproduc。</li>
+<li>Promise 是可以调用 catch来集中处理错误的。</li>
+<li>事实上Either并不只是用来做错误处理的，它表示了逻辑或，范畴学里的coproduc。</li>
 </ul>
 </blockquote>
 <pre><code>var left = function(x){
@@ -433,20 +434,14 @@ get Age({name:&apos;stark}).map(age =&gt; &apos;Age is&apos; +age);
 //=&gt; Left(&apos;ERROR&apos;)
 </code></pre><p>left 可以让调用链中任意一环的错误立刻返回到调用链的尾部，这给我们错误处理带来了很大的方便，再也不用一层一层的try/catch。</p>
 <p>6.IO</p>
-<blockquote>
-<ul>
-<li>真正的程序总要去接触不纯的世界。如下例子就依赖于window。</li>
-</ul>
-</blockquote>
+<p>真正的程序总要去接触不纯的世界。如下例子就依赖于window。</p>
 <pre><code>function readlocalStorage(){
     return window.localStorage;
 }
 </code></pre><blockquote>
 <ul>
-<li><p>IO跟前面几个Functor不同的地方在于，它的_value是一个函数。<br>  它把不纯的操作(比如IO、网络请求、DOM)包裹到一个函数内，从而延迟这个操作的执行。所以我们认为，<strong>IO包含的是被包裹的操作的返回值</strong>。</p>
-</li>
-<li><p>IO其实也算是惰性求值。</p>
-</li>
+<li>IO跟前面几个Functor不同的地方在于，它的_value是一个函数。它把不纯的操作(比如IO、网络请求、DOM)包裹到一个函数内，从而延迟这个操作的执行。所以我们认为，<strong>IO包含的是被包裹的操作的返回值</strong>。</li>
+<li>IO其实也算是惰性求值。</li>
 <li>IO负责了调用链积累了很多不纯的操作，带来的复杂性和不可维护性。</li>
 </ul>
 </blockquote>
@@ -469,18 +464,12 @@ IO.prototype.map = function(f){
 <li>underscoreJS</li>
 <li>ramdajs</li>
 </ul>
-<p>1.Rxjs从诞生依赖一直都不温不火，但它函数响应式编程(Functional Reactive Programming ,FRP)的理念非常先进，<br>   虽然或许对于大部分应用环境，外部输入事件并不是太频繁，并不需要引入一个如此庞大的FRP体系，但我们也可以了解一下它又哪些优秀的特性。</p>
-<p>  <strong>  在 Rxjs中，所有的外部输入（用户输入、网络请求等等）都被视作一种【事件流】：</strong></p>
-<blockquote>
-<ul>
-<li>用户点击了按钮 –&gt; 网络请求成功 –&gt; 用户键盘输入 –&gt; 某个定时事件发生 –&gt; 这种事件流特别适合实例游戏，上上下下上上下下<br>  举个例子，下面这段代码会监听点击事件，每两次点击事件产生一次事件相应：</li>
-</ul>
-</blockquote>
+<p>1.Rxjs从诞生依赖一直都不温不火，但它函数响应式编程(Functional Reactive Programming ,FRP)的理念非常先进，虽然或许对于大部分应用环境，外部输入事件并不是太频繁，并不需要引入一个如此庞大的FRP体系，但我们也可以了解一下它又哪些优秀的特性。<br>  <strong>  在 Rxjs中，所有的外部输入（用户输入、网络请求等等）都被视作一种【事件流】：</strong><br>  用户点击了按钮 –&gt; 网络请求成功 –&gt; 用户键盘输入 –&gt; 某个定时事件发生 –&gt; 这种事件流特别适合实例游戏，上上下下上上下下<br>  举个例子，下面这段代码会监听点击事件，每两次点击事件产生一次事件相应：</p>
 <pre><code>var clicks = Rx.Observable
     .fromEvent(document,&apos;click&apos;)
     .bufferCount(2)
     .subscribe(x =&gt; console.log(x)); //打印出两次点击事件
-</code></pre><p>2.Cycle.js 是一个基于Rxjs的框架，它是一个彻彻底底的 FRP 理念的框架，和 React一样支持virtual DOM 、JSX语法，但现在似乎还没有看到大型的应用经验。<br>   本质的讲，它就是在 Rxjs的基础上加入了对 virtual DOM、容器和组件的支持，比如下面就是一个简单的【开关】按钮：   </p>
+</code></pre><p>2.Cycle.js 是一个基于Rxjs的框架，它是一个彻彻底底的 FRP 理念的框架，和 React一样支持virtual DOM 、JSX语法，但现在似乎还没有看到大型的应用经验。<br>     本质的讲，它就是在 Rxjs的基础上加入了对 virtual DOM、容器和组件的支持，比如下面就是一个简单的【开关】按钮：   </p>
 <pre><code>function main(sources){
    const sinks={
        DOM : sources.DOM.select(&apos;input&apos;).events(&apos;click&apos;)
@@ -504,16 +493,16 @@ run(main,drivers);
 </code></pre><p>3.Underscore 是一个 javascript工具库，它提供了一整套函数式编程实用功能，但是没有扩展任何 javascript内置对象。</p>
 <blockquote>
 <ul>
-<li><p>它解决了这个问题：”如果我面对一个空白的html页面，并希望立即开始工作，我需要什么？”它你不了jquery没有实现的功能，<br> 同时又是backbone必不可少的部分。</p>
+<li><p>它解决了这个问题：”如果我面对一个空白的html页面，并希望立即开始工作，我需要什么？”它你不了jquery没有实现的功能，同时又是backbone必不可少的部分。</p>
 </li>
-<li><p>underscore提供了100多个函数，包括常用的：map、filter、invoke 当然还有更专业的辅助函数，如：函数绑定、javascript模板功能、<br> 创建快速索引、强类型相等测试等等。</p>
+<li><p>underscore提供了100多个函数，包括常用的：map、filter、invoke 当然还有更专业的辅助函数，如：函数绑定、javascript模板功能、创建快速索引、强类型相等测试等等。</p>
 </li>
 </ul>
 </blockquote>
 <p>4.lodash是一个具有一致接口、模块化、高性能等特性的javascript工具库，是unserscorejs的 fork,最初目标也是”一致的跨浏览器行为，并改善性能。”</p>
 <blockquote>
 <ul>
-<li><p>lodash采用延迟计算，意味着我们的链式方法在显式或者隐式的value()调用之前是不会执行的，因此lodash可以进行 shortcut(捷径)<br> fusion(融合)这样的优化，通过合并链式大大降低迭代的次数，从而大大提升其执行性能。</p>
+<li><p>lodash采用延迟计算，意味着我们的链式方法在显式或者隐式的value()调用之前是不会执行的，因此lodash可以进行 shortcut(捷径)fusion(融合)这样的优化，通过合并链式大大降低迭代的次数，从而大大提升其执行性能。</p>
 </li>
 <li><p>就如同jquery在全部函数前加全局的$一样，lodash使用全局的 _来提供对工具的快速访问。     </p>
 </li>
@@ -772,11 +761,11 @@ addSquare(1,2);
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
               </li>
             
             <div class="clearfix"></div>
