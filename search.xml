@@ -462,14 +462,14 @@ addSquare(1,2);
     </entry>
     
     <entry>
-      <title><![CDATA[categories]]></title>
-      <url>http://yoursite.com/categories/index.html</url>
+      <title><![CDATA[archives]]></title>
+      <url>http://yoursite.com/archives/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[archives]]></title>
-      <url>http://yoursite.com/archives/index.html</url>
+      <title><![CDATA[categories]]></title>
+      <url>http://yoursite.com/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
@@ -479,6 +479,12 @@ addSquare(1,2);
       <content type="html"><![CDATA[<p><link type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.css" rel="stylesheet"></p>
 <p><div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div></p>
 <script src="../themes/yillia/source-src/js/photo.js"></script>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://yoursite.com/photo/output.json</url>
+      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
     </entry>
     
     <entry>
@@ -510,12 +516,6 @@ fs.readdir(path, function (err, files) {
         })
     }(0));
 });]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>http://yoursite.com/photo/output.json</url>
-      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
     </entry>
     
     <entry>
