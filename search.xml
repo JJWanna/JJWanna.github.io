@@ -4,6 +4,15 @@
   
     
     <entry>
+      <title><![CDATA[wx]]></title>
+      <url>http://yoursite.com/2017/03/29/wx/</url>
+      <content type="html"><![CDATA[<p><img src="/images/wx.png" alt=""></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[小程序面向个人开发者开放]]></title>
       <url>http://yoursite.com/2017/03/28/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E5%90%91%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E8%80%85%E5%BC%80%E6%94%BE/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -474,18 +483,18 @@ addSquare(1,2);
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://yoursite.com/photo/output.json</url>
-      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[相册]]></title>
       <url>http://yoursite.com/photo/index.html</url>
       <content type="html"><![CDATA[<p><link type="text/css" href="/fancybox/jquery.fancybox.css" rel="stylesheet"></p>
 <div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div>
 
 <script src="/js/photo.js"></script>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://yoursite.com/photo/output.json</url>
+      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
     </entry>
     
     <entry>
