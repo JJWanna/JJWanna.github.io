@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9e3ce76-ae7a-4080-ae86-9c325167e79e" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/source/_posts/vue精炼秘籍.md" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/yilia" afterPath="$PROJECT_DIR$/themes/yilia" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/vue精炼秘籍.md" afterPath="$PROJECT_DIR$/source/_posts/vue精炼秘籍.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,25 +57,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="React-Flux架构.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="React-Flux架构.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/_posts/React-Flux架构.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="452">
-                <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vue精炼秘籍.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/_posts/vue精炼秘籍.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="735">
-                <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+                <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -775,12 +762,12 @@
       <workItem from="1490669765192" duration="22404000" />
       <workItem from="1490750385038" duration="20507000" />
       <workItem from="1490834787239" duration="6989000" />
-      <workItem from="1490861233261" duration="12232000" />
+      <workItem from="1490861233261" duration="12287000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62132000" />
+    <option name="totallyTimeSpent" value="62187000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-18" y="23" width="1440" height="803" extended-state="0" />
@@ -1226,22 +1213,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/React-Flux架构.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/vue精炼秘籍.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="452">
-            <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <first_editor relative-caret-position="360">
+            <caret line="24" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/vue精炼秘籍.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/React-Flux架构.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="735">
-            <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <first_editor relative-caret-position="452">
+            <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
