@@ -15,17 +15,8 @@
 </ul>
 <a id="more"></a>
 <h3 id="浏览器行为与HTTP协议"><a href="#浏览器行为与HTTP协议" class="headerlink" title="浏览器行为与HTTP协议"></a>浏览器行为与HTTP协议</h3><ul>
-<li>处理流程：</li>
+<li>处理流程：<br>1.输入网址并回车<br>2.解析域名<br>3.浏览器发送http请求<br>4.服务器处理请求<br>5.服务器返回HTML响应<br>6.浏览器处理HTML页面<br>7.继续请求其他资源</li>
 </ul>
-<ol>
-<li>1.输入网址并回车</li>
-<li>解析域名</li>
-<li>浏览器发送http请求</li>
-<li>服务器处理请求</li>
-<li>服务器返回HTML响应</li>
-<li>浏览器处理HTML页面</li>
-<li>继续请求其他资源</li>
-</ol>
 <h3 id="什么是HTTP协议"><a href="#什么是HTTP协议" class="headerlink" title="什么是HTTP协议"></a>什么是HTTP协议</h3><ul>
 <li>HTTP是超文本传输协议，从www浏览器传输到本地浏览器的一种传输协议，网站是基于HTTP协议的，例如网站的图片、CSS、JS等都是基于HTTP协议进行传输的。</li>
 <li>HTTP协议是由从客户机到服务器的请求(Reuqest)和从服务器到客户机的响应(response)进行约束和规范。</li>
@@ -36,23 +27,16 @@
 <li>HTTP默认端口号为80</li>
 <li>HTTPS默认端口443<br><img src="/images/http1.png" alt=""></li>
 </ul>
-<h3 id="HTTP的工作过程"><a href="#HTTP的工作过程" class="headerlink" title="HTTP的工作过程"></a>HTTP的工作过程</h3><p>一次HTTP操作称为一个事务,其工作过程可分为四步:</p>
-<ol>
-<li>首先客户机与服务器需要建立连接。只要单击某个超级链接,HTTP的工作开始。</li>
-<li>建立连接后,客户机发送一个请求给服务器,请求方式的格式为:统一资源标识符(URL)、协议版本号,后边是MIME信息包括请求修饰符、客户机信息和可能的内容。</li>
-<li>服务器接到请求后,给予相应的响应信息,其格式为一个状态行,包括信息的协议版本号、一个成功或错误的代码,后边是MIME信息包括服务器信息、实体信息和可能的内容。</li>
-<li>客户端接收服务器所返回的信息通过浏览器显示在用户的显示屏上,然后客户机与服务器断开连接。<br>如果在以上过程中的某一步出现错误,那么产生错误的信息将返回到客户端,有显示屏输出。对于用户来说,这些过程是由HTTP自己完成的,用户只要用鼠标点击,等待信息显示就可以了。</li>
-</ol>
+<h3 id="HTTP的工作过程"><a href="#HTTP的工作过程" class="headerlink" title="HTTP的工作过程"></a>HTTP的工作过程</h3><ul>
+<li>一次HTTP操作称为一个事务,其工作过程可分为四步:<br>1.首先客户机与服务器需要建立连接。只要单击某个超级链接,HTTP的工作开始。<br>2.建立连接后,客户机发送一个请求给服务器,请求方式的格式为:统一资源标识符(URL)、协议版本号,后边是MIME信息包括请求修饰符、客户机信息和可能的内容。<br>3.服务器接到请求后,给予相应的响应信息,其格式为一个状态行,包括信息的协议版本号、一个成功或错误的代码,后边是MIME信息包括服务器信息、实体信息和可能的内容。<br>4.客户端接收服务器所返回的信息通过浏览器显示在用户的显示屏上,然后客户机与服务器断开连接。<br>如果在以上过程中的某一步出现错误,那么产生错误的信息将返回到客户端,有显示屏输出。对于用户来说,这些过程是由HTTP自己完成的,用户只要用鼠标点击,等待信息显示就可以了。</li>
+</ul>
 <h3 id="请求与响应"><a href="#请求与响应" class="headerlink" title="请求与响应"></a>请求与响应</h3><ul>
 <li>HTTP请求组成:请求行、消息报头、请求正文。</li>
 <li>HTTP响应组成:状态行、消息报头、响应正文。</li>
 <li>请求行组成:以一个方法符号开头,后面跟着请求的URI和协议的版本。</li>
-<li><p>状态行组成:服务器HTTP协议的版本,服务器发回的响应状态代码和状态代码的文本描述。</p>
-</li>
-<li><p><strong>请求报文</strong><br><img src="/images/request.png" alt=""></p>
-</li>
-<li><strong>响应报文</strong><br><img src="/images/response.png" alt=""></li>
+<li>状态行组成:服务器HTTP协议的版本,服务器发回的响应状态代码和状态代码的文本描述。</li>
 </ul>
+<p>(1) <strong>请求报文</strong><br><img src="/images/request.png" alt=""><br>(2) <strong>响应报文</strong><br><img src="/images/response.png" alt=""></p>
 <h3 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h3><ul>
 <li>GET: 请求获取Request-URI所标识的资源</li>
 <li>POST: 在Request-URI所标识的资源后附加新的数据</li>
@@ -95,11 +79,7 @@
 <li>Cookies是保存在客户端的小段文本,随客户端点每一个请求发送该url下的所有cookies到服务器端。</li>
 <li>Session则保存在服务器端,通过唯一的值sessionID来区别每一 个用户。SessionID随每个连接请求发送到服务器,服务器根据 sessionID来识别客户端,再通过session 的key获取session值。</li>
 </ul>
-<h3 id="cookie应用"><a href="#cookie应用" class="headerlink" title="cookie应用"></a>cookie应用</h3><p>与Cookie相关的HTTP扩展头</p>
-<ol>
-<li>Cookie:客户端将服务器设置的Cookie返回到服务器;</li>
-<li>Set-Cookie:服务器向客户端设置Cookie;<br>服务器在响应消息中用Set-Cookie头将 Cookie的内容回送给客户端,客户端在新 的请求中将相同的内容携带在Cookie头中 发送给服务器。从而实现会话的保持。</li>
-</ol>
+<h3 id="cookie应用"><a href="#cookie应用" class="headerlink" title="cookie应用"></a>cookie应用</h3><p>与Cookie相关的HTTP扩展头<br>1.Cookie:客户端将服务器设置的Cookie返回到服务器;<br>2.Set-Cookie:服务器向客户端设置Cookie;<br>服务器在响应消息中用Set-Cookie头将 Cookie的内容回送给客户端,客户端在新 的请求中将相同的内容携带在Cookie头中 发送给服务器。从而实现会话的保持。</p>
 <h3 id="session-使用"><a href="#session-使用" class="headerlink" title="session 使用"></a>session 使用</h3><ul>
 <li>使用Cookie来实现 </li>
 <li>使用URL回显来实现</li>
@@ -122,11 +102,7 @@
 <li>Last-Modified:标示这个响应资源的最后修改时间。web服务器在响应请求时,告诉浏览器资源的最后修改时间。</li>
 <li>If-Modified-Since:当资源过期时(使用Cache-Control标识的max-age),发 现资源具有Last-Modified声明,则再次向web服务器请求时带上头 If- Modified-Since,表示请求时间。web服务器收到请求后发现有头If-Modified- Since 则与被请求资源的最后修改时间进行比对。若最后修改时间较新,说 明资源又被改动过,则响应整片资源内容(写在响应消息包体内),HTTP 200;若最后修改时间较旧,说明资源无新修改,则响应HTTP 304 (无需包 体,节省浏览),告知浏览器继续使用所保存的cache。</li>
 </ul>
-<h3 id="HTTP链路安全"><a href="#HTTP链路安全" class="headerlink" title="HTTP链路安全"></a>HTTP链路安全</h3><ol>
-<li>加密重要数据 </li>
-<li>对非重要数据签名 </li>
-<li>使用安全连接HTTPS协议</li>
-</ol>
+<h3 id="HTTP链路安全"><a href="#HTTP链路安全" class="headerlink" title="HTTP链路安全"></a>HTTP链路安全</h3><p>1.加密重要数据<br>2.对非重要数据签名<br>3.使用安全连接HTTPS协议</p>
 <h3 id="下一代标准：HTTP2"><a href="#下一代标准：HTTP2" class="headerlink" title="下一代标准：HTTP2"></a>下一代标准：HTTP2</h3><ul>
 <li>使用二进制格式传输,更高效、更紧凑。</li>
 <li>对报头压缩,降低开销。</li>
