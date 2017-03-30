@@ -30,7 +30,8 @@
 <meta property="og:image" content="http://yoursite.com/images/170330-2.png">
 <meta property="og:image" content="http://yoursite.com/images/170330-3.png">
 <meta property="og:image" content="http://yoursite.com/images/170330-4.png">
-<meta property="og:updated_time" content="2017-03-30T08:22:37.000Z">
+<meta property="og:image" content="http://yoursite.com/images/170330-5.png">
+<meta property="og:updated_time" content="2017-03-30T09:39:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端持续集成">
 <meta name="twitter:description" content="什么是集成
@@ -255,7 +256,142 @@
     var xx=require(&apos;xx&apos;);
 })
 </code></pre><h4 id="优缺点："><a href="#优缺点：" class="headerlink" title="优缺点："></a>优缺点：</h4><p>1.CMD依赖是就近声明，通过内部require方法进行声明。但是因为是异步模块，加载需要提前加载这些模块，所以模块真正使用前需要提取模块里面所有的依赖。<br>2.不能直接压缩，require局部变量如果替换无法加载资源。<br>3.CMD路径参数不能进行字符串运算。<br>4.AMD的依赖是提前声明。这种优势的好处就是依赖无需通过静态分析，无论是加载器还是自动化工具都可以直接的获取到依赖。<br>5.AMD依赖提前声明在代码书写上不是很友好。<br>6.AMD模块内部与NodeJS的Modules有一定的差异。</p>
-<h3 id="依赖后置"><a href="#依赖后置" class="headerlink" title="依赖后置"></a>依赖后置</h3><p>1.requirejs和seajs而知在加载上都有缺陷，就是模块的依赖要等到模块加载完成后，通过静态分析（seajs）或者deps参数（requirejs）来获取，这就为合并请求和按需加载带来了实现上的矛盾：</p>
+<h3 id="依赖后置"><a href="#依赖后置" class="headerlink" title="依赖后置"></a>依赖后置</h3><p>1.requirejs和seajs而知在加载上都有缺陷，就是模块的依赖要等到模块加载完成后，通过静态分析（seajs）或者deps参数（requirejs）来获取，这就为合并请求和按需加载带来了实现上的矛盾：<br>  要么放弃按需加载，把所有j合成一个文件。要么放弃请求合并，请求独立的模块文件，从而满足按需加载。<br>2.AMD规范在执行callback的时候，要初始化所有依赖的模块，而CMD只有执行到require的时候才初始化模块。所以用AMD实现某种if-else逻辑分支家在不同的模块时候，就会比较麻烦了。</p>
+<pre><code>reqquire([&apos;page/index&apos;,&apos;page/detail&apos;],function(index,detail){
+    switch(location.hash){
+        case&apos;index&apos;:
+            index();
+        break;
+    }
+}});
+</code></pre><p>3.以上纯前端方式实现模块化框架不能同时满足 按需加载、请求合并和依赖管理 三个需求。</p>
+<p><img src="/images/170330-5.png" alt="">  </p>
+<h3 id="为什么用webpack"><a href="#为什么用webpack" class="headerlink" title="为什么用webpack"></a>为什么用webpack</h3><p>1.webpack执行commonJs标准，解决了依赖配置和请求流量。<br>2.对于webpack来讲万物都可以是模块，所有的文件都被合并到js中，最终在浏览器。<br>3.兼容AMD和CMD<br>4.js模块化不仅仅为了提高代码复用性，更是为了让资源文件更合理的进行缓存。</p>
+<pre><code>function(moudle,exportss._webpack_require_){
+    exports=module.exports=_webpack_require_(3)();
+    //imports
+
+    //module
+
+    exports.push([module.id,&quot;body{\r\n background-color:yellow;\r\n}\r\n&quot;,&quot;&quot;]);
+
+    //exports
+
+},
+
+new webpack.optimize.UglifyJsPlugin({
+    mangle:{
+        except:[&apos;$super&apos;,&apos;$&apos;,&apos;exports&apos;,&apos;require&apos;]
+    }
+})
+
+
+var path = require(&quot;path&quot;);
+var CommonsChunkPlugin = require(&quot;../../node_modules/webpack/lib/optimize/CommonsChunkPlugin&quot;);
+module.exports={
+    entry:{
+        m1:&apos;./m1.js&apos;,
+        m2:&apos;./m2.js&apos;
+    },
+    output:{
+        path:&quot;build&quot;,
+        filename:&apos;[name].bundle.js&apos;
+    },
+    plugins:[
+        new CommonsChunkPlugin(&apos;common.js&apos;);
+    ]
+};
+</code></pre><h3 id="资源定位"><a href="#资源定位" class="headerlink" title="资源定位"></a>资源定位</h3><p>1.配置超长时间的本地缓存–节省宽带，提高性能<br>2.采用内容摘要作为缓存更新依据–精确的缓存控制<br>3.静态资源CDN部署–优化网络请求<br>4.更资源发布路径实现非覆盖式发布–平滑升级</p>
+<ul>
+<li>FIS3根据分析好的文件包，利用HOOK插件 分析下FIS生成的配置文件</li>
+<li>webpack阿紫开发阶段打包，利用插件分析直接提取。FileLoader&amp;&amp;extract-text-webpack-plugin</li>
+<li>配置publicpath分发到CDN</li>
+</ul>
+<h3 id="前端开发组件化"><a href="#前端开发组件化" class="headerlink" title="前端开发组件化"></a>前端开发组件化</h3><p>1.每个前端模块都是一个小项目，配合mock.js可以进行本地的开发测试，package.json是标配产物。经过webpack的环境配置统一进行本地环境、上线环境的变异过程。<br>2.由page组装widget，由widget组装webComponents(X-TAG)<br>3.能够根据路由快速选择配置SPA或者直出。</p>
+<h3 id="web-components"><a href="#web-components" class="headerlink" title="web components"></a>web components</h3><p>1.Custom Elements<br>2.HTML Imports<br>3.HTML Templates<br>4.Shadow DOM</p>
+<ul>
+<li>Custom Elements —- 提供一种方式让开发者可以自定义HTML元素，包括特定的组成，样式和行为。</li>
+</ul>
+<pre><code>class ButtonHelloElement extends HTMLButtonElement{
+   constructor(){
+       super()
+       this.addEventListener(&apos;click&apos;,()=&gt;{
+           alert(&apos;hello world&apos;);
+       })
+   }
+}
+customElements.define(&apos;button-hello&apos;,ButtonHelloElement,{extends:&apos;button&apos;})
+&lt;button is=&quot;button-hello&quot;&gt;hello world&lt;/button&gt;
+</code></pre><ul>
+<li>HTML Imports – 是一种在HTMLs中引用以及服用其他的HTML文档的方式。这个Import很漂亮，可以简单理解为我们常见的末班中的include之类的作用。</li>
+</ul>
+<pre><code>&lt;link rel=&quot;import&quot; href=&quot;/components/header.html&quot;&gt;
+const link=document.querySelector(&apos;link[rel=import]&apos;)
+const header=link.import;
+
+const pulse=header.querySelector(&apos;div.logo&apos;);
+//获取import的HTMl的document
+const d=document.currentScript.ownerDocument
+</code></pre><p>用过handlebars的人都知道有这么一个东西：</p>
+<pre><code>&lt;script id=&quot;template&quot; type=&quot;text/x-handlebars-template&quot;&gt;&lt;/script&gt;
+</code></pre><p>那么HTML Templates是把这个东西官方标准化，提供了一个template 标签来存放以后需要但是暂时不渲染的HTML代码。</p>
+<pre><code>&lt;template id=&quot;template&quot;&gt;&lt;p&gt;Smile&lt;/p&gt;&lt;/template&gt;
+&lt;script&gt;
+let num=3;
+const fragment=document.getElementById(&apos;template&apos;).content.cloneNode(true);
+while(num --&gt;1 ){
+    fragment.firstChild.before(fragment.firstChild.cloneNode(true));
+    fragment.firstChild.textContent+=fragment.lastChild.textContent;
+}
+document.body.appendChild(fragment);
+&lt;/script&gt;
+</code></pre><ul>
+<li>Shadow DOM — 最本质的需求是需要一个隔离组件代码作用域的东西，例如我组件代码的css不能影响其他组件之类的，而iframe又太重并且可能有各种奇怪问题。旨在提供一种更好的组织页面元素的方式，来为日趋复杂的页面应用提供强大支持，避免代码间的相互影响。</li>
+</ul>
+<pre><code>const div=document.getElementById(&apos;id&apos;)
+const shadowRoot=div.createShadowRoot()
+const span=document.creatElement(&apos;span&apos;)
+
+span.textContent=&apos;hello world&apos;
+shadowRoot.appendChild(span)
+
+&lt;x-foo&gt;
+   &lt;&quot;shadow tree&quot;&gt;
+       &lt;div&gt;
+           &lt;span id=&quot;not-top&quot;&gt;...&lt;/span&gt;
+       &lt;/div&gt;
+       &lt;span id=&quot;top&quot;&gt;...&lt;/span&gt;
+   &lt;/&gt;
+&lt;/x-foo&gt;
+
+x-foo::shadow &gt; span 可以匹配到#top元素
+x-foo /deep/span 可以匹配到 #not-top和 #top元素
+:host(.foo) 匹配&lt;x-foo&gt;元素
+</code></pre><ul>
+<li>Web Components</li>
+</ul>
+<pre><code>&lt;template id=&quot;&quot;&gt;
+&lt;style&gt;
+::content li{
+   display:inline-block;
+   padding:20px 10px;
+}
+&lt;/style&gt;
+&lt;content select=&quot;ul&quot;&gt;&lt;/content&gt;
+&lt;/template&gt;
+
+
+&lt;link rel=&quot;import&quot; href=&quot;components/header.html&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;test-header&gt;
+       &lt;ul&gt;
+           &lt;li&gt;Home&lt;/li&gt;
+           &lt;li&gt;About&lt;/li&gt;
+       &lt;/ul&gt;
+   &lt;/test-header&gt;
+&lt;/body&gt;
+</code></pre><h3 id="自动化部署"><a href="#自动化部署" class="headerlink" title="自动化部署"></a>自动化部署</h3><p>1.自动化运营平台<br>2.自动化雪碧图<br>3.自动化离线打包<br>4.自动化控制缓存级别<br>5.自动化处理inline<br>6.自动化根据网速分发版本资源<br>7.自动化运维平台</p>
 
       
 
