@@ -42,11 +42,12 @@ tags: vue vuejs
     
 ### Vuex核心模块
 * State
->* State：单一状态树，用一个对象就包含了全部的应用层级状态。
-   mapState 当一个组件需要获取多个状态时候，将这些状态都声明为计算属性会有些重复和冗余。
-   对象展开符号......mapState({})
-
 * Getters
 * Mutations
 * Actions
 * Modules
+
+>* State
+   单一状态树，用一个对象就包含了全部的应用层级状态。
+   mapState 当一个组件需要获取多个状态时候，将这些状态都声明为计算属性会有些重复和冗余。
+   对象展开符号......mapState({})
