@@ -103,8 +103,8 @@ tags:
 
 ### cookie应用
 与Cookie相关的HTTP扩展头
-1. Cookie:客户端将服务器设置的Cookie返回到服务器;
-2. Set-Cookie:服务器向客户端设置Cookie;
+1.Cookie:客户端将服务器设置的Cookie返回到服务器;
+2.Set-Cookie:服务器向客户端设置Cookie;
 服务器在响应消息中用Set-Cookie头将 Cookie的内容回送给客户端,客户端在新 的请求中将相同的内容携带在Cookie头中 发送给服务器。从而实现会话的保持。
 
 ### session 使用
@@ -132,9 +132,9 @@ tags:
 * If-Modified-Since:当资源过期时(使用Cache-Control标识的max-age),发 现资源具有Last-Modified声明,则再次向web服务器请求时带上头 If- Modified-Since,表示请求时间。web服务器收到请求后发现有头If-Modified- Since 则与被请求资源的最后修改时间进行比对。若最后修改时间较新,说 明资源又被改动过,则响应整片资源内容(写在响应消息包体内),HTTP 200;若最后修改时间较旧,说明资源无新修改,则响应HTTP 304 (无需包 体,节省浏览),告知浏览器继续使用所保存的cache。
 
 ### HTTP链路安全
-1. 加密重要数据 
-2. 对非重要数据签名 
-3. 使用安全连接HTTPS协议
+1.加密重要数据 
+2.对非重要数据签名 
+3.使用安全连接HTTPS协议
 
 ### 下一代标准：HTTP2
 * 使用二进制格式传输,更高效、更紧凑。
