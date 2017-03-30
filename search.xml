@@ -118,7 +118,7 @@ module.exports={
 <h3 id="前端开发组件化"><a href="#前端开发组件化" class="headerlink" title="前端开发组件化"></a>前端开发组件化</h3><p>1.每个前端模块都是一个小项目，配合mock.js可以进行本地的开发测试，package.json是标配产物。经过webpack的环境配置统一进行本地环境、上线环境的变异过程。<br>2.由page组装widget，由widget组装webComponents(X-TAG)<br>3.能够根据路由快速选择配置SPA或者直出。</p>
 <h3 id="web-components"><a href="#web-components" class="headerlink" title="web components"></a>web components</h3><p>1.Custom Elements<br>2.HTML Imports<br>3.HTML Templates<br>4.Shadow DOM</p>
 <ul>
-<li>Custom Elements —- 提供一种方式让开发者可以自定义HTML元素，包括特定的组成，样式和行为。</li>
+<li>Custom Elements 提供一种方式让开发者可以自定义HTML元素，包括特定的组成，样式和行为。</li>
 </ul>
 <pre><code>class ButtonHelloElement extends HTMLButtonElement{
    constructor(){
@@ -131,7 +131,7 @@ module.exports={
 customElements.define(&apos;button-hello&apos;,ButtonHelloElement,{extends:&apos;button&apos;})
 &lt;button is=&quot;button-hello&quot;&gt;hello world&lt;/button&gt;
 </code></pre><ul>
-<li>HTML Imports – 是一种在HTMLs中引用以及服用其他的HTML文档的方式。这个Import很漂亮，可以简单理解为我们常见的末班中的include之类的作用。</li>
+<li>HTML Imports 是一种在HTML中引用以及服用其他的HTML文档的方式。这个Import很漂亮，可以简单理解为我们常见的末班中的include之类的作用。</li>
 </ul>
 <pre><code>&lt;link rel=&quot;import&quot; href=&quot;/components/header.html&quot;&gt;
 const link=document.querySelector(&apos;link[rel=import]&apos;)
@@ -154,7 +154,7 @@ while(num --&gt;1 ){
 document.body.appendChild(fragment);
 &lt;/script&gt;
 </code></pre><ul>
-<li>Shadow DOM — 最本质的需求是需要一个隔离组件代码作用域的东西，例如我组件代码的css不能影响其他组件之类的，而iframe又太重并且可能有各种奇怪问题。旨在提供一种更好的组织页面元素的方式，来为日趋复杂的页面应用提供强大支持，避免代码间的相互影响。</li>
+<li>Shadow DOM  最本质的需求是需要一个隔离组件代码作用域的东西，例如我组件代码的css不能影响其他组件之类的，而iframe又太重并且可能有各种奇怪问题。旨在提供一种更好的组织页面元素的方式，来为日趋复杂的页面应用提供强大支持，避免代码间的相互影响。</li>
 </ul>
 <pre><code>const div=document.getElementById(&apos;id&apos;)
 const shadowRoot=div.createShadowRoot()
@@ -812,6 +812,12 @@ addSquare(1,2);
     </entry>
     
     <entry>
+      <title></title>
+      <url>http://yoursite.com/photo/output.json</url>
+      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[相册]]></title>
       <url>http://yoursite.com/photo/index.html</url>
       <content type="html"><![CDATA[<p><link type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.css" rel="stylesheet"></p>
@@ -820,12 +826,6 @@ addSquare(1,2);
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/source-src/js/main.js" type="text/javascript"></script>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>http://yoursite.com/photo/output.json</url>
-      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
     </entry>
     
     <entry>

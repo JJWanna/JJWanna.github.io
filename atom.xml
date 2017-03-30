@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-30T09:39:03.000Z</updated>
+  <updated>2017-03-30T09:48:30.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/03/30/%E5%89%8D%E7%AB%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
     <id>http://yoursite.com/2017/03/30/前端持续集成/</id>
     <published>2017-03-30T01:05:37.000Z</published>
-    <updated>2017-03-30T09:39:03.000Z</updated>
+    <updated>2017-03-30T09:48:30.000Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li>什么是集成</li>
@@ -134,7 +134,7 @@ module.exports={
 <h3 id="前端开发组件化"><a href="#前端开发组件化" class="headerlink" title="前端开发组件化"></a>前端开发组件化</h3><p>1.每个前端模块都是一个小项目，配合mock.js可以进行本地的开发测试，package.json是标配产物。经过webpack的环境配置统一进行本地环境、上线环境的变异过程。<br>2.由page组装widget，由widget组装webComponents(X-TAG)<br>3.能够根据路由快速选择配置SPA或者直出。</p>
 <h3 id="web-components"><a href="#web-components" class="headerlink" title="web components"></a>web components</h3><p>1.Custom Elements<br>2.HTML Imports<br>3.HTML Templates<br>4.Shadow DOM</p>
 <ul>
-<li>Custom Elements —- 提供一种方式让开发者可以自定义HTML元素，包括特定的组成，样式和行为。</li>
+<li>Custom Elements 提供一种方式让开发者可以自定义HTML元素，包括特定的组成，样式和行为。</li>
 </ul>
 <pre><code>class ButtonHelloElement extends HTMLButtonElement{
    constructor(){
@@ -147,7 +147,7 @@ module.exports={
 customElements.define(&apos;button-hello&apos;,ButtonHelloElement,{extends:&apos;button&apos;})
 &lt;button is=&quot;button-hello&quot;&gt;hello world&lt;/button&gt;
 </code></pre><ul>
-<li>HTML Imports – 是一种在HTMLs中引用以及服用其他的HTML文档的方式。这个Import很漂亮，可以简单理解为我们常见的末班中的include之类的作用。</li>
+<li>HTML Imports 是一种在HTML中引用以及服用其他的HTML文档的方式。这个Import很漂亮，可以简单理解为我们常见的末班中的include之类的作用。</li>
 </ul>
 <pre><code>&lt;link rel=&quot;import&quot; href=&quot;/components/header.html&quot;&gt;
 const link=document.querySelector(&apos;link[rel=import]&apos;)
@@ -170,7 +170,7 @@ while(num --&gt;1 ){
 document.body.appendChild(fragment);
 &lt;/script&gt;
 </code></pre><ul>
-<li>Shadow DOM — 最本质的需求是需要一个隔离组件代码作用域的东西，例如我组件代码的css不能影响其他组件之类的，而iframe又太重并且可能有各种奇怪问题。旨在提供一种更好的组织页面元素的方式，来为日趋复杂的页面应用提供强大支持，避免代码间的相互影响。</li>
+<li>Shadow DOM  最本质的需求是需要一个隔离组件代码作用域的东西，例如我组件代码的css不能影响其他组件之类的，而iframe又太重并且可能有各种奇怪问题。旨在提供一种更好的组织页面元素的方式，来为日趋复杂的页面应用提供强大支持，避免代码间的相互影响。</li>
 </ul>
 <pre><code>const div=document.getElementById(&apos;id&apos;)
 const shadowRoot=div.createShadowRoot()
