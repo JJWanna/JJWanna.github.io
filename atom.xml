@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-30T02:31:31.000Z</updated>
+  <updated>2017-03-30T08:08:00.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/03/30/%E5%89%8D%E7%AB%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
     <id>http://yoursite.com/2017/03/30/前端持续集成/</id>
     <published>2017-03-30T01:05:37.000Z</published>
-    <updated>2017-03-30T02:31:31.000Z</updated>
+    <updated>2017-03-30T08:08:00.000Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li>什么是集成</li>
@@ -64,12 +64,15 @@
 <p>  //AMD<br>  define([‘dep1’,’dep2’],function(dep1,dep2){</p>
 <pre><code>//内部只能使用执行的模块
 return function(){};
-</code></pre><p>  });<br>  //CMD<br>  define(function(require,exports,module){</p>
+</code></pre><p>  });</p>
+<p>  //CMD<br>  define(function(require,exports,module){</p>
 <pre><code>//此处如果需要加载某xx模块，可引入
 var xx=require(&apos;xx&apos;);
-</code></pre><p>  })<br>优缺点：<br>1.CMD依赖是就近声明，通过内部require方法进行声明。但是因为是异步模块，加载需要提前加载这些模块，所以模块真正使用前需要提取模块里面所有的依赖。<br>2.不能直接压缩，require局部变量如果替换无法加载资源。<br>3.CMD路径参数不能进行字符串运算。<br>4.AMD的依赖是提前声明。这种优势的好处就是依赖无需通过静态分析，无论是加载器还是自动化工具都可以直接的获取到依赖。<br>5.AMD依赖提前声明在代码书写上不是很友好。<br>6.AMD模块内部与NodeJS的Modules有一定的差异。</p>
+</code></pre><p>  })</p>
 </li>
 </ul>
+<h4 id="优缺点："><a href="#优缺点：" class="headerlink" title="优缺点："></a>优缺点：</h4><p>1.CMD依赖是就近声明，通过内部require方法进行声明。但是因为是异步模块，加载需要提前加载这些模块，所以模块真正使用前需要提取模块里面所有的依赖。<br>2.不能直接压缩，require局部变量如果替换无法加载资源。<br>3.CMD路径参数不能进行字符串运算。<br>4.AMD的依赖是提前声明。这种优势的好处就是依赖无需通过静态分析，无论是加载器还是自动化工具都可以直接的获取到依赖。<br>5.AMD依赖提前声明在代码书写上不是很友好。<br>6.AMD模块内部与NodeJS的Modules有一定的差异。</p>
+<h3 id="依赖后置"><a href="#依赖后置" class="headerlink" title="依赖后置"></a>依赖后置</h3><p>1.requirejs和seajs而知在加载上都有缺陷，就是模块的依赖要等到模块加载完成后，通过静态分析（seajs）或者deps参数（requirejs）来获取，这就为合并请求和按需加载带来了实现上的矛盾：</p>
 ]]></content>
     
     <summary type="html">
