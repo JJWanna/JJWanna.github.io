@@ -47,9 +47,9 @@
       <file leaf-file-name="前端持续集成.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/_posts/前端持续集成.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="227">
-                <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+            <state split_layout="SECOND">
+              <first_editor relative-caret-position="303">
+                <caret line="265" column="9" lean-forward="true" selection-start-line="265" selection-start-column="9" selection-end-line="265" selection-end-column="9" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -151,6 +151,7 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="11" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="803" />
@@ -746,15 +747,15 @@
       <workItem from="1490669765192" duration="22404000" />
       <workItem from="1490750385038" duration="20507000" />
       <workItem from="1490834787239" duration="6989000" />
-      <workItem from="1490861233261" duration="925000" />
+      <workItem from="1490861233261" duration="5381000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50825000" />
+    <option name="totallyTimeSpent" value="55281000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="803" extended-state="6" />
+    <frame x="11" y="23" width="1440" height="803" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1196,9 +1197,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/前端持续集成.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="227">
-            <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+        <state split_layout="SECOND">
+          <first_editor relative-caret-position="303">
+            <caret line="265" column="9" lean-forward="true" selection-start-line="265" selection-start-column="9" selection-end-line="265" selection-end-column="9" />
             <folding />
           </first_editor>
           <second_editor />
