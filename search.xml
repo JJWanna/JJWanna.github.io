@@ -32,6 +32,226 @@ const store = new Vuex.Store({
 })
 store.commit(&apos;increment&apos;)
 console.log(store.state.count) // -&gt; 1
+</code></pre><h3 id="Vuex核心模块"><a href="#Vuex核心模块" class="headerlink" title="Vuex核心模块"></a>Vuex核心模块</h3><ul>
+<li>State</li>
+<li>Getters</li>
+<li>Mutations</li>
+<li>Actions</li>
+<li>Modules</li>
+</ul>
+<p>1.State</p>
+<ul>
+<li>单一状态树，用一个对象就包含了全部的应用层级状态。</li>
+<li>mapState 当一个组件需要获取多个状态时候，将这些状态都声明为计算属性会有些重复和冗余。</li>
+<li>对象展开符号……mapState({})</li>
+</ul>
+<pre><code>import { mapState } from &apos;vuex&apos;
+export default {
+  computed: mapState({
+    count: state =&gt; state.count,
+    countAlias: ‘count&apos;,
+    countPlusLocalState (state) {
+      return state.count + this.localCount
+    }
+  }
+  //…mapState({count})扩展函数符
+}
+</code></pre><p>2.Getters</p>
+<ul>
+<li>从 store 中的 state 中派生出一些状态</li>
+<li>mapGetters 辅助函数仅仅是将 store 中的 getters 映射到局部计算属性</li>
+<li>getters（可以认为是 store 的计算属性）</li>
+</ul>
+<pre><code>const store = new Vuex.Store({
+  state: {
+    todos: [
+      { id: 1, text: &apos;...&apos;, done: true },
+      { id: 2, text: &apos;...&apos;, done: false }
+    ]
+  },
+  getters: {
+    doneTodos: state =&gt; {
+      return state.todos.filter(todo =&gt; todo.done)
+    }
+  }
+})
+
+computed: {
+  doneTodosCount () {
+    return this.$store.getters.doneTodosCount
+  }
+}
+
+computed: {
+    ...mapGetters([
+      &apos;doneTodosCount&apos;
+    ])
+  }
+</code></pre><p>3.Mutations</p>
+<ul>
+<li>更改 Vuex 的 store 中的状态的唯一方法是提交 mutation（不能直接调用句柄，必须通过触发）</li>
+<li>mutations就是vue methods</li>
+<li>每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)</li>
+<li>使用常量替代 Mutation 事件类型</li>
+<li>mutation 必须是同步函数</li>
+</ul>
+<pre><code>// mutation-types.js
+export const SOME_MUTATION = ‘SOME_MUTATION&apos;
+
+// store.js
+import { SOME_MUTATION } from &apos;./mutation-types&apos;
+
+const store = new Vuex.Store({
+  state: { ... },
+  mutations: {
+    [SOME_MUTATION] (state) {
+      // mutate state
+    }
+  }
+})
+
+
+//Mutations (调用)
+import { mapMutations } from ‘vuex&apos;
+import { SOME_MUTATION } from &apos;./mutation-types&apos;
+
+export default {
+  methods: {
+    test(){
+          this.$store.commit(SOME_MUTATION)
+    },
+    ...mapMutations([
+      &apos;SOME_MUTATION&apos; 
+      // 映射 this.increment() 为 this.$store.commit(&apos;SOME_MUTATION&apos;)
+    ])
+  }
+}
+</code></pre><p>4.Actions</p>
+<ul>
+<li>Action 提交的是 mutation</li>
+<li>Action 可以包含任意异步操作</li>
+<li>mapActions 辅助函数将组件的 methods 映射为 store.dispatch 调用</li>
+<li>view    store.dispatch(‘increment’)</li>
+<li>action  commit(‘someMutation’)</li>
+</ul>
+<pre><code>actions: {
+  async actionA ({ commit }) {
+    commit(&apos;gotData&apos;, await getData())
+  },
+  async actionB ({ dispatch, commit }) {
+    await dispatch(&apos;actionA&apos;) // 等待 actionA 完成
+    commit(&apos;gotOtherData&apos;, await getOtherData())
+  }
+}
+
+
+//Actions（调用）
+import { mapActions } from &apos;vuex&apos;
+export default {
+  methods: {
+    test(){
+         store.dispatch(‘actionB&apos;);
+    },
+    ...mapActions([
+      ‘actionB&apos;
+      // 映射 this.increment() 
+     //this.$store.dispatch(‘actionB’)
+    ])
+  }
+}
+</code></pre><p>5.Modules</p>
+<ul>
+<li>Vuex 运行我们将 store 分割到模块（module）。每个模块拥有自己的 state、mutation、action、getters、甚至是嵌套子模块——从上至下进行类似的分割。</li>
+<li>store 创建之后，你可以使用 store.registerModule 方法注册模块：</li>
+</ul>
+<pre><code>const moduleA = {
+  state: { ... },
+  mutations: { ... },
+  actions: { ... },
+  getters: { ... }
+}
+
+const moduleB = {
+  state: { ... },
+  mutations: { ... },
+  actions: { ... }
+}
+
+const store = new Vuex.Store({
+  modules: {
+    a: moduleA,
+    b: moduleB
+  }
+})
+
+store.state.a // -&gt; moduleA 的状态
+store.state.b // -&gt; moduleB 的状态
+
+store.registerModule(&apos;myModule&apos;, {
+  // ...
+})
+</code></pre><p>6.Plugins</p>
+<ul>
+<li>Vuex 的 store 接受 plugins 选项，这个选项暴露出每次 mutation 的钩子。Vuex 插件就是一个函数，它接收 sotre 作为唯一参数。</li>
+<li>在插件中不允许直接修改状态——类似于组件，只能通过提交 mutation 来触发变化。</li>
+<li>自定义的状态快照。</li>
+</ul>
+<pre><code>const myPlugin = store =&gt; {
+  // 当 store 初始化后调用
+  store.subscribe((mutation, state) =&gt; {
+    // 每次 mutation 之后调用
+    // mutation 的格式为 { type, payload }
+  })
+}
+
+const store = new Vuex.Store({
+  plugins: [myPlugin]
+})
+</code></pre><h3 id="其他补充"><a href="#其他补充" class="headerlink" title="其他补充"></a>其他补充</h3><ul>
+<li>Vuex的思维处理表单<input :value="message" @input="updateMessage"></li>
+<li>测试Actions需要增加一个mocking服务层，测试文件中用 mock 服务回应 API 调用。为了便于解决 mock 依赖，可以用 Webpack 和 inject-loader 打包测试文件。</li>
+<li>Hot Module Replacement API，Vuex 支持在开发过程中热重载 mutation、modules、actions、和getters。   </li>
+</ul>
+<pre><code>测试Actions演示
+import { expect } from &apos;chai&apos;
+const actionsInjector = require(&apos;inject!./actions&apos;)
+// 使用 mocks 创建模块
+const actions = actionsInjector({
+  &apos;../api/shop&apos;: {
+    getProducts (cb) {
+      setTimeout(() =&gt; {
+        cb([ /* mocked response */ ])
+      }, 100)
+    }
+  }
+})
+
+
+测试代码
+describe(&apos;actions&apos;, () =&gt; {
+  it(&apos;getAllProducts&apos;, done =&gt; {
+    testAction(actions.getAllProducts, [], {}, [
+      { type: &apos;REQUEST_PRODUCTS&apos; },
+      { type: &apos;RECEIVE_PRODUCTS&apos;, payload: { } }
+    ], done)
+  })
+})
+</code></pre><h3 id="vuex-router-sync"><a href="#vuex-router-sync" class="headerlink" title="vuex-router-sync"></a>vuex-router-sync</h3><p>1.视图层</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;h1&gt;Hello App!&lt;/h1&gt;
+  &lt;p&gt;
+    &lt;router-link to=&quot;/foo&quot;&gt;Go to Foo&lt;/router-link&gt;
+    &lt;router-link to=&quot;/bar&quot;&gt;Go to Bar&lt;/router-link&gt;
+  &lt;/p&gt;
+  &lt;router-view&gt;&lt;/router-view&gt;
+&lt;/div&gt;
+</code></pre><p>2.结合 Vuex</p>
+<pre><code>import { sync } from &apos;vuex-router-sync&apos;
+import store from &apos;./vuex/store&apos; 
+import router from &apos;./router&apos; 
+sync(store, router) 
+this.$store.state.route.path   // current path (string)
+this.$store.state.route.params // current params (object) this.$store.state.route.query  // current query (object)
 </code></pre>]]></content>
       
         
