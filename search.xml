@@ -21,19 +21,16 @@
 <li>负边距</li>
 <li>等高</li>
 <li>盒子模型</li>
-<li>清除浮动 <a id="more"></a>
+<li>清除浮动 </li>
+</ul>
+<a id="more"></a>
 <h4 id="IE6经典bug"><a href="#IE6经典bug" class="headerlink" title="IE6经典bug"></a>IE6经典bug</h4><blockquote>
 <ul>
-<li>IE6怪异解析之padding与border算入宽高<br> 原因：未加文档声明造成非盒模型解析<br> 解决方法：加入文档声明&lt;!doctype html&gt; </li>
+<li>IE6怪异解析之padding与border算入宽高<br>原因：未加文档声明造成非盒模型解析<br>解决方法：加入文档声明&lt;!doctype html&gt; </li>
 <li>IE6在块元素、左右浮动、设定marin时造成margin双倍（双边距）<br>解决方法：display:inline </li>
-<li>以下三种其实是同一种bug，其实也不算是个bug，举个例子：父标签高度20，子标签11，垂直居中，20-11=9，9要分给文字的上面与下面，怎么分？IE6就会与其它的不同，所以，尽量避免。<br>1）字体大小为奇数之边框高度少1px <pre><code>解决方法：字体大小设置为偶数或line-height为偶数 
-</code></pre>2）line-height，文本垂直居中差1px <pre><code>解决方法：padding-top代替line-height居中，或line-height加1或减1 
-</code></pre>3）与父标签的宽度的奇偶不同的居中造成1px的偏离 <pre><code>解决方法：如果父标签是奇数宽度，则子标签也用奇数宽度;如果是父标签偶数宽度，则子标签也用偶数宽度 
-</code></pre></li>
+<li>以下三种其实是同一种bug，其实也不算是个bug，举个例子：父标签高度20，子标签11，垂直居中，20-11=9，9要分给文字的上面与下面，怎么分？IE6就会与其它的不同，所以，尽量避免。<br>1）字体大小为奇数之边框高度少1px<br>解决方法：字体大小设置为偶数或line-height为偶数<br>2）line-height，文本垂直居中差1px<br>解决方法：padding-top代替line-height居中，或line-height加1或减1<br>3）与父标签的宽度的奇偶不同的居中造成1px的偏离<br>解决方法：如果父标签是奇数宽度，则子标签也用奇数宽度;如果是父标签偶数宽度，则子标签也用偶数宽度 </li>
 </ul>
 </blockquote>
-</li>
-</ul>
 ]]></content>
       
         
@@ -1200,12 +1197,6 @@ addSquare(1,2);
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://yoursite.com/photo/output.json</url>
-      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[相册]]></title>
       <url>http://yoursite.com/photo/index.html</url>
       <content type="html"><![CDATA[<p><link type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.css" rel="stylesheet"></p>
@@ -1214,6 +1205,12 @@ addSquare(1,2);
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/source-src/js/main.js" type="text/javascript"></script>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://yoursite.com/photo/output.json</url>
+      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
     </entry>
     
     <entry>
