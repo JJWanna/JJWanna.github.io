@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d9e3ce76-ae7a-4080-ae86-9c325167e79e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/yilia" afterPath="$PROJECT_DIR$/themes/yilia" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/css工作流.md" afterPath="$PROJECT_DIR$/source/_posts/css工作流.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,8 +60,8 @@
         <entry file="file://$PROJECT_DIR$/source/_posts/css工作流.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="420">
-                <caret line="28" column="8" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+              <first_editor relative-caret-position="345">
+                <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -795,12 +794,12 @@
       <workItem from="1490750385038" duration="20507000" />
       <workItem from="1490834787239" duration="6989000" />
       <workItem from="1490861233261" duration="14760000" />
-      <workItem from="1490920790450" duration="21644000" />
+      <workItem from="1490920790450" duration="21793000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86304000" />
+    <option name="totallyTimeSpent" value="86453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="31" width="1440" height="803" extended-state="6" />
@@ -1256,8 +1255,8 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/css工作流.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="420">
-            <caret line="28" column="8" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+          <first_editor relative-caret-position="345">
+            <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
             <folding />
           </first_editor>
           <second_editor />
