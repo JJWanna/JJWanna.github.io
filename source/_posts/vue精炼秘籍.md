@@ -142,8 +142,8 @@ tags: vue vuejs
 * Action 提交的是 mutation
 * Action 可以包含任意异步操作
 * mapActions 辅助函数将组件的 methods 映射为 store.dispatch 调用
-* view->store.dispatch(‘increment’)
-* action-> commit('someMutation')
+* view    store.dispatch(‘increment’)
+* action  commit('someMutation')
 
 
     actions: {
