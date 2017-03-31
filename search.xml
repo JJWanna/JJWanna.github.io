@@ -6,7 +6,7 @@
     <entry>
       <title><![CDATA[css工作流]]></title>
       <url>http://yoursite.com/2017/03/31/css%E5%B7%A5%E4%BD%9C%E6%B5%81/</url>
-      <content type="html"><![CDATA[<h3 id="css预处理器"><a href="#css预处理器" class="headerlink" title="css预处理器"></a>css预处理器</h3><p>“An preprocessor is a program that processes its input to produce output that is used as input to another program ”<br>处理特定格式源文件到目标css的处理程序</p>
+      <content type="html"><![CDATA[<h4 id="css预处理器"><a href="#css预处理器" class="headerlink" title="css预处理器"></a>css预处理器</h4><p>“An preprocessor is a program that processes its input to produce output that is used as input to another program ”<br>处理特定格式源文件到目标css的处理程序</p>
 <ul>
 <li>预处理器变革</li>
 </ul>
