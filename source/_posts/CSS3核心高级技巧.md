@@ -11,7 +11,7 @@ tags:  css3
 * CSS代码检测与团队项目规范
 * CSS绘制特殊图形 高级技巧
 * CSS高效动画 WorkFlow与分层（详细讲解）
-<!--more-->
+
 #### 双飞翼布局+CSS HACK
 * position
 * float 
