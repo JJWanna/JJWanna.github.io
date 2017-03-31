@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title><![CDATA[React Flux架构]]></title>
+      <url>http://yoursite.com/2017/03/31/React-Flux/</url>
+      <content type="html"><![CDATA[<ul>
+<li>Flux架构介绍</li>
+<li>React性能调优</li>
+<li>Redux介绍与实战</li>
+<li>GraphQL and Relay</li>
+</ul>
+<h3 id="Flux架构介绍"><a href="#Flux架构介绍" class="headerlink" title="Flux架构介绍"></a>Flux架构介绍</h3><ul>
+<li>React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。</li>
+<li>Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。</li>
+<li>View : 视图层</li>
+<li>Action（动作）: 视图层发出的消息（比如mouseClick）</li>
+<li>Dispatcher（派发器）: 用来接收Actions、执行回调函数</li>
+<li>Store（数据层）: 用来存放应用的状态，一旦发生变动，就提醒Views要更新页面<a id="more"></a>
+<img src="/images/170330-11.png" alt=""><br>1.用户访问 View<br>2.View 发出用户的 Action<br>3.Dispatcher 收到 Action，要求 Store 进行相应的更新<br>4.Store 更新后，发出一个”change”事件<br>5.View 收到”change”事件后，更新页面</li>
+</ul>
+<h3 id="React性能调优"><a href="#React性能调优" class="headerlink" title="React性能调优"></a>React性能调优</h3><pre><code>this.state.list.get(&quot;items&quot;).map(function(label) {
+        return &lt;div&gt;&lt;CheckboxWithLabel onChange={this.onChange} &gt;&lt;/CheckboxWithLabel&gt;&lt;/div&gt;
+});
+
+onChange:function(){ 
+ this.setState({label:123})
+}
+
+shouldComponentUpdate: function(nextProps, nextState) {
+     return nextProps.label !== this.props.label;
+}
+
+mixins: [React.addons.PureRenderMixin],
+constructor(props) {
+     super(props);
+     this.shouldComponentUpdate = React.addons.PureRenderMixin.shouldComponentUpdate.bind(this);
+}
+</code></pre><p>  子组件的更新触发父组件。父组件更新全部子组件要Diff,一旦更改了state类型，上面全部办法歇菜。</p>
+<h3 id="Redux介绍与实战"><a href="#Redux介绍与实战" class="headerlink" title="Redux介绍与实战"></a>Redux介绍与实战</h3><ul>
+<li>Flux存在多种实现（至少15种）Redux还算不错</li>
+<li>redux.min.js、react-redux.js、redux-thunk.min.js、keyMirror.js、immutable.min.js、reqwest.js（fectch）、ReduxThunk.js</li>
+<li>管理应用的 State</li>
+</ul>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> react flux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[vue精炼秘籍]]></title>
       <url>http://yoursite.com/2017/03/31/vue/</url>
       <content type="html"><![CDATA[<ul>
