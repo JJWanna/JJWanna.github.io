@@ -39,8 +39,47 @@ tags:  css3
   
 >* 内部盒模型超出父级时，父级被撑大 
 解决方法：父标签使用overflow:hidden 
->* line-height默认行高bug  解决方法：line-height设值 
->* 行标签之间会有一小段空白  解决方法：float或结构并排(可读性差，不建议) 
->* 标签高度无法小于19px  解决方法：overflow: hidden; 
->* 左浮元素margin-bottom失效  解决方法：显示设置高度 or 父标签设置_padding-bottom代替子标签的margin-bottom or 再放个标签让父标签浮动，子标签 margin- bottom，即(margin-bottom与float不同时作用于一个标签) 
->* img于块元素中，底边多出空白  解决方法：父级设置overflow: hidden; 或 img { display: block; } 或 _margin: -5px; 
+
+>* line-height默认行高bug
+解决方法：line-height设值 
+
+>* 行标签之间会有一小段空白
+解决方法：float或结构并排(可读性差，不建议)
+
+>* 标签高度无法小于19px
+解决方法：overflow:hidden;
+
+>* 左浮元素 margin-bottom 失效
+解决方法：显示设置高度 or 父标签设置 padding-bottom代替子标签的margin-bottom 再放个标签让父标签浮动，子标签
+margin-bototm，即（margin-bottom与float不同时作用于一个标签）
+
+>* img于块元素中，底边多处空白
+解决方法：父级设置overflow:hidden;或img{display:block;或 img:-5px;
+
+>* li之间会有间距
+解决方法：float:left;
+
+>* 块元素中又文字及右浮动的元素，航元素换行
+解决方法：将行元素于块元素内的文字前
+
+>* position下的left,bottom错位 
+解决方法：为父级（relative层）设置宽高或者添加 *zoom:1
+
+>* 子级中又设置position,则父级overflow失效
+解决方法：为父级设置position:relative
+
+### 基于移动端的PX与REM转换兼容方案
+* different size  different DPR
+* 目前的设计稿一般式640 750 1125 ，一般要先均分成100份，（简荣芳vh,vm）750/10=75px; div宽是240px*120px  css
+的书写改为3.2rem * 1.6rem。配合响应式修改html根的大小。
+* 字体不建议使用rem,data-dpr属性动态设置字体大小。屏幕变大放更多文字，或者屏幕更大放更多的字。
+* 神奇的padding/margin-top等比例缩放间距。
+
+### 弹性盒模型与Reset的选择
+* flex模型
+* *的杀伤力太大
+* reset.css重置 Normalize.css修复 Neat.css融合
+* html{box-sizing:border-box;}
+   *,*:before,X:after{box-sizing:inherit;}
+
+
