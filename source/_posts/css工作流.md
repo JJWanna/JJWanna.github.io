@@ -4,8 +4,7 @@ date: 2017-03-31 16:09:11
 tags: css工作流 css预处理器 css后处理器
 ---
 
-#### css预处理器
-
+* css预处理器
 “An preprocessor is a program that processes its input to produce output that is used as input to another program ”
 处理特定格式源文件到目标css的处理程序
 
@@ -27,7 +26,7 @@ tags: css工作流 css预处理器 css后处理器
         border-color:lighten(@base,30%);
         div{.box-shadow(0 0 5px,30%)}
     }
-
+<!--more-->
 ### 预处理器常用规范
 * 变量
 * 混合（Mixin） Extend
