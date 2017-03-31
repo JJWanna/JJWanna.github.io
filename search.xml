@@ -12,12 +12,18 @@
 <li>Vuex搭载vue-Resource&amp;vue-router</li>
 <li>Vue2+Webpack2+KOA2构建大型应用</li>
 </ul>
+<h3 id="Vuex理论基础"><a href="#Vuex理论基础" class="headerlink" title="Vuex理论基础"></a>Vuex理论基础</h3><p>1.Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 devtools。<br>2.不开发大型单页应用尽量不要使用Vuex。<br>3.多个视图依赖于同一状态。来自不同视图的行为需要变更同一状态。<br><img src="/images/vue1.png" alt=""></p>
+<ul>
+<li>state，驱动应用的数据源；</li>
+<li>view，以声明方式将state映射到视图；</li>
+<li>actions，响应在view上的用户输入导致的状态变化。<br><img src="/images/vuex1.png" alt=""></li>
+</ul>
 ]]></content>
       
         
         <tags>
             
-            <tag> vuejs </tag>
+            <tag> vuejs   vue </tag>
             
         </tags>
         
