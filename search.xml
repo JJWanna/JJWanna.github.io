@@ -4,6 +4,42 @@
   
     
     <entry>
+      <title><![CDATA[CSS3核心高级技巧]]></title>
+      <url>http://yoursite.com/2017/03/31/CSS3%E6%A0%B8%E5%BF%83%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/</url>
+      <content type="html"><![CDATA[<h3 id="CSS3开发常备核心技能"><a href="#CSS3开发常备核心技能" class="headerlink" title="CSS3开发常备核心技能"></a>CSS3开发常备核心技能</h3><ul>
+<li>早期的双飞翼布局+CSS HACK</li>
+<li>基于移动端的PX与REM转换兼容方案</li>
+<li>弹性盒模型与Reset的选择</li>
+<li>自制的ICON-FONT与常用字体排版</li>
+<li>CSS代码检测与团队项目规范</li>
+<li>CSS绘制特殊图形 高级技巧</li>
+<li>CSS高效动画 WorkFlow与分层（详细讲解）</li>
+</ul>
+<h4 id="双飞翼布局-CSS-HACK"><a href="#双飞翼布局-CSS-HACK" class="headerlink" title="双飞翼布局+CSS HACK"></a>双飞翼布局+CSS HACK</h4><ul>
+<li>position</li>
+<li>float </li>
+<li>负边距</li>
+<li>等高</li>
+<li>盒子模型</li>
+<li>清除浮动 </li>
+</ul>
+<h4 id="IE6经典bug"><a href="#IE6经典bug" class="headerlink" title="IE6经典bug"></a>IE6经典bug</h4><blockquote>
+<ul>
+<li>IE6怪异解析之padding与border算入宽高<br>原因：未加文档声明造成非盒模型解析<br>解决方法：加入文档声明&lt;!doctype html&gt;<br>2&gt;<em> IE6在块元素、左右浮动、设定marin时造成margin双倍（双边距）<br>解决方法：display:inline<br>3&gt;</em> 以下三种其实是同一种bug，其实也不算是个bug，举个例子：父标签高度20，子标签11，垂直居中，20-11=9，9要分给文字的上面与下面，怎么分？IE6就会与其它的不同，所以，尽量避免。<br>1）字体大小为奇数之边框高度少1px<br>解决方法：字体大小设置为偶数或line-height为偶数<br>2）line-height，文本垂直居中差1px<br>解决方法：padding-top代替line-height居中，或line-height加1或减1<br>3）与父标签的宽度的奇偶不同的居中造成1px的偏离<br>解决方法：如果父标签是奇数宽度，则子标签也用奇数宽度;如果是父标签偶数宽度，则子标签也用偶数宽度 </li>
+</ul>
+</blockquote>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> css3 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[React Flux架构]]></title>
       <url>http://yoursite.com/2017/03/31/React-Flux/</url>
       <content type="html"><![CDATA[<ul>
@@ -1175,12 +1211,6 @@ addSquare(1,2);
     </entry>
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://yoursite.com/tags/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title></title>
       <url>http://yoursite.com/photo/tool.js</url>
       <content type="html"><![CDATA["use strict";
@@ -1209,6 +1239,12 @@ fs.readdir(path, function (err, files) {
         })
     }(0));
 });]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://yoursite.com/tags/index.html</url>
+      <content type="html"></content>
     </entry>
     
   

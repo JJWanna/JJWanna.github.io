@@ -155,6 +155,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSS3核心高级技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/CSS3核心高级技巧/">CSS3核心高级技巧</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/31/CSS3核心高级技巧/" class="archive-article-date">
+  	<time datetime="2017-03-31T03:32:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="CSS3开发常备核心技能"><a href="#CSS3开发常备核心技能" class="headerlink" title="CSS3开发常备核心技能"></a>CSS3开发常备核心技能</h3><ul>
+<li>早期的双飞翼布局+CSS HACK</li>
+<li>基于移动端的PX与REM转换兼容方案</li>
+<li>弹性盒模型与Reset的选择</li>
+<li>自制的ICON-FONT与常用字体排版</li>
+<li>CSS代码检测与团队项目规范</li>
+<li>CSS绘制特殊图形 高级技巧</li>
+<li>CSS高效动画 WorkFlow与分层（详细讲解）</li>
+</ul>
+<h4 id="双飞翼布局-CSS-HACK"><a href="#双飞翼布局-CSS-HACK" class="headerlink" title="双飞翼布局+CSS HACK"></a>双飞翼布局+CSS HACK</h4><ul>
+<li>position</li>
+<li>float </li>
+<li>负边距</li>
+<li>等高</li>
+<li>盒子模型</li>
+<li>清除浮动 </li>
+</ul>
+<h4 id="IE6经典bug"><a href="#IE6经典bug" class="headerlink" title="IE6经典bug"></a>IE6经典bug</h4><blockquote>
+<ul>
+<li>IE6怪异解析之padding与border算入宽高<br>原因：未加文档声明造成非盒模型解析<br>解决方法：加入文档声明&lt;!doctype html&gt;<br>2&gt;<em> IE6在块元素、左右浮动、设定marin时造成margin双倍（双边距）<br>解决方法：display:inline<br>3&gt;</em> 以下三种其实是同一种bug，其实也不算是个bug，举个例子：父标签高度20，子标签11，垂直居中，20-11=9，9要分给文字的上面与下面，怎么分？IE6就会与其它的不同，所以，尽量避免。<br>1）字体大小为奇数之边框高度少1px<br>解决方法：字体大小设置为偶数或line-height为偶数<br>2）line-height，文本垂直居中差1px<br>解决方法：padding-top代替line-height居中，或line-height加1或减1<br>3）与父标签的宽度的奇偶不同的居中造成1px的偏离<br>解决方法：如果父标签是奇数宽度，则子标签也用奇数宽度;如果是父标签偶数宽度，则子标签也用偶数宽度 </li>
+</ul>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/31/CSS3核心高级技巧/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-React-Flux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -443,78 +526,6 @@
 
 
   
-    <article id="post-小程序面向个人开发者开放" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/小程序面向个人开发者开放/">小程序面向个人开发者开放</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/28/小程序面向个人开发者开放/" class="archive-article-date">
-  	<time datetime="2017-03-28T12:12:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<ul>
-<li>3月27日晚上10点，微信官方通过“微信公开课”和“微信公众平台”发布重磅消息称，小程序对个人开发者开放注册，并宣布小程序新增六大能力。</li>
-</ul>
-</blockquote>
-<p>   新增6大功能为：个人开发者开放、公众号自定义菜单跳小程序、公众号模版消息可打开相关小程序、模板消息跳小程序 、绑定时可发送模板消息、兼容线下二维码、App分享用小程序打开。</p>
-<p>1.<strong>个人开发者可申请小程序</strong></p>
-<p>   小程序开放个人开发者申请注册，个人用户可访问微信公众平台，扫码验证个人身份后即可完成小程序帐号申请并进行代码开发。</p>
-<p>   申请个人开发者的个人需要实名。现在，对小程序感兴趣，并且有开发能力者，可以在开放的类目范围内，通过开发小程序，把自己的“一个想法”变成“一件作品”，并为微信用户所使用，进一步发挥开发者的个人价值。</p>
-        
-          <a class="article-more-a" href="/2017/03/28/小程序面向个人开发者开放/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">小程序开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/28/小程序面向个人开发者开放/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -601,6 +612,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react flux</a>
               </li>
              
@@ -609,11 +624,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vuejs   vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color2">vuejs   vue</a>
               </li>
              
               <li class="article-tag-list-item">
