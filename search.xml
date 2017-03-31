@@ -561,8 +561,8 @@ x-foo /deep/span 可以匹配到 #not-top和 #top元素
 <li>后台服务与HTTP</li>
 <li>反向代理与web服务</li>
 </ul>
-<a id="more"></a>
 <h3 id="浏览器行为与HTTP协议"><a href="#浏览器行为与HTTP协议" class="headerlink" title="浏览器行为与HTTP协议"></a>浏览器行为与HTTP协议</h3><p>处理流程：<br>1.输入网址并回车<br>2.解析域名<br>3.浏览器发送http请求<br>4.服务器处理请求<br>5.服务器返回HTML响应<br>6.浏览器处理HTML页面<br>7.继续请求其他资源</p>
+<a id="more"></a>
 <h3 id="什么是HTTP协议"><a href="#什么是HTTP协议" class="headerlink" title="什么是HTTP协议"></a>什么是HTTP协议</h3><ul>
 <li>HTTP是超文本传输协议，从www浏览器传输到本地浏览器的一种传输协议，网站是基于HTTP协议的，例如网站的图片、CSS、JS等都是基于HTTP协议进行传输的。</li>
 <li>HTTP协议是由从客户机到服务器的请求(Reuqest)和从服务器到客户机的响应(response)进行约束和规范。</li>
@@ -1153,23 +1153,6 @@ addSquare(1,2);
     
     <entry>
       <title></title>
-      <url>http://yoursite.com/photo/output.json</url>
-      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[相册]]></title>
-      <url>http://yoursite.com/photo/index.html</url>
-      <content type="html"><![CDATA[<p><link type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.css" rel="stylesheet"></p>
-<p><div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div></p>
-<script src="/source-src/js/photo.js"></script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/source-src/js/main.js" type="text/javascript"></script>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
       <url>http://yoursite.com/photo/tool.js</url>
       <content type="html"><![CDATA["use strict";
 const fs = require("fs");
@@ -1203,6 +1186,23 @@ fs.readdir(path, function (err, files) {
       <title><![CDATA[tags]]></title>
       <url>http://yoursite.com/tags/index.html</url>
       <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://yoursite.com/photo/output.json</url>
+      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[相册]]></title>
+      <url>http://yoursite.com/photo/index.html</url>
+      <content type="html"><![CDATA[<p><link type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.css" rel="stylesheet"></p>
+<p><div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div></p>
+<script src="/source-src/js/photo.js"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/source-src/js/main.js" type="text/javascript"></script>
+]]></content>
     </entry>
     
   
