@@ -11,7 +11,7 @@ tags:  css3
 * CSS代码检测与团队项目规范
 * CSS绘制特殊图形 高级技巧
 * CSS高效动画 WorkFlow与分层（详细讲解）
-
+<!--more-->
 #### 双飞翼布局+CSS HACK
 * position
 * float 
@@ -26,7 +26,7 @@ tags:  css3
  原因：未加文档声明造成非盒模型解析 
  解决方法：加入文档声明<!doctype html> 
  
->* IE6在块元素、左右浮动、设定maring时造成margin双倍（双边距） 
+>* **IE6在块元素、左右浮动、设定maring时造成margin双倍（双边距）** 
 解决方法：display:inline 
 
 >* 以下三种其实是同一种bug，其实也不算是个bug，举个例子：父标签高度20，子标签11，垂直居中，20-11=9，9要分给文字的上面与下面，怎么分？IE6就会与其它的不同，所以，尽量避免。 
@@ -37,35 +37,35 @@ tags:  css3
 3）**与父标签的宽度的奇偶不同的居中造成1px的偏离**
 解决方法：如果父标签是奇数宽度，则子标签也用奇数宽度;如果是父标签偶数宽度，则子标签也用偶数宽度  
   
->* 内部盒模型超出父级时，父级被撑大 
+>* **内部盒模型超出父级时，父级被撑大** 
 解决方法：父标签使用overflow:hidden 
 
->* line-height默认行高bug
+>* **line-height默认行高bug**
 解决方法：line-height设值 
 
->* 行标签之间会有一小段空白
+>* **行标签之间会有一小段空白**
 解决方法：float或结构并排(可读性差，不建议)
 
->* 标签高度无法小于19px
+>* **标签高度无法小于19px**
 解决方法：overflow:hidden;
 
->* 左浮元素 margin-bottom 失效
+>* **左浮元素 margin-bottom 失效**
 解决方法：显示设置高度 or 父标签设置 padding-bottom代替子标签的margin-bottom 再放个标签让父标签浮动，子标签
 margin-bototm，即（margin-bottom与float不同时作用于一个标签）
 
->* img于块元素中，底边多处空白
+>* **img于块元素中，底边多处空白**
 解决方法：父级设置overflow:hidden;或img{display:block;或 img:-5px;
 
->* li之间会有间距
+>* **li之间会有间距**
 解决方法：float:left;
 
->* 块元素中又文字及右浮动的元素，航元素换行
+>* **块元素中又文字及右浮动的元素，航元素换行**
 解决方法：将行元素于块元素内的文字前
 
->* position下的left,bottom错位 
+>* **position下的left,bottom错位** 
 解决方法：为父级（relative层）设置宽高或者添加 *zoom:1
 
->* 子级中又设置position,则父级overflow失效
+>* **子级中有设置position,则父级overflow失效**
 解决方法：为父级设置position:relative
 
 ### 基于移动端的PX与REM转换兼容方案
@@ -80,6 +80,34 @@ margin-bototm，即（margin-bottom与float不同时作用于一个标签）
 * *的杀伤力太大
 * reset.css重置 Normalize.css修复 Neat.css融合
 * html{box-sizing:border-box;}
-   *,*:before,X:after{box-sizing:inherit;}
+   :before,X:after{box-sizing:inherit;}
+
+### ICON-FONT与常用字体排版
+* no-images时代，不超过纯色为2的图像
+* 宋体非宋体 黑体非黑体 windows下的宋体叫中易宋体 SimSun,Mac是华文宋体STSong。Windows下的黑体叫中易黑体SimHei,
+Mac华文黑体STHeiti。
+* 不要只写中文字体名，保证西文字体在中文字体前面。Mac-linux-windows
+* 切忌不要直接使用设计师psd的设计font-family，关键时刻再去启动font-face(Typo.css,Entry.css,Type.css)
+* font-family : sans-serif;系统默认，字体多个单词组成加引号。
+
+### CSS代码检测团队项目规范
+1.不要使用多个class选择元素，如a.foo.boo,这在ie6及以下不能正确解析
+2.移除空的css规则，如a{}
+3.正确使用显示属性，如display:inline不要和width,height,float,margin,padding同时使用
+display:inline-block不要和float同时使用等
+4.避免过多的浮动，当浮动次数超过十次时，会显示警告
+5.避免使用过多的字号，当字号声明超过十种时，显示警告
+6.避免使用过多的web字体，当使用超过五次时，显示警告
+7.避免使用id作为样式选择器
+8.标题元素只定义一次
+9.使用width:100%时要小心
+10.属性值为0时不要写单位
+11.各浏览器专属的css属性要有规范，例如.foo{-moz-border-radius:5px;border-radius:5px}
+12.避免使用看起来像正则表达式的css3选择器
+13.遵守合模型规则
 
 
+### CSS绘制高级技巧
+* border && border-radius 造就万千可能
+* linear-gradient();radial-gradient();
+渐变轴：每个色标的推进以圆心为中心同心圆扩散。
