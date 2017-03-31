@@ -22,7 +22,7 @@ tags:  css3
 
 <!--more-->
 #### IE6经典bug
->* IE6怪异解析之padding与border算入宽高 
+>* **IE6怪异解析之padding与border算入宽高** 
  原因：未加文档声明造成非盒模型解析 
  解决方法：加入文档声明<!doctype html> 
  
