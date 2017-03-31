@@ -175,9 +175,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="css预处理器"><a href="#css预处理器" class="headerlink" title="css预处理器"></a>css预处理器</h4><p>“An preprocessor is a program that processes its input to produce output that is used as input to another program ”<br>处理特定格式源文件到目标css的处理程序</p>
-<ul>
-<li>预处理器变革</li>
+        <ul>
+<li><p>css预处理器<br>“An preprocessor is a program that processes its input to produce output that is used as input to another program ”<br>处理特定格式源文件到目标css的处理程序</p>
+</li>
+<li><p>预处理器变革</p>
+</li>
 </ul>
 <pre><code>body {
     left:&lt;%= left  %&gt;px;
@@ -194,85 +196,10 @@ box{
     border-color:lighten(@base,30%);
     div{.box-shadow(0 0 5px,30%)}
 }
-</code></pre><h3 id="预处理器常用规范"><a href="#预处理器常用规范" class="headerlink" title="预处理器常用规范"></a>预处理器常用规范</h3><ul>
-<li>变量</li>
-<li>混合（Mixin） Extend</li>
-<li>嵌套规则</li>
-<li>运算</li>
-<li>函数</li>
-<li>Namespaves &amp; Accessors</li>
-<li>Scope</li>
-<li>注释</li>
-</ul>
-<p>W3C标准实现</p>
-<pre><code>.m-layer{
-    height:var(--height);
-    width:var(--width);
-    background-color:blue;
-}
-.m-layer-sm{
-    --height:100px;
-    --width:100px;
-}
-.m-layer-bg{
-    --height:200px;
-    --width:200px;
-}
-
-&lt;div class=&quot;m-layer m-layer-bg&quot;&gt;&lt;/div&gt;
-</code></pre><h3 id="CSS后处理器"><a href="#CSS后处理器" class="headerlink" title="CSS后处理器"></a>CSS后处理器</h3><ul>
-<li>css压缩 ClEAN-CSS</li>
-<li>自动添加浏览器前缀 Autoprefixer</li>
-<li>CSS更加美观排序 CSScomb</li>
-<li>Rework 取代Styles后处理器发热</li>
-<li>前后都行 PostCss</li>
-</ul>
-<pre><code>:root{
-    --red:#d33;
-}
-a{
-    &amp;:hover{
-        color:color(var(--red) a(54%));
-    }
-}
-
-a:hover{
-    color:#dd3333;
-    color:rgba(221,51,51,0.54);
-}
-</code></pre><p><img src="/images/170331-2.png" alt=""><br><img src="/images/170331-1.png" alt=""><br>抽象语法树（Abstract Syntax Tree,AST）作为程序的一种中间表示形式</p>
-<h4 id="POSTCSS值得收藏的插件"><a href="#POSTCSS值得收藏的插件" class="headerlink" title="POSTCSS值得收藏的插件"></a>POSTCSS值得收藏的插件</h4><ul>
-<li>POSTCSS-CUSTOM-PROPERTIES 运行时变量</li>
-<li>POSTCSS-SIMPLE-VARS 与SCSS一致的变量实现</li>
-<li>POSTCSS-MIXINS 实现类似SASS的@MIXIN的功能</li>
-<li>POSTCSS-EXTEND 实现类似SASS的继承功能</li>
-<li>POSTCSS-IMPORT 实现类似SASS的IMPORT</li>
-<li>CSSNext 面向未来  CSS Grace 修复过去</li>
-</ul>
-<pre><code>var gulp = require(&apos;gulp&apos;);
-var postcss = require(&apos;gulp-postcss&apos;);
-var autoprefixer = require(&apos;autoprefixer&apos;);
-var cssgrace  = require(&apos;cssgrace&apos;);
-var cssnext  = require(&apos;cssnext&apos;);
-gulp.task(&apos;css&apos;, function () {
-  var processors = [
-    autoprefixer({browsers: [&apos;last 3 version&apos;],
-      cascade: false,
-      remove: false
-    }),
-    cssnext(),
-    cssgrace
-  ];
-  return gulp.src(&apos;./src/css/*.css&apos;)
-    .pipe(postcss(processors))
-    .pipe(gulp.dest(&apos;./dist&apos;));
-});
-gulp.task(&apos;watch&apos;, function(){
-  gulp.watch(&apos;./src/css/*.css&apos;, [&apos;css&apos;]);
-});
-gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
-</code></pre><p><img src="/images/170331-3.png" alt=""></p>
-
+</code></pre>
+        
+          <a class="article-more-a" href="/2017/03/31/css工作流/#more">more >></a>
+        
       
 
       
