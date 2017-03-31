@@ -13,8 +13,9 @@
 <li>自制的ICON-FONT与常用字体排版</li>
 <li>CSS代码检测与团队项目规范</li>
 <li>CSS绘制特殊图形 高级技巧</li>
-<li>CSS高效动画 WorkFlow与分层（详细讲解）<a id="more"></a>
-<h4 id="双飞翼布局-CSS-HACK"><a href="#双飞翼布局-CSS-HACK" class="headerlink" title="双飞翼布局+CSS HACK"></a>双飞翼布局+CSS HACK</h4></li>
+<li>CSS高效动画 WorkFlow与分层（详细讲解）</li>
+</ul>
+<h4 id="双飞翼布局-CSS-HACK"><a href="#双飞翼布局-CSS-HACK" class="headerlink" title="双飞翼布局+CSS HACK"></a>双飞翼布局+CSS HACK</h4><ul>
 <li>position</li>
 <li>float </li>
 <li>负边距</li>
@@ -22,7 +23,7 @@
 <li>盒子模型</li>
 <li>清除浮动 </li>
 </ul>
-<!--more-->
+<a id="more"></a>
 <h4 id="IE6经典bug"><a href="#IE6经典bug" class="headerlink" title="IE6经典bug"></a>IE6经典bug</h4><blockquote>
 <ul>
 <li><p>IE6怪异解析之padding与border算入宽高<br>原因：未加文档声明造成非盒模型解析<br>解决方法：加入文档声明&lt;!doctype html&gt; </p>
@@ -1243,6 +1244,12 @@ addSquare(1,2);
     </entry>
     
     <entry>
+      <title></title>
+      <url>http://yoursite.com/photo/output.json</url>
+      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[相册]]></title>
       <url>http://yoursite.com/photo/index.html</url>
       <content type="html"><![CDATA[<p><link type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.css" rel="stylesheet"></p>
@@ -1251,12 +1258,6 @@ addSquare(1,2);
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/source-src/js/main.js" type="text/javascript"></script>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>http://yoursite.com/photo/output.json</url>
-      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
     </entry>
     
     <entry>
