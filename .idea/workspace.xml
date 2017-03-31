@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d9e3ce76-ae7a-4080-ae86-9c325167e79e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/yilia" afterPath="$PROJECT_DIR$/themes/yilia" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/CSS3核心高级技巧.md" afterPath="$PROJECT_DIR$/source/_posts/CSS3核心高级技巧.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,9 +47,9 @@
       <file leaf-file-name="CSS3核心高级技巧.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/_posts/CSS3核心高级技巧.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="423">
-                <caret line="34" column="2" lean-forward="true" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="453">
+                <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -779,12 +780,12 @@
       <workItem from="1490750385038" duration="20507000" />
       <workItem from="1490834787239" duration="6989000" />
       <workItem from="1490861233261" duration="14760000" />
-      <workItem from="1490920790450" duration="9635000" />
+      <workItem from="1490920790450" duration="9844000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74295000" />
+    <option name="totallyTimeSpent" value="74504000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="803" extended-state="0" />
@@ -1239,9 +1240,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/CSS3核心高级技巧.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="423">
-            <caret line="34" column="2" lean-forward="true" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="453">
+            <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
