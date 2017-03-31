@@ -1,7 +1,7 @@
 ---
 title: http协议背后的事
 date: 2017-03-29 15:27:02
-tags:
+tags:  http https
 ---
 
 * 当我们输入网址后发生了什么
