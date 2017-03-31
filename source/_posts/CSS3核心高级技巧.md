@@ -39,3 +39,8 @@ tags:  css3
   
 >* 内部盒模型超出父级时，父级被撑大 
 解决方法：父标签使用overflow:hidden 
+>* line-height默认行高bug  解决方法：line-height设值 
+>* 行标签之间会有一小段空白  解决方法：float或结构并排(可读性差，不建议) 
+>* 标签高度无法小于19px  解决方法：overflow: hidden; 
+>* 左浮元素margin-bottom失效  解决方法：显示设置高度 or 父标签设置_padding-bottom代替子标签的margin-bottom or 再放个标签让父标签浮动，子标签 margin- bottom，即(margin-bottom与float不同时作用于一个标签) 
+>* img于块元素中，底边多出空白  解决方法：父级设置overflow: hidden; 或 img { display: block; } 或 _margin: -5px; 
