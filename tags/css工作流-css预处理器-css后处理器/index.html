@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>WJJ@博客</title>
+  <title>Tag: css工作流 css预处理器 css后处理器 | WJJ@博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="专注前端技术">
 <meta property="og:type" content="website">
 <meta property="og:title" content="WJJ@博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/css工作流-css预处理器-css后处理器/index.html">
 <meta property="og:site_name" content="WJJ@博客">
 <meta property="og:description" content="专注前端技术">
 <meta name="twitter:card" content="summary">
@@ -155,131 +155,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-css工作流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/31/css工作流/" class="archive-article-date">
+  	<time datetime="2017-03-31T08:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-31</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/31/css工作流/">css工作流</a>
+      <a class="archive-article-title" href="/2017/03/31/css工作流/">css工作流</a>
     </h1>
   
 
-        
-        <a href="/2017/03/31/css工作流/" class="archive-article-date">
-  	<time datetime="2017-03-31T08:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="css预处理器"><a href="#css预处理器" class="headerlink" title="css预处理器"></a>css预处理器</h3><p>“An preprocessor is a program that processes its input to produce output that is used as input to another program ”<br>处理特定格式源文件到目标css的处理程序</p>
-<ul>
-<li>预处理器变革</li>
-</ul>
-<pre><code>body {
-    left:&lt;%= left  %&gt;px;
-    color:&lt;%= color|highlight: 10% %&gt;;
-}
-
-@base:#f938ab;
-box-shadow(@style,@c)when(iscolor(@c)){
-    -webkit-box-shadow:@style @c;
-    box-shadow:       @style @c;
-}
-box{
-    color:saturate(@base,5%);
-    border-color:lighten(@base,30%);
-    div{.box-shadow(0 0 5px,30%)}
-}
-</code></pre><h3 id="预处理器常用规范"><a href="#预处理器常用规范" class="headerlink" title="预处理器常用规范"></a>预处理器常用规范</h3><ul>
-<li>变量</li>
-<li>混合（Mixin） Extend</li>
-<li>嵌套规则</li>
-<li>运算</li>
-<li>函数</li>
-<li>Namespaves &amp; Accessors</li>
-<li>Scope</li>
-<li>注释</li>
-</ul>
-<p>W3C标准实现</p>
-<pre><code>.m-layer{
-    height:var(--height);
-    width:var(--width);
-    background-color:blue;
-}
-.m-layer-sm{
-    --height:100px;
-    --width:100px;
-}
-.m-layer-bg{
-    --height:200px;
-    --width:200px;
-}
-
-&lt;div class=&quot;m-layer m-layer-bg&quot;&gt;&lt;/div&gt;
-</code></pre><h3 id="CSS后处理器"><a href="#CSS后处理器" class="headerlink" title="CSS后处理器"></a>CSS后处理器</h3><ul>
-<li>css压缩 ClEAN-CSS</li>
-<li>自动添加浏览器前缀 Autoprefixer</li>
-<li>CSS更加美观排序 CSScomb</li>
-<li>Rework 取代Styles后处理器发热</li>
-<li>前后都行 PostCss</li>
-</ul>
-<pre><code>:root{
-    --red:#d33;
-}
-a{
-    &amp;:hover{
-        color:color(var(--red) a(54%));
-    }
-}
-
-a:hover{
-    color:#dd3333;
-    color:rgba(221,51,51,0.54);
-}
-</code></pre><p><img src="/images/170331-2.png" alt=""><br><img src="/images/170331-1.png" alt=""><br>抽象语法树（Abstract Syntax Tree,AST）作为程序的一种中间表示形式</p>
-<h4 id="POSTCSS值得收藏的插件"><a href="#POSTCSS值得收藏的插件" class="headerlink" title="POSTCSS值得收藏的插件"></a>POSTCSS值得收藏的插件</h4><ul>
-<li>POSTCSS-CUSTOM-PROPERTIES 运行时变量</li>
-<li>POSTCSS-SIMPLE-VARS 与SCSS一致的变量实现</li>
-<li>POSTCSS-MIXINS 实现类似SASS的@MIXIN的功能</li>
-<li>POSTCSS-EXTEND 实现类似SASS的继承功能</li>
-<li>POSTCSS-IMPORT 实现类似SASS的IMPORT</li>
-<li>CSSNext 面向未来  CSS Grace 修复过去</li>
-</ul>
-<pre><code>var gulp = require(&apos;gulp&apos;);
-var postcss = require(&apos;gulp-postcss&apos;);
-var autoprefixer = require(&apos;autoprefixer&apos;);
-var cssgrace  = require(&apos;cssgrace&apos;);
-var cssnext  = require(&apos;cssnext&apos;);
-gulp.task(&apos;css&apos;, function () {
-  var processors = [
-    autoprefixer({browsers: [&apos;last 3 version&apos;],
-      cascade: false,
-      remove: false
-    }),
-    cssnext(),
-    cssgrace
-  ];
-  return gulp.src(&apos;./src/css/*.css&apos;)
-    .pipe(postcss(processors))
-    .pipe(gulp.dest(&apos;./dist&apos;));
-});
-gulp.task(&apos;watch&apos;, function(){
-  gulp.watch(&apos;./src/css/*.css&apos;, [&apos;css&apos;]);
-});
-gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
-</code></pre><p><img src="/images/170331-3.png" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -291,330 +194,19 @@ gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/31/css工作流/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-
-
-
-
-
-
   
-    <article id="post-CSS3核心高级技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/31/CSS3核心高级技巧/">CSS3核心高级技巧</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/31/CSS3核心高级技巧/" class="archive-article-date">
-  	<time datetime="2017-03-31T03:32:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>早期的双飞翼布局+CSS HACK</li>
-<li>基于移动端的PX与REM转换兼容方案</li>
-<li>弹性盒模型与Reset的选择</li>
-<li>自制的ICON-FONT与常用字体排版</li>
-<li>CSS代码检测与团队项目规范</li>
-<li>CSS绘制特殊图形 高级技巧</li>
-<li>CSS高效动画 WorkFlow与分层（详细讲解）</li>
-</ul>
-<h4 id="双飞翼布局-CSS-HACK"><a href="#双飞翼布局-CSS-HACK" class="headerlink" title="双飞翼布局+CSS HACK"></a>双飞翼布局+CSS HACK</h4><ul>
-<li>position</li>
-<li>float </li>
-<li>负边距</li>
-<li>等高</li>
-<li>盒子模型</li>
-<li>清除浮动 </li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/03/31/CSS3核心高级技巧/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css3</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/31/CSS3核心高级技巧/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-React-Flux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/31/React-Flux/">React Flux架构</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/31/React-Flux/" class="archive-article-date">
-  	<time datetime="2017-03-31T02:53:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>Flux架构介绍</li>
-<li>React性能调优</li>
-<li>Redux介绍与实战</li>
-<li>GraphQL and Relay</li>
-</ul>
-<h3 id="Flux架构介绍"><a href="#Flux架构介绍" class="headerlink" title="Flux架构介绍"></a>Flux架构介绍</h3><ul>
-<li>React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。</li>
-<li>Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。</li>
-<li>View : 视图层</li>
-<li>Action（动作）: 视图层发出的消息（比如mouseClick）</li>
-<li>Dispatcher（派发器）: 用来接收Actions、执行回调函数</li>
-<li>Store（数据层）: 用来存放应用的状态，一旦发生变动，就提醒Views要更新页面
-        
-          <a class="article-more-a" href="/2017/03/31/React-Flux/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react flux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/31/React-Flux/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-vue" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/31/vue/">vue精炼秘籍</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/31/vue/" class="archive-article-date">
-  	<time datetime="2017-03-31T02:13:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>Vuex理论介绍</li>
-<li>Vuex核心概念</li>
-<li>Vuex搭载vue-Resource&amp;vue-router</li>
-<li>Vue2+Webpack2+KOA2构建大型应用</li>
-</ul>
-<h3 id="Vuex理论基础"><a href="#Vuex理论基础" class="headerlink" title="Vuex理论基础"></a>Vuex理论基础</h3><p>1.Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 devtools。<br>2.不开发大型单页应用尽量不要使用Vuex。<br>3.多个视图依赖于同一状态。来自不同视图的行为需要变更同一状态。<br>
-        
-          <a class="article-more-a" href="/2017/03/31/vue/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vuejs   vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/31/vue/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-前端持续集成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/30/前端持续集成/">前端架构构建</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/30/前端持续集成/" class="archive-article-date">
-  	<time datetime="2017-03-30T01:05:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>什么是集成</li>
-<li>什么是统一代码仓库</li>
-<li>什么是前端工程化</li>
-<li>什么是自动化构建</li>
-<li>更多的自动化</li>
-</ul>
-<h3 id="持续集成需求"><a href="#持续集成需求" class="headerlink" title="持续集成需求"></a>持续集成需求</h3><p>1.持续集成是通过平台串联各个开发环节，实现和沉淀工作自动化的方法。<br>2.线上代码和代码仓库不同步，影响迭代和团队协作。<br>3.静态资源发布依赖人工，浪费开发人力。<br>4.缺少自动化测试，产品质量得不到保障。<br>5.文案简单修改上线，需要技术介入。<br>
-        
-          <a class="article-more-a" href="/2017/03/30/前端持续集成/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端架构构建  前端集成</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/30/前端持续集成/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -637,10 +229,10 @@ gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
