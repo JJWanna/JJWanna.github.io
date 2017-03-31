@@ -1141,6 +1141,12 @@ addSquare(1,2);
     </entry>
     
     <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://yoursite.com/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title></title>
       <url>http://yoursite.com/photo/tool.js</url>
       <content type="html"><![CDATA["use strict";
@@ -1169,12 +1175,6 @@ fs.readdir(path, function (err, files) {
         })
     }(0));
 });]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://yoursite.com/tags/index.html</url>
-      <content type="html"></content>
     </entry>
     
   
