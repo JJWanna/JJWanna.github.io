@@ -18,7 +18,7 @@ tags: Redux
 2.**Redux Store 会调用你给它的 reducer**
 store 会把两个参数传递给 reducer：当前的状态树，还有动作。比如在一个任务列表应用里。
 
-3.Reducer 是纯函数，它只计算出下一个状态。给它同样的输入，任务时候它都会计算出同样的结果。Reducer 不能执行有副作用的动作，比如去调用 API，这些动作应该在调度动作之前完成。
+3.Reducer 是纯函数，它只计算出下一个状态。给它同样的输入，任何时候它都会计算出同样的结果。Reducer 不能执行有副作用的动作，比如去调用 API，这些动作应该在调度动作之前完成。
 
      // The current application state (list of todos and chosen filter)
      let previousState = {
