@@ -6,17 +6,54 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/3 | WJJ@博客</title>
+  <title>javascript语言精髓 | WJJ@博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="专注前端技术">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WJJ@博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/03/index.html">
+  <meta name="description" content="闭包、作 域、原型链if(!(“userName” in window)){
+ var userName=“zhengzheng.xz”;
+}
+console.log(userName);
+
+
+var obj = {
+   user: “zhengzheng.xz”
+   getName:function(){
+      return user;
+   }
+}
+var getNameFn = o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript语言精髓">
+<meta property="og:url" content="http://yoursite.com/2017/02/11/javascript语言精髓/index.html">
 <meta property="og:site_name" content="WJJ@博客">
-<meta property="og:description" content="专注前端技术">
+<meta property="og:description" content="闭包、作 域、原型链if(!(“userName” in window)){
+ var userName=“zhengzheng.xz”;
+}
+console.log(userName);
+
+
+var obj = {
+   user: “zhengzheng.xz”
+   getName:function(){
+      return user;
+   }
+}
+var getNameFn = o">
+<meta property="og:updated_time" content="2017-04-01T01:58:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WJJ@博客">
-<meta name="twitter:description" content="专注前端技术">
+<meta name="twitter:title" content="javascript语言精髓">
+<meta name="twitter:description" content="闭包、作 域、原型链if(!(“userName” in window)){
+ var userName=“zhengzheng.xz”;
+}
+console.log(userName);
+
+
+var obj = {
+   user: “zhengzheng.xz”
+   getName:function(){
+      return user;
+   }
+}
+var getNameFn = o">
   
   
     <link rel="icon" href="/favicon.png">
@@ -153,112 +190,183 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-javascript语言精髓" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript语言精髓
+    </h1>
+  
+
+        
+        <a href="/2017/02/11/javascript语言精髓/" class="archive-article-date">
+  	<time datetime="2017-02-11T01:36:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-11</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="闭包、作-域、原型链"><a href="#闭包、作-域、原型链" class="headerlink" title="闭包、作 域、原型链"></a>闭包、作 域、原型链</h3><pre><code>if(!(“userName” in window)){
+ var userName=“zhengzheng.xz”;
+}
+console.log(userName);
+
+
+var obj = {
+   user: “zhengzheng.xz”
+   getName:function(){
+      return user;
+   }
+}
+var getNameFn = obj.getName;
+console.log(getNameFn());
+console.log(obj.getName());
+</code></pre><h3 id="作用域的种类"><a href="#作用域的种类" class="headerlink" title="作用域的种类"></a>作用域的种类</h3><ul>
+<li>作用域有大到小:<br>  1.程序级<br>  2.件级<br>  3.函数级<br>  4.块级</li>
+</ul>
+<h3 id="javascript作用域"><a href="#javascript作用域" class="headerlink" title="javascript作用域"></a>javascript作用域</h3><ul>
+<li>全局作用域 :<br>  1.函数作用域<br>  2.块级作用域(ES6)</li>
+</ul>
+<pre><code>var global = 1;
+function doSomething(){
+var inner = 2;
+globalA = 3; }
+doSomething();
+alert(global);// 1
+alert(globalA);// 3
+alert(inner);// undefined
+</code></pre><h3 id="javascript作用于链"><a href="#javascript作用于链" class="headerlink" title="javascript作用于链"></a>javascript作用于链</h3><ul>
+<li>什么是作用域链?<br>在JavaScript中,函数也是对象,函数对象和其它对象一样,拥有可以通过代码访问的属性和一系仅供JavaScript引擎访问的内部属性。其中一个内部属性是[[Scope]],由ECMA-262标准第三版定义,该内部属性包含了函数被创建的作用域中对象的集合, 这个集合被称为函数的作用域链,它决定些数据能被函数访问。</li>
+</ul>
+<pre><code>var test = “aaa”;
+function doSomething(){
+alert(test);
+var test = “bbb”; alert(test); //bbb
+}
+doSomething();
+alert(test);
+// aaa
+</code></pre><h3 id="变量与函数声明提前"><a href="#变量与函数声明提前" class="headerlink" title="变量与函数声明提前"></a>变量与函数声明提前</h3><pre><code>function foo(){
+  alert(test);
+  var test = “bbb”;
+  alert(test);
+} foo();
+</code></pre><p>执 顺序:</p>
+<ol>
+<li>声明函数foo</li>
+<li>调 函数foo 3. 声明变 test</li>
+<li>alert(test);</li>
+<li>test变 赋值为bbb 6. alert(test);</li>
+</ol>
+<h3 id="javascript中-this关键字"><a href="#javascript中-this关键字" class="headerlink" title="javascript中 this关键字"></a>javascript中 this关键字</h3><ul>
+<li>this指向哪 ?<br>在Javascript中,this指向函数执 时的当前对象。 (In JavaScript, as in most object-oriented programming<br>languages, this is a special keyword that is used within methods to refer to the object on which a method is being invoked.)<br>——jQuery Fundamentals (Chapter 2), by Rebecca Murphey</li>
+<li>this使用场景<br>1.普通函数中:<br>  严格模式:undefined<br>  严格模式:全局对象(window)<br>2.构造函数中:对象的实例<br>3.对象方法: 对象本身 </li>
+</ul>
+<h3 id="call-、apply、bind"><a href="#call-、apply、bind" class="headerlink" title="call 、apply、bind"></a>call 、apply、bind</h3><p>*使用方法:<br>    1.fn.call(context, arg1, arg2, …, argn);<br>    2.fn.apply(context, [arg1,arg2,…,argn]);<br>    3.function(){…}.bind(context)<br>通过这三个 法可以改变被调 函数中this指向的对象</p>
+<pre><code>if(!(“userName” in window)){
+ var userName=“zhengzheng.xz”;
+}
+console.log(userName);
+//undefined
+
+
+
+var obj = {
+   user: “zhengzheng.xz”
+   getName:function(){
+      return this.user;
+   }
+}
+var getNameFn = obj.getName;
+console.log(getNameFn());
+//undefined
+console.log(obj.getName());
+//zhengzheng.xz
+</code></pre><h3 id="javascript原型与原型链"><a href="#javascript原型与原型链" class="headerlink" title="javascript原型与原型链"></a>javascript原型与原型链</h3><ul>
+<li>原型对象是什么？<br>在Javascript中,每定义一个对象(函数)时,对象中都会 包含一些预定义的属性。其中函数对象的一个属性就是原型对象prototype。普通对象没有prototype属性,但有 <strong>proto</strong>属性</li>
+</ul>
+<pre><code>function f1(){};
+console.log(typeof f1.prototype); //object
+console.log(typeof Function.prototype) //Function,这个特殊
+console.log(typeof Object.prototype) //object
+console.log(typeof Function.prototype.prototype)//undefined
+</code></pre><ul>
+<li>原型对象有什么用？<br>面向对象开发、类的继承</li>
+</ul>
+<pre><code>function Person(name){
+    this.name=name;
+}
+Person.prototype.getName=function(){
+    return this.name;
+}
+var xu=new Person(&apos;jiaojiao.xz&apos;);
+xu.getName(); //jiaojiao.xz
+</code></pre><ul>
+<li>构造函数<br>1.使用new关键字调用的函数<br>2.构造函数可以实例化一个对象<br>3.返回值,默认返回类的实例<br>4.特殊情况:<br>  没有返回值<br>  简单数据类型<br>  对象类型</li>
+</ul>
+<pre><code>function People(name,age){
+   this.name=name;
+   this.age=age;
+} 
+var people=new People(&apos;Byron&apos;,26);
+</code></pre><h3 id="原型链是如何实现的？"><a href="#原型链是如何实现的？" class="headerlink" title="原型链是如何实现的？"></a>原型链是如何实现的？</h3><p>总结</p>
+<ol>
+<li>每个函数都有一个prototype的对象属性</li>
+<li>每个对象都有一个<strong>proto</strong>属性,该属性指向 其父类的prototype对象</li>
+</ol>
+<h3 id="原型对象中的constructor"><a href="#原型对象中的constructor" class="headerlink" title="原型对象中的constructor"></a>原型对象中的constructor</h3><ul>
+<li>每个原型对象prototype中都有一个constructor属性,默认指向函数本身。</li>
+</ul>
+<pre><code>Person.prototype.constructor===Person; //true
+Function.prototype.constructor===Function; //true
+Object.prototype.constructor===Object; //true
+Object.prototype.constructor===Function; //true
+</code></pre><p>练习一:</p>
+<pre><code>function make(num){
+  return function(){
+return num; }
+}
+var arr = [make(0),make(1),make(2)]; alert(arr[0]()); // 0 alert(arr[1]()); // 1 alert(arr[2]()); // 2
+</code></pre><p>练习二：</p>
+<pre><code>var name = ‘global’;
+function A(name){
+  alert(name);
+  this.name = name;
+  var name = ‘1’;
+}
+A.prototype.name = ‘2’;
+var a = new A(‘3’);
+alert(a.name);
+delete a.name;
+alert(a.name);
+// 3
+// 3 // 2
+</code></pre><p>练习三：</p>
+<pre><code>function fun(n,o){
+    console.log(o);
+    return {
+        fun:function(m){
+            return fun(m, n)
+        }  
+    }
+}
+var a = fun(0);
+a.fun(1); a.fun(2);
+var b = fun(0).fun(1).fun(2).fun(3);
+var c = fun(0).fun(1);
+c.fun(2); c.fun(3);
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/30/前端持续集成/" class="archive-article-date">
-  	<time datetime="2017-03-30T01:05:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/30/前端持续集成/">前端架构构建</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端架构构建  前端集成</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/28/小程序面向个人开发者开放/" class="archive-article-date">
-  	<time datetime="2017-03-28T12:12:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/小程序面向个人开发者开放/">小程序面向个人开发者开放</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">小程序开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/28/javascript函数式编程/" class="archive-article-date">
-  	<time datetime="2017-03-28T07:52:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/javascript函数式编程/">javascript函数式编程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -270,57 +378,97 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/11/javascript语言精髓/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/01/React-Flux/" class="archive-article-date">
-  	<time datetime="2017-03-01T02:53:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-01</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/01/React-Flux/">React Flux架构</a>
-    </h1>
+    <a href="/2017/03/01/React-Flux/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          React Flux架构
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/19/http协议背后的事/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">http协议背后的事</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react flux</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -344,8 +492,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
