@@ -23,6 +23,8 @@ tags: javascript
     console.log(getNameFn());
     console.log(obj.getName());
     
+    
+<!--more-->
 ### 作用域的种类
 * 作用域有大到小: 
     1.程序级
