@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/04/01/Redux%E6%95%B0%E6%8D%AE%E6%B5%81/</loc>
+    
+    <lastmod>2017-04-01T07:37:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/photo/tool.js</loc>
+    
+    <lastmod>2017-04-01T02:45:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/03/20/React-Flux/</loc>
     
     <lastmod>2017-04-01T02:02:31.000Z</lastmod>
@@ -96,13 +110,6 @@
     <loc>http://yoursite.com/photo/output.json</loc>
     
     <lastmod>2017-03-28T05:15:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/photo/tool.js</loc>
-    
-    <lastmod>2017-03-28T05:13:18.000Z</lastmod>
     
   </url>
   

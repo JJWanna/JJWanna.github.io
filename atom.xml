@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-30T10:28:12.000Z</updated>
+  <updated>2017-04-01T07:37:10.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redux数据流</title>
+    <link href="http://yoursite.com/2017/04/01/Redux%E6%95%B0%E6%8D%AE%E6%B5%81/"/>
+    <id>http://yoursite.com/2017/04/01/Redux数据流/</id>
+    <published>2017-04-01T05:56:11.000Z</published>
+    <updated>2017-04-01T07:37:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>Redux 应用里的数据流是单向的。数据的生命周期有四个阶段：<br>1.<strong>调用 store.dispatch(action)</strong><br>一个动作就是一个纯对象，描述了发生的事情，比如：</li>
+</ul>
+<pre><code>{type:&apos;LIKE_ARTICLE&apos;,articleId:42}
+{type:&apos;FETCH_USER_SUCCESS&apos;,response:{id:3,name:&apos;Mary}}
+{type:&apos;ADD_TODO&apos;,text:&apos;Read thr Redux docs.&apos;}
+</code></pre><p>把动作想成是一些简要的新闻： “Mary liked article 42.” ， “‘Read the Redux docs.’ was added to the list of todos.”。在应用的任何地方你可以调用 store.dispatch(action)，包括组件，XHR 回调等等。<br><a id="more"></a><br>2.<strong>Redux Store 会调用你给它的 reducer</strong><br>store 会把两个参数传递给 reducer：当前的状态树，还有动作。比如在一个任务列表应用里。</p>
+<p>3.Reducer 是纯函数，它只计算出下一个状态。给它同样的输入，任务时候它都会计算出同样的结果。Reducer 不能执行有副作用的动作，比如去调用 API，这些动作应该在调度动作之前完成。</p>
+<pre><code>// The current application state (list of todos and chosen filter)
+let previousState = {
+  visibleTodoFilter: &apos;SHOW_ALL&apos;,
+  todos: [ 
+    {
+      text: &apos;Read the docs.&apos;,
+      complete: false
+    }
+  ]
+}
+
+// The action being performed (adding a todo)
+let action = {
+  type: &apos;ADD_TODO&apos;,
+  text: &apos;Understand the flow.&apos;
+}
+
+// Your reducer returns the next application state
+let nextState = todoApp(previousState, action)
+</code></pre><p>4.Root Reducer 可能会把多个 reducer 输出的东西组合成一个状态树。<br> Root Reducer 的结构完全取决于我们自己的设计。Redux 里面带个帮手函数：combineReducers()，你可以把 Root Reducer 分离成不同的 Reducer，每个 Reducer 都只管理属于它们自己的数据，然后用 combineReducers() 可以把这些分离出来的 Reducer 组合到一块儿，成为一个 Root Reducer。</p>
+<p> 比如你有两个 Reducers，一个是为了任务列表，一个是为了当前选择的过滤器：</p>
+<pre><code>function todos(state = [], action) {
+  // Somehow calculate it...
+  return nextState
+}
+
+function visibleTodoFilter(state = &apos;SHOW_ALL&apos;, action) {
+  // Somehow calculate it...
+  return nextState
+}
+
+let todoApp = combineReducers({
+  todos,
+  visibleTodoFilter
+})
+</code></pre><p>执行了动作以后，combineReducers 返回的 todoApp 会同时调用两个 Reducers：</p>
+<pre><code>let nextTodos = todos(state.todos, action)
+let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
+</code></pre><p>然后会把这两个分支的结果组合成一个状态树：</p>
+<pre><code>return {
+  todos: nextTodos,
+  visibleTodoFilter: nextVisibleTodoFilter
+}
+</code></pre><p>5.Redux store 会把 root reducer 返回的状态树保存起来。<br>  这个新的状态树就是应用的下一个状态。所有 store.subscribe(listener) 注册的监听器会被执行。监听器可以使用 store.getState() 得到当前的状态。现在，UI 会根据新的状态被更新，如果把 React 与 Redux 放到一块儿用，这时候可以去调用  component.setState(newState) 。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;Redux 应用里的数据流是单向的。数据的生命周期有四个阶段：&lt;br&gt;1.&lt;strong&gt;调用 store.dispatch(action)&lt;/strong&gt;&lt;br&gt;一个动作就是一个纯对象，描述了发生的事情，比如：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;{type:&amp;apos;LIKE_ARTICLE&amp;apos;,articleId:42}
+{type:&amp;apos;FETCH_USER_SUCCESS&amp;apos;,response:{id:3,name:&amp;apos;Mary}}
+{type:&amp;apos;ADD_TODO&amp;apos;,text:&amp;apos;Read thr Redux docs.&amp;apos;}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;把动作想成是一些简要的新闻： “Mary liked article 42.” ， “‘Read the Redux docs.’ was added to the list of todos.”。在应用的任何地方你可以调用 store.dispatch(action)，包括组件，XHR 回调等等。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Redux" scheme="http://yoursite.com/tags/Redux/"/>
+    
+  </entry>
   
   <entry>
     <title>前端架构构建</title>
