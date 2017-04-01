@@ -6,17 +6,43 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2016 | WJJ@博客</title>
+  <title>css工作流 | WJJ@博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="专注前端技术">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WJJ@博客">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="css预处理器“An preprocessor is a program that processes its input to produce output that is used as input to another program ”处理特定格式源文件到目标css的处理程序
+
+预处理器变革
+
+
+body {
+    left:&amp;lt;%= left  %&amp;gt;px;
+    colo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css工作流">
+<meta property="og:url" content="http://yoursite.com/2017/01/12/css工作流/index.html">
 <meta property="og:site_name" content="WJJ@博客">
-<meta property="og:description" content="专注前端技术">
+<meta property="og:description" content="css预处理器“An preprocessor is a program that processes its input to produce output that is used as input to another program ”处理特定格式源文件到目标css的处理程序
+
+预处理器变革
+
+
+body {
+    left:&amp;lt;%= left  %&amp;gt;px;
+    colo">
+<meta property="og:image" content="http://yoursite.com/images/170331-2.png">
+<meta property="og:image" content="http://yoursite.com/images/170331-1.png">
+<meta property="og:image" content="http://yoursite.com/images/170331-3.png">
+<meta property="og:updated_time" content="2017-04-01T02:01:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WJJ@博客">
-<meta name="twitter:description" content="专注前端技术">
+<meta name="twitter:title" content="css工作流">
+<meta name="twitter:description" content="css预处理器“An preprocessor is a program that processes its input to produce output that is used as input to another program ”处理特定格式源文件到目标css的处理程序
+
+预处理器变革
+
+
+body {
+    left:&amp;lt;%= left  %&amp;gt;px;
+    colo">
+<meta name="twitter:image" content="http://yoursite.com/images/170331-2.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -153,74 +179,134 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-css工作流" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/21/vue/" class="archive-article-date">
-  	<time datetime="2016-12-21T02:13:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/21/vue/">vue精炼秘籍</a>
+    <h1 class="article-title" itemprop="name">
+      css工作流
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vuejs   vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/31/css工作流/" class="archive-article-date">
-  	<time datetime="2016-10-31T08:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-31</time>
+        
+        <a href="/2017/01/12/css工作流/" class="archive-article-date">
+  	<time datetime="2017-01-12T08:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-12</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/31/css工作流/">css工作流</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>css预处理器<br>“An preprocessor is a program that processes its input to produce output that is used as input to another program ”<br>处理特定格式源文件到目标css的处理程序</p>
+</li>
+<li><p>预处理器变革</p>
+</li>
+</ul>
+<pre><code>body {
+    left:&lt;%= left  %&gt;px;
+    color:&lt;%= color|highlight: 10% %&gt;;
+}
 
-        <div class="article-info info-on-right">
-          
+@base:#f938ab;
+box-shadow(@style,@c)when(iscolor(@c)){
+    -webkit-box-shadow:@style @c;
+    box-shadow:       @style @c;
+}
+box{
+    color:saturate(@base,5%);
+    border-color:lighten(@base,30%);
+    div{.box-shadow(0 0 5px,30%)}
+}
+</code></pre><a id="more"></a>
+<h3 id="预处理器常用规范"><a href="#预处理器常用规范" class="headerlink" title="预处理器常用规范"></a>预处理器常用规范</h3><ul>
+<li>变量</li>
+<li>混合（Mixin） Extend</li>
+<li>嵌套规则</li>
+<li>运算</li>
+<li>函数</li>
+<li>Namespaves &amp; Accessors</li>
+<li>Scope</li>
+<li>注释</li>
+</ul>
+<p>W3C标准实现</p>
+<pre><code>.m-layer{
+    height:var(--height);
+    width:var(--width);
+    background-color:blue;
+}
+.m-layer-sm{
+    --height:100px;
+    --width:100px;
+}
+.m-layer-bg{
+    --height:200px;
+    --width:200px;
+}
+
+&lt;div class=&quot;m-layer m-layer-bg&quot;&gt;&lt;/div&gt;
+</code></pre><h3 id="CSS后处理器"><a href="#CSS后处理器" class="headerlink" title="CSS后处理器"></a>CSS后处理器</h3><ul>
+<li>css压缩 ClEAN-CSS</li>
+<li>自动添加浏览器前缀 Autoprefixer</li>
+<li>CSS更加美观排序 CSScomb</li>
+<li>Rework 取代Styles后处理器发热</li>
+<li>前后都行 PostCss</li>
+</ul>
+<pre><code>:root{
+    --red:#d33;
+}
+a{
+    &amp;:hover{
+        color:color(var(--red) a(54%));
+    }
+}
+
+a:hover{
+    color:#dd3333;
+    color:rgba(221,51,51,0.54);
+}
+</code></pre><p><img src="/images/170331-2.png" alt=""><br><img src="/images/170331-1.png" alt=""><br>抽象语法树（Abstract Syntax Tree,AST）作为程序的一种中间表示形式</p>
+<h4 id="POSTCSS值得收藏的插件"><a href="#POSTCSS值得收藏的插件" class="headerlink" title="POSTCSS值得收藏的插件"></a>POSTCSS值得收藏的插件</h4><ul>
+<li>POSTCSS-CUSTOM-PROPERTIES 运行时变量</li>
+<li>POSTCSS-SIMPLE-VARS 与SCSS一致的变量实现</li>
+<li>POSTCSS-MIXINS 实现类似SASS的@MIXIN的功能</li>
+<li>POSTCSS-EXTEND 实现类似SASS的继承功能</li>
+<li>POSTCSS-IMPORT 实现类似SASS的IMPORT</li>
+<li>CSSNext 面向未来  CSS Grace 修复过去</li>
+</ul>
+<pre><code>var gulp = require(&apos;gulp&apos;);
+var postcss = require(&apos;gulp-postcss&apos;);
+var autoprefixer = require(&apos;autoprefixer&apos;);
+var cssgrace  = require(&apos;cssgrace&apos;);
+var cssnext  = require(&apos;cssnext&apos;);
+gulp.task(&apos;css&apos;, function () {
+  var processors = [
+    autoprefixer({browsers: [&apos;last 3 version&apos;],
+      cascade: false,
+      remove: false
+    }),
+    cssnext(),
+    cssgrace
+  ];
+  return gulp.src(&apos;./src/css/*.css&apos;)
+    .pipe(postcss(processors))
+    .pipe(gulp.dest(&apos;./dist&apos;));
+});
+gulp.task(&apos;watch&apos;, function(){
+  gulp.watch(&apos;./src/css/*.css&apos;, [&apos;css&apos;]);
+});
+gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
+</code></pre><p><img src="/images/170331-3.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -232,57 +318,92 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/01/12/css工作流/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/31/CSS3核心高级技巧/" class="archive-article-date">
-  	<time datetime="2016-10-31T03:32:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-31</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/31/CSS3核心高级技巧/">CSS3核心高级技巧</a>
-    </h1>
+    <a href="/2017/02/11/javascript语言精髓/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          javascript语言精髓
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css3</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -306,8 +427,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -372,11 +493,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">http https</a>
+                <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
+                <a href="javascript:void(0)" class="js-tag color1">http https</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -388,11 +509,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
+                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
               </li>
             
             <div class="clearfix"></div>

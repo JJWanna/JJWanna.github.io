@@ -6,17 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2016/12 | WJJ@博客</title>
+  <title>vue精炼秘籍 | WJJ@博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="专注前端技术">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WJJ@博客">
-<meta property="og:url" content="http://yoursite.com/archives/2016/12/index.html">
+  <meta name="description" content="Vuex理论介绍
+Vuex核心概念
+Vuex搭载vue-Resource&amp;amp;vue-router
+Vue2+Webpack2+KOA2构建大型应用
+
+Vuex理论基础1.Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 devtools。2.不开发大型单页应用尽量不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue精炼秘籍">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/vue/index.html">
 <meta property="og:site_name" content="WJJ@博客">
-<meta property="og:description" content="专注前端技术">
+<meta property="og:description" content="Vuex理论介绍
+Vuex核心概念
+Vuex搭载vue-Resource&amp;amp;vue-router
+Vue2+Webpack2+KOA2构建大型应用
+
+Vuex理论基础1.Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 devtools。2.不开发大型单页应用尽量不">
+<meta property="og:image" content="http://yoursite.com/images/vue1.png">
+<meta property="og:image" content="http://yoursite.com/images/vuex1.png">
+<meta property="og:updated_time" content="2017-04-01T02:02:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WJJ@博客">
-<meta name="twitter:description" content="专注前端技术">
+<meta name="twitter:title" content="vue精炼秘籍">
+<meta name="twitter:description" content="Vuex理论介绍
+Vuex核心概念
+Vuex搭载vue-Resource&amp;amp;vue-router
+Vue2+Webpack2+KOA2构建大型应用
+
+Vuex理论基础1.Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 devtools。2.不开发大型单页应用尽量不">
+<meta name="twitter:image" content="http://yoursite.com/images/vue1.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -153,36 +172,280 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-vue" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/21/vue/" class="archive-article-date">
-  	<time datetime="2016-12-21T02:13:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/21/vue/">vue精炼秘籍</a>
+    <h1 class="article-title" itemprop="name">
+      vue精炼秘籍
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/03/28/vue/" class="archive-article-date">
+  	<time datetime="2017-03-28T02:13:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Vuex理论介绍</li>
+<li>Vuex核心概念</li>
+<li>Vuex搭载vue-Resource&amp;vue-router</li>
+<li>Vue2+Webpack2+KOA2构建大型应用</li>
+</ul>
+<h3 id="Vuex理论基础"><a href="#Vuex理论基础" class="headerlink" title="Vuex理论基础"></a>Vuex理论基础</h3><p>1.Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 devtools。<br>2.不开发大型单页应用尽量不要使用Vuex。<br>3.多个视图依赖于同一状态。来自不同视图的行为需要变更同一状态。<br><a id="more"></a><br><img src="/images/vue1.png" alt=""></p>
+<ul>
+<li>state，驱动应用的数据源；</li>
+<li>view，以声明方式将state映射到视图；</li>
+<li>actions，响应在view上的用户输入导致的状态变化。<br><img src="/images/vuex1.png" alt=""><h3 id="vuex-的不同"><a href="#vuex-的不同" class="headerlink" title="vuex 的不同"></a>vuex 的不同</h3>1.Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。<br>2.你不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地提交 mutations。这样使得我们可以方便地跟踪每一个状态的变化，从而让我们能够实现一些工具帮助我们更好地了解我们的应用。</li>
+<li>store</li>
+</ul>
+<pre><code>Vue.use(Vuex)
+const store = new Vuex.Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  }
+})
+store.commit(&apos;increment&apos;)
+console.log(store.state.count) // -&gt; 1
+</code></pre><h3 id="Vuex核心模块"><a href="#Vuex核心模块" class="headerlink" title="Vuex核心模块"></a>Vuex核心模块</h3><ul>
+<li>State</li>
+<li>Getters</li>
+<li>Mutations</li>
+<li>Actions</li>
+<li>Modules</li>
+</ul>
+<p>1.State</p>
+<ul>
+<li>单一状态树，用一个对象就包含了全部的应用层级状态。</li>
+<li>mapState 当一个组件需要获取多个状态时候，将这些状态都声明为计算属性会有些重复和冗余。</li>
+<li>对象展开符号……mapState({})</li>
+</ul>
+<pre><code>import { mapState } from &apos;vuex&apos;
+export default {
+  computed: mapState({
+    count: state =&gt; state.count,
+    countAlias: ‘count&apos;,
+    countPlusLocalState (state) {
+      return state.count + this.localCount
+    }
+  }
+  //…mapState({count})扩展函数符
+}
+</code></pre><p>2.Getters</p>
+<ul>
+<li>从 store 中的 state 中派生出一些状态</li>
+<li>mapGetters 辅助函数仅仅是将 store 中的 getters 映射到局部计算属性</li>
+<li>getters（可以认为是 store 的计算属性）</li>
+</ul>
+<pre><code>const store = new Vuex.Store({
+  state: {
+    todos: [
+      { id: 1, text: &apos;...&apos;, done: true },
+      { id: 2, text: &apos;...&apos;, done: false }
+    ]
+  },
+  getters: {
+    doneTodos: state =&gt; {
+      return state.todos.filter(todo =&gt; todo.done)
+    }
+  }
+})
+
+computed: {
+  doneTodosCount () {
+    return this.$store.getters.doneTodosCount
+  }
+}
+
+computed: {
+    ...mapGetters([
+      &apos;doneTodosCount&apos;
+    ])
+  }
+</code></pre><p>3.Mutations</p>
+<ul>
+<li>更改 Vuex 的 store 中的状态的唯一方法是提交 mutation（不能直接调用句柄，必须通过触发）</li>
+<li>mutations就是vue methods</li>
+<li>每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)</li>
+<li>使用常量替代 Mutation 事件类型</li>
+<li>mutation 必须是同步函数</li>
+</ul>
+<pre><code>// mutation-types.js
+export const SOME_MUTATION = ‘SOME_MUTATION&apos;
+
+// store.js
+import { SOME_MUTATION } from &apos;./mutation-types&apos;
+
+const store = new Vuex.Store({
+  state: { ... },
+  mutations: {
+    [SOME_MUTATION] (state) {
+      // mutate state
+    }
+  }
+})
+
+
+//Mutations (调用)
+import { mapMutations } from ‘vuex&apos;
+import { SOME_MUTATION } from &apos;./mutation-types&apos;
+
+export default {
+  methods: {
+    test(){
+          this.$store.commit(SOME_MUTATION)
+    },
+    ...mapMutations([
+      &apos;SOME_MUTATION&apos; 
+      // 映射 this.increment() 为 this.$store.commit(&apos;SOME_MUTATION&apos;)
+    ])
+  }
+}
+</code></pre><p>4.Actions</p>
+<ul>
+<li>Action 提交的是 mutation</li>
+<li>Action 可以包含任意异步操作</li>
+<li>mapActions 辅助函数将组件的 methods 映射为 store.dispatch 调用</li>
+<li>view    store.dispatch(‘increment’)</li>
+<li>action  commit(‘someMutation’)</li>
+</ul>
+<pre><code>actions: {
+  async actionA ({ commit }) {
+    commit(&apos;gotData&apos;, await getData())
+  },
+  async actionB ({ dispatch, commit }) {
+    await dispatch(&apos;actionA&apos;) // 等待 actionA 完成
+    commit(&apos;gotOtherData&apos;, await getOtherData())
+  }
+}
+
+
+//Actions（调用）
+import { mapActions } from &apos;vuex&apos;
+export default {
+  methods: {
+    test(){
+         store.dispatch(‘actionB&apos;);
+    },
+    ...mapActions([
+      ‘actionB&apos;
+      // 映射 this.increment() 
+     //this.$store.dispatch(‘actionB’)
+    ])
+  }
+}
+</code></pre><p>5.Modules</p>
+<ul>
+<li>Vuex 运行我们将 store 分割到模块（module）。每个模块拥有自己的 state、mutation、action、getters、甚至是嵌套子模块——从上至下进行类似的分割。</li>
+<li>store 创建之后，你可以使用 store.registerModule 方法注册模块：</li>
+</ul>
+<pre><code>const moduleA = {
+  state: { ... },
+  mutations: { ... },
+  actions: { ... },
+  getters: { ... }
+}
+
+const moduleB = {
+  state: { ... },
+  mutations: { ... },
+  actions: { ... }
+}
+
+const store = new Vuex.Store({
+  modules: {
+    a: moduleA,
+    b: moduleB
+  }
+})
+
+store.state.a // -&gt; moduleA 的状态
+store.state.b // -&gt; moduleB 的状态
+
+store.registerModule(&apos;myModule&apos;, {
+  // ...
+})
+</code></pre><p>6.Plugins</p>
+<ul>
+<li>Vuex 的 store 接受 plugins 选项，这个选项暴露出每次 mutation 的钩子。Vuex 插件就是一个函数，它接收 sotre 作为唯一参数。</li>
+<li>在插件中不允许直接修改状态——类似于组件，只能通过提交 mutation 来触发变化。</li>
+<li>自定义的状态快照。</li>
+</ul>
+<pre><code>const myPlugin = store =&gt; {
+  // 当 store 初始化后调用
+  store.subscribe((mutation, state) =&gt; {
+    // 每次 mutation 之后调用
+    // mutation 的格式为 { type, payload }
+  })
+}
+
+const store = new Vuex.Store({
+  plugins: [myPlugin]
+})
+</code></pre><h3 id="其他补充"><a href="#其他补充" class="headerlink" title="其他补充"></a>其他补充</h3><ul>
+<li>Vuex的思维处理表单<input :value="message" @input="updateMessage"></li>
+<li>测试Actions需要增加一个mocking服务层，测试文件中用 mock 服务回应 API 调用。为了便于解决 mock 依赖，可以用 Webpack 和 inject-loader 打包测试文件。</li>
+<li>Hot Module Replacement API，Vuex 支持在开发过程中热重载 mutation、modules、actions、和getters。   </li>
+</ul>
+<pre><code>测试Actions演示
+import { expect } from &apos;chai&apos;
+const actionsInjector = require(&apos;inject!./actions&apos;)
+// 使用 mocks 创建模块
+const actions = actionsInjector({
+  &apos;../api/shop&apos;: {
+    getProducts (cb) {
+      setTimeout(() =&gt; {
+        cb([ /* mocked response */ ])
+      }, 100)
+    }
+  }
+})
+
+
+测试代码
+describe(&apos;actions&apos;, () =&gt; {
+  it(&apos;getAllProducts&apos;, done =&gt; {
+    testAction(actions.getAllProducts, [], {}, [
+      { type: &apos;REQUEST_PRODUCTS&apos; },
+      { type: &apos;RECEIVE_PRODUCTS&apos;, payload: { } }
+    ], done)
+  })
+})
+</code></pre><h3 id="vuex-router-sync"><a href="#vuex-router-sync" class="headerlink" title="vuex-router-sync"></a>vuex-router-sync</h3><p>1.视图层</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;h1&gt;Hello App!&lt;/h1&gt;
+  &lt;p&gt;
+    &lt;router-link to=&quot;/foo&quot;&gt;Go to Foo&lt;/router-link&gt;
+    &lt;router-link to=&quot;/bar&quot;&gt;Go to Bar&lt;/router-link&gt;
+  &lt;/p&gt;
+  &lt;router-view&gt;&lt;/router-view&gt;
+&lt;/div&gt;
+</code></pre><p>2.结合 Vuex</p>
+<pre><code>import { sync } from &apos;vuex-router-sync&apos;
+import store from &apos;./vuex/store&apos; 
+import router from &apos;./router&apos; 
+sync(store, router) 
+this.$store.state.route.path   // current path (string)
+this.$store.state.route.params // current params (object) this.$store.state.route.query  // current query (object)
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -194,19 +457,97 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/28/vue/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/javascript函数式编程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          javascript函数式编程
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/03/21/CSS3核心高级技巧/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS3核心高级技巧</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -230,8 +571,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -296,11 +637,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">http https</a>
+                <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
+                <a href="javascript:void(0)" class="js-tag color1">http https</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -312,11 +653,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
+                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
               </li>
             
             <div class="clearfix"></div>

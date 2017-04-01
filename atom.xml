@@ -237,6 +237,155 @@ x-foo /deep/span 可以匹配到 #not-top和 #top元素
   </entry>
   
   <entry>
+    <title>http协议背后的事</title>
+    <link href="http://yoursite.com/2017/03/29/http%E5%8D%8F%E8%AE%AE%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%8B/"/>
+    <id>http://yoursite.com/2017/03/29/http协议背后的事/</id>
+    <published>2017-03-29T07:27:02.000Z</published>
+    <updated>2017-04-01T02:02:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>当我们输入网址后发生了什么</li>
+<li>HTTP协议详解</li>
+<li>HTTP协议安全</li>
+<li>后台服务与HTTP</li>
+<li>反向代理与web服务</li>
+</ul>
+<h3 id="浏览器行为与HTTP协议"><a href="#浏览器行为与HTTP协议" class="headerlink" title="浏览器行为与HTTP协议"></a>浏览器行为与HTTP协议</h3><p>处理流程：<br>1.输入网址并回车<br>2.解析域名<br>3.浏览器发送http请求<br>4.服务器处理请求<br>5.服务器返回HTML响应<br>6.浏览器处理HTML页面<br>7.继续请求其他资源</p>
+<a id="more"></a>
+<h3 id="什么是HTTP协议"><a href="#什么是HTTP协议" class="headerlink" title="什么是HTTP协议"></a>什么是HTTP协议</h3><ul>
+<li>HTTP是超文本传输协议，从www浏览器传输到本地浏览器的一种传输协议，网站是基于HTTP协议的，例如网站的图片、CSS、JS等都是基于HTTP协议进行传输的。</li>
+<li>HTTP协议是由从客户机到服务器的请求(Reuqest)和从服务器到客户机的响应(response)进行约束和规范。</li>
+</ul>
+<h3 id="了解TCP-IP协议栈"><a href="#了解TCP-IP协议栈" class="headerlink" title="了解TCP/IP协议栈"></a>了解TCP/IP协议栈</h3><p>1.应用层：为用户提供所需要的各种服务，例如：HTTP、FTP、DNS、SMTP等。<br>2.传输层：为应用层实体提供端到端通信功能，保证数据包的顺序传送及数据的完整性。该层定义了两个主要协议：<strong>传输控制协议(TCP)和用户数据报协议(UDP)</strong>。<br>3.网络层：主要解决主机到主机的通信问题。IP协议是网际互联层最重要的协议。<br>4.网络接口层：负责监视数据在主机和网络之间的交换。</p>
+<h3 id="在TCP-IP协议栈中得位置"><a href="#在TCP-IP协议栈中得位置" class="headerlink" title="在TCP/IP协议栈中得位置"></a>在TCP/IP协议栈中得位置</h3><ul>
+<li>目前应用版本HTTP1.1</li>
+<li>HTTP默认端口号为80</li>
+<li>HTTPS默认端口443<br><img src="/images/http1.png" alt=""></li>
+</ul>
+<h3 id="HTTP的工作过程"><a href="#HTTP的工作过程" class="headerlink" title="HTTP的工作过程"></a>HTTP的工作过程</h3><ul>
+<li>一次HTTP操作称为一个事务,其工作过程可分为四步:<br>1.首先客户机与服务器需要建立连接。只要单击某个超级链接,HTTP的工作开始。<br>2.建立连接后,客户机发送一个请求给服务器,请求方式的格式为:统一资源标识符(URL)、协议版本号,后边是MIME信息包括请求修饰符、客户机信息和可能的内容。<br>3.服务器接到请求后,给予相应的响应信息,其格式为一个状态行,包括信息的协议版本号、一个成功或错误的代码,后边是MIME信息包括服务器信息、实体信息和可能的内容。<br>4.客户端接收服务器所返回的信息通过浏览器显示在用户的显示屏上,然后客户机与服务器断开连接。<br>如果在以上过程中的某一步出现错误,那么产生错误的信息将返回到客户端,有显示屏输出。对于用户来说,这些过程是由HTTP自己完成的,用户只要用鼠标点击,等待信息显示就可以了。</li>
+</ul>
+<h3 id="请求与响应"><a href="#请求与响应" class="headerlink" title="请求与响应"></a>请求与响应</h3><ul>
+<li>HTTP请求组成:请求行、消息报头、请求正文。</li>
+<li>HTTP响应组成:状态行、消息报头、响应正文。</li>
+<li>请求行组成:以一个方法符号开头,后面跟着请求的URI和协议的版本。</li>
+<li>状态行组成:服务器HTTP协议的版本,服务器发回的响应状态代码和状态代码的文本描述。</li>
+</ul>
+<p>(1) <strong>请求报文</strong><br><img src="/images/request.png" alt=""><br>(2) <strong>响应报文</strong><br><img src="/images/response.png" alt=""></p>
+<h3 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h3><ul>
+<li>GET: 请求获取Request-URI所标识的资源</li>
+<li>POST: 在Request-URI所标识的资源后附加新的数据</li>
+<li>HEAD: 请求获取由Request-URI所标识的资源的响应消息报头 </li>
+<li>PUT: 请求服务器存储一个资源,并用Request-URI作为其标识 </li>
+<li>DELETE: 请求服务器删除Request-URI所标识的资源</li>
+<li>TRACE: 请求服务器回送收到的请求信息,主要用于测试或诊断</li>
+<li>CONNECT: 保留将来使用 OPTIONS:请求查询服务器的性能,或者查询与资源相关的选项和需求</li>
+</ul>
+<h3 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h3><p>状态代码有三位数字组成,第一个数字定义了响应的类别,且有五种可能取值: </p>
+<ul>
+<li>1xx:指示信息–表示请求已接收,继续处理 </li>
+<li>2xx:成功–表示请求已被成功接收、理解、接受 </li>
+<li>3xx:重定向–要完成请求必须进行更进一步的操作 </li>
+<li>4xx:客户端错误–请求有语法错误或请求无法实现 </li>
+<li>5xx:服务器端错误–服务器未能实现合法的请求</li>
+</ul>
+<h3 id="常用的请求报头"><a href="#常用的请求报头" class="headerlink" title="常用的请求报头"></a>常用的请求报头</h3><ul>
+<li>Accept请求报头域用于指定客户端接受哪些类型的信息。eg:Accept:image/gif,Accept:text/ htmlAccept-Charset请求报头域用于指定客户端接受的字符集。Accept-Encoding:Accept-Encoding请求 报头域类似于Accept,但是它是用于指定可接受的内容编码。</li>
+<li>Accept-Language请求报头域类似于Accept,但是它是用于指定一种自然语言。</li>
+<li>Authorization请求报头域主要用于证明客户端有权查看某个资源。当浏览器访问一个页面时,如果收到服务器的响应代码为401(未授权),可以发送一个包含Authorization请求报头域的请求,要求服务 器对其进行验证。</li>
+<li>Host请求报头域主要用于指定被请求资源的Internet主机和端又号,它通常从HTTP URL中提取出来 的,发送请求时,该报头域是必需的。</li>
+<li>User-Agent请求报头域允许客户端将它的操作系统、浏览器和其它属性告诉服务器。</li>
+</ul>
+<h3 id="常用的响应报头"><a href="#常用的响应报头" class="headerlink" title="常用的响应报头"></a>常用的响应报头</h3><ul>
+<li>Location响应报头域用于重定向接受者到一个新的位置。Location 响应报头域常用在更换域名的时候。</li>
+<li>Server响应报头域包含了服务器用来处理请求的软件信息。与User- Agent请求报头域是相对应的。</li>
+<li>WWW-Authenticate响应报头域必须被包含在401(未授权的)响应 消息中,客户端收到401响应消息时候,并发送Authorization报头 域请求服务器对其进行验证时,服务端响应报头就包含该报头域。</li>
+</ul>
+<h3 id="实体报头"><a href="#实体报头" class="headerlink" title="实体报头"></a>实体报头</h3><p>请求和响应消息都可以传送一个实体。一个实体由实体报头域 和实体正文组成,但并不是说实体报头域和实体正文要在一起 发送,可以只发送实体报头域。实体报头定义了关于实体正文 (eg:有无实体正文)和请求所标识的资源的元信息。</p>
+<h3 id="常用的实体报头"><a href="#常用的实体报头" class="headerlink" title="常用的实体报头"></a>常用的实体报头</h3><ul>
+<li>Content-Encoding实体报头域被用作媒体类型的修饰符,它的值指示了已经被应用到实体正文 的附加内容的编码,因而要获得Content-Type报头域中所引用的媒体类型,必须采用相应的解 码机制。</li>
+<li>Content-Language实体报头域描述了资源所用的自然语言。 </li>
+<li>Content-Length实体报头域用于指明实体正文的长度,以字节方式存储的十进制数字来表示。</li>
+<li>Content-Type实体报头域用语指明发送给接收者的实体正文的媒体类型。</li>
+<li>Last-Modified实体报头域用于指示资源的最后修改日期和时间。 </li>
+<li>Expires实体报头域给出响应过期的日期和时间。</li>
+</ul>
+<h3 id="cookies-与-session"><a href="#cookies-与-session" class="headerlink" title="cookies 与 session"></a>cookies 与 session</h3><ul>
+<li>Cookies是保存在客户端的小段文本,随客户端点每一个请求发送该url下的所有cookies到服务器端。</li>
+<li>Session则保存在服务器端,通过唯一的值sessionID来区别每一 个用户。SessionID随每个连接请求发送到服务器,服务器根据 sessionID来识别客户端,再通过session 的key获取session值。</li>
+</ul>
+<h3 id="cookie应用"><a href="#cookie应用" class="headerlink" title="cookie应用"></a>cookie应用</h3><p>与Cookie相关的HTTP扩展头<br>1.Cookie:客户端将服务器设置的Cookie返回到服务器;<br>2.Set-Cookie:服务器向客户端设置Cookie;<br>服务器在响应消息中用Set-Cookie头将 Cookie的内容回送给客户端,客户端在新 的请求中将相同的内容携带在Cookie头中 发送给服务器。从而实现会话的保持。</p>
+<h3 id="session-使用"><a href="#session-使用" class="headerlink" title="session 使用"></a>session 使用</h3><ul>
+<li>使用Cookie来实现 </li>
+<li>使用URL回显来实现</li>
+</ul>
+<h3 id="缓存机制"><a href="#缓存机制" class="headerlink" title="缓存机制"></a>缓存机制</h3><ul>
+<li>缓存会根据请求保存输出内容的副本,例如html页面,图片,文 件,当下一个请求来到的时候:如果是相同的URL,缓存直接使 用副本响应访问请求,而不是向源服务器再次发送请求。</li>
+<li>缓存的优点:<ol>
+<li>减少相应延迟</li>
+<li>减少网络带宽消耗</li>
+</ol>
+</li>
+</ul>
+<h3 id="浏览器缓存机制-浏览器第一次请求"><a href="#浏览器缓存机制-浏览器第一次请求" class="headerlink" title="浏览器缓存机制-浏览器第一次请求"></a>浏览器缓存机制-浏览器第一次请求</h3><p><img src="/images/request1.png" alt=""></p>
+<h3 id="浏览器缓存机制-浏览器再次请求"><a href="#浏览器缓存机制-浏览器再次请求" class="headerlink" title="浏览器缓存机制-浏览器再次请求"></a>浏览器缓存机制-浏览器再次请求</h3><p><img src="/images/request2.png" alt=""></p>
+<h3 id="Etag-if-None-Match策略"><a href="#Etag-if-None-Match策略" class="headerlink" title="Etag/if-None-Match策略"></a>Etag/if-None-Match策略</h3><ul>
+<li>Etag:web服务器响应请求时,告诉浏览器当前资源在服务器的唯一标识(生成规则由服务器决定)</li>
+<li>If-None-Match:当资源过期时(使用Cache-Control标识的max- age),发现资源具有Etage声明,则再次向web服务器请求时带 上头If-None-Match (Etag的值)。web服务器收到请求后发现 有头If-None-Match 则与被请求资源的相应校验串进行比对,决 定返回200或304。</li>
+</ul>
+<h3 id="Last-Modified-if-Modified-Since策略"><a href="#Last-Modified-if-Modified-Since策略" class="headerlink" title="Last-Modified/if-Modified-Since策略"></a>Last-Modified/if-Modified-Since策略</h3><ul>
+<li>Last-Modified:标示这个响应资源的最后修改时间。web服务器在响应请求时,告诉浏览器资源的最后修改时间。</li>
+<li>If-Modified-Since:当资源过期时(使用Cache-Control标识的max-age),发 现资源具有Last-Modified声明,则再次向web服务器请求时带上头 If- Modified-Since,表示请求时间。web服务器收到请求后发现有头If-Modified- Since 则与被请求资源的最后修改时间进行比对。若最后修改时间较新,说 明资源又被改动过,则响应整片资源内容(写在响应消息包体内),HTTP 200;若最后修改时间较旧,说明资源无新修改,则响应HTTP 304 (无需包 体,节省浏览),告知浏览器继续使用所保存的cache。</li>
+</ul>
+<h3 id="HTTP链路安全"><a href="#HTTP链路安全" class="headerlink" title="HTTP链路安全"></a>HTTP链路安全</h3><p>1.加密重要数据<br>2.对非重要数据签名<br>3.使用安全连接HTTPS协议</p>
+<h3 id="下一代标准：HTTP2"><a href="#下一代标准：HTTP2" class="headerlink" title="下一代标准：HTTP2"></a>下一代标准：HTTP2</h3><ul>
+<li>使用二进制格式传输,更高效、更紧凑。</li>
+<li>对报头压缩,降低开销。</li>
+<li>多路复用,一个网络连接实现并行请求。</li>
+<li>服务器主动推送,减少请求的延迟</li>
+</ul>
+<h3 id="http与反向代理"><a href="#http与反向代理" class="headerlink" title="http与反向代理"></a>http与反向代理</h3><ul>
+<li>什么是代理,什么又是反向代理?</li>
+<li>为什么要使用反向代理? </li>
+<li>都有哪些反向代理服务器?</li>
+</ul>
+<h3 id="反向代理的用途"><a href="#反向代理的用途" class="headerlink" title="反向代理的用途"></a>反向代理的用途</h3><ul>
+<li>加密和SSL加速 </li>
+<li>负载均衡 </li>
+<li>缓存静态内容 </li>
+<li>压缩</li>
+<li>减速上传 </li>
+<li>安全</li>
+<li>外网发布</li>
+</ul>
+<h4 id="反向代理做负载均衡"><a href="#反向代理做负载均衡" class="headerlink" title="反向代理做负载均衡"></a>反向代理做负载均衡</h4><p><img src="/images/daili.png" alt=""></p>
+<h4 id="让nginx跑起来"><a href="#让nginx跑起来" class="headerlink" title="让nginx跑起来"></a>让nginx跑起来</h4><ul>
+<li>准备环境:Linux服务器、gcc编译器、nginx源代码 </li>
+<li>获取nginx源码:<a href="http://nginx.org" target="_blank" rel="external">http://nginx.org</a> </li>
+<li>编译安装nginx源码</li>
+<li>配置规则</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;当我们输入网址后发生了什么&lt;/li&gt;
+&lt;li&gt;HTTP协议详解&lt;/li&gt;
+&lt;li&gt;HTTP协议安全&lt;/li&gt;
+&lt;li&gt;后台服务与HTTP&lt;/li&gt;
+&lt;li&gt;反向代理与web服务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;浏览器行为与HTTP协议&quot;&gt;&lt;a href=&quot;#浏览器行为与HTTP协议&quot; class=&quot;headerlink&quot; title=&quot;浏览器行为与HTTP协议&quot;&gt;&lt;/a&gt;浏览器行为与HTTP协议&lt;/h3&gt;&lt;p&gt;处理流程：&lt;br&gt;1.输入网址并回车&lt;br&gt;2.解析域名&lt;br&gt;3.浏览器发送http请求&lt;br&gt;4.服务器处理请求&lt;br&gt;5.服务器返回HTML响应&lt;br&gt;6.浏览器处理HTML页面&lt;br&gt;7.继续请求其他资源&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="http https" scheme="http://yoursite.com/tags/http-https/"/>
+    
+  </entry>
+  
+  <entry>
     <title>小程序面向个人开发者开放</title>
     <link href="http://yoursite.com/2017/03/28/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E5%90%91%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E8%80%85%E5%BC%80%E6%94%BE/"/>
     <id>http://yoursite.com/2017/03/28/小程序面向个人开发者开放/</id>
@@ -693,428 +842,11 @@ addSquare(1,2);
   </entry>
   
   <entry>
-    <title>React Flux架构</title>
-    <link href="http://yoursite.com/2017/03/01/React-Flux/"/>
-    <id>http://yoursite.com/2017/03/01/React-Flux/</id>
-    <published>2017-03-01T02:53:50.000Z</published>
-    <updated>2017-04-01T01:33:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>Flux架构介绍</li>
-<li>React性能调优</li>
-<li>Redux介绍与实战</li>
-<li>GraphQL and Relay</li>
-</ul>
-<h3 id="Flux架构介绍"><a href="#Flux架构介绍" class="headerlink" title="Flux架构介绍"></a>Flux架构介绍</h3><ul>
-<li>React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。</li>
-<li>Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。</li>
-<li>View : 视图层</li>
-<li>Action（动作）: 视图层发出的消息（比如mouseClick）</li>
-<li>Dispatcher（派发器）: 用来接收Actions、执行回调函数</li>
-<li>Store（数据层）: 用来存放应用的状态，一旦发生变动，就提醒Views要更新页面<a id="more"></a>
-<img src="/images/170330-11.png" alt=""><br>1.用户访问 View<br>2.View 发出用户的 Action<br>3.Dispatcher 收到 Action，要求 Store 进行相应的更新<br>4.Store 更新后，发出一个”change”事件<br>5.View 收到”change”事件后，更新页面</li>
-</ul>
-<h3 id="React性能调优"><a href="#React性能调优" class="headerlink" title="React性能调优"></a>React性能调优</h3><pre><code>this.state.list.get(&quot;items&quot;).map(function(label) {
-        return &lt;div&gt;&lt;CheckboxWithLabel onChange={this.onChange} &gt;&lt;/CheckboxWithLabel&gt;&lt;/div&gt;
-});
-
-onChange:function(){ 
- this.setState({label:123})
-}
-
-shouldComponentUpdate: function(nextProps, nextState) {
-     return nextProps.label !== this.props.label;
-}
-
-mixins: [React.addons.PureRenderMixin],
-constructor(props) {
-     super(props);
-     this.shouldComponentUpdate = React.addons.PureRenderMixin.shouldComponentUpdate.bind(this);
-}
-</code></pre><p>  子组件的更新触发父组件。父组件更新全部子组件要Diff,一旦更改了state类型，上面全部办法歇菜。</p>
-<h3 id="Redux介绍与实战"><a href="#Redux介绍与实战" class="headerlink" title="Redux介绍与实战"></a>Redux介绍与实战</h3><ul>
-<li>Flux存在多种实现（至少15种）Redux还算不错</li>
-<li>redux.min.js、react-redux.js、redux-thunk.min.js、keyMirror.js、immutable.min.js、reqwest.js（fectch）、ReduxThunk.js</li>
-<li>管理应用的 State:<ul>
-<li>通过 store.getState() 可以获取 State</li>
-<li>通过 store.dispatch(action) 来触发 Stete 更新</li>
-<li>通过 store.subscribe(listener) 来注册 state 变化监听器</li>
-<li>通过 createStore(reducer, [initialState]) 创建</li>
-</ul>
-</li>
-<li>Provider(ReactRedux)注入store <provider store="{store}<App/">  </provider></li>
-<li>Actions  JavaScript 普通对象 通过constants取到</li>
-<li>对应 Actions Reducer 返回规律，更具体的是返回状态( Redux.combineReducers返回唯一的 Reducer)。</li>
-<li>Store(Redux.createStore(rootReducer,Redux.applyMiddleware(thunkMiddleware)))具体实施的载体</li>
-<li>components具体React的组件但是不涉及状态</li>
-<li>components-&gt;APP容器 react-redux 提供 connect 的方法 链接React组件和Redux类</li>
-</ul>
-<h3 id="Redux架构"><a href="#Redux架构" class="headerlink" title="Redux架构"></a>Redux架构</h3><p><img src="images/170330-22.png" alt=""><br>异步的Reducer<br><img src="images/170330-33.png" alt=""></p>
-<pre><code>import configureStore from &apos;./store/configureStore.es&apos;;
-import App from &apos;./containers/App.es&apos;;
-const Provider = ReactRedux.Provider;
-const store = configureStore();
-//通过store.getState()可以获取state
-//通过store.dispatch(action)来处罚state更新
-//通过store.subscribe(listener)来注册state变化监听器
-//通过createStore(reducer,[initialState])创建
-
-ReactDOM.render(
-    &lt;Provider store={store}&gt;
-        &lt;App/&gt;
-    &lt;/Provider&gt;,
-    document.getElementById(&apos;JS-container&apos;)
-)
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;Flux架构介绍&lt;/li&gt;
-&lt;li&gt;React性能调优&lt;/li&gt;
-&lt;li&gt;Redux介绍与实战&lt;/li&gt;
-&lt;li&gt;GraphQL and Relay&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;Flux架构介绍&quot;&gt;&lt;a href=&quot;#Flux架构介绍&quot; class=&quot;headerlink&quot; title=&quot;Flux架构介绍&quot;&gt;&lt;/a&gt;Flux架构介绍&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。&lt;/li&gt;
-&lt;li&gt;Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。&lt;/li&gt;
-&lt;li&gt;View : 视图层&lt;/li&gt;
-&lt;li&gt;Action（动作）: 视图层发出的消息（比如mouseClick）&lt;/li&gt;
-&lt;li&gt;Dispatcher（派发器）: 用来接收Actions、执行回调函数&lt;/li&gt;
-&lt;li&gt;Store（数据层）: 用来存放应用的状态，一旦发生变动，就提醒Views要更新页面
-    
-    </summary>
-    
-    
-      <category term="react flux" scheme="http://yoursite.com/tags/react-flux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>javascript语言精髓</title>
-    <link href="http://yoursite.com/2017/02/11/javascript%E8%AF%AD%E8%A8%80%E7%B2%BE%E9%AB%93/"/>
-    <id>http://yoursite.com/2017/02/11/javascript语言精髓/</id>
-    <published>2017-02-11T01:36:06.000Z</published>
-    <updated>2017-04-01T01:58:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="闭包、作-域、原型链"><a href="#闭包、作-域、原型链" class="headerlink" title="闭包、作 域、原型链"></a>闭包、作 域、原型链</h3><pre><code>if(!(“userName” in window)){
- var userName=“zhengzheng.xz”;
-}
-console.log(userName);
-
-
-var obj = {
-   user: “zhengzheng.xz”
-   getName:function(){
-      return user;
-   }
-}
-var getNameFn = obj.getName;
-console.log(getNameFn());
-console.log(obj.getName());
-</code></pre><h3 id="作用域的种类"><a href="#作用域的种类" class="headerlink" title="作用域的种类"></a>作用域的种类</h3><ul>
-<li>作用域有大到小:<br>  1.程序级<br>  2.件级<br>  3.函数级<br>  4.块级</li>
-</ul>
-<h3 id="javascript作用域"><a href="#javascript作用域" class="headerlink" title="javascript作用域"></a>javascript作用域</h3><ul>
-<li>全局作用域 :<br>  1.函数作用域<br>  2.块级作用域(ES6)</li>
-</ul>
-<pre><code>var global = 1;
-function doSomething(){
-var inner = 2;
-globalA = 3; }
-doSomething();
-alert(global);// 1
-alert(globalA);// 3
-alert(inner);// undefined
-</code></pre><h3 id="javascript作用于链"><a href="#javascript作用于链" class="headerlink" title="javascript作用于链"></a>javascript作用于链</h3><ul>
-<li>什么是作用域链?<br>在JavaScript中,函数也是对象,函数对象和其它对象一样,拥有可以通过代码访问的属性和一系仅供JavaScript引擎访问的内部属性。其中一个内部属性是[[Scope]],由ECMA-262标准第三版定义,该内部属性包含了函数被创建的作用域中对象的集合, 这个集合被称为函数的作用域链,它决定些数据能被函数访问。</li>
-</ul>
-<pre><code>var test = “aaa”;
-function doSomething(){
-alert(test);
-var test = “bbb”; alert(test); //bbb
-}
-doSomething();
-alert(test);
-// aaa
-</code></pre><h3 id="变量与函数声明提前"><a href="#变量与函数声明提前" class="headerlink" title="变量与函数声明提前"></a>变量与函数声明提前</h3><pre><code>function foo(){
-  alert(test);
-  var test = “bbb”;
-  alert(test);
-} foo();
-</code></pre><p>执 顺序:</p>
-<ol>
-<li>声明函数foo</li>
-<li>调 函数foo 3. 声明变 test</li>
-<li>alert(test);</li>
-<li>test变 赋值为bbb 6. alert(test);</li>
-</ol>
-<h3 id="javascript中-this关键字"><a href="#javascript中-this关键字" class="headerlink" title="javascript中 this关键字"></a>javascript中 this关键字</h3><ul>
-<li>this指向哪 ?<br>在Javascript中,this指向函数执 时的当前对象。 (In JavaScript, as in most object-oriented programming<br>languages, this is a special keyword that is used within methods to refer to the object on which a method is being invoked.)<br>——jQuery Fundamentals (Chapter 2), by Rebecca Murphey</li>
-<li>this使用场景<br>1.普通函数中:<br>  严格模式:undefined<br>  严格模式:全局对象(window)<br>2.构造函数中:对象的实例<br>3.对象方法: 对象本身 </li>
-</ul>
-<h3 id="call-、apply、bind"><a href="#call-、apply、bind" class="headerlink" title="call 、apply、bind"></a>call 、apply、bind</h3><p>*使用方法:<br>    1.fn.call(context, arg1, arg2, …, argn);<br>    2.fn.apply(context, [arg1,arg2,…,argn]);<br>    3.function(){…}.bind(context)<br>通过这三个 法可以改变被调 函数中this指向的对象</p>
-<pre><code>if(!(“userName” in window)){
- var userName=“zhengzheng.xz”;
-}
-console.log(userName);
-//undefined
-
-
-
-var obj = {
-   user: “zhengzheng.xz”
-   getName:function(){
-      return this.user;
-   }
-}
-var getNameFn = obj.getName;
-console.log(getNameFn());
-//undefined
-console.log(obj.getName());
-//zhengzheng.xz
-</code></pre><h3 id="javascript原型与原型链"><a href="#javascript原型与原型链" class="headerlink" title="javascript原型与原型链"></a>javascript原型与原型链</h3><ul>
-<li>原型对象是什么？<br>在Javascript中,每定义一个对象(函数)时,对象中都会 包含一些预定义的属性。其中函数对象的一个属性就是原型对象prototype。普通对象没有prototype属性,但有 <strong>proto</strong>属性</li>
-</ul>
-<pre><code>function f1(){};
-console.log(typeof f1.prototype); //object
-console.log(typeof Function.prototype) //Function,这个特殊
-console.log(typeof Object.prototype) //object
-console.log(typeof Function.prototype.prototype)//undefined
-</code></pre><ul>
-<li>原型对象有什么用？<br>面向对象开发、类的继承</li>
-</ul>
-<pre><code>function Person(name){
-    this.name=name;
-}
-Person.prototype.getName=function(){
-    return this.name;
-}
-var xu=new Person(&apos;jiaojiao.xz&apos;);
-xu.getName(); //jiaojiao.xz
-</code></pre><ul>
-<li>构造函数<br>1.使用new关键字调用的函数<br>2.构造函数可以实例化一个对象<br>3.返回值,默认返回类的实例<br>4.特殊情况:<br>  没有返回值<br>  简单数据类型<br>  对象类型</li>
-</ul>
-<pre><code>function People(name,age){
-   this.name=name;
-   this.age=age;
-} 
-var people=new People(&apos;Byron&apos;,26);
-</code></pre><h3 id="原型链是如何实现的？"><a href="#原型链是如何实现的？" class="headerlink" title="原型链是如何实现的？"></a>原型链是如何实现的？</h3><p>总结</p>
-<ol>
-<li>每个函数都有一个prototype的对象属性</li>
-<li>每个对象都有一个<strong>proto</strong>属性,该属性指向 其父类的prototype对象</li>
-</ol>
-<h3 id="原型对象中的constructor"><a href="#原型对象中的constructor" class="headerlink" title="原型对象中的constructor"></a>原型对象中的constructor</h3><ul>
-<li>每个原型对象prototype中都有一个constructor属性,默认指向函数本身。</li>
-</ul>
-<pre><code>Person.prototype.constructor===Person; //true
-Function.prototype.constructor===Function; //true
-Object.prototype.constructor===Object; //true
-Object.prototype.constructor===Function; //true
-</code></pre><p>练习一:</p>
-<pre><code>function make(num){
-  return function(){
-return num; }
-}
-var arr = [make(0),make(1),make(2)]; alert(arr[0]()); // 0 alert(arr[1]()); // 1 alert(arr[2]()); // 2
-</code></pre><p>练习二：</p>
-<pre><code>var name = ‘global’;
-function A(name){
-  alert(name);
-  this.name = name;
-  var name = ‘1’;
-}
-A.prototype.name = ‘2’;
-var a = new A(‘3’);
-alert(a.name);
-delete a.name;
-alert(a.name);
-// 3
-// 3 // 2
-</code></pre><p>练习三：</p>
-<pre><code>function fun(n,o){
-    console.log(o);
-    return {
-        fun:function(m){
-            return fun(m, n)
-        }  
-    }
-}
-var a = fun(0);
-a.fun(1); a.fun(2);
-var b = fun(0).fun(1).fun(2).fun(3);
-var c = fun(0).fun(1);
-c.fun(2); c.fun(3);
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;闭包、作-域、原型链&quot;&gt;&lt;a href=&quot;#闭包、作-域、原型链&quot; class=&quot;headerlink&quot; title=&quot;闭包、作 域、原型链&quot;&gt;&lt;/a&gt;闭包、作 域、原型链&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;if(!(“userName” in window)){
- 
-    
-    </summary>
-    
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>http协议背后的事</title>
-    <link href="http://yoursite.com/2017/01/19/http%E5%8D%8F%E8%AE%AE%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%8B/"/>
-    <id>http://yoursite.com/2017/01/19/http协议背后的事/</id>
-    <published>2017-01-19T07:27:02.000Z</published>
-    <updated>2017-04-01T01:33:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>当我们输入网址后发生了什么</li>
-<li>HTTP协议详解</li>
-<li>HTTP协议安全</li>
-<li>后台服务与HTTP</li>
-<li>反向代理与web服务</li>
-</ul>
-<h3 id="浏览器行为与HTTP协议"><a href="#浏览器行为与HTTP协议" class="headerlink" title="浏览器行为与HTTP协议"></a>浏览器行为与HTTP协议</h3><p>处理流程：<br>1.输入网址并回车<br>2.解析域名<br>3.浏览器发送http请求<br>4.服务器处理请求<br>5.服务器返回HTML响应<br>6.浏览器处理HTML页面<br>7.继续请求其他资源</p>
-<a id="more"></a>
-<h3 id="什么是HTTP协议"><a href="#什么是HTTP协议" class="headerlink" title="什么是HTTP协议"></a>什么是HTTP协议</h3><ul>
-<li>HTTP是超文本传输协议，从www浏览器传输到本地浏览器的一种传输协议，网站是基于HTTP协议的，例如网站的图片、CSS、JS等都是基于HTTP协议进行传输的。</li>
-<li>HTTP协议是由从客户机到服务器的请求(Reuqest)和从服务器到客户机的响应(response)进行约束和规范。</li>
-</ul>
-<h3 id="了解TCP-IP协议栈"><a href="#了解TCP-IP协议栈" class="headerlink" title="了解TCP/IP协议栈"></a>了解TCP/IP协议栈</h3><p>1.应用层：为用户提供所需要的各种服务，例如：HTTP、FTP、DNS、SMTP等。<br>2.传输层：为应用层实体提供端到端通信功能，保证数据包的顺序传送及数据的完整性。该层定义了两个主要协议：<strong>传输控制协议(TCP)和用户数据报协议(UDP)</strong>。<br>3.网络层：主要解决主机到主机的通信问题。IP协议是网际互联层最重要的协议。<br>4.网络接口层：负责监视数据在主机和网络之间的交换。</p>
-<h3 id="在TCP-IP协议栈中得位置"><a href="#在TCP-IP协议栈中得位置" class="headerlink" title="在TCP/IP协议栈中得位置"></a>在TCP/IP协议栈中得位置</h3><ul>
-<li>目前应用版本HTTP1.1</li>
-<li>HTTP默认端口号为80</li>
-<li>HTTPS默认端口443<br><img src="/images/http1.png" alt=""></li>
-</ul>
-<h3 id="HTTP的工作过程"><a href="#HTTP的工作过程" class="headerlink" title="HTTP的工作过程"></a>HTTP的工作过程</h3><ul>
-<li>一次HTTP操作称为一个事务,其工作过程可分为四步:<br>1.首先客户机与服务器需要建立连接。只要单击某个超级链接,HTTP的工作开始。<br>2.建立连接后,客户机发送一个请求给服务器,请求方式的格式为:统一资源标识符(URL)、协议版本号,后边是MIME信息包括请求修饰符、客户机信息和可能的内容。<br>3.服务器接到请求后,给予相应的响应信息,其格式为一个状态行,包括信息的协议版本号、一个成功或错误的代码,后边是MIME信息包括服务器信息、实体信息和可能的内容。<br>4.客户端接收服务器所返回的信息通过浏览器显示在用户的显示屏上,然后客户机与服务器断开连接。<br>如果在以上过程中的某一步出现错误,那么产生错误的信息将返回到客户端,有显示屏输出。对于用户来说,这些过程是由HTTP自己完成的,用户只要用鼠标点击,等待信息显示就可以了。</li>
-</ul>
-<h3 id="请求与响应"><a href="#请求与响应" class="headerlink" title="请求与响应"></a>请求与响应</h3><ul>
-<li>HTTP请求组成:请求行、消息报头、请求正文。</li>
-<li>HTTP响应组成:状态行、消息报头、响应正文。</li>
-<li>请求行组成:以一个方法符号开头,后面跟着请求的URI和协议的版本。</li>
-<li>状态行组成:服务器HTTP协议的版本,服务器发回的响应状态代码和状态代码的文本描述。</li>
-</ul>
-<p>(1) <strong>请求报文</strong><br><img src="/images/request.png" alt=""><br>(2) <strong>响应报文</strong><br><img src="/images/response.png" alt=""></p>
-<h3 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h3><ul>
-<li>GET: 请求获取Request-URI所标识的资源</li>
-<li>POST: 在Request-URI所标识的资源后附加新的数据</li>
-<li>HEAD: 请求获取由Request-URI所标识的资源的响应消息报头 </li>
-<li>PUT: 请求服务器存储一个资源,并用Request-URI作为其标识 </li>
-<li>DELETE: 请求服务器删除Request-URI所标识的资源</li>
-<li>TRACE: 请求服务器回送收到的请求信息,主要用于测试或诊断</li>
-<li>CONNECT: 保留将来使用 OPTIONS:请求查询服务器的性能,或者查询与资源相关的选项和需求</li>
-</ul>
-<h3 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h3><p>状态代码有三位数字组成,第一个数字定义了响应的类别,且有五种可能取值: </p>
-<ul>
-<li>1xx:指示信息–表示请求已接收,继续处理 </li>
-<li>2xx:成功–表示请求已被成功接收、理解、接受 </li>
-<li>3xx:重定向–要完成请求必须进行更进一步的操作 </li>
-<li>4xx:客户端错误–请求有语法错误或请求无法实现 </li>
-<li>5xx:服务器端错误–服务器未能实现合法的请求</li>
-</ul>
-<h3 id="常用的请求报头"><a href="#常用的请求报头" class="headerlink" title="常用的请求报头"></a>常用的请求报头</h3><ul>
-<li>Accept请求报头域用于指定客户端接受哪些类型的信息。eg:Accept:image/gif,Accept:text/ htmlAccept-Charset请求报头域用于指定客户端接受的字符集。Accept-Encoding:Accept-Encoding请求 报头域类似于Accept,但是它是用于指定可接受的内容编码。</li>
-<li>Accept-Language请求报头域类似于Accept,但是它是用于指定一种自然语言。</li>
-<li>Authorization请求报头域主要用于证明客户端有权查看某个资源。当浏览器访问一个页面时,如果收到服务器的响应代码为401(未授权),可以发送一个包含Authorization请求报头域的请求,要求服务 器对其进行验证。</li>
-<li>Host请求报头域主要用于指定被请求资源的Internet主机和端又号,它通常从HTTP URL中提取出来 的,发送请求时,该报头域是必需的。</li>
-<li>User-Agent请求报头域允许客户端将它的操作系统、浏览器和其它属性告诉服务器。</li>
-</ul>
-<h3 id="常用的响应报头"><a href="#常用的响应报头" class="headerlink" title="常用的响应报头"></a>常用的响应报头</h3><ul>
-<li>Location响应报头域用于重定向接受者到一个新的位置。Location 响应报头域常用在更换域名的时候。</li>
-<li>Server响应报头域包含了服务器用来处理请求的软件信息。与User- Agent请求报头域是相对应的。</li>
-<li>WWW-Authenticate响应报头域必须被包含在401(未授权的)响应 消息中,客户端收到401响应消息时候,并发送Authorization报头 域请求服务器对其进行验证时,服务端响应报头就包含该报头域。</li>
-</ul>
-<h3 id="实体报头"><a href="#实体报头" class="headerlink" title="实体报头"></a>实体报头</h3><p>请求和响应消息都可以传送一个实体。一个实体由实体报头域 和实体正文组成,但并不是说实体报头域和实体正文要在一起 发送,可以只发送实体报头域。实体报头定义了关于实体正文 (eg:有无实体正文)和请求所标识的资源的元信息。</p>
-<h3 id="常用的实体报头"><a href="#常用的实体报头" class="headerlink" title="常用的实体报头"></a>常用的实体报头</h3><ul>
-<li>Content-Encoding实体报头域被用作媒体类型的修饰符,它的值指示了已经被应用到实体正文 的附加内容的编码,因而要获得Content-Type报头域中所引用的媒体类型,必须采用相应的解 码机制。</li>
-<li>Content-Language实体报头域描述了资源所用的自然语言。 </li>
-<li>Content-Length实体报头域用于指明实体正文的长度,以字节方式存储的十进制数字来表示。</li>
-<li>Content-Type实体报头域用语指明发送给接收者的实体正文的媒体类型。</li>
-<li>Last-Modified实体报头域用于指示资源的最后修改日期和时间。 </li>
-<li>Expires实体报头域给出响应过期的日期和时间。</li>
-</ul>
-<h3 id="cookies-与-session"><a href="#cookies-与-session" class="headerlink" title="cookies 与 session"></a>cookies 与 session</h3><ul>
-<li>Cookies是保存在客户端的小段文本,随客户端点每一个请求发送该url下的所有cookies到服务器端。</li>
-<li>Session则保存在服务器端,通过唯一的值sessionID来区别每一 个用户。SessionID随每个连接请求发送到服务器,服务器根据 sessionID来识别客户端,再通过session 的key获取session值。</li>
-</ul>
-<h3 id="cookie应用"><a href="#cookie应用" class="headerlink" title="cookie应用"></a>cookie应用</h3><p>与Cookie相关的HTTP扩展头<br>1.Cookie:客户端将服务器设置的Cookie返回到服务器;<br>2.Set-Cookie:服务器向客户端设置Cookie;<br>服务器在响应消息中用Set-Cookie头将 Cookie的内容回送给客户端,客户端在新 的请求中将相同的内容携带在Cookie头中 发送给服务器。从而实现会话的保持。</p>
-<h3 id="session-使用"><a href="#session-使用" class="headerlink" title="session 使用"></a>session 使用</h3><ul>
-<li>使用Cookie来实现 </li>
-<li>使用URL回显来实现</li>
-</ul>
-<h3 id="缓存机制"><a href="#缓存机制" class="headerlink" title="缓存机制"></a>缓存机制</h3><ul>
-<li>缓存会根据请求保存输出内容的副本,例如html页面,图片,文 件,当下一个请求来到的时候:如果是相同的URL,缓存直接使 用副本响应访问请求,而不是向源服务器再次发送请求。</li>
-<li>缓存的优点:<ol>
-<li>减少相应延迟</li>
-<li>减少网络带宽消耗</li>
-</ol>
-</li>
-</ul>
-<h3 id="浏览器缓存机制-浏览器第一次请求"><a href="#浏览器缓存机制-浏览器第一次请求" class="headerlink" title="浏览器缓存机制-浏览器第一次请求"></a>浏览器缓存机制-浏览器第一次请求</h3><p><img src="/images/request1.png" alt=""></p>
-<h3 id="浏览器缓存机制-浏览器再次请求"><a href="#浏览器缓存机制-浏览器再次请求" class="headerlink" title="浏览器缓存机制-浏览器再次请求"></a>浏览器缓存机制-浏览器再次请求</h3><p><img src="/images/request2.png" alt=""></p>
-<h3 id="Etag-if-None-Match策略"><a href="#Etag-if-None-Match策略" class="headerlink" title="Etag/if-None-Match策略"></a>Etag/if-None-Match策略</h3><ul>
-<li>Etag:web服务器响应请求时,告诉浏览器当前资源在服务器的唯一标识(生成规则由服务器决定)</li>
-<li>If-None-Match:当资源过期时(使用Cache-Control标识的max- age),发现资源具有Etage声明,则再次向web服务器请求时带 上头If-None-Match (Etag的值)。web服务器收到请求后发现 有头If-None-Match 则与被请求资源的相应校验串进行比对,决 定返回200或304。</li>
-</ul>
-<h3 id="Last-Modified-if-Modified-Since策略"><a href="#Last-Modified-if-Modified-Since策略" class="headerlink" title="Last-Modified/if-Modified-Since策略"></a>Last-Modified/if-Modified-Since策略</h3><ul>
-<li>Last-Modified:标示这个响应资源的最后修改时间。web服务器在响应请求时,告诉浏览器资源的最后修改时间。</li>
-<li>If-Modified-Since:当资源过期时(使用Cache-Control标识的max-age),发 现资源具有Last-Modified声明,则再次向web服务器请求时带上头 If- Modified-Since,表示请求时间。web服务器收到请求后发现有头If-Modified- Since 则与被请求资源的最后修改时间进行比对。若最后修改时间较新,说 明资源又被改动过,则响应整片资源内容(写在响应消息包体内),HTTP 200;若最后修改时间较旧,说明资源无新修改,则响应HTTP 304 (无需包 体,节省浏览),告知浏览器继续使用所保存的cache。</li>
-</ul>
-<h3 id="HTTP链路安全"><a href="#HTTP链路安全" class="headerlink" title="HTTP链路安全"></a>HTTP链路安全</h3><p>1.加密重要数据<br>2.对非重要数据签名<br>3.使用安全连接HTTPS协议</p>
-<h3 id="下一代标准：HTTP2"><a href="#下一代标准：HTTP2" class="headerlink" title="下一代标准：HTTP2"></a>下一代标准：HTTP2</h3><ul>
-<li>使用二进制格式传输,更高效、更紧凑。</li>
-<li>对报头压缩,降低开销。</li>
-<li>多路复用,一个网络连接实现并行请求。</li>
-<li>服务器主动推送,减少请求的延迟</li>
-</ul>
-<h3 id="http与反向代理"><a href="#http与反向代理" class="headerlink" title="http与反向代理"></a>http与反向代理</h3><ul>
-<li>什么是代理,什么又是反向代理?</li>
-<li>为什么要使用反向代理? </li>
-<li>都有哪些反向代理服务器?</li>
-</ul>
-<h3 id="反向代理的用途"><a href="#反向代理的用途" class="headerlink" title="反向代理的用途"></a>反向代理的用途</h3><ul>
-<li>加密和SSL加速 </li>
-<li>负载均衡 </li>
-<li>缓存静态内容 </li>
-<li>压缩</li>
-<li>减速上传 </li>
-<li>安全</li>
-<li>外网发布</li>
-</ul>
-<h4 id="反向代理做负载均衡"><a href="#反向代理做负载均衡" class="headerlink" title="反向代理做负载均衡"></a>反向代理做负载均衡</h4><p><img src="/images/daili.png" alt=""></p>
-<h4 id="让nginx跑起来"><a href="#让nginx跑起来" class="headerlink" title="让nginx跑起来"></a>让nginx跑起来</h4><ul>
-<li>准备环境:Linux服务器、gcc编译器、nginx源代码 </li>
-<li>获取nginx源码:<a href="http://nginx.org" target="_blank" rel="external">http://nginx.org</a> </li>
-<li>编译安装nginx源码</li>
-<li>配置规则</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;当我们输入网址后发生了什么&lt;/li&gt;
-&lt;li&gt;HTTP协议详解&lt;/li&gt;
-&lt;li&gt;HTTP协议安全&lt;/li&gt;
-&lt;li&gt;后台服务与HTTP&lt;/li&gt;
-&lt;li&gt;反向代理与web服务&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;浏览器行为与HTTP协议&quot;&gt;&lt;a href=&quot;#浏览器行为与HTTP协议&quot; class=&quot;headerlink&quot; title=&quot;浏览器行为与HTTP协议&quot;&gt;&lt;/a&gt;浏览器行为与HTTP协议&lt;/h3&gt;&lt;p&gt;处理流程：&lt;br&gt;1.输入网址并回车&lt;br&gt;2.解析域名&lt;br&gt;3.浏览器发送http请求&lt;br&gt;4.服务器处理请求&lt;br&gt;5.服务器返回HTML响应&lt;br&gt;6.浏览器处理HTML页面&lt;br&gt;7.继续请求其他资源&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="http https" scheme="http://yoursite.com/tags/http-https/"/>
-    
-  </entry>
-  
-  <entry>
     <title>vue精炼秘籍</title>
-    <link href="http://yoursite.com/2016/12/21/vue/"/>
-    <id>http://yoursite.com/2016/12/21/vue/</id>
-    <published>2016-12-21T02:13:07.000Z</published>
-    <updated>2017-04-01T01:33:24.000Z</updated>
+    <link href="http://yoursite.com/2017/03/28/vue/"/>
+    <id>http://yoursite.com/2017/03/28/vue/</id>
+    <published>2017-03-28T02:13:07.000Z</published>
+    <updated>2017-04-01T02:02:23.000Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li>Vuex理论介绍</li>
@@ -1382,11 +1114,402 @@ this.$store.state.route.params // current params (object) this.$store.state.ro
   </entry>
   
   <entry>
+    <title>CSS3核心高级技巧</title>
+    <link href="http://yoursite.com/2017/03/21/CSS3%E6%A0%B8%E5%BF%83%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/"/>
+    <id>http://yoursite.com/2017/03/21/CSS3核心高级技巧/</id>
+    <published>2017-03-21T03:32:46.000Z</published>
+    <updated>2017-04-01T02:02:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>早期的双飞翼布局+CSS HACK</li>
+<li>基于移动端的PX与REM转换兼容方案</li>
+<li>弹性盒模型与Reset的选择</li>
+<li>自制的ICON-FONT与常用字体排版</li>
+<li>CSS代码检测与团队项目规范</li>
+<li>CSS绘制特殊图形 高级技巧</li>
+<li>CSS高效动画 WorkFlow与分层（详细讲解）</li>
+</ul>
+<h4 id="双飞翼布局-CSS-HACK"><a href="#双飞翼布局-CSS-HACK" class="headerlink" title="双飞翼布局+CSS HACK"></a>双飞翼布局+CSS HACK</h4><ul>
+<li>position</li>
+<li>float </li>
+<li>负边距</li>
+<li>等高</li>
+<li>盒子模型</li>
+<li>清除浮动 </li>
+</ul>
+<a id="more"></a>
+<h4 id="IE6经典bug"><a href="#IE6经典bug" class="headerlink" title="IE6经典bug"></a>IE6经典bug</h4><blockquote>
+<ul>
+<li><p><strong>IE6怪异解析之padding与border算入宽高</strong><br>原因：未加文档声明造成非盒模型解析<br>解决方法：加入文档声明&lt;!doctype html&gt; </p>
+</li>
+<li><p><strong>IE6在块元素、左右浮动、设定maring时造成margin双倍（双边距）</strong><br>解决方法：display:inline </p>
+</li>
+<li><p>以下三种其实是同一种bug，其实也不算是个bug，举个例子：父标签高度20，子标签11，垂直居中，20-11=9，9要分给文字的上面与下面，怎么分？IE6就会与其它的不同，所以，尽量避免。<br>1）<strong>字体大小为奇数之边框高度少1px</strong><br>解决方法：字体大小设置为偶数或line-height为偶数<br>2）<strong>line-height，文本垂直居中差1px</strong><br>解决方法：padding-top代替line-height居中，或line-height加1或减1<br>3）<strong>与父标签的宽度的奇偶不同的居中造成1px的偏离</strong><br>解决方法：如果父标签是奇数宽度，则子标签也用奇数宽度;如果是父标签偶数宽度，则子标签也用偶数宽度  </p>
+</li>
+<li><p><strong>内部盒模型超出父级时，父级被撑大</strong><br>解决方法：父标签使用overflow:hidden </p>
+</li>
+<li><p><strong>line-height默认行高bug</strong><br>解决方法：line-height设值 </p>
+</li>
+<li><p><strong>行标签之间会有一小段空白</strong><br>解决方法：float或结构并排(可读性差，不建议)</p>
+</li>
+<li><p><strong>标签高度无法小于19px</strong><br>解决方法：overflow:hidden;</p>
+</li>
+<li><p><strong>左浮元素 margin-bottom 失效</strong><br>解决方法：显示设置高度 or 父标签设置 padding-bottom代替子标签的margin-bottom 再放个标签让父标签浮动，子标签<br>margin-bototm，即（margin-bottom与float不同时作用于一个标签）</p>
+</li>
+<li><p><strong>img于块元素中，底边多处空白</strong><br>解决方法：父级设置overflow:hidden;或img{display:block;或 img:-5px;</p>
+</li>
+<li><p><strong>li之间会有间距</strong><br>解决方法：float:left;</p>
+</li>
+<li><p><strong>块元素中又文字及右浮动的元素，航元素换行</strong><br>解决方法：将行元素于块元素内的文字前</p>
+</li>
+<li><p><strong>position下的left,bottom错位</strong><br>解决方法：为父级（relative层）设置宽高或者添加 *zoom:1</p>
+</li>
+<li><p><strong>子级中有设置position,则父级overflow失效</strong><br>解决方法：为父级设置position:relative</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="基于移动端的PX与REM转换兼容方案"><a href="#基于移动端的PX与REM转换兼容方案" class="headerlink" title="基于移动端的PX与REM转换兼容方案"></a>基于移动端的PX与REM转换兼容方案</h3><ul>
+<li>different size  different DPR</li>
+<li>目前的设计稿一般式640 750 1125 ，一般要先均分成100份，（简荣芳vh,vm）750/10=75px; div宽是240px<em>120px  css<br>的书写改为3.2rem </em> 1.6rem。配合响应式修改html根的大小。</li>
+<li>字体不建议使用rem,data-dpr属性动态设置字体大小。屏幕变大放更多文字，或者屏幕更大放更多的字。</li>
+<li>神奇的padding/margin-top等比例缩放间距。</li>
+</ul>
+<h3 id="弹性盒模型与Reset的选择"><a href="#弹性盒模型与Reset的选择" class="headerlink" title="弹性盒模型与Reset的选择"></a>弹性盒模型与Reset的选择</h3><ul>
+<li>flex模型</li>
+<li>*的杀伤力太大</li>
+<li>reset.css重置 Normalize.css修复 Neat.css融合</li>
+<li>html{box-sizing:border-box;}<br> :before,X:after{box-sizing:inherit;}</li>
+</ul>
+<h3 id="ICON-FONT与常用字体排版"><a href="#ICON-FONT与常用字体排版" class="headerlink" title="ICON-FONT与常用字体排版"></a>ICON-FONT与常用字体排版</h3><ul>
+<li>no-images时代，不超过纯色为2的图像</li>
+<li>宋体非宋体 黑体非黑体 windows下的宋体叫中易宋体 SimSun,Mac是华文宋体STSong。Windows下的黑体叫中易黑体SimHei,<br>Mac华文黑体STHeiti。</li>
+<li>不要只写中文字体名，保证西文字体在中文字体前面。Mac-linux-windows</li>
+<li>切忌不要直接使用设计师psd的设计font-family，关键时刻再去启动font-face(Typo.css,Entry.css,Type.css)</li>
+<li>font-family : sans-serif;系统默认，字体多个单词组成加引号。</li>
+</ul>
+<h3 id="CSS代码检测团队项目规范"><a href="#CSS代码检测团队项目规范" class="headerlink" title="CSS代码检测团队项目规范"></a>CSS代码检测团队项目规范</h3><p>1.不要使用多个class选择元素，如a.foo.boo,这在ie6及以下不能正确解析<br>2.移除空的css规则，如a{}<br>3.正确使用显示属性，如display:inline不要和width,height,float,margin,padding同时使用<br>display:inline-block不要和float同时使用等<br>4.避免过多的浮动，当浮动次数超过十次时，会显示警告<br>5.避免使用过多的字号，当字号声明超过十种时，显示警告<br>6.避免使用过多的web字体，当使用超过五次时，显示警告<br>7.避免使用id作为样式选择器<br>8.标题元素只定义一次<br>9.使用width:100%时要小心<br>10.属性值为0时不要写单位<br>11.各浏览器专属的css属性要有规范，例如.foo{-moz-border-radius:5px;border-radius:5px}<br>12.避免使用看起来像正则表达式的css3选择器<br>13.遵守合模型规则</p>
+<h3 id="CSS绘制高级技巧"><a href="#CSS绘制高级技巧" class="headerlink" title="CSS绘制高级技巧"></a>CSS绘制高级技巧</h3><ul>
+<li>border &amp;&amp; border-radius 造就万千可能</li>
+<li>linear-gradient();radial-gradient();<br>渐变轴：每个色标的推进以圆心为中心同心圆扩散。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;早期的双飞翼布局+CSS HACK&lt;/li&gt;
+&lt;li&gt;基于移动端的PX与REM转换兼容方案&lt;/li&gt;
+&lt;li&gt;弹性盒模型与Reset的选择&lt;/li&gt;
+&lt;li&gt;自制的ICON-FONT与常用字体排版&lt;/li&gt;
+&lt;li&gt;CSS代码检测与团队项目规范&lt;/li&gt;
+&lt;li&gt;CSS绘制特殊图形 高级技巧&lt;/li&gt;
+&lt;li&gt;CSS高效动画 WorkFlow与分层（详细讲解）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;双飞翼布局-CSS-HACK&quot;&gt;&lt;a href=&quot;#双飞翼布局-CSS-HACK&quot; class=&quot;headerlink&quot; title=&quot;双飞翼布局+CSS HACK&quot;&gt;&lt;/a&gt;双飞翼布局+CSS HACK&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;position&lt;/li&gt;
+&lt;li&gt;float &lt;/li&gt;
+&lt;li&gt;负边距&lt;/li&gt;
+&lt;li&gt;等高&lt;/li&gt;
+&lt;li&gt;盒子模型&lt;/li&gt;
+&lt;li&gt;清除浮动 &lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="css3" scheme="http://yoursite.com/tags/css3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React Flux架构</title>
+    <link href="http://yoursite.com/2017/03/20/React-Flux/"/>
+    <id>http://yoursite.com/2017/03/20/React-Flux/</id>
+    <published>2017-03-20T02:53:50.000Z</published>
+    <updated>2017-04-01T02:02:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>Flux架构介绍</li>
+<li>React性能调优</li>
+<li>Redux介绍与实战</li>
+<li>GraphQL and Relay</li>
+</ul>
+<h3 id="Flux架构介绍"><a href="#Flux架构介绍" class="headerlink" title="Flux架构介绍"></a>Flux架构介绍</h3><ul>
+<li>React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。</li>
+<li>Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。</li>
+<li>View : 视图层</li>
+<li>Action（动作）: 视图层发出的消息（比如mouseClick）</li>
+<li>Dispatcher（派发器）: 用来接收Actions、执行回调函数</li>
+<li>Store（数据层）: 用来存放应用的状态，一旦发生变动，就提醒Views要更新页面<a id="more"></a>
+<img src="/images/170330-11.png" alt=""><br>1.用户访问 View<br>2.View 发出用户的 Action<br>3.Dispatcher 收到 Action，要求 Store 进行相应的更新<br>4.Store 更新后，发出一个”change”事件<br>5.View 收到”change”事件后，更新页面</li>
+</ul>
+<h3 id="React性能调优"><a href="#React性能调优" class="headerlink" title="React性能调优"></a>React性能调优</h3><pre><code>this.state.list.get(&quot;items&quot;).map(function(label) {
+        return &lt;div&gt;&lt;CheckboxWithLabel onChange={this.onChange} &gt;&lt;/CheckboxWithLabel&gt;&lt;/div&gt;
+});
+
+onChange:function(){ 
+ this.setState({label:123})
+}
+
+shouldComponentUpdate: function(nextProps, nextState) {
+     return nextProps.label !== this.props.label;
+}
+
+mixins: [React.addons.PureRenderMixin],
+constructor(props) {
+     super(props);
+     this.shouldComponentUpdate = React.addons.PureRenderMixin.shouldComponentUpdate.bind(this);
+}
+</code></pre><p>  子组件的更新触发父组件。父组件更新全部子组件要Diff,一旦更改了state类型，上面全部办法歇菜。</p>
+<h3 id="Redux介绍与实战"><a href="#Redux介绍与实战" class="headerlink" title="Redux介绍与实战"></a>Redux介绍与实战</h3><ul>
+<li>Flux存在多种实现（至少15种）Redux还算不错</li>
+<li>redux.min.js、react-redux.js、redux-thunk.min.js、keyMirror.js、immutable.min.js、reqwest.js（fectch）、ReduxThunk.js</li>
+<li>管理应用的 State:<ul>
+<li>通过 store.getState() 可以获取 State</li>
+<li>通过 store.dispatch(action) 来触发 Stete 更新</li>
+<li>通过 store.subscribe(listener) 来注册 state 变化监听器</li>
+<li>通过 createStore(reducer, [initialState]) 创建</li>
+</ul>
+</li>
+<li>Provider(ReactRedux)注入store <provider store="{store}<App/">  </provider></li>
+<li>Actions  JavaScript 普通对象 通过constants取到</li>
+<li>对应 Actions Reducer 返回规律，更具体的是返回状态( Redux.combineReducers返回唯一的 Reducer)。</li>
+<li>Store(Redux.createStore(rootReducer,Redux.applyMiddleware(thunkMiddleware)))具体实施的载体</li>
+<li>components具体React的组件但是不涉及状态</li>
+<li>components-&gt;APP容器 react-redux 提供 connect 的方法 链接React组件和Redux类</li>
+</ul>
+<h3 id="Redux架构"><a href="#Redux架构" class="headerlink" title="Redux架构"></a>Redux架构</h3><p><img src="images/170330-22.png" alt=""><br>异步的Reducer<br><img src="images/170330-33.png" alt=""></p>
+<pre><code>import configureStore from &apos;./store/configureStore.es&apos;;
+import App from &apos;./containers/App.es&apos;;
+const Provider = ReactRedux.Provider;
+const store = configureStore();
+//通过store.getState()可以获取state
+//通过store.dispatch(action)来处罚state更新
+//通过store.subscribe(listener)来注册state变化监听器
+//通过createStore(reducer,[initialState])创建
+
+ReactDOM.render(
+    &lt;Provider store={store}&gt;
+        &lt;App/&gt;
+    &lt;/Provider&gt;,
+    document.getElementById(&apos;JS-container&apos;)
+)
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;Flux架构介绍&lt;/li&gt;
+&lt;li&gt;React性能调优&lt;/li&gt;
+&lt;li&gt;Redux介绍与实战&lt;/li&gt;
+&lt;li&gt;GraphQL and Relay&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Flux架构介绍&quot;&gt;&lt;a href=&quot;#Flux架构介绍&quot; class=&quot;headerlink&quot; title=&quot;Flux架构介绍&quot;&gt;&lt;/a&gt;Flux架构介绍&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。&lt;/li&gt;
+&lt;li&gt;Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。&lt;/li&gt;
+&lt;li&gt;View : 视图层&lt;/li&gt;
+&lt;li&gt;Action（动作）: 视图层发出的消息（比如mouseClick）&lt;/li&gt;
+&lt;li&gt;Dispatcher（派发器）: 用来接收Actions、执行回调函数&lt;/li&gt;
+&lt;li&gt;Store（数据层）: 用来存放应用的状态，一旦发生变动，就提醒Views要更新页面
+    
+    </summary>
+    
+    
+      <category term="react flux" scheme="http://yoursite.com/tags/react-flux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript语言精髓</title>
+    <link href="http://yoursite.com/2017/02/11/javascript%E8%AF%AD%E8%A8%80%E7%B2%BE%E9%AB%93/"/>
+    <id>http://yoursite.com/2017/02/11/javascript语言精髓/</id>
+    <published>2017-02-11T01:36:06.000Z</published>
+    <updated>2017-04-01T02:00:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="闭包、作-域、原型链"><a href="#闭包、作-域、原型链" class="headerlink" title="闭包、作 域、原型链"></a>闭包、作 域、原型链</h3><pre><code>if(!(“userName” in window)){
+ var userName=“zhengzheng.xz”;
+}
+console.log(userName);
+
+
+var obj = {
+   user: “zhengzheng.xz”
+   getName:function(){
+      return user;
+   }
+}
+var getNameFn = obj.getName;
+console.log(getNameFn());
+console.log(obj.getName());
+</code></pre><a id="more"></a>
+<h3 id="作用域的种类"><a href="#作用域的种类" class="headerlink" title="作用域的种类"></a>作用域的种类</h3><ul>
+<li>作用域有大到小:<br>  1.程序级<br>  2.件级<br>  3.函数级<br>  4.块级</li>
+</ul>
+<h3 id="javascript作用域"><a href="#javascript作用域" class="headerlink" title="javascript作用域"></a>javascript作用域</h3><ul>
+<li>全局作用域 :<br>  1.函数作用域<br>  2.块级作用域(ES6)</li>
+</ul>
+<pre><code>var global = 1;
+function doSomething(){
+var inner = 2;
+globalA = 3; }
+doSomething();
+alert(global);// 1
+alert(globalA);// 3
+alert(inner);// undefined
+</code></pre><h3 id="javascript作用于链"><a href="#javascript作用于链" class="headerlink" title="javascript作用于链"></a>javascript作用于链</h3><ul>
+<li>什么是作用域链?<br>在JavaScript中,函数也是对象,函数对象和其它对象一样,拥有可以通过代码访问的属性和一系仅供JavaScript引擎访问的内部属性。其中一个内部属性是[[Scope]],由ECMA-262标准第三版定义,该内部属性包含了函数被创建的作用域中对象的集合, 这个集合被称为函数的作用域链,它决定些数据能被函数访问。</li>
+</ul>
+<pre><code>var test = “aaa”;
+function doSomething(){
+alert(test);
+var test = “bbb”; alert(test); //bbb
+}
+doSomething();
+alert(test);
+// aaa
+</code></pre><h3 id="变量与函数声明提前"><a href="#变量与函数声明提前" class="headerlink" title="变量与函数声明提前"></a>变量与函数声明提前</h3><pre><code>function foo(){
+  alert(test);
+  var test = “bbb”;
+  alert(test);
+} foo();
+</code></pre><p>执 顺序:</p>
+<ol>
+<li>声明函数foo</li>
+<li>调 函数foo 3. 声明变 test</li>
+<li>alert(test);</li>
+<li>test变 赋值为bbb 6. alert(test);</li>
+</ol>
+<h3 id="javascript中-this关键字"><a href="#javascript中-this关键字" class="headerlink" title="javascript中 this关键字"></a>javascript中 this关键字</h3><ul>
+<li>this指向哪 ?<br>在Javascript中,this指向函数执 时的当前对象。 (In JavaScript, as in most object-oriented programming<br>languages, this is a special keyword that is used within methods to refer to the object on which a method is being invoked.)<br>——jQuery Fundamentals (Chapter 2), by Rebecca Murphey</li>
+<li>this使用场景<br>1.普通函数中:<br>  严格模式:undefined<br>  严格模式:全局对象(window)<br>2.构造函数中:对象的实例<br>3.对象方法: 对象本身 </li>
+</ul>
+<h3 id="call-、apply、bind"><a href="#call-、apply、bind" class="headerlink" title="call 、apply、bind"></a>call 、apply、bind</h3><p>*使用方法:<br>    1.fn.call(context, arg1, arg2, …, argn);<br>    2.fn.apply(context, [arg1,arg2,…,argn]);<br>    3.function(){…}.bind(context)<br>通过这三个 法可以改变被调 函数中this指向的对象</p>
+<pre><code>if(!(“userName” in window)){
+ var userName=“zhengzheng.xz”;
+}
+console.log(userName);
+//undefined
+
+
+
+var obj = {
+   user: “zhengzheng.xz”
+   getName:function(){
+      return this.user;
+   }
+}
+var getNameFn = obj.getName;
+console.log(getNameFn());
+//undefined
+console.log(obj.getName());
+//zhengzheng.xz
+</code></pre><h3 id="javascript原型与原型链"><a href="#javascript原型与原型链" class="headerlink" title="javascript原型与原型链"></a>javascript原型与原型链</h3><ul>
+<li>原型对象是什么？<br>在Javascript中,每定义一个对象(函数)时,对象中都会 包含一些预定义的属性。其中函数对象的一个属性就是原型对象prototype。普通对象没有prototype属性,但有 <strong>proto</strong>属性</li>
+</ul>
+<pre><code>function f1(){};
+console.log(typeof f1.prototype); //object
+console.log(typeof Function.prototype) //Function,这个特殊
+console.log(typeof Object.prototype) //object
+console.log(typeof Function.prototype.prototype)//undefined
+</code></pre><ul>
+<li>原型对象有什么用？<br>面向对象开发、类的继承</li>
+</ul>
+<pre><code>function Person(name){
+    this.name=name;
+}
+Person.prototype.getName=function(){
+    return this.name;
+}
+var xu=new Person(&apos;jiaojiao.xz&apos;);
+xu.getName(); //jiaojiao.xz
+</code></pre><ul>
+<li>构造函数<br>1.使用new关键字调用的函数<br>2.构造函数可以实例化一个对象<br>3.返回值,默认返回类的实例<br>4.特殊情况:<br>  没有返回值<br>  简单数据类型<br>  对象类型</li>
+</ul>
+<pre><code>function People(name,age){
+   this.name=name;
+   this.age=age;
+} 
+var people=new People(&apos;Byron&apos;,26);
+</code></pre><h3 id="原型链是如何实现的？"><a href="#原型链是如何实现的？" class="headerlink" title="原型链是如何实现的？"></a>原型链是如何实现的？</h3><p>总结</p>
+<ol>
+<li>每个函数都有一个prototype的对象属性</li>
+<li>每个对象都有一个<strong>proto</strong>属性,该属性指向 其父类的prototype对象</li>
+</ol>
+<h3 id="原型对象中的constructor"><a href="#原型对象中的constructor" class="headerlink" title="原型对象中的constructor"></a>原型对象中的constructor</h3><ul>
+<li>每个原型对象prototype中都有一个constructor属性,默认指向函数本身。</li>
+</ul>
+<pre><code>Person.prototype.constructor===Person; //true
+Function.prototype.constructor===Function; //true
+Object.prototype.constructor===Object; //true
+Object.prototype.constructor===Function; //true
+</code></pre><p>练习一:</p>
+<pre><code>function make(num){
+  return function(){
+return num; }
+}
+var arr = [make(0),make(1),make(2)]; alert(arr[0]()); // 0 alert(arr[1]()); // 1 alert(arr[2]()); // 2
+</code></pre><p>练习二：</p>
+<pre><code>var name = ‘global’;
+function A(name){
+  alert(name);
+  this.name = name;
+  var name = ‘1’;
+}
+A.prototype.name = ‘2’;
+var a = new A(‘3’);
+alert(a.name);
+delete a.name;
+alert(a.name);
+// 3
+// 3 // 2
+</code></pre><p>练习三：</p>
+<pre><code>function fun(n,o){
+    console.log(o);
+    return {
+        fun:function(m){
+            return fun(m, n)
+        }  
+    }
+}
+var a = fun(0);
+a.fun(1); a.fun(2);
+var b = fun(0).fun(1).fun(2).fun(3);
+var c = fun(0).fun(1);
+c.fun(2); c.fun(3);
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;闭包、作-域、原型链&quot;&gt;&lt;a href=&quot;#闭包、作-域、原型链&quot; class=&quot;headerlink&quot; title=&quot;闭包、作 域、原型链&quot;&gt;&lt;/a&gt;闭包、作 域、原型链&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;if(!(“userName” in window)){
+ var userName=“zhengzheng.xz”;
+}
+console.log(userName);
+
+
+var obj = {
+   user: “zhengzheng.xz”
+   getName:function(){
+      return user;
+   }
+}
+var getNameFn = obj.getName;
+console.log(getNameFn());
+console.log(obj.getName());
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>css工作流</title>
-    <link href="http://yoursite.com/2016/10/31/css%E5%B7%A5%E4%BD%9C%E6%B5%81/"/>
-    <id>http://yoursite.com/2016/10/31/css工作流/</id>
-    <published>2016-10-31T08:09:11.000Z</published>
-    <updated>2017-04-01T01:32:48.000Z</updated>
+    <link href="http://yoursite.com/2017/01/12/css%E5%B7%A5%E4%BD%9C%E6%B5%81/"/>
+    <id>http://yoursite.com/2017/01/12/css工作流/</id>
+    <published>2017-01-12T08:09:11.000Z</published>
+    <updated>2017-04-01T02:01:42.000Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li><p>css预处理器<br>“An preprocessor is a program that processes its input to produce output that is used as input to another program ”<br>处理特定格式源文件到目标css的处理程序</p>
@@ -1519,114 +1642,6 @@ box{
     
     
       <category term="css工作流 css预处理器 css后处理器" scheme="http://yoursite.com/tags/css%E5%B7%A5%E4%BD%9C%E6%B5%81-css%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8-css%E5%90%8E%E5%A4%84%E7%90%86%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS3核心高级技巧</title>
-    <link href="http://yoursite.com/2016/10/31/CSS3%E6%A0%B8%E5%BF%83%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/"/>
-    <id>http://yoursite.com/2016/10/31/CSS3核心高级技巧/</id>
-    <published>2016-10-31T03:32:46.000Z</published>
-    <updated>2017-04-01T01:33:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>早期的双飞翼布局+CSS HACK</li>
-<li>基于移动端的PX与REM转换兼容方案</li>
-<li>弹性盒模型与Reset的选择</li>
-<li>自制的ICON-FONT与常用字体排版</li>
-<li>CSS代码检测与团队项目规范</li>
-<li>CSS绘制特殊图形 高级技巧</li>
-<li>CSS高效动画 WorkFlow与分层（详细讲解）</li>
-</ul>
-<h4 id="双飞翼布局-CSS-HACK"><a href="#双飞翼布局-CSS-HACK" class="headerlink" title="双飞翼布局+CSS HACK"></a>双飞翼布局+CSS HACK</h4><ul>
-<li>position</li>
-<li>float </li>
-<li>负边距</li>
-<li>等高</li>
-<li>盒子模型</li>
-<li>清除浮动 </li>
-</ul>
-<a id="more"></a>
-<h4 id="IE6经典bug"><a href="#IE6经典bug" class="headerlink" title="IE6经典bug"></a>IE6经典bug</h4><blockquote>
-<ul>
-<li><p><strong>IE6怪异解析之padding与border算入宽高</strong><br>原因：未加文档声明造成非盒模型解析<br>解决方法：加入文档声明&lt;!doctype html&gt; </p>
-</li>
-<li><p><strong>IE6在块元素、左右浮动、设定maring时造成margin双倍（双边距）</strong><br>解决方法：display:inline </p>
-</li>
-<li><p>以下三种其实是同一种bug，其实也不算是个bug，举个例子：父标签高度20，子标签11，垂直居中，20-11=9，9要分给文字的上面与下面，怎么分？IE6就会与其它的不同，所以，尽量避免。<br>1）<strong>字体大小为奇数之边框高度少1px</strong><br>解决方法：字体大小设置为偶数或line-height为偶数<br>2）<strong>line-height，文本垂直居中差1px</strong><br>解决方法：padding-top代替line-height居中，或line-height加1或减1<br>3）<strong>与父标签的宽度的奇偶不同的居中造成1px的偏离</strong><br>解决方法：如果父标签是奇数宽度，则子标签也用奇数宽度;如果是父标签偶数宽度，则子标签也用偶数宽度  </p>
-</li>
-<li><p><strong>内部盒模型超出父级时，父级被撑大</strong><br>解决方法：父标签使用overflow:hidden </p>
-</li>
-<li><p><strong>line-height默认行高bug</strong><br>解决方法：line-height设值 </p>
-</li>
-<li><p><strong>行标签之间会有一小段空白</strong><br>解决方法：float或结构并排(可读性差，不建议)</p>
-</li>
-<li><p><strong>标签高度无法小于19px</strong><br>解决方法：overflow:hidden;</p>
-</li>
-<li><p><strong>左浮元素 margin-bottom 失效</strong><br>解决方法：显示设置高度 or 父标签设置 padding-bottom代替子标签的margin-bottom 再放个标签让父标签浮动，子标签<br>margin-bototm，即（margin-bottom与float不同时作用于一个标签）</p>
-</li>
-<li><p><strong>img于块元素中，底边多处空白</strong><br>解决方法：父级设置overflow:hidden;或img{display:block;或 img:-5px;</p>
-</li>
-<li><p><strong>li之间会有间距</strong><br>解决方法：float:left;</p>
-</li>
-<li><p><strong>块元素中又文字及右浮动的元素，航元素换行</strong><br>解决方法：将行元素于块元素内的文字前</p>
-</li>
-<li><p><strong>position下的left,bottom错位</strong><br>解决方法：为父级（relative层）设置宽高或者添加 *zoom:1</p>
-</li>
-<li><p><strong>子级中有设置position,则父级overflow失效</strong><br>解决方法：为父级设置position:relative</p>
-</li>
-</ul>
-</blockquote>
-<h3 id="基于移动端的PX与REM转换兼容方案"><a href="#基于移动端的PX与REM转换兼容方案" class="headerlink" title="基于移动端的PX与REM转换兼容方案"></a>基于移动端的PX与REM转换兼容方案</h3><ul>
-<li>different size  different DPR</li>
-<li>目前的设计稿一般式640 750 1125 ，一般要先均分成100份，（简荣芳vh,vm）750/10=75px; div宽是240px<em>120px  css<br>的书写改为3.2rem </em> 1.6rem。配合响应式修改html根的大小。</li>
-<li>字体不建议使用rem,data-dpr属性动态设置字体大小。屏幕变大放更多文字，或者屏幕更大放更多的字。</li>
-<li>神奇的padding/margin-top等比例缩放间距。</li>
-</ul>
-<h3 id="弹性盒模型与Reset的选择"><a href="#弹性盒模型与Reset的选择" class="headerlink" title="弹性盒模型与Reset的选择"></a>弹性盒模型与Reset的选择</h3><ul>
-<li>flex模型</li>
-<li>*的杀伤力太大</li>
-<li>reset.css重置 Normalize.css修复 Neat.css融合</li>
-<li>html{box-sizing:border-box;}<br> :before,X:after{box-sizing:inherit;}</li>
-</ul>
-<h3 id="ICON-FONT与常用字体排版"><a href="#ICON-FONT与常用字体排版" class="headerlink" title="ICON-FONT与常用字体排版"></a>ICON-FONT与常用字体排版</h3><ul>
-<li>no-images时代，不超过纯色为2的图像</li>
-<li>宋体非宋体 黑体非黑体 windows下的宋体叫中易宋体 SimSun,Mac是华文宋体STSong。Windows下的黑体叫中易黑体SimHei,<br>Mac华文黑体STHeiti。</li>
-<li>不要只写中文字体名，保证西文字体在中文字体前面。Mac-linux-windows</li>
-<li>切忌不要直接使用设计师psd的设计font-family，关键时刻再去启动font-face(Typo.css,Entry.css,Type.css)</li>
-<li>font-family : sans-serif;系统默认，字体多个单词组成加引号。</li>
-</ul>
-<h3 id="CSS代码检测团队项目规范"><a href="#CSS代码检测团队项目规范" class="headerlink" title="CSS代码检测团队项目规范"></a>CSS代码检测团队项目规范</h3><p>1.不要使用多个class选择元素，如a.foo.boo,这在ie6及以下不能正确解析<br>2.移除空的css规则，如a{}<br>3.正确使用显示属性，如display:inline不要和width,height,float,margin,padding同时使用<br>display:inline-block不要和float同时使用等<br>4.避免过多的浮动，当浮动次数超过十次时，会显示警告<br>5.避免使用过多的字号，当字号声明超过十种时，显示警告<br>6.避免使用过多的web字体，当使用超过五次时，显示警告<br>7.避免使用id作为样式选择器<br>8.标题元素只定义一次<br>9.使用width:100%时要小心<br>10.属性值为0时不要写单位<br>11.各浏览器专属的css属性要有规范，例如.foo{-moz-border-radius:5px;border-radius:5px}<br>12.避免使用看起来像正则表达式的css3选择器<br>13.遵守合模型规则</p>
-<h3 id="CSS绘制高级技巧"><a href="#CSS绘制高级技巧" class="headerlink" title="CSS绘制高级技巧"></a>CSS绘制高级技巧</h3><ul>
-<li>border &amp;&amp; border-radius 造就万千可能</li>
-<li>linear-gradient();radial-gradient();<br>渐变轴：每个色标的推进以圆心为中心同心圆扩散。</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;早期的双飞翼布局+CSS HACK&lt;/li&gt;
-&lt;li&gt;基于移动端的PX与REM转换兼容方案&lt;/li&gt;
-&lt;li&gt;弹性盒模型与Reset的选择&lt;/li&gt;
-&lt;li&gt;自制的ICON-FONT与常用字体排版&lt;/li&gt;
-&lt;li&gt;CSS代码检测与团队项目规范&lt;/li&gt;
-&lt;li&gt;CSS绘制特殊图形 高级技巧&lt;/li&gt;
-&lt;li&gt;CSS高效动画 WorkFlow与分层（详细讲解）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;双飞翼布局-CSS-HACK&quot;&gt;&lt;a href=&quot;#双飞翼布局-CSS-HACK&quot; class=&quot;headerlink&quot; title=&quot;双飞翼布局+CSS HACK&quot;&gt;&lt;/a&gt;双飞翼布局+CSS HACK&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;position&lt;/li&gt;
-&lt;li&gt;float &lt;/li&gt;
-&lt;li&gt;负边距&lt;/li&gt;
-&lt;li&gt;等高&lt;/li&gt;
-&lt;li&gt;盒子模型&lt;/li&gt;
-&lt;li&gt;清除浮动 &lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="css3" scheme="http://yoursite.com/tags/css3/"/>
     
   </entry>
   
