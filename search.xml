@@ -13,8 +13,7 @@
 </li>
 </ul>
 <p>1.持有应用的状态。<br>2.允许访问状态：getState()。<br>3.允许更新状态：dispatch(action)。<br>4.注册监听器：subscribe(listener)。<br>5.用 subscribe(listener) 返回的东西，可以注销监听器。</p>
-<p>注意在 Redux 应用里只有一个 Store。如果想分离数据处理逻辑，可以使用组合 Reducer 的方式。</p>
-<p>有了 Reducer ，很容易用它去创建一个 Store 。之前我们用 combineReducers() 把几个 Reducer 组合成了一个，现在我们可以去导入它，然后把它交给 createStore()。</p>
+<p>注意在 Redux 应用里只有一个 Store。如果想分离数据处理逻辑，可以使用组合 Reducer 的方式。<br><a id="more"></a><br>有了 Reducer ，很容易用它去创建一个 Store 。之前我们用 combineReducers() 把几个 Reducer 组合成了一个，现在我们可以去导入它，然后把它交给 createStore()。</p>
 <pre><code>import { createStore } from &apos;redux&apos;
 import todoApp from &apos;./reducers&apos;
 let store = createStore(todoApp)
@@ -1646,12 +1645,6 @@ gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://yoursite.com/photo/output.json</url>
-      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[相册]]></title>
       <url>http://yoursite.com/photo/index.html</url>
       <content type="html"><![CDATA[<p><link type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.css" rel="stylesheet"></p>
@@ -1660,6 +1653,12 @@ gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/source-src/js/main.js" type="text/javascript"></script>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://yoursite.com/photo/output.json</url>
+      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
     </entry>
     
     <entry>
