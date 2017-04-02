@@ -14,7 +14,7 @@ tags: Redux Store
 5.用 subscribe(listener) 返回的东西，可以注销监听器。
 
 注意在 Redux 应用里只有一个 Store。如果想分离数据处理逻辑，可以使用组合 Reducer 的方式。
-
+<!--more-->
 有了 Reducer ，很容易用它去创建一个 Store 。之前我们用 combineReducers() 把几个 Reducer 组合成了一个，现在我们可以去导入它，然后把它交给 createStore()。
 
     import { createStore } from 'redux'
