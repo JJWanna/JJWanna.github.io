@@ -155,6 +155,111 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Redux-Store" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/01/Redux-Store/">Redux:Store</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/01/Redux-Store/" class="archive-article-date">
+  	<time datetime="2017-04-01T07:59:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>Redux 应用里的 Actions 表示在应用里发生的事情，Reducers 会根据发生的事情去更新应用的状态。再来了解一下 Store。</p>
+</li>
+<li><p>Store 的主要任务是：</p>
+</li>
+</ul>
+<p>1.持有应用的状态。<br>2.允许访问状态：getState()。<br>3.允许更新状态：dispatch(action)。<br>4.注册监听器：subscribe(listener)。<br>5.用 subscribe(listener) 返回的东西，可以注销监听器。</p>
+<p>注意在 Redux 应用里只有一个 Store。如果想分离数据处理逻辑，可以使用组合 Reducer 的方式。</p>
+<p>有了 Reducer ，很容易用它去创建一个 Store 。之前我们用 combineReducers() 把几个 Reducer 组合成了一个，现在我们可以去导入它，然后把它交给 createStore()。</p>
+<pre><code>import { createStore } from &apos;redux&apos;
+import todoApp from &apos;./reducers&apos;
+let store = createStore(todoApp)
+</code></pre><p>也可以提供一个初始状态，作为 createStore() 的第二个参数：</p>
+<pre><code>let store = createStore(todoApp, window.STATE_FROM_SERVER)
+</code></pre><h3 id="调度动作"><a href="#调度动作" class="headerlink" title="调度动作"></a>调度动作</h3><p>创建了 Store 以后，再去测试一下应用能不能正常运行：</p>
+<pre><code>import { addTodo, toggleTodo, setVisibilityFilter, VisibilityFilters } from &apos;./actions&apos;
+
+// Log the initial state
+console.log(store.getState())
+
+// Every time the state changes, log it
+// Note that subscribe() returns a function for unregistering the listener
+let unsubscribe = store.subscribe(() =&gt;
+  console.log(store.getState())
+)
+
+// Dispatch some actions
+store.dispatch(addTodo(&apos;Learn about actions&apos;))
+store.dispatch(addTodo(&apos;Learn about reducers&apos;))
+store.dispatch(addTodo(&apos;Learn about store&apos;))
+store.dispatch(toggleTodo(0))
+store.dispatch(toggleTodo(1))
+store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED))
+
+// Stop listening to state updates
+unsubscribe()
+</code></pre><p>观察 Store 里的状态是怎么变化的：<br><img src="/images/170401-1.png" alt=""></p>
+<p>在写界面之前，我们已经设置好了应用的一些行为。</p>
+<p>Source Code</p>
+<p>index.js</p>
+<pre><code>import { createStore } from &apos;redux&apos;
+import todoApp from &apos;./reducers&apos;
+
+let store = createStore(todoApp)
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Redux Store</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/01/Redux-Store/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Redux数据流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -439,78 +544,9 @@
 
 
   
-    <article id="post-javascript函数式编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/javascript函数式编程/">javascript函数式编程</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/28/javascript函数式编程/" class="archive-article-date">
-  	<time datetime="2017-03-28T07:52:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>函数式编程思维</li>
-<li>函数式编程常用核心概念</li>
-<li>当下函数式编程最热的库</li>
-</ul>
-<h2 id="函数式编程基础理论"><a href="#函数式编程基础理论" class="headerlink" title="函数式编程基础理论"></a>函数式编程基础理论</h2><p>1.函数式编程（Functional Programming）相对计算机历史而言是一个古老的概念，甚至早于第一台计算机的诞生。函数式编程的基础模型来源于 ℷ (lambda x=x&gt;x*2)演算，<br>     而 ℷ 演算并非设计于在计算机上执行，它是一套用于研究函数定义、函数应用和递归的形式系统。<br>2.函数式编程不是用函数来编程，也不是传统的面向过程编程。是将复杂的函数符合成简单的函数（计算理论、递归论、ℷ 演算）。运算过程尽量写成一系列嵌套的函数调用。<br>3.javascript是披着 C 外衣的lisp。<br>4.真正的火热是随着React的高阶函数而逐步升温。</p>
-        
-          <a class="article-more-a" href="/2017/03/28/javascript函数式编程/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/28/javascript函数式编程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -594,11 +630,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+                <a href="javascript:void(0)" class="js-tag color2">Redux Store</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react flux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
               </li>
              
               <li class="article-tag-list-item">

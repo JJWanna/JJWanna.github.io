@@ -6,18 +6,35 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>WJJ@博客</title>
+  <title>Redux:Store | WJJ@博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="404">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WJJ@博客">
-<meta property="og:url" content="http://yoursite.com/404.html">
+  <meta name="description" content="Redux 应用里的 Actions 表示在应用里发生的事情，Reducers 会根据发生的事情去更新应用的状态。再来了解一下 Store。
+
+Store 的主要任务是：
+
+
+1.持有应用的状态。2.允许访问状态：getState()。3.允许更新状态：dispatch(action)。4.注册监听器：subscribe(listener)。5.用 subscribe(listener) 返回的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redux:Store">
+<meta property="og:url" content="http://yoursite.com/2017/04/01/Redux-Store/index.html">
 <meta property="og:site_name" content="WJJ@博客">
-<meta property="og:description" content="404">
-<meta property="og:updated_time" content="2017-03-28T03:13:24.000Z">
+<meta property="og:description" content="Redux 应用里的 Actions 表示在应用里发生的事情，Reducers 会根据发生的事情去更新应用的状态。再来了解一下 Store。
+
+Store 的主要任务是：
+
+
+1.持有应用的状态。2.允许访问状态：getState()。3.允许更新状态：dispatch(action)。4.注册监听器：subscribe(listener)。5.用 subscribe(listener) 返回的">
+<meta property="og:image" content="http://yoursite.com/images/170401-1.png">
+<meta property="og:updated_time" content="2017-04-01T08:06:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WJJ@博客">
-<meta name="twitter:description" content="404">
+<meta name="twitter:title" content="Redux:Store">
+<meta name="twitter:description" content="Redux 应用里的 Actions 表示在应用里发生的事情，Reducers 会根据发生的事情去更新应用的状态。再来了解一下 Store。
+
+Store 的主要任务是：
+
+
+1.持有应用的状态。2.允许访问状态：getState()。3.允许更新状态：dispatch(action)。4.注册监听器：subscribe(listener)。5.用 subscribe(listener) 返回的">
+<meta name="twitter:image" content="http://yoursite.com/images/170401-1.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -154,24 +171,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-Redux-Store" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Redux:Store
+    </h1>
+  
+
+        
+        <a href="/2017/04/01/Redux-Store/" class="archive-article-date">
+  	<time datetime="2017-04-01T07:59:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!DOCTYPE html>
-<html>
+        <ul>
+<li><p>Redux 应用里的 Actions 表示在应用里发生的事情，Reducers 会根据发生的事情去更新应用的状态。再来了解一下 Store。</p>
+</li>
+<li><p>Store 的主要任务是：</p>
+</li>
+</ul>
+<p>1.持有应用的状态。<br>2.允许访问状态：getState()。<br>3.允许更新状态：dispatch(action)。<br>4.注册监听器：subscribe(listener)。<br>5.用 subscribe(listener) 返回的东西，可以注销监听器。</p>
+<p>注意在 Redux 应用里只有一个 Store。如果想分离数据处理逻辑，可以使用组合 Reducer 的方式。</p>
+<p>有了 Reducer ，很容易用它去创建一个 Store 。之前我们用 combineReducers() 把几个 Reducer 组合成了一个，现在我们可以去导入它，然后把它交给 createStore()。</p>
+<pre><code>import { createStore } from &apos;redux&apos;
+import todoApp from &apos;./reducers&apos;
+let store = createStore(todoApp)
+</code></pre><p>也可以提供一个初始状态，作为 createStore() 的第二个参数：</p>
+<pre><code>let store = createStore(todoApp, window.STATE_FROM_SERVER)
+</code></pre><h3 id="调度动作"><a href="#调度动作" class="headerlink" title="调度动作"></a>调度动作</h3><p>创建了 Store 以后，再去测试一下应用能不能正常运行：</p>
+<pre><code>import { addTodo, toggleTodo, setVisibilityFilter, VisibilityFilters } from &apos;./actions&apos;
 
-<head>
-    <meta charset="UTF-8">
-    <title>404</title>
-</head>
+// Log the initial state
+console.log(store.getState())
 
-<body>
-<script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="http://willxue.top" homepagename="我的博客"></script>
-</body>
+// Every time the state changes, log it
+// Note that subscribe() returns a function for unregistering the listener
+let unsubscribe = store.subscribe(() =&gt;
+  console.log(store.getState())
+)
 
-</html>
+// Dispatch some actions
+store.dispatch(addTodo(&apos;Learn about actions&apos;))
+store.dispatch(addTodo(&apos;Learn about reducers&apos;))
+store.dispatch(addTodo(&apos;Learn about store&apos;))
+store.dispatch(toggleTodo(0))
+store.dispatch(toggleTodo(1))
+store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED))
+
+// Stop listening to state updates
+unsubscribe()
+</code></pre><p>观察 Store 里的状态是怎么变化的：<br><img src="/images/170401-1.png" alt=""></p>
+<p>在写界面之前，我们已经设置好了应用的一些行为。</p>
+<p>Source Code</p>
+<p>index.js</p>
+<pre><code>import { createStore } from &apos;redux&apos;
+import todoApp from &apos;./reducers&apos;
+
+let store = createStore(todoApp)
+</code></pre>
       
 
       
@@ -179,6 +243,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Redux Store</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -229,7 +304,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/404.html" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/01/Redux-Store/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -241,6 +316,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/01/Redux数据流/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redux数据流</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 
 
@@ -274,7 +359,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
