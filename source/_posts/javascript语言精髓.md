@@ -66,7 +66,6 @@ tags: javascript
 ### 变量与函数声明提前
 
 
-
     function foo(){
       alert(test);
       var test = “bbb”;
@@ -74,7 +73,7 @@ tags: javascript
     } foo();
     
 
-执 顺序:
+执行顺序:
 1. 声明函数foo
 2. 调 函数foo 3. 声明变 test
 4. alert(test);
@@ -83,7 +82,7 @@ tags: javascript
 ### javascript中 this关键字
 
 * this指向哪 ?
-在Javascript中,this指向函数执 时的当前对象。 (In JavaScript, as in most object-oriented programming
+在Javascript中,this指向函数执行时的当前对象。 (In JavaScript, as in most object-oriented programming
 languages, this is a special keyword that is used within methods to refer to the object on which a method is being invoked.)
 ——jQuery Fundamentals (Chapter 2), by Rebecca Murphey
 * this使用场景
@@ -98,7 +97,7 @@ languages, this is a special keyword that is used within methods to refer to the
     1.fn.call(context, arg1, arg2, ..., argn); 
     2.fn.apply(context, [arg1,arg2,...,argn]); 
     3.function(){...}.bind(context)
-通过这三个 法可以改变被调 函数中this指向的对象
+通过这三个方法可以改变被调 函数中this指向的对象
 
     if(!(“userName” in window)){
      var userName=“zhengzheng.xz”;

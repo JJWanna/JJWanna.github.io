@@ -59,7 +59,7 @@ margin-bototm，即（margin-bottom与float不同时作用于一个标签）
 >* **li之间会有间距**
 解决方法：float:left;
 
->* **块元素中又文字及右浮动的元素，航元素换行**
+>* **块元素中有文字及右浮动的元素，行元素换行**
 解决方法：将行元素于块元素内的文字前
 
 >* **position下的left,bottom错位** 
