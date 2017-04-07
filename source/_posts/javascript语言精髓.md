@@ -24,16 +24,16 @@ tags: javascript
     
 <!--more-->
 ### 作用域的种类
-* 作用域有大到小: 
-    程序级
-    件级
-    函数级
-    块级
+作用域由大到小: 
+* 程序级
+* 件级
+* 函数级
+* 块级
     
 ### javascript作用域
-* 全局作用域 :
-    函数作用域 
-    块级作用域(ES6)
+全局作用域 :
+* 函数作用域 
+* 块级作用域(ES6)
     
         
     var global = 1;
@@ -48,7 +48,7 @@ tags: javascript
     
     
 ### javascript作用于链
-* 什么是作用域链?
+什么是作用域链?
 在JavaScript中,函数也是对象,函数对象和其它对象一样,拥有可以通过代码访问的属性和一系仅供JavaScript引擎访问的内部属性。其中一个内部属性是[[Scope]],由ECMA-262标准第三版定义,该内部属性包含了函数被创建的作用域中对象的集合, 这个集合被称为函数的作用域链,它决定了哪些数据能被函数访问。
         
 
@@ -86,7 +86,7 @@ tags: javascript
 在Javascript中,this指向函数执行时的当前对象。 (In JavaScript, as in most object-oriented programming
 languages, this is a special keyword that is used within methods to refer to the object on which a method is being invoked.)
 ——jQuery Fundamentals (Chapter 2), by Rebecca Murphey
-* this使用场景
+* this使用场景？
 1.普通函数中:
     严格模式:undefined
     非严格模式:全局对象(window)
