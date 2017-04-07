@@ -1431,8 +1431,7 @@ xu.getName(); //jiaojiao.xz
    this.age=age;
 } 
 var people=new People(&apos;Byron&apos;,26);
-</code></pre><h3 id="原型链是如何实现的？"><a href="#原型链是如何实现的？" class="headerlink" title="原型链是如何实现的？"></a>原型链是如何实现的？</h3><p>总结</p>
-<ol>
+</code></pre><h3 id="原型链是如何实现的？"><a href="#原型链是如何实现的？" class="headerlink" title="原型链是如何实现的？"></a>原型链是如何实现的？</h3><ol>
 <li>每个函数都有一个prototype的对象属性</li>
 <li>每个对象都有一个<strong>proto</strong>属性,该属性指向其父类的prototype对象</li>
 </ol>
@@ -1654,6 +1653,12 @@ gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
     
     <entry>
       <title></title>
+      <url>http://yoursite.com/photo/output.json</url>
+      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
       <url>http://yoursite.com/photo/tool.js</url>
       <content type="html"><![CDATA["use strict";
 const fs = require("fs");
@@ -1684,12 +1689,6 @@ fs.readdir(path, function (err, files) {
 
 
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>http://yoursite.com/photo/output.json</url>
-      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
     </entry>
     
     <entry>
