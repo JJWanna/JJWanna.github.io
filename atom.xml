@@ -1472,7 +1472,7 @@ ReactDOM.render(
     <link href="http://yoursite.com/2017/02/11/javascript%E8%AF%AD%E8%A8%80%E7%B2%BE%E9%AB%93/"/>
     <id>http://yoursite.com/2017/02/11/javascript语言精髓/</id>
     <published>2017-02-11T01:36:06.000Z</published>
-    <updated>2017-04-07T01:18:14.000Z</updated>
+    <updated>2017-04-07T01:21:11.000Z</updated>
     
     <content type="html"><![CDATA[<pre><code>if(!(“userName” in window)){
  var userName=“zhengzheng.xz”;
@@ -1490,11 +1490,17 @@ var getNameFn = obj.getName;
 console.log(getNameFn());
 console.log(obj.getName());
 </code></pre><a id="more"></a>
-<h3 id="作用域的种类"><a href="#作用域的种类" class="headerlink" title="作用域的种类"></a>作用域的种类</h3><ul>
-<li>作用域有大到小:<br>  程序级<br>  件级<br>  函数级<br>  块级</li>
+<h3 id="作用域的种类"><a href="#作用域的种类" class="headerlink" title="作用域的种类"></a>作用域的种类</h3><p>作用域由大到小: </p>
+<ul>
+<li>程序级</li>
+<li>件级</li>
+<li>函数级</li>
+<li>块级</li>
 </ul>
-<h3 id="javascript作用域"><a href="#javascript作用域" class="headerlink" title="javascript作用域"></a>javascript作用域</h3><ul>
-<li>全局作用域 :<br>  函数作用域<br>  块级作用域(ES6)</li>
+<h3 id="javascript作用域"><a href="#javascript作用域" class="headerlink" title="javascript作用域"></a>javascript作用域</h3><p>全局作用域 :</p>
+<ul>
+<li>函数作用域 </li>
+<li>块级作用域(ES6)</li>
 </ul>
 <pre><code>var global = 1;
 function doSomething(){
@@ -1505,9 +1511,7 @@ doSomething();
 alert(global);// 1
 alert(globalA);// 3
 alert(inner);// undefined
-</code></pre><h3 id="javascript作用于链"><a href="#javascript作用于链" class="headerlink" title="javascript作用于链"></a>javascript作用于链</h3><ul>
-<li>什么是作用域链?<br>在JavaScript中,函数也是对象,函数对象和其它对象一样,拥有可以通过代码访问的属性和一系仅供JavaScript引擎访问的内部属性。其中一个内部属性是[[Scope]],由ECMA-262标准第三版定义,该内部属性包含了函数被创建的作用域中对象的集合, 这个集合被称为函数的作用域链,它决定了哪些数据能被函数访问。</li>
-</ul>
+</code></pre><h3 id="javascript作用于链"><a href="#javascript作用于链" class="headerlink" title="javascript作用于链"></a>javascript作用于链</h3><p>什么是作用域链?<br>在JavaScript中,函数也是对象,函数对象和其它对象一样,拥有可以通过代码访问的属性和一系仅供JavaScript引擎访问的内部属性。其中一个内部属性是[[Scope]],由ECMA-262标准第三版定义,该内部属性包含了函数被创建的作用域中对象的集合, 这个集合被称为函数的作用域链,它决定了哪些数据能被函数访问。</p>
 <pre><code>var test = “aaa”;
 function doSomething(){
 alert(test);
@@ -1524,7 +1528,7 @@ alert(test);
 </code></pre><p>执行顺序:<br>1.声明函数foo<br>2.调用函数foo<br>3.声明变 test<br>4.alert(test);<br>5.test变量赋值为bbb<br>6.alert(test);</p>
 <h3 id="javascript中的this关键字"><a href="#javascript中的this关键字" class="headerlink" title="javascript中的this关键字"></a>javascript中的this关键字</h3><ul>
 <li>this指向哪 ?<br>在Javascript中,this指向函数执行时的当前对象。 (In JavaScript, as in most object-oriented programming<br>languages, this is a special keyword that is used within methods to refer to the object on which a method is being invoked.)<br>——jQuery Fundamentals (Chapter 2), by Rebecca Murphey</li>
-<li>this使用场景<br>1.普通函数中:<br>  严格模式:undefined<br>  非严格模式:全局对象(window)<br>2.构造函数中:对象的实例<br>3.对象方法: 对象本身 </li>
+<li>this使用场景？<br>1.普通函数中:<br>  严格模式:undefined<br>  非严格模式:全局对象(window)<br>2.构造函数中:对象的实例<br>3.对象方法: 对象本身 </li>
 </ul>
 <h3 id="call-、apply、bind"><a href="#call-、apply、bind" class="headerlink" title="call 、apply、bind"></a>call 、apply、bind</h3><ul>
 <li>使用方法:<br>  1.fn.call(context, arg1, arg2, …, argn);<br>  2.fn.apply(context, [arg1,arg2,…,argn]);<br>  3.function(){…}.bind(context)<br>通过这三个方法可以改变被调用函数中this指向的对象</li>
