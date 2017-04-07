@@ -1,10 +1,8 @@
 ---
-title: javascript语言精髓
+title: javascript语言精髓 闭包、作用域、原型链
 date: 2017-02-11 09:36:06
 tags: javascript
 ---
-
-### 闭包、作用域、原型链
 
     
     if(!(“userName” in window)){
@@ -27,21 +25,22 @@ tags: javascript
 <!--more-->
 ### 作用域的种类
 * 作用域有大到小: 
-    1.程序级
-    2.件级
-    3.函数级
-    4.块级
+    程序级
+    件级
+    函数级
+    块级
     
 ### javascript作用域
 * 全局作用域 :
-    1.函数作用域 
-    2.块级作用域(ES6)
+    函数作用域 
+    块级作用域(ES6)
     
         
     var global = 1;
     function doSomething(){
-    var inner = 2;
-    globalA = 3; }
+        var inner = 2;
+        globalA = 3; 
+    }
     doSomething();
     alert(global);// 1
     alert(globalA);// 3
@@ -74,12 +73,12 @@ tags: javascript
     
 
 执行顺序:
-1. 声明函数foo
-2. 调用函数foo 
-3. 声明变 test
-4. alert(test);
-5. test变量赋值为bbb 
-6. alert(test);
+1.声明函数foo
+2.调用函数foo 
+3.声明变 test
+4.alert(test);
+5.test变量赋值为bbb 
+6.alert(test);
 
 ### javascript中的this关键字
 
@@ -95,11 +94,12 @@ languages, this is a special keyword that is used within methods to refer to the
 3.对象方法: 对象本身 
 
 ### call 、apply、bind
-*使用方法:
+* 使用方法:
     1.fn.call(context, arg1, arg2, ..., argn); 
     2.fn.apply(context, [arg1,arg2,...,argn]); 
     3.function(){...}.bind(context)
 通过这三个方法可以改变被调用函数中this指向的对象
+
 
     if(!(“userName” in window)){
      var userName=“zhengzheng.xz”;

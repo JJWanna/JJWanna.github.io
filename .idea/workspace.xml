@@ -26,7 +26,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="52">
-                <caret line="84" column="20" lean-forward="true" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+                <caret line="84" column="20" lean-forward="false" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -38,8 +38,8 @@
         <entry file="file://$PROJECT_DIR$/source/_posts/javascript语言精髓.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="217">
-                <caret line="203" column="3" lean-forward="true" selection-start-line="203" selection-start-column="3" selection-end-line="203" selection-end-column="3" />
+              <first_editor relative-caret-position="-1298">
+                <caret line="102" column="0" lean-forward="true" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -748,12 +748,12 @@
       <workItem from="1491008030623" duration="8385000" />
       <workItem from="1491109846541" duration="3000" />
       <workItem from="1491128757516" duration="523000" />
-      <workItem from="1491439125607" duration="3828000" />
+      <workItem from="1491439125607" duration="4146000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99654000" />
+    <option name="totallyTimeSpent" value="99972000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="555" y="31" width="1440" height="803" extended-state="0" />
@@ -1171,7 +1171,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="52">
-            <caret line="84" column="20" lean-forward="true" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+            <caret line="84" column="20" lean-forward="false" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
             <folding />
           </first_editor>
           <second_editor />
@@ -1181,8 +1181,8 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/javascript语言精髓.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="217">
-            <caret line="203" column="3" lean-forward="true" selection-start-line="203" selection-start-column="3" selection-end-line="203" selection-end-column="3" />
+          <first_editor relative-caret-position="-1298">
+            <caret line="102" column="0" lean-forward="true" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
