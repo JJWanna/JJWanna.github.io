@@ -4,7 +4,7 @@ date: 2017-02-11 09:36:06
 tags: javascript
 ---
 
-### 闭包、作 域、原型链
+### 闭包、作用域、原型链
 
     
     if(!(“userName” in window)){
@@ -50,7 +50,7 @@ tags: javascript
     
 ### javascript作用于链
 * 什么是作用域链?
-在JavaScript中,函数也是对象,函数对象和其它对象一样,拥有可以通过代码访问的属性和一系仅供JavaScript引擎访问的内部属性。其中一个内部属性是[[Scope]],由ECMA-262标准第三版定义,该内部属性包含了函数被创建的作用域中对象的集合, 这个集合被称为函数的作用域链,它决定些数据能被函数访问。
+在JavaScript中,函数也是对象,函数对象和其它对象一样,拥有可以通过代码访问的属性和一系仅供JavaScript引擎访问的内部属性。其中一个内部属性是[[Scope]],由ECMA-262标准第三版定义,该内部属性包含了函数被创建的作用域中对象的集合, 这个集合被称为函数的作用域链,它决定了哪些数据能被函数访问。
         
 
     var test = “aaa”;
@@ -75,11 +75,13 @@ tags: javascript
 
 执行顺序:
 1. 声明函数foo
-2. 调 函数foo 3. 声明变 test
+2. 调用函数foo 
+3. 声明变 test
 4. alert(test);
-5. test变 赋值为bbb 6. alert(test);
+5. test变量赋值为bbb 
+6. alert(test);
 
-### javascript中 this关键字
+### javascript中的this关键字
 
 * this指向哪 ?
 在Javascript中,this指向函数执行时的当前对象。 (In JavaScript, as in most object-oriented programming
@@ -88,7 +90,7 @@ languages, this is a special keyword that is used within methods to refer to the
 * this使用场景
 1.普通函数中:
     严格模式:undefined
-    严格模式:全局对象(window)
+    非严格模式:全局对象(window)
 2.构造函数中:对象的实例 
 3.对象方法: 对象本身 
 
@@ -97,7 +99,7 @@ languages, this is a special keyword that is used within methods to refer to the
     1.fn.call(context, arg1, arg2, ..., argn); 
     2.fn.apply(context, [arg1,arg2,...,argn]); 
     3.function(){...}.bind(context)
-通过这三个方法可以改变被调 函数中this指向的对象
+通过这三个方法可以改变被调用函数中this指向的对象
 
     if(!(“userName” in window)){
      var userName=“zhengzheng.xz”;
@@ -122,7 +124,7 @@ languages, this is a special keyword that is used within methods to refer to the
     
 ### javascript原型与原型链
 * 原型对象是什么？
-在Javascript中,每定义一个对象(函数)时,对象中都会 包含一些预定义的属性。其中函数对象的一个属性就是原型对象prototype。普通对象没有prototype属性,但有 __proto__属性
+在Javascript中,每定义一个对象(函数)时,对象中都会包含一些预定义的属性。其中函数对象的一个属性就是原型对象prototype。普通对象没有prototype属性,但有 __proto__属性
 
     
     function f1(){};
@@ -163,7 +165,7 @@ languages, this is a special keyword that is used within methods to refer to the
 ### 原型链是如何实现的？
 总结
 1. 每个函数都有一个prototype的对象属性
-2. 每个对象都有一个__proto__属性,该属性指向 其父类的prototype对象
+2. 每个对象都有一个__proto__属性,该属性指向其父类的prototype对象
 
 ### 原型对象中的constructor
 * 每个原型对象prototype中都有一个constructor属性,默认指向函数本身。
