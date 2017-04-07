@@ -163,7 +163,6 @@ languages, this is a special keyword that is used within methods to refer to the
      var people=new People('Byron',26);
      
 ### 原型链是如何实现的？
-总结
 1. 每个函数都有一个prototype的对象属性
 2. 每个对象都有一个__proto__属性,该属性指向其父类的prototype对象
 
