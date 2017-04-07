@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d9e3ce76-ae7a-4080-ae86-9c325167e79e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/yilia" afterPath="$PROJECT_DIR$/themes/yilia" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/javascript语言精髓.md" afterPath="$PROJECT_DIR$/source/_posts/javascript语言精髓.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,8 +37,8 @@
         <entry file="file://$PROJECT_DIR$/source/_posts/javascript语言精髓.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="-900">
-                <caret line="90" column="4" lean-forward="false" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="4" />
+              <first_editor relative-caret-position="255">
+                <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -748,12 +747,12 @@
       <workItem from="1491008030623" duration="8385000" />
       <workItem from="1491109846541" duration="3000" />
       <workItem from="1491128757516" duration="523000" />
-      <workItem from="1491439125607" duration="4559000" />
+      <workItem from="1491439125607" duration="4624000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100385000" />
+    <option name="totallyTimeSpent" value="100450000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="555" y="31" width="1440" height="803" extended-state="0" />
@@ -1181,8 +1180,8 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/javascript语言精髓.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="-900">
-            <caret line="90" column="4" lean-forward="false" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="4" />
+          <first_editor relative-caret-position="255">
+            <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
             <folding />
           </first_editor>
           <second_editor />
