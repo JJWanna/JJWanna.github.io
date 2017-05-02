@@ -47,9 +47,9 @@ tags: javascript
     alert(inner);// undefined
     
     
-### javascript作用于链
+### javascript作用域链
 什么是作用域链?
-在JavaScript中,函数也是对象,函数对象和其它对象一样,拥有可以通过代码访问的属性和一系仅供JavaScript引擎访问的内部属性。其中一个内部属性是[[Scope]],由ECMA-262标准第三版定义,该内部属性包含了函数被创建的作用域中对象的集合, 这个集合被称为函数的作用域链,它决定了哪些数据能被函数访问。
+在JavaScript中,函数也是对象,函数对象和其它对象一样,拥有可以通过代码访问的属性和一系列仅供JavaScript引擎访问的内部属性。其中一个内部属性是[[Scope]],由ECMA-262标准第三版定义,该内部属性包含了函数被创建的作用域中对象的集合, 这个集合被称为函数的作用域链,它决定了哪些数据能被函数访问。
         
 
     var test = “aaa”;
@@ -75,7 +75,7 @@ tags: javascript
 执行顺序:
 1.声明函数foo
 2.调用函数foo 
-3.声明变 test
+3.声明变量test
 4.alert(test);
 5.test变量赋值为bbb 
 6.alert(test);
