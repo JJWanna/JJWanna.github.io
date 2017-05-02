@@ -38,7 +38,7 @@ var obj = {
    }
 }
 var getNameFn = obj.getName">
-<meta property="og:updated_time" content="2017-04-07T01:21:11.000Z">
+<meta property="og:updated_time" content="2017-04-25T05:18:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript语言精髓 闭包、作用域、原型链">
 <meta name="twitter:description" content="if(!(“userName” in window)){
@@ -247,7 +247,7 @@ doSomething();
 alert(global);// 1
 alert(globalA);// 3
 alert(inner);// undefined
-</code></pre><h3 id="javascript作用于链"><a href="#javascript作用于链" class="headerlink" title="javascript作用于链"></a>javascript作用于链</h3><p>什么是作用域链?<br>在JavaScript中,函数也是对象,函数对象和其它对象一样,拥有可以通过代码访问的属性和一系仅供JavaScript引擎访问的内部属性。其中一个内部属性是[[Scope]],由ECMA-262标准第三版定义,该内部属性包含了函数被创建的作用域中对象的集合, 这个集合被称为函数的作用域链,它决定了哪些数据能被函数访问。</p>
+</code></pre><h3 id="javascript作用域链"><a href="#javascript作用域链" class="headerlink" title="javascript作用域链"></a>javascript作用域链</h3><p>什么是作用域链?<br>在JavaScript中,函数也是对象,函数对象和其它对象一样,拥有可以通过代码访问的属性和一系列仅供JavaScript引擎访问的内部属性。其中一个内部属性是[[Scope]],由ECMA-262标准第三版定义,该内部属性包含了函数被创建的作用域中对象的集合, 这个集合被称为函数的作用域链,它决定了哪些数据能被函数访问。</p>
 <pre><code>var test = “aaa”;
 function doSomething(){
 alert(test);
@@ -261,7 +261,7 @@ alert(test);
   var test = “bbb”;
   alert(test);
 } foo();
-</code></pre><p>执行顺序:<br>1.声明函数foo<br>2.调用函数foo<br>3.声明变 test<br>4.alert(test);<br>5.test变量赋值为bbb<br>6.alert(test);</p>
+</code></pre><p>执行顺序:<br>1.声明函数foo<br>2.调用函数foo<br>3.声明变量test<br>4.alert(test);<br>5.test变量赋值为bbb<br>6.alert(test);</p>
 <h3 id="javascript中的this关键字"><a href="#javascript中的this关键字" class="headerlink" title="javascript中的this关键字"></a>javascript中的this关键字</h3><ul>
 <li>this指向哪 ?<br>在Javascript中,this指向函数执行时的当前对象。 (In JavaScript, as in most object-oriented programming<br>languages, this is a special keyword that is used within methods to refer to the object on which a method is being invoked.)<br>——jQuery Fundamentals (Chapter 2), by Rebecca Murphey</li>
 <li>this使用场景？<br>1.普通函数中:<br>  严格模式:undefined<br>  非严格模式:全局对象(window)<br>2.构造函数中:对象的实例<br>3.对象方法: 对象本身 </li>
@@ -551,19 +551,7 @@ c.fun(2); c.fun(3);
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react flux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Redux Store</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,7 +559,19 @@ c.fun(2); c.fun(3);
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react flux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">http https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,11 +579,11 @@ c.fun(2); c.fun(3);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vuejs   vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,7 +591,7 @@ c.fun(2); c.fun(3);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
+                <a href="javascript:void(0)" class="js-tag color2">vuejs   vue</a>
               </li>
             
             <div class="clearfix"></div>
