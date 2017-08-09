@@ -8,52 +8,46 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>javascript语言精髓 闭包、作用域、原型链 | WJJ@博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="if(!(“userName” in window)){
- var userName=“zhengzheng.xz”;
-}
-console.log(userName);
+  <meta name="description" content="作用域的种类作用域由大到小: 
 
+程序级
+文件级
+函数级
+块级
 
-var obj = {
-   user: “zhengzheng.xz”
-   getName:function(){
-      return user;
-   }
-}
-var getNameFn = obj.getName">
+javascript作用域全局作用域 :
+
+函数作用域 
+块级作用域(ES6)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript语言精髓 闭包、作用域、原型链">
 <meta property="og:url" content="http://yoursite.com/2017/02/11/javascript语言精髓/index.html">
 <meta property="og:site_name" content="WJJ@博客">
-<meta property="og:description" content="if(!(“userName” in window)){
- var userName=“zhengzheng.xz”;
-}
-console.log(userName);
+<meta property="og:description" content="作用域的种类作用域由大到小: 
 
+程序级
+文件级
+函数级
+块级
 
-var obj = {
-   user: “zhengzheng.xz”
-   getName:function(){
-      return user;
-   }
-}
-var getNameFn = obj.getName">
-<meta property="og:updated_time" content="2017-04-25T05:18:31.000Z">
+javascript作用域全局作用域 :
+
+函数作用域 
+块级作用域(ES6)">
+<meta property="og:updated_time" content="2017-08-09T08:00:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript语言精髓 闭包、作用域、原型链">
-<meta name="twitter:description" content="if(!(“userName” in window)){
- var userName=“zhengzheng.xz”;
-}
-console.log(userName);
+<meta name="twitter:description" content="作用域的种类作用域由大到小: 
 
+程序级
+文件级
+函数级
+块级
 
-var obj = {
-   user: “zhengzheng.xz”
-   getName:function(){
-      return user;
-   }
-}
-var getNameFn = obj.getName">
+javascript作用域全局作用域 :
+
+函数作用域 
+块级作用域(ES6)">
   
   
     <link rel="icon" href="/favicon.png">
@@ -210,26 +204,10 @@ var getNameFn = obj.getName">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code>if(!(“userName” in window)){
- var userName=“zhengzheng.xz”;
-}
-console.log(userName);
-
-
-var obj = {
-   user: “zhengzheng.xz”
-   getName:function(){
-      return user;
-   }
-}
-var getNameFn = obj.getName;
-console.log(getNameFn());
-console.log(obj.getName());
-</code></pre><a id="more"></a>
-<h3 id="作用域的种类"><a href="#作用域的种类" class="headerlink" title="作用域的种类"></a>作用域的种类</h3><p>作用域由大到小: </p>
+        <h3 id="作用域的种类"><a href="#作用域的种类" class="headerlink" title="作用域的种类"></a>作用域的种类</h3><p>作用域由大到小: </p>
 <ul>
 <li>程序级</li>
-<li>件级</li>
+<li>文件级</li>
 <li>函数级</li>
 <li>块级</li>
 </ul>
@@ -238,6 +216,7 @@ console.log(obj.getName());
 <li>函数作用域 </li>
 <li>块级作用域(ES6)</li>
 </ul>
+<a id="more"></a>       
 <pre><code>var global = 1;
 function doSomething(){
     var inner = 2;
@@ -567,6 +546,10 @@ c.fun(2); c.fun(3);
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
               </li>
              
@@ -575,7 +558,7 @@ c.fun(2); c.fun(3);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -584,10 +567,6 @@ c.fun(2); c.fun(3);
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
               </li>
              
               <li class="article-tag-list-item">

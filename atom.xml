@@ -1513,28 +1513,12 @@ ReactDOM.render(
     <link href="http://yoursite.com/2017/02/11/javascript%E8%AF%AD%E8%A8%80%E7%B2%BE%E9%AB%93/"/>
     <id>http://yoursite.com/2017/02/11/javascript语言精髓/</id>
     <published>2017-02-11T01:36:06.000Z</published>
-    <updated>2017-04-25T05:18:31.000Z</updated>
+    <updated>2017-08-09T08:00:26.000Z</updated>
     
-    <content type="html"><![CDATA[<pre><code>if(!(“userName” in window)){
- var userName=“zhengzheng.xz”;
-}
-console.log(userName);
-
-
-var obj = {
-   user: “zhengzheng.xz”
-   getName:function(){
-      return user;
-   }
-}
-var getNameFn = obj.getName;
-console.log(getNameFn());
-console.log(obj.getName());
-</code></pre><a id="more"></a>
-<h3 id="作用域的种类"><a href="#作用域的种类" class="headerlink" title="作用域的种类"></a>作用域的种类</h3><p>作用域由大到小: </p>
+    <content type="html"><![CDATA[<h3 id="作用域的种类"><a href="#作用域的种类" class="headerlink" title="作用域的种类"></a>作用域的种类</h3><p>作用域由大到小: </p>
 <ul>
 <li>程序级</li>
-<li>件级</li>
+<li>文件级</li>
 <li>函数级</li>
 <li>块级</li>
 </ul>
@@ -1543,6 +1527,7 @@ console.log(obj.getName());
 <li>函数作用域 </li>
 <li>块级作用域(ES6)</li>
 </ul>
+<a id="more"></a>       
 <pre><code>var global = 1;
 function doSomething(){
     var inner = 2;
@@ -1669,22 +1654,18 @@ c.fun(2); c.fun(3);
     
     <summary type="html">
     
-      &lt;pre&gt;&lt;code&gt;if(!(“userName” in window)){
- var userName=“zhengzheng.xz”;
-}
-console.log(userName);
-
-
-var obj = {
-   user: “zhengzheng.xz”
-   getName:function(){
-      return user;
-   }
-}
-var getNameFn = obj.getName;
-console.log(getNameFn());
-console.log(obj.getName());
-&lt;/code&gt;&lt;/pre&gt;
+      &lt;h3 id=&quot;作用域的种类&quot;&gt;&lt;a href=&quot;#作用域的种类&quot; class=&quot;headerlink&quot; title=&quot;作用域的种类&quot;&gt;&lt;/a&gt;作用域的种类&lt;/h3&gt;&lt;p&gt;作用域由大到小: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;程序级&lt;/li&gt;
+&lt;li&gt;文件级&lt;/li&gt;
+&lt;li&gt;函数级&lt;/li&gt;
+&lt;li&gt;块级&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;javascript作用域&quot;&gt;&lt;a href=&quot;#javascript作用域&quot; class=&quot;headerlink&quot; title=&quot;javascript作用域&quot;&gt;&lt;/a&gt;javascript作用域&lt;/h3&gt;&lt;p&gt;全局作用域 :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;函数作用域 &lt;/li&gt;
+&lt;li&gt;块级作用域(ES6)&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     

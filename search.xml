@@ -1359,26 +1359,10 @@ ReactDOM.render(
     <entry>
       <title><![CDATA[javascript语言精髓 闭包、作用域、原型链]]></title>
       <url>http://yoursite.com/2017/02/11/javascript%E8%AF%AD%E8%A8%80%E7%B2%BE%E9%AB%93/</url>
-      <content type="html"><![CDATA[<pre><code>if(!(“userName” in window)){
- var userName=“zhengzheng.xz”;
-}
-console.log(userName);
-
-
-var obj = {
-   user: “zhengzheng.xz”
-   getName:function(){
-      return user;
-   }
-}
-var getNameFn = obj.getName;
-console.log(getNameFn());
-console.log(obj.getName());
-</code></pre><a id="more"></a>
-<h3 id="作用域的种类"><a href="#作用域的种类" class="headerlink" title="作用域的种类"></a>作用域的种类</h3><p>作用域由大到小: </p>
+      <content type="html"><![CDATA[<h3 id="作用域的种类"><a href="#作用域的种类" class="headerlink" title="作用域的种类"></a>作用域的种类</h3><p>作用域由大到小: </p>
 <ul>
 <li>程序级</li>
-<li>件级</li>
+<li>文件级</li>
 <li>函数级</li>
 <li>块级</li>
 </ul>
@@ -1387,6 +1371,7 @@ console.log(obj.getName());
 <li>函数作用域 </li>
 <li>块级作用域(ES6)</li>
 </ul>
+<a id="more"></a>       
 <pre><code>var global = 1;
 function doSomething(){
     var inner = 2;
@@ -1686,6 +1671,12 @@ gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
     
     <entry>
       <title></title>
+      <url>http://yoursite.com/photo/output.json</url>
+      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
       <url>http://yoursite.com/photo/tool.js</url>
       <content type="html"><![CDATA["use strict";
 const fs = require("fs");
@@ -1716,12 +1707,6 @@ fs.readdir(path, function (err, files) {
 
 
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>http://yoursite.com/photo/output.json</url>
-      <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
     </entry>
     
     <entry>
