@@ -6,27 +6,52 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Redux数据流 | WJJ@博客</title>
+  <title>React Flux架构 | WJJ@博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Redux 应用里的数据流是单向的。数据的生命周期有四个阶段：1.调用 store.dispatch(action)一个动作就是一个纯对象，描述了发生的事情，比如：
+  <meta name="description" content="Flux架构介绍
+React性能调优
+Redux介绍与实战
+GraphQL and Relay
 
-{type:&amp;apos;LIKE_ARTICLE&amp;apos;,articleId:42}
-{type:&amp;apos;FETCH_USER_SUCCESS&amp;apos;,response:{id:3,name:&amp;apos;Mary}}">
+Flux架构介绍
+React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。
+Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。
+View : 视图层
+Action（动作）: 视图层发出的消息（比如mouseClick）
+Dispat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redux数据流">
-<meta property="og:url" content="http://yoursite.com/2017/04/01/Redux数据流/index.html">
+<meta property="og:title" content="React Flux架构">
+<meta property="og:url" content="http://yoursite.com/2017/04/20/React-Flux/index.html">
 <meta property="og:site_name" content="WJJ@博客">
-<meta property="og:description" content="Redux 应用里的数据流是单向的。数据的生命周期有四个阶段：1.调用 store.dispatch(action)一个动作就是一个纯对象，描述了发生的事情，比如：
+<meta property="og:description" content="Flux架构介绍
+React性能调优
+Redux介绍与实战
+GraphQL and Relay
 
-{type:&amp;apos;LIKE_ARTICLE&amp;apos;,articleId:42}
-{type:&amp;apos;FETCH_USER_SUCCESS&amp;apos;,response:{id:3,name:&amp;apos;Mary}}">
-<meta property="og:updated_time" content="2017-04-01T07:43:02.000Z">
+Flux架构介绍
+React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。
+Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。
+View : 视图层
+Action（动作）: 视图层发出的消息（比如mouseClick）
+Dispat">
+<meta property="og:image" content="http://yoursite.com/images/170330-11.png">
+<meta property="og:image" content="http://yoursite.com/images/170330-22.png">
+<meta property="og:image" content="http://yoursite.com/images/170330-33.png">
+<meta property="og:updated_time" content="2017-08-09T23:39:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redux数据流">
-<meta name="twitter:description" content="Redux 应用里的数据流是单向的。数据的生命周期有四个阶段：1.调用 store.dispatch(action)一个动作就是一个纯对象，描述了发生的事情，比如：
+<meta name="twitter:title" content="React Flux架构">
+<meta name="twitter:description" content="Flux架构介绍
+React性能调优
+Redux介绍与实战
+GraphQL and Relay
 
-{type:&amp;apos;LIKE_ARTICLE&amp;apos;,articleId:42}
-{type:&amp;apos;FETCH_USER_SUCCESS&amp;apos;,response:{id:3,name:&amp;apos;Mary}}">
+Flux架构介绍
+React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。
+Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。
+View : 视图层
+Action（动作）: 视图层发出的消息（比如mouseClick）
+Dispat">
+<meta name="twitter:image" content="http://yoursite.com/images/170330-11.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -163,20 +188,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Redux数据流" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-React-Flux" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Redux数据流
+      React Flux架构
     </h1>
   
 
         
-        <a href="/2017/04/01/Redux数据流/" class="archive-article-date">
-  	<time datetime="2017-04-01T05:56:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
+        <a href="/2017/04/20/React-Flux/" class="archive-article-date">
+  	<time datetime="2017-04-20T02:53:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-20</time>
 </a>
         
       </header>
@@ -184,58 +209,72 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li>Redux 应用里的数据流是单向的。数据的生命周期有四个阶段：<br>1.<strong>调用 store.dispatch(action)</strong><br>一个动作就是一个纯对象，描述了发生的事情，比如：</li>
+<li>Flux架构介绍</li>
+<li>React性能调优</li>
+<li>Redux介绍与实战</li>
+<li>GraphQL and Relay</li>
 </ul>
-<pre><code>{type:&apos;LIKE_ARTICLE&apos;,articleId:42}
-{type:&apos;FETCH_USER_SUCCESS&apos;,response:{id:3,name:&apos;Mary}}
-{type:&apos;ADD_TODO&apos;,text:&apos;Read thr Redux docs.&apos;}
-</code></pre><p>把动作想成是一些简要的新闻： “Mary liked article 42.” ， “‘Read the Redux docs.’ was added to the list of todos.”。在应用的任何地方你可以调用 store.dispatch(action)，包括组件，XHR 回调等等。<br><a id="more"></a><br>2.<strong>Redux Store 会调用你给它的 reducer</strong><br>store 会把两个参数传递给 reducer：当前的状态树，还有动作。比如在一个任务列表应用里。</p>
-<p>3.Reducer 是纯函数，它只计算出下一个状态。给它同样的输入，任何时候它都会计算出同样的结果。Reducer 不能执行有副作用的动作，比如去调用 API，这些动作应该在调度动作之前完成。</p>
-<pre><code>// The current application state (list of todos and chosen filter)
-let previousState = {
-  visibleTodoFilter: &apos;SHOW_ALL&apos;,
-  todos: [ 
-    {
-      text: &apos;Read the docs.&apos;,
-      complete: false
-    }
-  ]
+<h3 id="Flux架构介绍"><a href="#Flux架构介绍" class="headerlink" title="Flux架构介绍"></a>Flux架构介绍</h3><ul>
+<li>React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。</li>
+<li>Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。</li>
+<li>View : 视图层</li>
+<li>Action（动作）: 视图层发出的消息（比如mouseClick）</li>
+<li>Dispatcher（派发器）: 用来接收Actions、执行回调函数</li>
+<li>Store（数据层）: 用来存放应用的状态，一旦发生变动，就提醒Views要更新页面<a id="more"></a>
+<img src="/images/170330-11.png" alt=""><br>1.用户访问 View<br>2.View 发出用户的 Action<br>3.Dispatcher 收到 Action，要求 Store 进行相应的更新<br>4.Store 更新后，发出一个”change”事件<br>5.View 收到”change”事件后，更新页面</li>
+</ul>
+<h3 id="React性能调优"><a href="#React性能调优" class="headerlink" title="React性能调优"></a>React性能调优</h3><pre><code>this.state.list.get(&quot;items&quot;).map(function(label) {
+        return &lt;div&gt;&lt;CheckboxWithLabel onChange={this.onChange} &gt;&lt;/CheckboxWithLabel&gt;&lt;/div&gt;
+});
+
+onChange:function(){ 
+ this.setState({label:123})
 }
 
-// The action being performed (adding a todo)
-let action = {
-  type: &apos;ADD_TODO&apos;,
-  text: &apos;Understand the flow.&apos;
+shouldComponentUpdate: function(nextProps, nextState) {
+     return nextProps.label !== this.props.label;
 }
 
-// Your reducer returns the next application state
-let nextState = todoApp(previousState, action)
-</code></pre><p>4.Root Reducer 可能会把多个 reducer 输出的东西组合成一个状态树。<br> Root Reducer 的结构完全取决于我们自己的设计。Redux 里面带个帮手函数：combineReducers()，你可以把 Root Reducer 分离成不同的 Reducer，每个 Reducer 都只管理属于它们自己的数据，然后用 combineReducers() 可以把这些分离出来的 Reducer 组合到一块儿，成为一个 Root Reducer。</p>
-<p> 比如你有两个 Reducers，一个是为了任务列表，一个是为了当前选择的过滤器：</p>
-<pre><code>function todos(state = [], action) {
-  // Somehow calculate it...
-  return nextState
+mixins: [React.addons.PureRenderMixin],
+constructor(props) {
+     super(props);
+     this.shouldComponentUpdate = React.addons.PureRenderMixin.shouldComponentUpdate.bind(this);
 }
+</code></pre><p>  子组件的更新触发父组件。父组件更新全部子组件要Diff,一旦更改了state类型，上面全部办法歇菜。</p>
+<h3 id="Redux介绍与实战"><a href="#Redux介绍与实战" class="headerlink" title="Redux介绍与实战"></a>Redux介绍与实战</h3><ul>
+<li>Flux存在多种实现（至少15种）Redux还算不错</li>
+<li>redux.min.js、react-redux.js、redux-thunk.min.js、keyMirror.js、immutable.min.js、reqwest.js（fectch）、ReduxThunk.js</li>
+<li>管理应用的 State:<ul>
+<li>通过 store.getState() 可以获取 State</li>
+<li>通过 store.dispatch(action) 来触发 Stete 更新</li>
+<li>通过 store.subscribe(listener) 来注册 state 变化监听器</li>
+<li>通过 createStore(reducer, [initialState]) 创建</li>
+</ul>
+</li>
+<li>Provider(ReactRedux)注入store <provider store="{store}<App/">  </provider></li>
+<li>Actions  JavaScript 普通对象 通过constants取到</li>
+<li>对应 Actions Reducer 返回规律，更具体的是返回状态( Redux.combineReducers返回唯一的 Reducer)。</li>
+<li>Store(Redux.createStore(rootReducer,Redux.applyMiddleware(thunkMiddleware)))具体实施的载体</li>
+<li>components具体React的组件但是不涉及状态</li>
+<li>components-&gt;APP容器 react-redux 提供 connect 的方法 链接React组件和Redux类</li>
+</ul>
+<h3 id="Redux架构"><a href="#Redux架构" class="headerlink" title="Redux架构"></a>Redux架构</h3><p><img src="images/170330-22.png" alt=""><br>异步的Reducer<br><img src="images/170330-33.png" alt=""></p>
+<pre><code>import configureStore from &apos;./store/configureStore.es&apos;;
+import App from &apos;./containers/App.es&apos;;
+const Provider = ReactRedux.Provider;
+const store = configureStore();
+//通过store.getState()可以获取state
+//通过store.dispatch(action)来处罚state更新
+//通过store.subscribe(listener)来注册state变化监听器
+//通过createStore(reducer,[initialState])创建
 
-function visibleTodoFilter(state = &apos;SHOW_ALL&apos;, action) {
-  // Somehow calculate it...
-  return nextState
-}
-
-let todoApp = combineReducers({
-  todos,
-  visibleTodoFilter
-})
-</code></pre><p>执行了动作以后，combineReducers 返回的 todoApp 会同时调用两个 Reducers：</p>
-<pre><code>let nextTodos = todos(state.todos, action)
-let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
-</code></pre><p>然后会把这两个分支的结果组合成一个状态树：</p>
-<pre><code>return {
-  todos: nextTodos,
-  visibleTodoFilter: nextVisibleTodoFilter
-}
-</code></pre><p>5.Redux store 会把 root reducer 返回的状态树保存起来。<br>  这个新的状态树就是应用的下一个状态。所有 store.subscribe(listener) 注册的监听器会被执行。监听器可以使用 store.getState() 得到当前的状态。现在，UI 会根据新的状态被更新，如果把 React 与 Redux 放到一块儿用，这时候可以去调用  component.setState(newState) 。</p>
-
+ReactDOM.render(
+    &lt;Provider store={store}&gt;
+        &lt;App/&gt;
+    &lt;/Provider&gt;,
+    document.getElementById(&apos;JS-container&apos;)
+)
+</code></pre>
       
 
       
@@ -248,7 +287,7 @@ let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react flux</a>
         		</li>
       		
 		</ul>
@@ -304,7 +343,7 @@ let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/01/Redux数据流/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/20/React-Flux/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -318,18 +357,9 @@ let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
   
 <nav id="article-nav">
   
-    <a href="/2017/04/01/Redux-Store/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Redux:Store
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/30/前端持续集成/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端架构构建</div>
+    <a href="/2017/04/16/Redux数据流/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redux数据流</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -426,6 +456,10 @@ let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react flux</a>
               </li>
              
@@ -434,15 +468,7 @@ let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -450,11 +476,11 @@ let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -462,11 +488,15 @@ let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
               </li>
             
             <div class="clearfix"></div>

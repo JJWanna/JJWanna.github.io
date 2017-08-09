@@ -6,52 +6,45 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>React Flux架构 | WJJ@博客</title>
+  <title>vue项目搭建 | WJJ@博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Flux架构介绍
-React性能调优
-Redux介绍与实战
-GraphQL and Relay
+  <meta name="description" content="需要的东西：
 
-Flux架构介绍
-React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。
-Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。
-View : 视图层
-Action（动作）: 视图层发出的消息（比如mouseClick）
-Dispat">
+node.js环境（npm包管理器）
+vue-cli 脚手架构建工具
+cnpm  npm的淘宝镜像
+
+安装步骤1.从node.js官网下载并安装node，安装过程很简单，一路“下一步”就可以了（傻瓜式安装）。安装完成之后，打开命令行工具，输入 node -v，如下图，如果出现相应的版本号，则说明安装成功。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React Flux架构">
-<meta property="og:url" content="http://yoursite.com/2017/03/20/React-Flux/index.html">
+<meta property="og:title" content="vue项目搭建">
+<meta property="og:url" content="http://yoursite.com/2017/03/20/vue项目搭建/index.html">
 <meta property="og:site_name" content="WJJ@博客">
-<meta property="og:description" content="Flux架构介绍
-React性能调优
-Redux介绍与实战
-GraphQL and Relay
+<meta property="og:description" content="需要的东西：
 
-Flux架构介绍
-React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。
-Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。
-View : 视图层
-Action（动作）: 视图层发出的消息（比如mouseClick）
-Dispat">
-<meta property="og:image" content="http://yoursite.com/images/170330-11.png">
-<meta property="og:image" content="http://yoursite.com/images/170330-22.png">
-<meta property="og:image" content="http://yoursite.com/images/170330-33.png">
-<meta property="og:updated_time" content="2017-04-01T02:02:31.000Z">
+node.js环境（npm包管理器）
+vue-cli 脚手架构建工具
+cnpm  npm的淘宝镜像
+
+安装步骤1.从node.js官网下载并安装node，安装过程很简单，一路“下一步”就可以了（傻瓜式安装）。安装完成之后，打开命令行工具，输入 node -v，如下图，如果出现相应的版本号，则说明安装成功。">
+<meta property="og:image" content="http://yoursite.com/images/170410-1.png">
+<meta property="og:image" content="http://yoursite.com/images/170410-2.png">
+<meta property="og:image" content="http://yoursite.com/images/170410-3.png">
+<meta property="og:image" content="http://yoursite.com/images/170410-4.png">
+<meta property="og:image" content="http://yoursite.com/images/170410-5.png">
+<meta property="og:image" content="http://yoursite.com/images/170410-6.png">
+<meta property="og:image" content="http://yoursite.com/images/170410-7.png">
+<meta property="og:image" content="http://yoursite.com/images/170410-8.png">
+<meta property="og:updated_time" content="2017-08-09T23:14:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React Flux架构">
-<meta name="twitter:description" content="Flux架构介绍
-React性能调优
-Redux介绍与实战
-GraphQL and Relay
+<meta name="twitter:title" content="vue项目搭建">
+<meta name="twitter:description" content="需要的东西：
 
-Flux架构介绍
-React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。
-Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。
-View : 视图层
-Action（动作）: 视图层发出的消息（比如mouseClick）
-Dispat">
-<meta name="twitter:image" content="http://yoursite.com/images/170330-11.png">
+node.js环境（npm包管理器）
+vue-cli 脚手架构建工具
+cnpm  npm的淘宝镜像
+
+安装步骤1.从node.js官网下载并安装node，安装过程很简单，一路“下一步”就可以了（傻瓜式安装）。安装完成之后，打开命令行工具，输入 node -v，如下图，如果出现相应的版本号，则说明安装成功。">
+<meta name="twitter:image" content="http://yoursite.com/images/170410-1.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -188,93 +181,42 @@ Dispat">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-React-Flux" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vue项目搭建" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      React Flux架构
+      vue项目搭建
     </h1>
   
 
         
-        <a href="/2017/03/20/React-Flux/" class="archive-article-date">
-  	<time datetime="2017-03-20T02:53:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
+        <a href="/2017/03/20/vue项目搭建/" class="archive-article-date">
+  	<time datetime="2017-03-20T01:16:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>Flux架构介绍</li>
-<li>React性能调优</li>
-<li>Redux介绍与实战</li>
-<li>GraphQL and Relay</li>
+        <p>需要的东西：</p>
+<ul>
+<li>node.js环境（npm包管理器）</li>
+<li>vue-cli 脚手架构建工具</li>
+<li>cnpm  npm的淘宝镜像</li>
 </ul>
-<h3 id="Flux架构介绍"><a href="#Flux架构介绍" class="headerlink" title="Flux架构介绍"></a>Flux架构介绍</h3><ul>
-<li>React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。</li>
-<li>Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。</li>
-<li>View : 视图层</li>
-<li>Action（动作）: 视图层发出的消息（比如mouseClick）</li>
-<li>Dispatcher（派发器）: 用来接收Actions、执行回调函数</li>
-<li>Store（数据层）: 用来存放应用的状态，一旦发生变动，就提醒Views要更新页面<a id="more"></a>
-<img src="/images/170330-11.png" alt=""><br>1.用户访问 View<br>2.View 发出用户的 Action<br>3.Dispatcher 收到 Action，要求 Store 进行相应的更新<br>4.Store 更新后，发出一个”change”事件<br>5.View 收到”change”事件后，更新页面</li>
-</ul>
-<h3 id="React性能调优"><a href="#React性能调优" class="headerlink" title="React性能调优"></a>React性能调优</h3><pre><code>this.state.list.get(&quot;items&quot;).map(function(label) {
-        return &lt;div&gt;&lt;CheckboxWithLabel onChange={this.onChange} &gt;&lt;/CheckboxWithLabel&gt;&lt;/div&gt;
-});
+<h4 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h4><p>1.从node.js官网下载并安装node，安装过程很简单，一路“下一步”就可以了（傻瓜式安装）。<br>安装完成之后，打开命令行工具，输入 <strong>node -v</strong>，如下图，如果出现相应的版本号，则说明安装成功。<br><a id="more"></a><br>2.npm包管理器，是集成在node中的，所以，直接输入 <strong>npm -v</strong> 就会如下图所示，显示出npm的版本信息。<br>node环境已经安装完成，npm包管理器也有了。由于有些npm有些资源被屏蔽或者是国外资源的原因，经常会导致用npm安装依赖包的时候失败，所有我还需要npm的国内镜像—cnpm。<br><img src="/images/170410-1.png" alt=""><br>3.安装cnpm<br>在命令行中输入 <strong>npm install -g cnpm –registry=<a href="http://registry.npm.taobao.org" target="_blank" rel="external">http://registry.npm.taobao.org</a></strong> 然后等待安装完成。<br>完成之后，我们就可以用cnpm代替npm来安装依赖包了。如果想进一步了解cnpm的，查看淘宝npm镜像官网。</p>
+<p>4.安装vue-cli脚手架构建工具<br>在命令行中运行命令 <strong>npm install -g vue-cli</strong> ，然后等待安装完成。<br>通过以上三部，我们需要准备的环境和工具都准备好了，接下来就开始使用vue-cli来构建项目。</p>
+<p>5.用vue-cli构建项目<br>要创建项目，首先我们要选定目录，然后再命令行中把目录转到选定的目录。<br>在这里，我选择桌面来存放新建的项目，则我们需要先把目录cd到桌面。在桌面目录下，在命令行中运行命令 <strong>vue init webpack firstVue</strong><br>解释一下这个命令，这个命令的意思是初始化一个项目，其中webpack是构建工具，也就是整个项目是基于webpack的。其中firstVue是整个项目文件夹的名称，这个文件夹会自动生成在你指定的目录中（我的实例中，会在桌面生成该文件夹），如下图。<br><img src="/images/170410-2.png" alt=""></p>
+<p>运行初始化命令的时候回让用户输入几个基本的选项，如项目名称，描述，作者等信息，如果不想填直接回车默认就好。<br>打开firstVue文件夹，项目文件如下所示。<br><img src="/images/170410-3.png" alt=""></p>
+<p>这就是整个项目的目录结构，其中，我们主要在src目录中做修改。这个项目现在还只是一个结构框架，整个项目需要的依赖资源都还没有安装，如下图。<br><img src="/images/170410-4.png" alt=""></p>
+<p>6.安装项目所需的依赖<br>要安装依赖包，首先cd到项目文件夹（firstVue文件夹），然后运行命令 <strong>cnpm install</strong> ，等待安装。<br><img src="/images/170410-5.png" alt=""></p>
+<p>安装完成之后，会在我们的项目目录firstVue文件夹中多出一个node_modules文件夹，这里边就是我们项目需要的依赖包资源。<br><img src="/images/170410-6.png" alt=""><br>安装完依赖包之后，就可以运行整个项目了。</p>
+<p>7.运行项目<br>在项目目录中，运行命令 <strong>npm run dev</strong> ，会用热加载的方式运行我们的应用，热加载可以让我们在修改完代码后不用手动刷新浏览器就能实时看到修改后的效果。<br><img src="/images/170410-7.png" alt=""><br>这里简单介绍下 npm run dev 命令，其中的“run”对应的是package.json文件中，scripts字段中的dev，也就是 node build/dev-server.js命令的一个快捷方式。</p>
+<p>项目运行成功后，浏览器会自动打开localhost:8080（如果浏览器没有自动打开，可以手动输入）。运行成功后，会看到如下所示的界面。<br><img src="/images/170410-8.png" alt=""></p>
 
-onChange:function(){ 
- this.setState({label:123})
-}
-
-shouldComponentUpdate: function(nextProps, nextState) {
-     return nextProps.label !== this.props.label;
-}
-
-mixins: [React.addons.PureRenderMixin],
-constructor(props) {
-     super(props);
-     this.shouldComponentUpdate = React.addons.PureRenderMixin.shouldComponentUpdate.bind(this);
-}
-</code></pre><p>  子组件的更新触发父组件。父组件更新全部子组件要Diff,一旦更改了state类型，上面全部办法歇菜。</p>
-<h3 id="Redux介绍与实战"><a href="#Redux介绍与实战" class="headerlink" title="Redux介绍与实战"></a>Redux介绍与实战</h3><ul>
-<li>Flux存在多种实现（至少15种）Redux还算不错</li>
-<li>redux.min.js、react-redux.js、redux-thunk.min.js、keyMirror.js、immutable.min.js、reqwest.js（fectch）、ReduxThunk.js</li>
-<li>管理应用的 State:<ul>
-<li>通过 store.getState() 可以获取 State</li>
-<li>通过 store.dispatch(action) 来触发 Stete 更新</li>
-<li>通过 store.subscribe(listener) 来注册 state 变化监听器</li>
-<li>通过 createStore(reducer, [initialState]) 创建</li>
-</ul>
-</li>
-<li>Provider(ReactRedux)注入store <provider store="{store}<App/">  </provider></li>
-<li>Actions  JavaScript 普通对象 通过constants取到</li>
-<li>对应 Actions Reducer 返回规律，更具体的是返回状态( Redux.combineReducers返回唯一的 Reducer)。</li>
-<li>Store(Redux.createStore(rootReducer,Redux.applyMiddleware(thunkMiddleware)))具体实施的载体</li>
-<li>components具体React的组件但是不涉及状态</li>
-<li>components-&gt;APP容器 react-redux 提供 connect 的方法 链接React组件和Redux类</li>
-</ul>
-<h3 id="Redux架构"><a href="#Redux架构" class="headerlink" title="Redux架构"></a>Redux架构</h3><p><img src="images/170330-22.png" alt=""><br>异步的Reducer<br><img src="images/170330-33.png" alt=""></p>
-<pre><code>import configureStore from &apos;./store/configureStore.es&apos;;
-import App from &apos;./containers/App.es&apos;;
-const Provider = ReactRedux.Provider;
-const store = configureStore();
-//通过store.getState()可以获取state
-//通过store.dispatch(action)来处罚state更新
-//通过store.subscribe(listener)来注册state变化监听器
-//通过createStore(reducer,[initialState])创建
-
-ReactDOM.render(
-    &lt;Provider store={store}&gt;
-        &lt;App/&gt;
-    &lt;/Provider&gt;,
-    document.getElementById(&apos;JS-container&apos;)
-)
-</code></pre>
       
 
       
@@ -287,7 +229,7 @@ ReactDOM.render(
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react flux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -343,7 +285,7 @@ ReactDOM.render(
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/20/React-Flux/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/20/vue项目搭建/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -465,6 +407,10 @@ ReactDOM.render(
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react flux</a>
               </li>
              
@@ -473,15 +419,7 @@ ReactDOM.render(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -489,11 +427,11 @@ ReactDOM.render(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,11 +439,15 @@ ReactDOM.render(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
               </li>
             
             <div class="clearfix"></div>

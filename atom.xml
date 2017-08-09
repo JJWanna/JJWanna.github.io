@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-10T01:50:28.000Z</updated>
+  <updated>2017-08-09T23:39:13.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,43 +16,178 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>vue项目搭建</title>
-    <link href="http://yoursite.com/2017/04/10/vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/"/>
-    <id>http://yoursite.com/2017/04/10/vue项目搭建/</id>
-    <published>2017-04-10T01:16:11.000Z</published>
-    <updated>2017-04-10T01:50:28.000Z</updated>
+    <title>React Flux架构</title>
+    <link href="http://yoursite.com/2017/04/20/React-Flux/"/>
+    <id>http://yoursite.com/2017/04/20/React-Flux/</id>
+    <published>2017-04-20T02:53:50.000Z</published>
+    <updated>2017-08-09T23:39:13.000Z</updated>
     
-    <content type="html"><![CDATA[<p>需要的东西：</p>
-<ul>
-<li>node.js环境（npm包管理器）</li>
-<li>vue-cli 脚手架构建工具</li>
-<li>cnpm  npm的淘宝镜像</li>
+    <content type="html"><![CDATA[<ul>
+<li>Flux架构介绍</li>
+<li>React性能调优</li>
+<li>Redux介绍与实战</li>
+<li>GraphQL and Relay</li>
 </ul>
-<h4 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h4><p>1.从node.js官网下载并安装node，安装过程很简单，一路“下一步”就可以了（傻瓜式安装）。<br>安装完成之后，打开命令行工具，输入 <strong>node -v</strong>，如下图，如果出现相应的版本号，则说明安装成功。<br><a id="more"></a><br>2.npm包管理器，是集成在node中的，所以，直接输入 <strong>npm -v</strong> 就会如下图所示，显示出npm的版本信息。<br>node环境已经安装完成，npm包管理器也有了。由于有些npm有些资源被屏蔽或者是国外资源的原因，经常会导致用npm安装依赖包的时候失败，所有我还需要npm的国内镜像—cnpm。<br><img src="/images/170410-1.png" alt=""><br>3.安装cnpm<br>在命令行中输入 <strong>npm install -g cnpm –registry=<a href="http://registry.npm.taobao.org" target="_blank" rel="external">http://registry.npm.taobao.org</a></strong> 然后等待安装完成。<br>完成之后，我们就可以用cnpm代替npm来安装依赖包了。如果想进一步了解cnpm的，查看淘宝npm镜像官网。</p>
-<p>4.安装vue-cli脚手架构建工具<br>在命令行中运行命令 <strong>npm install -g vue-cli</strong> ，然后等待安装完成。<br>通过以上三部，我们需要准备的环境和工具都准备好了，接下来就开始使用vue-cli来构建项目。</p>
-<p>5.用vue-cli构建项目<br>要创建项目，首先我们要选定目录，然后再命令行中把目录转到选定的目录。<br>在这里，我选择桌面来存放新建的项目，则我们需要先把目录cd到桌面。在桌面目录下，在命令行中运行命令 <strong>vue init webpack firstVue</strong><br>解释一下这个命令，这个命令的意思是初始化一个项目，其中webpack是构建工具，也就是整个项目是基于webpack的。其中firstVue是整个项目文件夹的名称，这个文件夹会自动生成在你指定的目录中（我的实例中，会在桌面生成该文件夹），如下图。<br><img src="/images/170410-2.png" alt=""></p>
-<p>运行初始化命令的时候回让用户输入几个基本的选项，如项目名称，描述，作者等信息，如果不想填直接回车默认就好。<br>打开firstVue文件夹，项目文件如下所示。<br><img src="/images/170410-3.png" alt=""></p>
-<p>这就是整个项目的目录结构，其中，我们主要在src目录中做修改。这个项目现在还只是一个结构框架，整个项目需要的依赖资源都还没有安装，如下图。<br><img src="/images/170410-4.png" alt=""></p>
-<p>6.安装项目所需的依赖<br>要安装依赖包，首先cd到项目文件夹（firstVue文件夹），然后运行命令 <strong>cnpm install</strong> ，等待安装。<br><img src="/images/170410-5.png" alt=""></p>
-<p>安装完成之后，会在我们的项目目录firstVue文件夹中多出一个node_modules文件夹，这里边就是我们项目需要的依赖包资源。<br><img src="/images/170410-6.png" alt=""><br>安装完依赖包之后，就可以运行整个项目了。</p>
-<p>7.运行项目<br>在项目目录中，运行命令 <strong>npm run dev</strong> ，会用热加载的方式运行我们的应用，热加载可以让我们在修改完代码后不用手动刷新浏览器就能实时看到修改后的效果。<br><img src="/images/170410-7.png" alt=""><br>这里简单介绍下 npm run dev 命令，其中的“run”对应的是package.json文件中，scripts字段中的dev，也就是 node build/dev-server.js命令的一个快捷方式。</p>
-<p>项目运行成功后，浏览器会自动打开localhost:8080（如果浏览器没有自动打开，可以手动输入）。运行成功后，会看到如下所示的界面。<br><img src="/images/170410-8.png" alt=""></p>
-]]></content>
+<h3 id="Flux架构介绍"><a href="#Flux架构介绍" class="headerlink" title="Flux架构介绍"></a>Flux架构介绍</h3><ul>
+<li>React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。</li>
+<li>Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。</li>
+<li>View : 视图层</li>
+<li>Action（动作）: 视图层发出的消息（比如mouseClick）</li>
+<li>Dispatcher（派发器）: 用来接收Actions、执行回调函数</li>
+<li>Store（数据层）: 用来存放应用的状态，一旦发生变动，就提醒Views要更新页面<a id="more"></a>
+<img src="/images/170330-11.png" alt=""><br>1.用户访问 View<br>2.View 发出用户的 Action<br>3.Dispatcher 收到 Action，要求 Store 进行相应的更新<br>4.Store 更新后，发出一个”change”事件<br>5.View 收到”change”事件后，更新页面</li>
+</ul>
+<h3 id="React性能调优"><a href="#React性能调优" class="headerlink" title="React性能调优"></a>React性能调优</h3><pre><code>this.state.list.get(&quot;items&quot;).map(function(label) {
+        return &lt;div&gt;&lt;CheckboxWithLabel onChange={this.onChange} &gt;&lt;/CheckboxWithLabel&gt;&lt;/div&gt;
+});
+
+onChange:function(){ 
+ this.setState({label:123})
+}
+
+shouldComponentUpdate: function(nextProps, nextState) {
+     return nextProps.label !== this.props.label;
+}
+
+mixins: [React.addons.PureRenderMixin],
+constructor(props) {
+     super(props);
+     this.shouldComponentUpdate = React.addons.PureRenderMixin.shouldComponentUpdate.bind(this);
+}
+</code></pre><p>  子组件的更新触发父组件。父组件更新全部子组件要Diff,一旦更改了state类型，上面全部办法歇菜。</p>
+<h3 id="Redux介绍与实战"><a href="#Redux介绍与实战" class="headerlink" title="Redux介绍与实战"></a>Redux介绍与实战</h3><ul>
+<li>Flux存在多种实现（至少15种）Redux还算不错</li>
+<li>redux.min.js、react-redux.js、redux-thunk.min.js、keyMirror.js、immutable.min.js、reqwest.js（fectch）、ReduxThunk.js</li>
+<li>管理应用的 State:<ul>
+<li>通过 store.getState() 可以获取 State</li>
+<li>通过 store.dispatch(action) 来触发 Stete 更新</li>
+<li>通过 store.subscribe(listener) 来注册 state 变化监听器</li>
+<li>通过 createStore(reducer, [initialState]) 创建</li>
+</ul>
+</li>
+<li>Provider(ReactRedux)注入store <provider store="{store}<App/">  </provider></li>
+<li>Actions  JavaScript 普通对象 通过constants取到</li>
+<li>对应 Actions Reducer 返回规律，更具体的是返回状态( Redux.combineReducers返回唯一的 Reducer)。</li>
+<li>Store(Redux.createStore(rootReducer,Redux.applyMiddleware(thunkMiddleware)))具体实施的载体</li>
+<li>components具体React的组件但是不涉及状态</li>
+<li>components-&gt;APP容器 react-redux 提供 connect 的方法 链接React组件和Redux类</li>
+</ul>
+<h3 id="Redux架构"><a href="#Redux架构" class="headerlink" title="Redux架构"></a>Redux架构</h3><p><img src="images/170330-22.png" alt=""><br>异步的Reducer<br><img src="images/170330-33.png" alt=""></p>
+<pre><code>import configureStore from &apos;./store/configureStore.es&apos;;
+import App from &apos;./containers/App.es&apos;;
+const Provider = ReactRedux.Provider;
+const store = configureStore();
+//通过store.getState()可以获取state
+//通过store.dispatch(action)来处罚state更新
+//通过store.subscribe(listener)来注册state变化监听器
+//通过createStore(reducer,[initialState])创建
+
+ReactDOM.render(
+    &lt;Provider store={store}&gt;
+        &lt;App/&gt;
+    &lt;/Provider&gt;,
+    document.getElementById(&apos;JS-container&apos;)
+)
+</code></pre>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;需要的东西：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;node.js环境（npm包管理器）&lt;/li&gt;
-&lt;li&gt;vue-cli 脚手架构建工具&lt;/li&gt;
-&lt;li&gt;cnpm  npm的淘宝镜像&lt;/li&gt;
+      &lt;ul&gt;
+&lt;li&gt;Flux架构介绍&lt;/li&gt;
+&lt;li&gt;React性能调优&lt;/li&gt;
+&lt;li&gt;Redux介绍与实战&lt;/li&gt;
+&lt;li&gt;GraphQL and Relay&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;安装步骤&quot;&gt;&lt;a href=&quot;#安装步骤&quot; class=&quot;headerlink&quot; title=&quot;安装步骤&quot;&gt;&lt;/a&gt;安装步骤&lt;/h4&gt;&lt;p&gt;1.从node.js官网下载并安装node，安装过程很简单，一路“下一步”就可以了（傻瓜式安装）。&lt;br&gt;安装完成之后，打开命令行工具，输入 &lt;strong&gt;node -v&lt;/strong&gt;，如下图，如果出现相应的版本号，则说明安装成功。&lt;br&gt;
+&lt;h3 id=&quot;Flux架构介绍&quot;&gt;&lt;a href=&quot;#Flux架构介绍&quot; class=&quot;headerlink&quot; title=&quot;Flux架构介绍&quot;&gt;&lt;/a&gt;Flux架构介绍&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。&lt;/li&gt;
+&lt;li&gt;Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。&lt;/li&gt;
+&lt;li&gt;View : 视图层&lt;/li&gt;
+&lt;li&gt;Action（动作）: 视图层发出的消息（比如mouseClick）&lt;/li&gt;
+&lt;li&gt;Dispatcher（派发器）: 用来接收Actions、执行回调函数&lt;/li&gt;
+&lt;li&gt;Store（数据层）: 用来存放应用的状态，一旦发生变动，就提醒Views要更新页面
     
     </summary>
     
     
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+      <category term="react flux" scheme="http://yoursite.com/tags/react-flux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redux数据流</title>
+    <link href="http://yoursite.com/2017/04/16/Redux%E6%95%B0%E6%8D%AE%E6%B5%81/"/>
+    <id>http://yoursite.com/2017/04/16/Redux数据流/</id>
+    <published>2017-04-16T05:56:11.000Z</published>
+    <updated>2017-08-09T23:37:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>Redux 应用里的数据流是单向的。数据的生命周期有四个阶段：<br>1.<strong>调用 store.dispatch(action)</strong><br>一个动作就是一个纯对象，描述了发生的事情，比如：</li>
+</ul>
+<pre><code>{type:&apos;LIKE_ARTICLE&apos;,articleId:42}
+{type:&apos;FETCH_USER_SUCCESS&apos;,response:{id:3,name:&apos;Mary}}
+{type:&apos;ADD_TODO&apos;,text:&apos;Read thr Redux docs.&apos;}
+</code></pre><p>把动作想成是一些简要的新闻： “Mary liked article 42.” ， “‘Read the Redux docs.’ was added to the list of todos.”。在应用的任何地方你可以调用 store.dispatch(action)，包括组件，XHR 回调等等。<br><a id="more"></a><br>2.<strong>Redux Store 会调用你给它的 reducer</strong><br>store 会把两个参数传递给 reducer：当前的状态树，还有动作。比如在一个任务列表应用里。</p>
+<p>3.Reducer 是纯函数，它只计算出下一个状态。给它同样的输入，任何时候它都会计算出同样的结果。Reducer 不能执行有副作用的动作，比如去调用 API，这些动作应该在调度动作之前完成。</p>
+<pre><code>// The current application state (list of todos and chosen filter)
+let previousState = {
+  visibleTodoFilter: &apos;SHOW_ALL&apos;,
+  todos: [ 
+    {
+      text: &apos;Read the docs.&apos;,
+      complete: false
+    }
+  ]
+}
+
+// The action being performed (adding a todo)
+let action = {
+  type: &apos;ADD_TODO&apos;,
+  text: &apos;Understand the flow.&apos;
+}
+
+// Your reducer returns the next application state
+let nextState = todoApp(previousState, action)
+</code></pre><p>4.Root Reducer 可能会把多个 reducer 输出的东西组合成一个状态树。<br> Root Reducer 的结构完全取决于我们自己的设计。Redux 里面带个帮手函数：combineReducers()，你可以把 Root Reducer 分离成不同的 Reducer，每个 Reducer 都只管理属于它们自己的数据，然后用 combineReducers() 可以把这些分离出来的 Reducer 组合到一块儿，成为一个 Root Reducer。</p>
+<p> 比如你有两个 Reducers，一个是为了任务列表，一个是为了当前选择的过滤器：</p>
+<pre><code>function todos(state = [], action) {
+  // Somehow calculate it...
+  return nextState
+}
+
+function visibleTodoFilter(state = &apos;SHOW_ALL&apos;, action) {
+  // Somehow calculate it...
+  return nextState
+}
+
+let todoApp = combineReducers({
+  todos,
+  visibleTodoFilter
+})
+</code></pre><p>执行了动作以后，combineReducers 返回的 todoApp 会同时调用两个 Reducers：</p>
+<pre><code>let nextTodos = todos(state.todos, action)
+let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
+</code></pre><p>然后会把这两个分支的结果组合成一个状态树：</p>
+<pre><code>return {
+  todos: nextTodos,
+  visibleTodoFilter: nextVisibleTodoFilter
+}
+</code></pre><p>5.Redux store 会把 root reducer 返回的状态树保存起来。<br>  这个新的状态树就是应用的下一个状态。所有 store.subscribe(listener) 注册的监听器会被执行。监听器可以使用 store.getState() 得到当前的状态。现在，UI 会根据新的状态被更新，如果把 React 与 Redux 放到一块儿用，这时候可以去调用  component.setState(newState) 。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;Redux 应用里的数据流是单向的。数据的生命周期有四个阶段：&lt;br&gt;1.&lt;strong&gt;调用 store.dispatch(action)&lt;/strong&gt;&lt;br&gt;一个动作就是一个纯对象，描述了发生的事情，比如：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;{type:&amp;apos;LIKE_ARTICLE&amp;apos;,articleId:42}
+{type:&amp;apos;FETCH_USER_SUCCESS&amp;apos;,response:{id:3,name:&amp;apos;Mary}}
+{type:&amp;apos;ADD_TODO&amp;apos;,text:&amp;apos;Read thr Redux docs.&amp;apos;}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;把动作想成是一些简要的新闻： “Mary liked article 42.” ， “‘Read the Redux docs.’ was added to the list of todos.”。在应用的任何地方你可以调用 store.dispatch(action)，包括组件，XHR 回调等等。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Redux" scheme="http://yoursite.com/tags/Redux/"/>
     
   </entry>
   
@@ -123,84 +258,6 @@ let store = createStore(todoApp)
     
     
       <category term="Redux Store" scheme="http://yoursite.com/tags/Redux-Store/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redux数据流</title>
-    <link href="http://yoursite.com/2017/04/01/Redux%E6%95%B0%E6%8D%AE%E6%B5%81/"/>
-    <id>http://yoursite.com/2017/04/01/Redux数据流/</id>
-    <published>2017-04-01T05:56:11.000Z</published>
-    <updated>2017-04-01T07:43:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>Redux 应用里的数据流是单向的。数据的生命周期有四个阶段：<br>1.<strong>调用 store.dispatch(action)</strong><br>一个动作就是一个纯对象，描述了发生的事情，比如：</li>
-</ul>
-<pre><code>{type:&apos;LIKE_ARTICLE&apos;,articleId:42}
-{type:&apos;FETCH_USER_SUCCESS&apos;,response:{id:3,name:&apos;Mary}}
-{type:&apos;ADD_TODO&apos;,text:&apos;Read thr Redux docs.&apos;}
-</code></pre><p>把动作想成是一些简要的新闻： “Mary liked article 42.” ， “‘Read the Redux docs.’ was added to the list of todos.”。在应用的任何地方你可以调用 store.dispatch(action)，包括组件，XHR 回调等等。<br><a id="more"></a><br>2.<strong>Redux Store 会调用你给它的 reducer</strong><br>store 会把两个参数传递给 reducer：当前的状态树，还有动作。比如在一个任务列表应用里。</p>
-<p>3.Reducer 是纯函数，它只计算出下一个状态。给它同样的输入，任何时候它都会计算出同样的结果。Reducer 不能执行有副作用的动作，比如去调用 API，这些动作应该在调度动作之前完成。</p>
-<pre><code>// The current application state (list of todos and chosen filter)
-let previousState = {
-  visibleTodoFilter: &apos;SHOW_ALL&apos;,
-  todos: [ 
-    {
-      text: &apos;Read the docs.&apos;,
-      complete: false
-    }
-  ]
-}
-
-// The action being performed (adding a todo)
-let action = {
-  type: &apos;ADD_TODO&apos;,
-  text: &apos;Understand the flow.&apos;
-}
-
-// Your reducer returns the next application state
-let nextState = todoApp(previousState, action)
-</code></pre><p>4.Root Reducer 可能会把多个 reducer 输出的东西组合成一个状态树。<br> Root Reducer 的结构完全取决于我们自己的设计。Redux 里面带个帮手函数：combineReducers()，你可以把 Root Reducer 分离成不同的 Reducer，每个 Reducer 都只管理属于它们自己的数据，然后用 combineReducers() 可以把这些分离出来的 Reducer 组合到一块儿，成为一个 Root Reducer。</p>
-<p> 比如你有两个 Reducers，一个是为了任务列表，一个是为了当前选择的过滤器：</p>
-<pre><code>function todos(state = [], action) {
-  // Somehow calculate it...
-  return nextState
-}
-
-function visibleTodoFilter(state = &apos;SHOW_ALL&apos;, action) {
-  // Somehow calculate it...
-  return nextState
-}
-
-let todoApp = combineReducers({
-  todos,
-  visibleTodoFilter
-})
-</code></pre><p>执行了动作以后，combineReducers 返回的 todoApp 会同时调用两个 Reducers：</p>
-<pre><code>let nextTodos = todos(state.todos, action)
-let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
-</code></pre><p>然后会把这两个分支的结果组合成一个状态树：</p>
-<pre><code>return {
-  todos: nextTodos,
-  visibleTodoFilter: nextVisibleTodoFilter
-}
-</code></pre><p>5.Redux store 会把 root reducer 返回的状态树保存起来。<br>  这个新的状态树就是应用的下一个状态。所有 store.subscribe(listener) 注册的监听器会被执行。监听器可以使用 store.getState() 得到当前的状态。现在，UI 会根据新的状态被更新，如果把 React 与 Redux 放到一块儿用，这时候可以去调用  component.setState(newState) 。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;Redux 应用里的数据流是单向的。数据的生命周期有四个阶段：&lt;br&gt;1.&lt;strong&gt;调用 store.dispatch(action)&lt;/strong&gt;&lt;br&gt;一个动作就是一个纯对象，描述了发生的事情，比如：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;{type:&amp;apos;LIKE_ARTICLE&amp;apos;,articleId:42}
-{type:&amp;apos;FETCH_USER_SUCCESS&amp;apos;,response:{id:3,name:&amp;apos;Mary}}
-{type:&amp;apos;ADD_TODO&amp;apos;,text:&amp;apos;Read thr Redux docs.&amp;apos;}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;把动作想成是一些简要的新闻： “Mary liked article 42.” ， “‘Read the Redux docs.’ was added to the list of todos.”。在应用的任何地方你可以调用 store.dispatch(action)，包括组件，XHR 回调等等。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="Redux" scheme="http://yoursite.com/tags/Redux/"/>
     
   </entry>
   
@@ -1412,100 +1469,43 @@ this.$store.state.route.params // current params (object) this.$store.state.ro
   </entry>
   
   <entry>
-    <title>React Flux架构</title>
-    <link href="http://yoursite.com/2017/03/20/React-Flux/"/>
-    <id>http://yoursite.com/2017/03/20/React-Flux/</id>
-    <published>2017-03-20T02:53:50.000Z</published>
-    <updated>2017-04-01T02:02:31.000Z</updated>
+    <title>vue项目搭建</title>
+    <link href="http://yoursite.com/2017/03/20/vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/"/>
+    <id>http://yoursite.com/2017/03/20/vue项目搭建/</id>
+    <published>2017-03-20T01:16:11.000Z</published>
+    <updated>2017-08-09T23:14:30.000Z</updated>
     
-    <content type="html"><![CDATA[<ul>
-<li>Flux架构介绍</li>
-<li>React性能调优</li>
-<li>Redux介绍与实战</li>
-<li>GraphQL and Relay</li>
+    <content type="html"><![CDATA[<p>需要的东西：</p>
+<ul>
+<li>node.js环境（npm包管理器）</li>
+<li>vue-cli 脚手架构建工具</li>
+<li>cnpm  npm的淘宝镜像</li>
 </ul>
-<h3 id="Flux架构介绍"><a href="#Flux架构介绍" class="headerlink" title="Flux架构介绍"></a>Flux架构介绍</h3><ul>
-<li>React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。</li>
-<li>Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。</li>
-<li>View : 视图层</li>
-<li>Action（动作）: 视图层发出的消息（比如mouseClick）</li>
-<li>Dispatcher（派发器）: 用来接收Actions、执行回调函数</li>
-<li>Store（数据层）: 用来存放应用的状态，一旦发生变动，就提醒Views要更新页面<a id="more"></a>
-<img src="/images/170330-11.png" alt=""><br>1.用户访问 View<br>2.View 发出用户的 Action<br>3.Dispatcher 收到 Action，要求 Store 进行相应的更新<br>4.Store 更新后，发出一个”change”事件<br>5.View 收到”change”事件后，更新页面</li>
-</ul>
-<h3 id="React性能调优"><a href="#React性能调优" class="headerlink" title="React性能调优"></a>React性能调优</h3><pre><code>this.state.list.get(&quot;items&quot;).map(function(label) {
-        return &lt;div&gt;&lt;CheckboxWithLabel onChange={this.onChange} &gt;&lt;/CheckboxWithLabel&gt;&lt;/div&gt;
-});
-
-onChange:function(){ 
- this.setState({label:123})
-}
-
-shouldComponentUpdate: function(nextProps, nextState) {
-     return nextProps.label !== this.props.label;
-}
-
-mixins: [React.addons.PureRenderMixin],
-constructor(props) {
-     super(props);
-     this.shouldComponentUpdate = React.addons.PureRenderMixin.shouldComponentUpdate.bind(this);
-}
-</code></pre><p>  子组件的更新触发父组件。父组件更新全部子组件要Diff,一旦更改了state类型，上面全部办法歇菜。</p>
-<h3 id="Redux介绍与实战"><a href="#Redux介绍与实战" class="headerlink" title="Redux介绍与实战"></a>Redux介绍与实战</h3><ul>
-<li>Flux存在多种实现（至少15种）Redux还算不错</li>
-<li>redux.min.js、react-redux.js、redux-thunk.min.js、keyMirror.js、immutable.min.js、reqwest.js（fectch）、ReduxThunk.js</li>
-<li>管理应用的 State:<ul>
-<li>通过 store.getState() 可以获取 State</li>
-<li>通过 store.dispatch(action) 来触发 Stete 更新</li>
-<li>通过 store.subscribe(listener) 来注册 state 变化监听器</li>
-<li>通过 createStore(reducer, [initialState]) 创建</li>
-</ul>
-</li>
-<li>Provider(ReactRedux)注入store <provider store="{store}<App/">  </provider></li>
-<li>Actions  JavaScript 普通对象 通过constants取到</li>
-<li>对应 Actions Reducer 返回规律，更具体的是返回状态( Redux.combineReducers返回唯一的 Reducer)。</li>
-<li>Store(Redux.createStore(rootReducer,Redux.applyMiddleware(thunkMiddleware)))具体实施的载体</li>
-<li>components具体React的组件但是不涉及状态</li>
-<li>components-&gt;APP容器 react-redux 提供 connect 的方法 链接React组件和Redux类</li>
-</ul>
-<h3 id="Redux架构"><a href="#Redux架构" class="headerlink" title="Redux架构"></a>Redux架构</h3><p><img src="images/170330-22.png" alt=""><br>异步的Reducer<br><img src="images/170330-33.png" alt=""></p>
-<pre><code>import configureStore from &apos;./store/configureStore.es&apos;;
-import App from &apos;./containers/App.es&apos;;
-const Provider = ReactRedux.Provider;
-const store = configureStore();
-//通过store.getState()可以获取state
-//通过store.dispatch(action)来处罚state更新
-//通过store.subscribe(listener)来注册state变化监听器
-//通过createStore(reducer,[initialState])创建
-
-ReactDOM.render(
-    &lt;Provider store={store}&gt;
-        &lt;App/&gt;
-    &lt;/Provider&gt;,
-    document.getElementById(&apos;JS-container&apos;)
-)
-</code></pre>]]></content>
+<h4 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h4><p>1.从node.js官网下载并安装node，安装过程很简单，一路“下一步”就可以了（傻瓜式安装）。<br>安装完成之后，打开命令行工具，输入 <strong>node -v</strong>，如下图，如果出现相应的版本号，则说明安装成功。<br><a id="more"></a><br>2.npm包管理器，是集成在node中的，所以，直接输入 <strong>npm -v</strong> 就会如下图所示，显示出npm的版本信息。<br>node环境已经安装完成，npm包管理器也有了。由于有些npm有些资源被屏蔽或者是国外资源的原因，经常会导致用npm安装依赖包的时候失败，所有我还需要npm的国内镜像—cnpm。<br><img src="/images/170410-1.png" alt=""><br>3.安装cnpm<br>在命令行中输入 <strong>npm install -g cnpm –registry=<a href="http://registry.npm.taobao.org" target="_blank" rel="external">http://registry.npm.taobao.org</a></strong> 然后等待安装完成。<br>完成之后，我们就可以用cnpm代替npm来安装依赖包了。如果想进一步了解cnpm的，查看淘宝npm镜像官网。</p>
+<p>4.安装vue-cli脚手架构建工具<br>在命令行中运行命令 <strong>npm install -g vue-cli</strong> ，然后等待安装完成。<br>通过以上三部，我们需要准备的环境和工具都准备好了，接下来就开始使用vue-cli来构建项目。</p>
+<p>5.用vue-cli构建项目<br>要创建项目，首先我们要选定目录，然后再命令行中把目录转到选定的目录。<br>在这里，我选择桌面来存放新建的项目，则我们需要先把目录cd到桌面。在桌面目录下，在命令行中运行命令 <strong>vue init webpack firstVue</strong><br>解释一下这个命令，这个命令的意思是初始化一个项目，其中webpack是构建工具，也就是整个项目是基于webpack的。其中firstVue是整个项目文件夹的名称，这个文件夹会自动生成在你指定的目录中（我的实例中，会在桌面生成该文件夹），如下图。<br><img src="/images/170410-2.png" alt=""></p>
+<p>运行初始化命令的时候回让用户输入几个基本的选项，如项目名称，描述，作者等信息，如果不想填直接回车默认就好。<br>打开firstVue文件夹，项目文件如下所示。<br><img src="/images/170410-3.png" alt=""></p>
+<p>这就是整个项目的目录结构，其中，我们主要在src目录中做修改。这个项目现在还只是一个结构框架，整个项目需要的依赖资源都还没有安装，如下图。<br><img src="/images/170410-4.png" alt=""></p>
+<p>6.安装项目所需的依赖<br>要安装依赖包，首先cd到项目文件夹（firstVue文件夹），然后运行命令 <strong>cnpm install</strong> ，等待安装。<br><img src="/images/170410-5.png" alt=""></p>
+<p>安装完成之后，会在我们的项目目录firstVue文件夹中多出一个node_modules文件夹，这里边就是我们项目需要的依赖包资源。<br><img src="/images/170410-6.png" alt=""><br>安装完依赖包之后，就可以运行整个项目了。</p>
+<p>7.运行项目<br>在项目目录中，运行命令 <strong>npm run dev</strong> ，会用热加载的方式运行我们的应用，热加载可以让我们在修改完代码后不用手动刷新浏览器就能实时看到修改后的效果。<br><img src="/images/170410-7.png" alt=""><br>这里简单介绍下 npm run dev 命令，其中的“run”对应的是package.json文件中，scripts字段中的dev，也就是 node build/dev-server.js命令的一个快捷方式。</p>
+<p>项目运行成功后，浏览器会自动打开localhost:8080（如果浏览器没有自动打开，可以手动输入）。运行成功后，会看到如下所示的界面。<br><img src="/images/170410-8.png" alt=""></p>
+]]></content>
     
     <summary type="html">
     
-      &lt;ul&gt;
-&lt;li&gt;Flux架构介绍&lt;/li&gt;
-&lt;li&gt;React性能调优&lt;/li&gt;
-&lt;li&gt;Redux介绍与实战&lt;/li&gt;
-&lt;li&gt;GraphQL and Relay&lt;/li&gt;
+      &lt;p&gt;需要的东西：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;node.js环境（npm包管理器）&lt;/li&gt;
+&lt;li&gt;vue-cli 脚手架构建工具&lt;/li&gt;
+&lt;li&gt;cnpm  npm的淘宝镜像&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;Flux架构介绍&quot;&gt;&lt;a href=&quot;#Flux架构介绍&quot; class=&quot;headerlink&quot; title=&quot;Flux架构介绍&quot;&gt;&lt;/a&gt;Flux架构介绍&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。&lt;/li&gt;
-&lt;li&gt;Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。&lt;/li&gt;
-&lt;li&gt;View : 视图层&lt;/li&gt;
-&lt;li&gt;Action（动作）: 视图层发出的消息（比如mouseClick）&lt;/li&gt;
-&lt;li&gt;Dispatcher（派发器）: 用来接收Actions、执行回调函数&lt;/li&gt;
-&lt;li&gt;Store（数据层）: 用来存放应用的状态，一旦发生变动，就提醒Views要更新页面
+&lt;h4 id=&quot;安装步骤&quot;&gt;&lt;a href=&quot;#安装步骤&quot; class=&quot;headerlink&quot; title=&quot;安装步骤&quot;&gt;&lt;/a&gt;安装步骤&lt;/h4&gt;&lt;p&gt;1.从node.js官网下载并安装node，安装过程很简单，一路“下一步”就可以了（傻瓜式安装）。&lt;br&gt;安装完成之后，打开命令行工具，输入 &lt;strong&gt;node -v&lt;/strong&gt;，如下图，如果出现相应的版本号，则说明安装成功。&lt;br&gt;
     
     </summary>
     
     
-      <category term="react flux" scheme="http://yoursite.com/tags/react-flux/"/>
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   

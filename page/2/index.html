@@ -446,41 +446,35 @@
 
 
   
-    <article id="post-React-Flux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue项目搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/20/React-Flux/">React Flux架构</a>
+      <a class="article-title" href="/2017/03/20/vue项目搭建/">vue项目搭建</a>
     </h1>
   
 
         
-        <a href="/2017/03/20/React-Flux/" class="archive-article-date">
-  	<time datetime="2017-03-20T02:53:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
+        <a href="/2017/03/20/vue项目搭建/" class="archive-article-date">
+  	<time datetime="2017-03-20T01:16:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>Flux架构介绍</li>
-<li>React性能调优</li>
-<li>Redux介绍与实战</li>
-<li>GraphQL and Relay</li>
+        <p>需要的东西：</p>
+<ul>
+<li>node.js环境（npm包管理器）</li>
+<li>vue-cli 脚手架构建工具</li>
+<li>cnpm  npm的淘宝镜像</li>
 </ul>
-<h3 id="Flux架构介绍"><a href="#Flux架构介绍" class="headerlink" title="Flux架构介绍"></a>Flux架构介绍</h3><ul>
-<li>React :本身只涉及UI层，如果搭建大型应用，必须搭配一个前端框架。</li>
-<li>Flux :是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。</li>
-<li>View : 视图层</li>
-<li>Action（动作）: 视图层发出的消息（比如mouseClick）</li>
-<li>Dispatcher（派发器）: 用来接收Actions、执行回调函数</li>
-<li>Store（数据层）: 用来存放应用的状态，一旦发生变动，就提醒Views要更新页面
+<h4 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h4><p>1.从node.js官网下载并安装node，安装过程很简单，一路“下一步”就可以了（傻瓜式安装）。<br>安装完成之后，打开命令行工具，输入 <strong>node -v</strong>，如下图，如果出现相应的版本号，则说明安装成功。<br>
         
-          <a class="article-more-a" href="/2017/03/20/React-Flux/#more">more >></a>
+          <a class="article-more-a" href="/2017/03/20/vue项目搭建/#more">more >></a>
         
       
 
@@ -494,7 +488,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react flux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -504,7 +498,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/20/React-Flux/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/20/vue项目搭建/">展开全文 >></a>
         </p>
       
 
@@ -608,6 +602,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react flux</a>
               </li>
              
@@ -616,15 +614,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,11 +622,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,11 +634,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
               </li>
             
             <div class="clearfix"></div>
