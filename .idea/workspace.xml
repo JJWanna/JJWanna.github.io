@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d9e3ce76-ae7a-4080-ae86-9c325167e79e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/yilia" afterPath="$PROJECT_DIR$/themes/yilia" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/javascript函数式编程.md" afterPath="$PROJECT_DIR$/source/_posts/javascript函数式编程.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/javascript语言精髓.md" afterPath="$PROJECT_DIR$/source/_posts/javascript语言精髓.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,12 +35,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="javascript语言精髓.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="javascript语言精髓.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/javascript语言精髓.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="210">
+                <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="javascript函数式编程.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/_posts/javascript函数式编程.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="90">
-                <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+              <first_editor relative-caret-position="285">
+                <caret line="75" column="26" lean-forward="false" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -90,7 +103,6 @@
         <option value="$PROJECT_DIR$/source/tags/index.md" />
         <option value="$PROJECT_DIR$/themes/yilia/layout/_partial/post/toc.ejs" />
         <option value="$PROJECT_DIR$/source/archives/index.md" />
-        <option value="$PROJECT_DIR$/source/_posts/javascript函数式编程.md" />
         <option value="$PROJECT_DIR$/source/_posts/wx.md" />
         <option value="$PROJECT_DIR$/themes/yilia/source-src/js/photo.js" />
         <option value="$PROJECT_DIR$/source/_posts/小程序面向个人开发者开放.md" />
@@ -112,6 +124,7 @@
         <option value="$PROJECT_DIR$/source/_posts/CSS3核心高级技巧.md" />
         <option value="$PROJECT_DIR$/source/_posts/vue项目搭建.md" />
         <option value="$PROJECT_DIR$/source/_posts/javascript语言精髓.md" />
+        <option value="$PROJECT_DIR$/source/_posts/javascript函数式编程.md" />
       </list>
     </option>
   </component>
@@ -758,12 +771,12 @@
       <workItem from="1493716295751" duration="1586000" />
       <workItem from="1494369147529" duration="3227000" />
       <workItem from="1501482725339" duration="625000" />
-      <workItem from="1502241993720" duration="1350000" />
+      <workItem from="1502241993720" duration="2251000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115495000" />
+    <option name="totallyTimeSpent" value="116396000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="799" extended-state="6" />
@@ -1032,16 +1045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/javascript函数式编程.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="255">
-            <caret line="17" column="10" lean-forward="false" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/yilia/source-src/js/photo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1185,9 +1188,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/javascript语言精髓.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="210">
+            <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/javascript函数式编程.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="90">
-            <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <first_editor relative-caret-position="285">
+            <caret line="75" column="26" lean-forward="false" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
             <folding />
           </first_editor>
           <second_editor />
