@@ -22,7 +22,7 @@
 当下函数式编程最热的库
 
 函数式编程基础理论1.函数式编程（Functional Programming）相对计算机历史而言是一个古老的概念，甚至早于第一台计算机的诞生。函数式编程的基础模型来源于 ℷ (lambda x=x&amp;gt;x*2)演算，     而 ℷ 演算并非设计于在计算机上执行，它是一套用于研究函数定义、函数应用和递归的形式系统。2.函数式编">
-<meta property="og:updated_time" content="2017-03-29T03:51:38.000Z">
+<meta property="og:updated_time" content="2017-08-09T08:57:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript函数式编程">
 <meta name="twitter:description" content="函数式编程思维
@@ -239,7 +239,8 @@ haveSpace(&quot;a b&quot;);
 
 filter(haveSpace,[&quot;abcdefg&quot;,&quot;Hello World&quot;]);
 //=&gt;[&quot;Hello world&quot;];
-</code></pre><p><strong>事实上柯里化是一种 “预加载”函数的方法，通过传递较少的参数，得到一个已经记住了这些参数的新函数，某种意义上讲，这是一种对参数的”缓存”，是一种非常高效的编写函数的方法。</strong></p>
+</code></pre><font color="red" size="16">事实上柯里化是一种 “预加载”函数的方法，通过传递较少的参数，得到一个已经记住了这些参数的新函数，某种意义上讲，这是一种对参数的”缓存”，是一种非常高效的编写函数的方法。</font>
+
 <p>3.函数组合：纯函数以及如何把它柯里化写出的层叠代码h(g(f(x))),为了解决函数嵌套问题，我们需要用到”函数组合”。</p>
 <pre><code>//我们用柯里化改，让多个函数像拼积木一样
 const compose = (f,g) =&gt; (x =&gt; f(g(x)));
@@ -732,19 +733,15 @@ addSquare(1,2);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Redux Store</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redux</a>
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -756,11 +753,7 @@ addSquare(1,2);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vuejs   vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -768,7 +761,15 @@ addSquare(1,2);
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vuejs   vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
               </li>
             
             <div class="clearfix"></div>

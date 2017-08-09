@@ -621,7 +621,8 @@ haveSpace(&quot;a b&quot;);
 
 filter(haveSpace,[&quot;abcdefg&quot;,&quot;Hello World&quot;]);
 //=&gt;[&quot;Hello world&quot;];
-</code></pre><p><strong>事实上柯里化是一种 “预加载”函数的方法，通过传递较少的参数，得到一个已经记住了这些参数的新函数，某种意义上讲，这是一种对参数的”缓存”，是一种非常高效的编写函数的方法。</strong></p>
+</code></pre><font color="red" size="16">事实上柯里化是一种 “预加载”函数的方法，通过传递较少的参数，得到一个已经记住了这些参数的新函数，某种意义上讲，这是一种对参数的”缓存”，是一种非常高效的编写函数的方法。</font>
+
 <p>3.函数组合：纯函数以及如何把它柯里化写出的层叠代码h(g(f(x))),为了解决函数嵌套问题，我们需要用到”函数组合”。</p>
 <pre><code>//我们用柯里化改，让多个函数像拼积木一样
 const compose = (f,g) =&gt; (x =&gt; f(g(x)));
@@ -1366,8 +1367,8 @@ ReactDOM.render(
 <li>函数级</li>
 <li>块级</li>
 </ul>
-<h3 id="javascript作用域"><a href="#javascript作用域" class="headerlink" title="javascript作用域"></a>javascript作用域</h3><p>全局作用域 :</p>
-<ul>
+<h3 id="javascript作用域"><a href="#javascript作用域" class="headerlink" title="javascript作用域"></a>javascript作用域</h3><ul>
+<li>全局作用域 </li>
 <li>函数作用域 </li>
 <li>块级作用域(ES6)</li>
 </ul>
@@ -1647,14 +1648,14 @@ gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
     </entry>
     
     <entry>
-      <title><![CDATA[archives]]></title>
-      <url>http://yoursite.com/archives/index.html</url>
+      <title><![CDATA[categories]]></title>
+      <url>http://yoursite.com/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[categories]]></title>
-      <url>http://yoursite.com/categories/index.html</url>
+      <title><![CDATA[archives]]></title>
+      <url>http://yoursite.com/archives/index.html</url>
       <content type="html"></content>
     </entry>
     
@@ -1673,6 +1674,12 @@ gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
       <title></title>
       <url>http://yoursite.com/photo/output.json</url>
       <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://yoursite.com/tags/index.html</url>
+      <content type="html"></content>
     </entry>
     
     <entry>
@@ -1707,12 +1714,6 @@ fs.readdir(path, function (err, files) {
 
 
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://yoursite.com/tags/index.html</url>
-      <content type="html"></content>
     </entry>
     
   
