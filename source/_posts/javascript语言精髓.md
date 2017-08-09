@@ -5,28 +5,12 @@ tags: javascript
 ---
 
     
-    if(!(“userName” in window)){
-     var userName=“zhengzheng.xz”;
-    }
-    console.log(userName);
     
-    
-    var obj = {
-       user: “zhengzheng.xz”
-       getName:function(){
-          return user;
-       }
-    }
-    var getNameFn = obj.getName;
-    console.log(getNameFn());
-    console.log(obj.getName());
-    
-    
-<!--more-->
+
 ### 作用域的种类
 作用域由大到小: 
 * 程序级
-* 件级
+* 文件级
 * 函数级
 * 块级
     
@@ -35,7 +19,7 @@ tags: javascript
 * 函数作用域 
 * 块级作用域(ES6)
     
-        
+<!--more-->       
     var global = 1;
     function doSomething(){
         var inner = 2;
