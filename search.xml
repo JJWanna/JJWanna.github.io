@@ -4,6 +4,54 @@
   
     
     <entry>
+      <title><![CDATA[实战promise]]></title>
+      <url>http://yoursite.com/2017/09/04/%E5%AE%9E%E6%88%98promise/</url>
+      <content type="html"><![CDATA[<h3 id="Promise-resolve"><a href="#Promise-resolve" class="headerlink" title="Promise.resolve"></a>Promise.resolve</h3><p>一般情况我们会使用new Promise()来创建promise对象，但除此之外我们也可使用其他方法。<br>在这里，我们将会学习如何使用 Promise.resolve和Promise.reject这两个方法。</p>
+<h3 id="new-Promise的快捷方式"><a href="#new-Promise的快捷方式" class="headerlink" title="new Promise的快捷方式"></a>new Promise的快捷方式</h3><p>静态方法Promise.resolve(value)可以认为是new Promise()方法的快捷方式。<br>比如Promise.resolve(42);可以认为是以下代码的语法糖。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">new Promise(function(resolve)&#123;</div><div class="line">    resolve(42);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>在这段代码中的resolve(42)；会让这个promise对象立即进入确定(即resolved）状态，并将42传递给后面then里所指定的onFulfilled函数。</p>
+<p>方法Promise.resolve(value);的返回值也是一个promise对象，所以我们可以像下面那样接着对其返回值进行.then调用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Promise.resolve(42).then(function(value)&#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>Promise.resolve作为new Promise()的快捷方式，在进行promise对象的初始化或者编写测试代码的时候都非常方便。</p>
+<h3 id="Thenable"><a href="#Thenable" class="headerlink" title="Thenable"></a>Thenable</h3><p>Promise.resolve方法另一个作用就是将thenable对象转换为promise对象。<br>ES6 Promise里提到了Thenable这个概念，简单来说它就是一个非常类似promise的东西。<br>就像我们有时称具有.length方法的非数组对象为Array like一样，thenable指的是一个具有.then方法的对象。</p>
+<p>这种将thenable对象转换为promise对象的机制要求thenable对象所拥有的then方法应该和Promise所拥有的then方法具有同样的功能<br>和处理过程，在将thenable对象转换为promise对象的时候，还会巧妙利用thenable对象原来具有的then方法。</p>
+<p>到底什么样的对象能算是thenable的呢，最简单的例子就是JQuery.ajax()，它的返回值就是thenable的。</p>
+<p>因为JQuery.ajax()的返回值是jqXHR Object对象，这个对象具有.then方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.ajax(&apos;/json/comment.json&apos;); //=&gt;拥有&apos;.then&apos;方法的对象</div></pre></td></tr></table></figure>
+<p>这个thenable的对象可以使用Promise.resolve来转换为一个promise对象。<br>编程了promise对象的话，就能直接使用then或者catch等这些在ES6 Promise里定义的方法了。</p>
+<h3 id="将-thenable对象转换promise对象"><a href="#将-thenable对象转换promise对象" class="headerlink" title="将 thenable对象转换promise对象"></a>将 thenable对象转换promise对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var promise = Promise.resolve($ajax(&apos;/json/comment.json&apos;)); //=&gt;peomise对象</div><div class="line">promise.then(function(value)&#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="jQuery-和-thenable"><a href="#jQuery-和-thenable" class="headerlink" title="jQuery 和 thenable"></a>jQuery 和 thenable</h4><p>jquery.ajax()返回的值是一个具有.then方法的jqXHR Object对象，这个对象继承了来自Deferred Object的方法和属性。</p>
+<p>但是Deferred Object并没有遵循Promises/A+或 ES6 Promise标准，所以即使看上去这个对象转换成了一个Promise对象，<br>但是会出现缺失部分信息的问题。</p>
+<p>这个问题的根源在于jquery的Deferred Object的then方法机制与promise不同。</p>
+<p>所以我们应该注意，即使一个对象具有.then方法，也不一定就能作为ES6 Promise对象使用。</p>
+<p>Promise.resolve只使用了共同的方法then,提供了在不同的类库之间进行promise对象互相转换的功能。</p>
+<p>这种转换为thenable的功能在之前是通过使用Promise.cast来完成的，从它的名字我们也不难想象它的功能是什么。<br>除了在编写使用Promise的类库等软件时需要对Thenable有所了解之外，通常作为end-user使用的时候，我们可能不会用到此功能。</p>
+<p>总结：<br>Promise.resolve方法，可以认为它的作用就是将传递给它的参数填充(Fulfilled)到Promise对象后并返回这个promise对象。<br>此外，promise的很多处理内部也是使用了Promise.resolve算法将值转换为promise对象后再进行处理的。</p>
+<h3 id="Promise-reject"><a href="#Promise-reject" class="headerlink" title="Promise.reject"></a>Promise.reject</h3><p>Promise.reject(error)是何Promise.resolve(value)类似的静态方法，是new Promise()方法的快捷方式。<br>比如Promise.reject(new Error(‘出错了’))就是下面代码的语法糖形式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">new Promise(function(resolve,reject)&#123;</div><div class="line">    reject(new Error(&apos;出错了&apos;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>这段代码的功能是调用该promise对象通过then指定的onRejected函数，并将错误（Error）对象传递给这个onRejected函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Promise.reject(new Error(&apos;BOOM&apos;)).catch(function(error)&#123;</div><div class="line">    console.log(error);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>它和Promise.resolve(value)的不同之处在于promise内调用的函数时候reject而不是resolve,这在编写测试代码或者进行debug时，说不定会用的上。</p>
+<h3 id="Promise只能进行异步操作吗"><a href="#Promise只能进行异步操作吗" class="headerlink" title="Promise只能进行异步操作吗"></a>Promise只能进行异步操作吗</h3><p>在使用Promise.resolve(value)等方法的时候，如果promise对象立刻就能进入resolve状态的话，那么你是不是觉得.then里面指定的方法就是同步调用的呢？</p>
+<p>实际上，.then中指定的方法调用异步进行的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var promise = new Promise(function(resolve)&#123;</div><div class="line">    console.log(&apos;inner promise&apos;); //1</div><div class="line">    resolve(42);</div><div class="line">&#125;);</div><div class="line">promise.then(function(value)&#123;</div><div class="line">    console.log(value); //3</div><div class="line">&#125;);</div><div class="line">console.log(&apos;outer promise&apos;); //2</div></pre></td></tr></table></figure></p>
+<p>执行上面的代码会输出下面的log,从这些log我们清楚地知道了上面的代码的执行顺序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">inner promise //1</div><div class="line">outer promise //2</div><div class="line">42            //3</div></pre></td></tr></table></figure></p>
+<p>由于JavaScript代码会按照文件的从上到下的顺序执行,所以最开始 <1> 会执行,然 后是 被执行。这时候 promise 对象的已经变为确定状态,FulFilled被设置 为了 。<br>下面的代码 promise.then 注册了 <3> 这个回调函数,这是本专栏的焦点问题。<br>由于 promise.then 执行的时候promise对象已经是确定状态,从程序上说对回调函数进<br>行同步调用也是行得通的。<br>但是即使在调用 promise.then 注册回调函数的时候promise对象已经是确定的状 态,Promise也会以异步的方式调用该回调函数,这是在Promise设计上的规定方针。<br>因此 <2> 会最先被调用,最后才会调用回调函数 <3> 。 为什么要对明明可以以同步方式进行调用的函数,非要使用异步的调用方式呢?</3></2></3></1></p>
+<h3 id="同步调用和异步调用同事存在导致的混乱"><a href="#同步调用和异步调用同事存在导致的混乱" class="headerlink" title="同步调用和异步调用同事存在导致的混乱"></a>同步调用和异步调用同事存在导致的混乱</h3><p>其实在Promise之外也存在这个问题，这里我们以一般的使用情况来考虑此问题。<br>这个问题的本质是接收回调函数的函数，会根据具体的执行情况，可以选择是以同步还是异步的方式对回调函数进行调用。<br>下面我们以onReady(fn）为例进行说明，这个函数会接收一个回调函数进行处理。</p>
+<p>mixed-onready.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function onReady(fn)&#123;</div><div class="line">    var readyState=document.readyStaye;</div><div class="line">    if(readyState===&apos;interactive&apos; || readyStaye===&apos;complete&apos;)&#123;</div><div class="line">        fn();</div><div class="line">    &#125;else&#123;</div><div class="line">        window.addEventListener(&apos;DOMContentLoaded&apos;,fn);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">onReady(function()&#123;</div><div class="line">    console.log(&apos;DOM fully loaded and parsed&apos;);</div><div class="line">&#125;);</div><div class="line">console.log(&apos;==Starting==&apos;);</div></pre></td></tr></table></figure></p>
+<p>mixed-onready.js会根据执行时DOM是否已经装载完毕来决定是对回调函数进行同步调用还是异步调用。<br>如果在调用onReady之前DOM已经载入的话，对回调函数进行同步调用<br>如果在调用onReady之前DOM还没有载入的话，通过注册DOMContentLoaded事件监听器来对回调函数进行异步调用<br>因此，如果这段代码在原文件中出现的位置不同，在控制台上打印的log消息顺序也会不同。<br>为了解决这个问题，我们可以选择统一使用异步调用的方式。</p>
+<p>async-onready.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function onReady(fn)&#123;</div><div class="line">    var readyState=document.readyState;</div><div class="line">    if(readyState===&apos;interactive&apos;||readyState===&apos;complete&apos;)&#123;</div><div class="line">        setTimeout(fn,0);</div><div class="line">    &#125;else&#123;</div><div class="line">        window.addEventListener(&apos;DOMContentLoaded&apos;,fn);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">onReady(function()&#123;</div><div class="line">    console.log(&apos;DOM fully loaded parsed&apos;);</div><div class="line">&#125;);</div><div class="line">console.log(&apos;==Starting==&apos;);</div></pre></td></tr></table></figure></p>
+<h4 id="不要对异步回调函数进行同步调用"><a href="#不要对异步回调函数进行同步调用" class="headerlink" title="不要对异步回调函数进行同步调用"></a>不要对异步回调函数进行同步调用</h4><ul>
+<li>绝对不能对异步回调函数（即使在数据已经就绪）进行同步调用。</li>
+<li>如果对异步回调函数进行同步调用的话，处理顺序可能会与预期不符，可能带来意料之外的后果。</li>
+<li>对异步毁掉函数进行同步调用，还可能导致栈溢出或异常处理错误等问题</li>
+<li>如果想在将来某时刻调用异步回调函数的话，可以使用setTimeout等一部API。</li>
+</ul>
+<p>前面我们看到的promise.then也属于此类，为了避免上述中同时使用同步、异步调用可能引起的混乱问题，Promise在规范上规定Promise只能使用异步调用方式。<br>最后，如果将上面的onReady函数用Promise重写的话，代码如下：</p>
+<p>onready-as-promise.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function onReadyPromise()&#123;</div><div class="line">    return new Promise(function(resolve,reject)&#123;</div><div class="line">        var readyState= document.readyState;</div><div class="line">        if(readyState===&apos;interactive&apos;||readyState===&apos;complete&apos;)&#123;</div><div class="line">            resolve();</div><div class="line">        &#125;else&#123;</div><div class="line">            window.addEventListener(&apos;DOMContentLoaded&apos;,resolve);</div><div class="line">        &#125;</div><div class="line">     &#125;);</div><div class="line">&#125;</div><div class="line">onReadyPromise().then(function()&#123;</div><div class="line">    console.log(&apos;DOM fully loaded and parsed&apos;);</div><div class="line">&#125;);</div><div class="line">console.log(&apos;==Starting==&apos;);</div></pre></td></tr></table></figure></p>
+<p>由于Promise保证了每次调用都以异步方式进行，所以我们在实际编码中不需要调用setTimeout 来自己实现异步调用。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[promise详解]]></title>
       <url>http://yoursite.com/2017/09/04/promise%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<h3 id="什么是promise"><a href="#什么是promise" class="headerlink" title="什么是promise?"></a>什么是promise?</h3><p>Promise是抽象异步处理对象以及对其进行各种操作的组件。<br>Promise最初被提出是在E语言中，它是基于并列/并行处理设计的一种编程语言。<br>现在Javascript也拥有了这种特性，这就是要介绍的javascript Promise。<br>如果说到基于javascript的异步处理，大多数都会想到利用回调函数。<br>使用了回调函数的异步处理：</p>
@@ -1859,17 +1907,6 @@ gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
     </entry>
     
     <entry>
-      <title><![CDATA[相册]]></title>
-      <url>http://yoursite.com/photo/index.html</url>
-      <content type="html"><![CDATA[<p><link type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.css" rel="stylesheet"></p>
-<p><div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div></p>
-<script src="/source-src/js/photo.js"></script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/source-src/js/main.js" type="text/javascript"></script>
-]]></content>
-    </entry>
-    
-    <entry>
       <title></title>
       <url>http://yoursite.com/photo/output.json</url>
       <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
@@ -1906,6 +1943,17 @@ fs.readdir(path, function (err, files) {
 });
 
 
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[相册]]></title>
+      <url>http://yoursite.com/photo/index.html</url>
+      <content type="html"><![CDATA[<p><link type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.css" rel="stylesheet"></p>
+<p><div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div></p>
+<script src="/source-src/js/photo.js"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/source-src/js/main.js" type="text/javascript"></script>
 ]]></content>
     </entry>
     
