@@ -155,6 +155,59 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-promise-then" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/04/promise-then/">promise#then</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/04/promise-then/" class="archive-article-date">
+  	<time datetime="2017-09-04T07:54:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Promise可以写成方法链的形式"><a href="#Promise可以写成方法链的形式" class="headerlink" title="Promise可以写成方法链的形式"></a>Promise可以写成方法链的形式</h4><p>在promise里可以将任意个方法连在一起作为一个方法链（method chain）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">aPromise.then(function taskA(value)&#123;</div><div class="line">    //task A</div><div class="line">&#125;).then(function taskB(value)&#123;</div><div class="line">    //taskB</div><div class="line">&#125;).catch(function onRejected(error)&#123;</div><div class="line">    console.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>如果把在then中注册的每个回调函数成为task的话，那么我们就可以通过Promise方法链方式来编写能以taskA-&gt;taskB这种流程进行处理的逻辑了。<br>Promise方法链这种叫法有点长，因此简化为promise chain。<br>Promise之所以适合编写异步处理较多的应用，promise chain可以算得上是其中一个原因。</p>
+<h4 id="Promise-chain"><a href="#Promise-chain" class="headerlink" title="Promise chain"></a>Promise chain</h4><p>promise-then-catch-flow.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function taskA()&#123;</div><div class="line">    console.log(&apos;taskA&apos;);</div><div class="line">&#125;</div><div class="line">function taskB()&#123;</div><div class="line">    console.log(&apos;taskB&apos;);</div><div class="line">&#125;</div><div class="line">function onRejected(error)&#123;</div><div class="line">    console.log(&apos;Catch Error A or B&apos;,error);</div><div class="line">&#125;</div><div class="line">function finalTask()&#123;</div><div class="line">    console.log(&apos;Final Task&apos;);</div><div class="line">&#125;</div><div class="line">var promise=Promisr resolve();</div><div class="line">promise</div><div class="line">    .then(taskA)</div><div class="line">    .then(taskB)</div><div class="line">    .catch(onRejected)</div><div class="line">    .then(finalTask);</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/04/promise-then/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-实战promise" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -418,79 +471,9 @@
 
 
   
-    <article id="post-Redux数据流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/16/Redux数据流/">Redux数据流</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/16/Redux数据流/" class="archive-article-date">
-  	<time datetime="2017-04-16T05:56:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>Redux 应用里的数据流是单向的。数据的生命周期有四个阶段：<br>1.<strong>调用 store.dispatch(action)</strong><br>一个动作就是一个纯对象，描述了发生的事情，比如：</li>
-</ul>
-<pre><code>{type:&apos;LIKE_ARTICLE&apos;,articleId:42}
-{type:&apos;FETCH_USER_SUCCESS&apos;,response:{id:3,name:&apos;Mary}}
-{type:&apos;ADD_TODO&apos;,text:&apos;Read thr Redux docs.&apos;}
-</code></pre><p>把动作想成是一些简要的新闻： “Mary liked article 42.” ， “‘Read the Redux docs.’ was added to the list of todos.”。在应用的任何地方你可以调用 store.dispatch(action)，包括组件，XHR 回调等等。<br>
-        
-          <a class="article-more-a" href="/2017/04/16/Redux数据流/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/16/Redux数据流/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -602,11 +585,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">vuejs   vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vuejs   vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
