@@ -135,8 +135,8 @@
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://yoursite.com/2017/08/10/koa%E5%AE%9E%E6%88%98/</url>
+      <title><![CDATA[KOA实战]]></title>
+      <url>http://yoursite.com/2017/08/16/koa%E5%AE%9E%E6%88%98/</url>
       <content type="html"><![CDATA[<h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><ul>
 <li>yarn官网：<a href="https://yarnpkg.com/" target="_blank" rel="external">https://yarnpkg.com/</a></li>
 <li>安装yarn: npm install yarn -g</li>
@@ -249,6 +249,12 @@
 <p>备注：<br>（1）只有 UI测试 和 服务端测试命令可以合并在一起，同时测试；<br>        因为服务端测试时，不能启动app.js否则会报错；而unit测试，需要启动app.js，否则会报错；<br>（2）当我们在编写unit测试命令时，我们需要把test目录下的此文件放在与配置文件同级目录，否则执行unit测试的时候，会报错，提示我们去下载该插件；</p>
 ]]></content>
       
+        
+        <tags>
+            
+            <tag> Redux </tag>
+            
+        </tags>
         
     </entry>
     
