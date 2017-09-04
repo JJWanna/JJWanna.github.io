@@ -177,77 +177,9 @@
       
         <h3 id="什么是promise"><a href="#什么是promise" class="headerlink" title="什么是promise?"></a>什么是promise?</h3><p>Promise是抽象异步处理对象以及对其进行各种操作的组件。<br>Promise最初被提出是在E语言中，它是基于并列/并行处理设计的一种编程语言。<br>现在Javascript也拥有了这种特性，这就是要介绍的javascript Promise。<br>如果说到基于javascript的异步处理，大多数都会想到利用回调函数。<br>使用了回调函数的异步处理：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">getAsync(&quot;fileA.txt&quot;,function(error,result)&#123;</div><div class="line">    if(error)&#123; //取得失败时的处理</div><div class="line">        throw error;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //取得成功时的处理</div><div class="line">    </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>传给回调函数的参数为（error对象，执行结果）组合。<br>Node.js等则规定在javascript的回调函数的第一个参数为Error的对象，这也是它的一个惯例。</p>
-<p>像上面这样基于回调函数的异步处理如果统一参数使用规则的话，写法也会很明了。<br>但是，这也仅是编码规约而已，即使采用不用的写法依然不会出错。</p>
-<p>而promise则是把类似的异步处理对象和处理规则进行规范化，并按照采用统一的接口来编写，<br>而采取规定方法之外的写法都会出错。</p>
-<p>下面使用了Promise进行异步处理的一个例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var promise = getAsyncPromise(&quot;fileA.txt&quot;);</div><div class="line">promise.then(function(result)&#123;</div><div class="line">    //获取文件内容成功时的处理</div><div class="line">&#125;).catch(function(error)&#123;</div><div class="line">    //获取文件内容失败时的处理</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>返回promise对象</p>
-<p>我们可以向这个预设了抽象化异步处理的promise对象，注册这个promise对象执行成功时和失败时相应的回调函数。</p>
-<p>###Promise简介<br>在es6 Promise标准中定义的API还不是很多。<br>目前大致有以下三种类型</p>
-<p>####Constructor<br>Promise类似于XMLHttpRequest，从构造函数Promise来创建一个新promise对象作为接口。<br>要想创建一个promise对象，可以使用new来调用Promise的构造器来进行实例化。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise =<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">    <span class="comment">//异步处理</span></div><div class="line">    <span class="comment">//处理结束后、调用resolve或reject</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h4 id="Instance-Method"><a href="#Instance-Method" class="headerlink" title="Instance Method"></a>Instance Method</h4><p>对通过new生成的promise对象为了设置其值在resolve(成功)/reject（失败）时调用的回调函数可以使用<br>promise.then()实例方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.then(onFulfilled,onRejected)</div></pre></td></tr></table></figure>
-<p>resolve(成功)时<br>    onFulfilled会被调用<br>reject(失败)时<br>    onRejected会被调用<br>onFulfilled、onRejected两个都为可选参数。</p>
-<p>promise.then成功和失败时都可以使用。另外在想对异常进行处理时可以采用<br>promise.then(undefined,onRejected)这种方式，只指定reject时的回调函数即可。<br>不过这种情况下promise.catch(onRejected)应该是个更好的选择。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.catch(onRejected)</div></pre></td></tr></table></figure>
-<h4 id="Static-Method"><a href="#Static-Method" class="headerlink" title="Static Method"></a>Static Method</h4><p>像promise这样全局对象还拥有一些静态方法。<br>包括promise.all()还有Promise.resolve()等在内，主要都是一些对Promise进行操作的辅助方法。</p>
-<p>###Promise workflow</p>
-<p>promise-workflow.js</p>
-<figure class="highlight scilab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncFunction</span><span class="params">()</span>&#123;</span></div><div class="line">    <span class="keyword">return</span> new Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span>&#123;</span></div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span>&#123;</span></div><div class="line">            resolve(<span class="string">'Async Hello world'</span>);</div><div class="line">        &#125;,<span class="number">16</span>);</div><div class="line">    &#125;)   </div><div class="line">&#125;</div><div class="line"></div><div class="line">asyncFunction().<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(value)</span>&#123;</span></div><div class="line">    console.<span class="built_in">log</span>(value);  <span class="comment">//=&gt; 'Async Hello world'</span></div><div class="line">&#125;).<span class="keyword">catch</span>(<span class="function"><span class="keyword">function</span><span class="params">(error)</span>&#123;</span></div><div class="line">    console.<span class="built_in">log</span>(<span class="built_in">error</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>new Promise构造器之后，会返回一个promise对象<br>为Promise对象用设置 .then调用返回值时的回调函数。<br>asyncFunction 这个函数会返回promise对象，对于这个promised对象，我们调用它的then方法<br>来设置resolve的回调函数，catch方法来设置发生错误时的回调函数。</p>
-<p>该promise对象会在setTimeout之后的16ms时被resolve，这时then的回调函数会被调用，并输出’Async Hello world’。<br>在这种情况下catch的回调函数并不会被执行（因为promise返回了resolve）,不过如果运行环境<br>没用提供setTimeout函数的话，那么上面代码在执行中就会产生异常，在catch中设置的回调函数就会被执行。</p>
-<p>像promise.then(onFulFilled,onRejected)的方法声明一样，如果不使用catch方法的话，如下所示的代码也能完成相同的工作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">asyncFunction().then(function(value)&#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;,function(error)&#123;</div><div class="line">    console.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h3 id="Promise的状态"><a href="#Promise的状态" class="headerlink" title="Promise的状态"></a>Promise的状态</h3><p>用new Promise实例化的promise对象有以下三个状态。</p>
-<p>“has-resolution”-Fulfilled<br>    resolve(成功)时。此时会调用onFulfilled</p>
-<p>“has-rejection”-Rejected<br>    reject(失败)时。此时会调用onRejected</p>
-<p>“unresolved”-Pending<br>    既不是resolve也不是reject状态。也就是promise对象刚被创建后的初始化状态等</p>
-<p>Promise对象的状态，从pending转换为Fulfilled或Rejected之后，这个promise对象的状态就不会再发生任何变化。</p>
-<p>promise与event等不同，在.then后执行的函数可以肯定地说只会被调用一次。<br>另外，Fulfilled和Rejected这两个中的任一状态都可以表示为settled(不变的)。</p>
-<p>Settled<br>    resolve(成功)或 reject(失败)</p>
-<h3 id="编写Promise代码"><a href="#编写Promise代码" class="headerlink" title="编写Promise代码"></a>编写Promise代码</h3><h4 id="创建promise对象"><a href="#创建promise对象" class="headerlink" title="创建promise对象"></a>创建promise对象</h4><p>创建promise对象的流程如下所示。</p>
-<ol>
-<li>new Promise(fn)返回一个promise对象</li>
-<li><p>在fn 中指定异步等处理</p>
-<ul>
-<li>处理结果正常的话，调用resolve(处理结果值)</li>
-<li>处理结果错误的话，调用reject(error对象)</li>
-</ul>
-</li>
-</ol>
-<p>我们的任务是用Promise来通过异步处理方式来获取XMLHttpRequest(XHR)的数据。</p>
-<p>####创建XHR的promise对象<br>首先，创建一个用Promise把XHR处理包装起来的名为getURL的函数。</p>
-<p>xhr-promise.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">function getURL(URL)&#123;</div><div class="line">    return new Promise(function(resolve,reject)&#123;</div><div class="line">        var req=new XMLHttpRequest();</div><div class="line">        req.open(&apos;GET&apos;,URL,true);</div><div class="line">        req.onload=function()&#123;</div><div class="line">            if(req.status===200)&#123;</div><div class="line">                resolve(req.responseText);</div><div class="line">            &#125;else&#123;</div><div class="line">                reject(new Error(req.statusText));</div><div class="line">            &#125;</div><div class="line">         &#125;;</div><div class="line">         req.onerror=function()&#123;</div><div class="line">            reject(new Error(req.statusText));</div><div class="line">         &#125;;</div><div class="line">         req.send();</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">//运行示例</div><div class="line">var URL=&quot;http://httpbin.org/get&quot;;</div><div class="line">getURL(URL).then(function onFulfilled(value)&#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;).catch(function onRejected(error)&#123;</div><div class="line">    console.error(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>getURL只有在通过XHR取得结果状态为200时才会调用resolve-也就是只有数据取得成功时，而其他情况（取得失败）<br>时则会调用reject方法。<br>resolve(req.responseText)在response的内容中加入了参数。<br>resolve方法的参数并内有特别的规则。基本上把要传给回调函数参数放进去就可以了。（then方法可以接收到这个参数值）<br>熟悉nondejs的人，经常会在写回调函数时将callback(error,response)的第一个参数设为error对象，而在Promise中resolve/reject则担当了这个职责（处理正常和异常的情况)，<br>所以在resolve方法中只传一个response参数是没有问题的。</p>
-<p>####reject函数</p>
-<p>XHR中onerror事件触发的时候就是发生错误时，所以理所当然调用reject。<br>发生错误时要像这样reject(new Error(req.statusText));,创建一个Error对象后再将具体的值传进去。<br>传给reject的参数也没有什么特殊的限制，一般只要是error对象(获取继承自error对象)就可以。</p>
-<p>传给reject的参数，其中一般是包含了reject原因的error对象。本次因为状态值不等于200而被reject,<br>所以reject中放入的是statusText。（这个参数的值可以被then方法的第二个参数或者catch方法中使用）</p>
-<p>###编写promise对象处理方法<br>让我们在实际中使用以下刚才创建的返回promise对象的函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getURL(&apos;http://example.com/&apos;); =&gt;返回promise对象</div></pre></td></tr></table></figure>
-<p>如果promises overview中做的简单介绍一样，promise对象拥有几个实例方法，我们使用这些<br>实例方法来为promise对象创建依赖于promise的具体状态，并且只会被执行一次的回调函数。</p>
-<p>为promise对象添加处理方法主要有以下两种：</p>
-<ul>
-<li>promise对象被resolve时的处理 （onFulfilled）</li>
-<li>promise对象被reject时的处理（onRejected）</li>
-</ul>
-<h3 id="promise-value-flow"><a href="#promise-value-flow" class="headerlink" title="promise value flow"></a>promise value flow</h3><p>首页，我们来尝试一下为getURL通信成功并取到值时添加的处理函数。<br>此时所谓的通信成功，指的就是在被resolve后，promise对象变为Fulfilled状态。<br>被resolve后的处理，可以在.then方法中传入想要的调用的函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var URL=&quot;http://httpbin.org/get&quot;;</div><div class="line">getURL(URL).then(function onFulfilled(value)&#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>为了方便理解我们把函数命名为onFulfilled<br>getURL函数中的resolve(req.responseText);会将promise对象变为resolve(Fulfilled)状态，同时使用其<br>值调用onFulfilled函数。<br>不过目前我们还没有对其中可能发生的错误做任何处理，接下来，我们就来为getURL函数添加发生错误时的异常处理。<br>此时，发生错误，指的也就是reject后promise对象变为Rejected状态。</p>
-<p>被reject后的处理，可以在 .then 的第二个参数 或者是在 .catch 方法中设置想要调用的 函数。</p>
-<p>把下面reject时的处理加入到刚才的代码，如下所示。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var URL=&quot;http://httpbin.org/status/500&quot;;</div><div class="line">getURL(URL).then(function onFulfilled(value)&#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;).catch(function onRejected(error)&#123;</div><div class="line">  console.error(error);  </div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>服务端返回的状态码为500<br>为了方便理解函数被命名为onRejected<br>在getURL的处理中发生任何异常，或者被明确reject的情况下，该异常原因（Error对象）会作为<br>.catch方法的参数被调用。<br>其实.catch只是promise.then(undefined,onRejected)的别名而已。如下代码也可以完成同样的功能。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getURL(URL).then(onFulfilled,onRejected);</div></pre></td></tr></table></figure>
-<p>onFulfilled,onRejected是和刚才相同的函数<br>一般来说，使用.catch来将resolve和reject处理分开来写是比较推荐的做法,这两者的区别会在then<br>和 catch的区别中再做详细介绍。</p>
-<p>总结：</p>
-<ul>
-<li><p>用new Promise方法创建promise对象</p>
-</li>
-<li><p>用 .then 或 .catch添加promise对象的处理函数</p>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2017/09/04/promise详解/#more">more >></a>
+        
       
 
       
@@ -723,15 +655,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react flux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Redux Store</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -751,19 +683,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vuejs   vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
               </li>
             
             <div class="clearfix"></div>

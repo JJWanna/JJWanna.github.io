@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-04T05:48:58.000Z</updated>
+  <updated>2017-09-04T06:08:11.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,19 +20,23 @@
     <link href="http://yoursite.com/2017/09/04/promise%E8%AF%A6%E8%A7%A3/"/>
     <id>http://yoursite.com/2017/09/04/promise详解/</id>
     <published>2017-09-04T02:00:00.000Z</published>
-    <updated>2017-09-04T05:48:58.000Z</updated>
+    <updated>2017-09-04T06:08:11.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="什么是promise"><a href="#什么是promise" class="headerlink" title="什么是promise?"></a>什么是promise?</h3><p>Promise是抽象异步处理对象以及对其进行各种操作的组件。<br>Promise最初被提出是在E语言中，它是基于并列/并行处理设计的一种编程语言。<br>现在Javascript也拥有了这种特性，这就是要介绍的javascript Promise。<br>如果说到基于javascript的异步处理，大多数都会想到利用回调函数。<br>使用了回调函数的异步处理：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">getAsync(&quot;fileA.txt&quot;,function(error,result)&#123;</div><div class="line">    if(error)&#123; //取得失败时的处理</div><div class="line">        throw error;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //取得成功时的处理</div><div class="line">    </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>传给回调函数的参数为（error对象，执行结果）组合。<br>Node.js等则规定在javascript的回调函数的第一个参数为Error的对象，这也是它的一个惯例。</p>
-<p>像上面这样基于回调函数的异步处理如果统一参数使用规则的话，写法也会很明了。<br>但是，这也仅是编码规约而已，即使采用不用的写法依然不会出错。</p>
+<p>像上面这样基于回调函数的异步处理如果统一参数使用规则的话，写法也会很明了。<br>但是，这也仅是编码规约而已，即使采用不同的写法依然不会出错。</p>
 <p>而promise则是把类似的异步处理对象和处理规则进行规范化，并按照采用统一的接口来编写，<br>而采取规定方法之外的写法都会出错。</p>
 <p>下面使用了Promise进行异步处理的一个例子</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var promise = getAsyncPromise(&quot;fileA.txt&quot;);</div><div class="line">promise.then(function(result)&#123;</div><div class="line">    //获取文件内容成功时的处理</div><div class="line">&#125;).catch(function(error)&#123;</div><div class="line">    //获取文件内容失败时的处理</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>返回promise对象</p>
 <p>我们可以向这个预设了抽象化异步处理的promise对象，注册这个promise对象执行成功时和失败时相应的回调函数。</p>
-<p>###Promise简介<br>在es6 Promise标准中定义的API还不是很多。<br>目前大致有以下三种类型</p>
-<p>####Constructor<br>Promise类似于XMLHttpRequest，从构造函数Promise来创建一个新promise对象作为接口。<br>要想创建一个promise对象，可以使用new来调用Promise的构造器来进行实例化。</p>
+<p>这和回调函数方式相比有哪些不同之处呢? 在使用promise进行一步处理的时候,我们 必须按照接口规定的方法编写处理代码。</p>
+<p>也就是说,除promise对象规定的方法(这里的 then 或 catch )以外的方法都是不可以使 用的, 而不会像回调函数方式那样可以自己自由的定义回调函数的参数,而必须严格 遵守固定、统一的编程方式来编写代码。</p>
+<p>这样,基于Promise的统一接口的做法, 就可以形成基于接口的各种各样的异步处理模式。<br>所以,promise的功能是可以将复杂的异步处理轻松地进行模式化, 这也可以说得上是 使用promise的理由之一。</p>
+<h3 id="Promise简介"><a href="#Promise简介" class="headerlink" title="Promise简介"></a>Promise简介</h3><p>在es6 Promise标准中定义的API还不是很多。<br>目前大致有以下三种类型</p>
+<h4 id="Constructor"><a href="#Constructor" class="headerlink" title="Constructor"></a>Constructor</h4><p>Promise类似于XMLHttpRequest，从构造函数Promise来创建一个新promise对象作为接口。<br>要想创建一个promise对象，可以使用new来调用Promise的构造器来进行实例化。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise =<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">    <span class="comment">//异步处理</span></div><div class="line">    <span class="comment">//处理结束后、调用resolve或reject</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <h4 id="Instance-Method"><a href="#Instance-Method" class="headerlink" title="Instance Method"></a>Instance Method</h4><p>对通过new生成的promise对象为了设置其值在resolve(成功)/reject（失败）时调用的回调函数可以使用<br>promise.then()实例方法。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.then(onFulfilled,onRejected)</div></pre></td></tr></table></figure>
@@ -40,8 +44,7 @@
 <p>promise.then成功和失败时都可以使用。另外在想对异常进行处理时可以采用<br>promise.then(undefined,onRejected)这种方式，只指定reject时的回调函数即可。<br>不过这种情况下promise.catch(onRejected)应该是个更好的选择。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.catch(onRejected)</div></pre></td></tr></table></figure>
 <h4 id="Static-Method"><a href="#Static-Method" class="headerlink" title="Static Method"></a>Static Method</h4><p>像promise这样全局对象还拥有一些静态方法。<br>包括promise.all()还有Promise.resolve()等在内，主要都是一些对Promise进行操作的辅助方法。</p>
-<p>###Promise workflow</p>
-<p>promise-workflow.js</p>
+<h3 id="Promise-workflow"><a href="#Promise-workflow" class="headerlink" title="Promise workflow"></a>Promise workflow</h3><p>promise-workflow.js</p>
 <figure class="highlight scilab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncFunction</span><span class="params">()</span>&#123;</span></div><div class="line">    <span class="keyword">return</span> new Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span>&#123;</span></div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span>&#123;</span></div><div class="line">            resolve(<span class="string">'Async Hello world'</span>);</div><div class="line">        &#125;,<span class="number">16</span>);</div><div class="line">    &#125;)   </div><div class="line">&#125;</div><div class="line"></div><div class="line">asyncFunction().<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(value)</span>&#123;</span></div><div class="line">    console.<span class="built_in">log</span>(value);  <span class="comment">//=&gt; 'Async Hello world'</span></div><div class="line">&#125;).<span class="keyword">catch</span>(<span class="function"><span class="keyword">function</span><span class="params">(error)</span>&#123;</span></div><div class="line">    console.<span class="built_in">log</span>(<span class="built_in">error</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>new Promise构造器之后，会返回一个promise对象<br>为Promise对象用设置 .then调用返回值时的回调函数。<br>asyncFunction 这个函数会返回promise对象，对于这个promised对象，我们调用它的then方法<br>来设置resolve的回调函数，catch方法来设置发生错误时的回调函数。</p>
 <p>该promise对象会在setTimeout之后的16ms时被resolve，这时then的回调函数会被调用，并输出’Async Hello world’。<br>在这种情况下catch的回调函数并不会被执行（因为promise返回了resolve）,不过如果运行环境<br>没用提供setTimeout函数的话，那么上面代码在执行中就会产生异常，在catch中设置的回调函数就会被执行。</p>
@@ -53,7 +56,8 @@
 <p>Promise对象的状态，从pending转换为Fulfilled或Rejected之后，这个promise对象的状态就不会再发生任何变化。</p>
 <p>promise与event等不同，在.then后执行的函数可以肯定地说只会被调用一次。<br>另外，Fulfilled和Rejected这两个中的任一状态都可以表示为settled(不变的)。</p>
 <p>Settled<br>    resolve(成功)或 reject(失败)</p>
-<h3 id="编写Promise代码"><a href="#编写Promise代码" class="headerlink" title="编写Promise代码"></a>编写Promise代码</h3><h4 id="创建promise对象"><a href="#创建promise对象" class="headerlink" title="创建promise对象"></a>创建promise对象</h4><p>创建promise对象的流程如下所示。</p>
+<pre><code>从Pending和Settled的对称关系来看,Promise状态的种类/迁移是非常简单易懂的。 当promise的对象状态发生变化时,用 .then 来定义只会被调用一次的函数。
+</code></pre><h3 id="编写Promise代码"><a href="#编写Promise代码" class="headerlink" title="编写Promise代码"></a>编写Promise代码</h3><h4 id="创建promise对象"><a href="#创建promise对象" class="headerlink" title="创建promise对象"></a>创建promise对象</h4><p>创建promise对象的流程如下所示。</p>
 <ol>
 <li>new Promise(fn)返回一个promise对象</li>
 <li><p>在fn 中指定异步等处理</p>
@@ -64,14 +68,13 @@
 </li>
 </ol>
 <p>我们的任务是用Promise来通过异步处理方式来获取XMLHttpRequest(XHR)的数据。</p>
-<p>####创建XHR的promise对象<br>首先，创建一个用Promise把XHR处理包装起来的名为getURL的函数。</p>
+<h4 id="创建XHR的promise对象"><a href="#创建XHR的promise对象" class="headerlink" title="创建XHR的promise对象"></a>创建XHR的promise对象</h4><p>首先，创建一个用Promise把XHR处理包装起来的名为getURL的函数。</p>
 <p>xhr-promise.js</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">function getURL(URL)&#123;</div><div class="line">    return new Promise(function(resolve,reject)&#123;</div><div class="line">        var req=new XMLHttpRequest();</div><div class="line">        req.open(&apos;GET&apos;,URL,true);</div><div class="line">        req.onload=function()&#123;</div><div class="line">            if(req.status===200)&#123;</div><div class="line">                resolve(req.responseText);</div><div class="line">            &#125;else&#123;</div><div class="line">                reject(new Error(req.statusText));</div><div class="line">            &#125;</div><div class="line">         &#125;;</div><div class="line">         req.onerror=function()&#123;</div><div class="line">            reject(new Error(req.statusText));</div><div class="line">         &#125;;</div><div class="line">         req.send();</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">//运行示例</div><div class="line">var URL=&quot;http://httpbin.org/get&quot;;</div><div class="line">getURL(URL).then(function onFulfilled(value)&#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;).catch(function onRejected(error)&#123;</div><div class="line">    console.error(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>getURL只有在通过XHR取得结果状态为200时才会调用resolve-也就是只有数据取得成功时，而其他情况（取得失败）<br>时则会调用reject方法。<br>resolve(req.responseText)在response的内容中加入了参数。<br>resolve方法的参数并内有特别的规则。基本上把要传给回调函数参数放进去就可以了。（then方法可以接收到这个参数值）<br>熟悉nondejs的人，经常会在写回调函数时将callback(error,response)的第一个参数设为error对象，而在Promise中resolve/reject则担当了这个职责（处理正常和异常的情况)，<br>所以在resolve方法中只传一个response参数是没有问题的。</p>
-<p>####reject函数</p>
-<p>XHR中onerror事件触发的时候就是发生错误时，所以理所当然调用reject。<br>发生错误时要像这样reject(new Error(req.statusText));,创建一个Error对象后再将具体的值传进去。<br>传给reject的参数也没有什么特殊的限制，一般只要是error对象(获取继承自error对象)就可以。</p>
+<h4 id="reject函数"><a href="#reject函数" class="headerlink" title="reject函数"></a>reject函数</h4><p>XHR中onerror事件触发的时候就是发生错误时，所以理所当然调用reject。<br>发生错误时要像这样reject(new Error(req.statusText));,创建一个Error对象后再将具体的值传进去。<br>传给reject的参数也没有什么特殊的限制，一般只要是error对象(获取继承自error对象)就可以。</p>
 <p>传给reject的参数，其中一般是包含了reject原因的error对象。本次因为状态值不等于200而被reject,<br>所以reject中放入的是statusText。（这个参数的值可以被then方法的第二个参数或者catch方法中使用）</p>
-<p>###编写promise对象处理方法<br>让我们在实际中使用以下刚才创建的返回promise对象的函数</p>
+<h3 id="编写promise对象处理方法"><a href="#编写promise对象处理方法" class="headerlink" title="编写promise对象处理方法"></a>编写promise对象处理方法</h3><p>让我们在实际中使用以下刚才创建的返回promise对象的函数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getURL(&apos;http://example.com/&apos;); =&gt;返回promise对象</div></pre></td></tr></table></figure>
 <p>如果promises overview中做的简单介绍一样，promise对象拥有几个实例方法，我们使用这些<br>实例方法来为promise对象创建依赖于promise的具体状态，并且只会被执行一次的回调函数。</p>
 <p>为promise对象添加处理方法主要有以下两种：</p>
@@ -98,7 +101,8 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;什么是promise&quot;&gt;&lt;a href=&quot;#什么是promise&quot; class=&quot;headerlink&quot; title=&quot;什么是promise?&quot;&gt;&lt;/a&gt;什么是promise?&lt;/h3&gt;&lt;p&gt;Promise是抽象异步处理对象以及对其进行各种操作的组件。&lt;br&gt;Pr
+      &lt;h3 id=&quot;什么是promise&quot;&gt;&lt;a href=&quot;#什么是promise&quot; class=&quot;headerlink&quot; title=&quot;什么是promise?&quot;&gt;&lt;/a&gt;什么是promise?&lt;/h3&gt;&lt;p&gt;Promise是抽象异步处理对象以及对其进行各种操作的组件。&lt;br&gt;Promise最初被提出是在E语言中，它是基于并列/并行处理设计的一种编程语言。&lt;br&gt;现在Javascript也拥有了这种特性，这就是要介绍的javascript Promise。&lt;br&gt;如果说到基于javascript的异步处理，大多数都会想到利用回调函数。&lt;br&gt;使用了回调函数的异步处理：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;getAsync(&amp;quot;fileA.txt&amp;quot;,function(error,result)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    if(error)&amp;#123; //取得失败时的处理&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        throw error;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    //取得成功时的处理&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
