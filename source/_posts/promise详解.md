@@ -22,12 +22,13 @@ getAsync("fileA.txt",function(error,result){
 });
 ```
 
+<!-- more -->
 
 传给回调函数的参数为（error对象，执行结果）组合。
 Node.js等则规定在javascript的回调函数的第一个参数为Error的对象，这也是它的一个惯例。
 
 像上面这样基于回调函数的异步处理如果统一参数使用规则的话，写法也会很明了。
-但是，这也仅是编码规约而已，即使采用不用的写法依然不会出错。
+但是，这也仅是编码规约而已，即使采用不同的写法依然不会出错。
 
 而promise则是把类似的异步处理对象和处理规则进行规范化，并按照采用统一的接口来编写，
 而采取规定方法之外的写法都会出错。
@@ -46,11 +47,18 @@ promise.then(function(result){
 
 我们可以向这个预设了抽象化异步处理的promise对象，注册这个promise对象执行成功时和失败时相应的回调函数。
 
-###Promise简介
+这和回调函数方式相比有哪些不同之处呢? 在使用promise进行一步处理的时候,我们 必须按照接口规定的方法编写处理代码。
+
+也就是说,除promise对象规定的方法(这里的 then 或 catch )以外的方法都是不可以使 用的, 而不会像回调函数方式那样可以自己自由的定义回调函数的参数,而必须严格 遵守固定、统一的编程方式来编写代码。
+
+这样,基于Promise的统一接口的做法, 就可以形成基于接口的各种各样的异步处理模式。
+所以,promise的功能是可以将复杂的异步处理轻松地进行模式化, 这也可以说得上是 使用promise的理由之一。
+
+### Promise简介
 在es6 Promise标准中定义的API还不是很多。
 目前大致有以下三种类型
 
-####Constructor
+#### Constructor
 Promise类似于XMLHttpRequest，从构造函数Promise来创建一个新promise对象作为接口。
 要想创建一个promise对象，可以使用new来调用Promise的构造器来进行实例化。
 
@@ -90,7 +98,7 @@ promise.catch(onRejected)
 像promise这样全局对象还拥有一些静态方法。
 包括promise.all()还有Promise.resolve()等在内，主要都是一些对Promise进行操作的辅助方法。
 
-###Promise workflow
+### Promise workflow
 
 promise-workflow.js
 
@@ -150,6 +158,8 @@ promise与event等不同，在.then后执行的函数可以肯定地说只会被
 Settled
     resolve(成功)或 reject(失败)
     
+    从Pending和Settled的对称关系来看,Promise状态的种类/迁移是非常简单易懂的。 当promise的对象状态发生变化时,用 .then 来定义只会被调用一次的函数。
+    
 ### 编写Promise代码
 
 #### 创建promise对象
@@ -164,7 +174,7 @@ Settled
 
 我们的任务是用Promise来通过异步处理方式来获取XMLHttpRequest(XHR)的数据。
 
-####创建XHR的promise对象
+#### 创建XHR的promise对象
 首先，创建一个用Promise把XHR处理包装起来的名为getURL的函数。
 
 xhr-promise.js
@@ -205,7 +215,7 @@ resolve方法的参数并内有特别的规则。基本上把要传给回调函�
 所以在resolve方法中只传一个response参数是没有问题的。
 
 
-####reject函数
+#### reject函数
 
 XHR中onerror事件触发的时候就是发生错误时，所以理所当然调用reject。
 发生错误时要像这样reject(new Error(req.statusText));,创建一个Error对象后再将具体的值传进去。
@@ -215,7 +225,7 @@ XHR中onerror事件触发的时候就是发生错误时，所以理所当然调�
 所以reject中放入的是statusText。（这个参数的值可以被then方法的第二个参数或者catch方法中使用）
 
 
-###编写promise对象处理方法
+### 编写promise对象处理方法
 让我们在实际中使用以下刚才创建的返回promise对象的函数
 
 ```$xslt
