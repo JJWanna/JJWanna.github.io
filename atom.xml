@@ -173,13 +173,14 @@
     <link href="http://yoursite.com/2017/08/10/koa%E5%AE%9E%E6%88%98/"/>
     <id>http://yoursite.com/2017/08/10/koa实战/</id>
     <published>2017-08-09T23:51:07.000Z</published>
-    <updated>2017-08-09T23:51:28.000Z</updated>
+    <updated>2017-09-04T07:48:34.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><ul>
 <li>yarn官网：<a href="https://yarnpkg.com/" target="_blank" rel="external">https://yarnpkg.com/</a></li>
 <li>安装yarn: npm install yarn -g</li>
 </ul>
-<h3 id="一：先搭整体页面结构"><a href="#一：先搭整体页面结构" class="headerlink" title="###一：先搭整体页面结构"></a>###一：先搭整体页面结构</h3><h4 id="1、搭建整体结构"><a href="#1、搭建整体结构" class="headerlink" title="1、搭建整体结构"></a>1、搭建整体结构</h4><p>备注：【简述各个目录下的作用】</p>
+<p>##＃ 一：先搭整体页面结构</p>
+<h4 id="1、搭建整体结构"><a href="#1、搭建整体结构" class="headerlink" title="1、搭建整体结构"></a>1、搭建整体结构</h4><p>备注：【简述各个目录下的作用】</p>
 <ol>
 <li>conf 是放置相关配置；</li>
 <li>controllers放置路由模块；</li>
@@ -190,6 +191,7 @@
 <li>models放置与数据打交道的模块；</li>
 <li>添加启动文件 app.js；</li>
 </ol>
+<a id="more"></a>
 <h4 id="2、创建配置文件-yarn-init"><a href="#2、创建配置文件-yarn-init" class="headerlink" title="2、创建配置文件 yarn init"></a>2、创建配置文件 yarn init</h4><p>（1）执行命令如下所示：<br><img src="http://note.youdao.com/favicon.ico" alt="image"></p>
 <p>（2）页面结构如下所示:</p>
 <p>（3）这是创建的package.json文件里的内容：</p>
@@ -288,7 +290,21 @@
     <summary type="html">
     
       &lt;h3 id=&quot;前言：&quot;&gt;&lt;a href=&quot;#前言：&quot; class=&quot;headerlink&quot; title=&quot;前言：&quot;&gt;&lt;/a&gt;前言：&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;yarn官网：&lt;a href=&quot;https://yarnpkg.com/&quot; target=&quot;_blank&quot; rel=&quot;e
+&lt;li&gt;yarn官网：&lt;a href=&quot;https://yarnpkg.com/&quot;&gt;https://yarnpkg.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;安装yarn: npm install yarn -g&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;##＃ 一：先搭整体页面结构&lt;/p&gt;
+&lt;h4 id=&quot;1、搭建整体结构&quot;&gt;&lt;a href=&quot;#1、搭建整体结构&quot; class=&quot;headerlink&quot; title=&quot;1、搭建整体结构&quot;&gt;&lt;/a&gt;1、搭建整体结构&lt;/h4&gt;&lt;p&gt;备注：【简述各个目录下的作用】&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;conf 是放置相关配置；&lt;/li&gt;
+&lt;li&gt;controllers放置路由模块；&lt;/li&gt;
+&lt;li&gt;midware 是放置中间件；&lt;/li&gt;
+&lt;li&gt;node_modules是放置下载的模块；&lt;/li&gt;
+&lt;li&gt;public下是放置静态资源；&lt;/li&gt;
+&lt;li&gt;views是放置模板；&lt;/li&gt;
+&lt;li&gt;models放置与数据打交道的模块；&lt;/li&gt;
+&lt;li&gt;添加启动文件 app.js；&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     

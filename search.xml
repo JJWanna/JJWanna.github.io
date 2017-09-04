@@ -141,7 +141,8 @@
 <li>yarn官网：<a href="https://yarnpkg.com/" target="_blank" rel="external">https://yarnpkg.com/</a></li>
 <li>安装yarn: npm install yarn -g</li>
 </ul>
-<h3 id="一：先搭整体页面结构"><a href="#一：先搭整体页面结构" class="headerlink" title="###一：先搭整体页面结构"></a>###一：先搭整体页面结构</h3><h4 id="1、搭建整体结构"><a href="#1、搭建整体结构" class="headerlink" title="1、搭建整体结构"></a>1、搭建整体结构</h4><p>备注：【简述各个目录下的作用】</p>
+<p>##＃ 一：先搭整体页面结构</p>
+<h4 id="1、搭建整体结构"><a href="#1、搭建整体结构" class="headerlink" title="1、搭建整体结构"></a>1、搭建整体结构</h4><p>备注：【简述各个目录下的作用】</p>
 <ol>
 <li>conf 是放置相关配置；</li>
 <li>controllers放置路由模块；</li>
@@ -152,6 +153,7 @@
 <li>models放置与数据打交道的模块；</li>
 <li>添加启动文件 app.js；</li>
 </ol>
+<a id="more"></a>
 <h4 id="2、创建配置文件-yarn-init"><a href="#2、创建配置文件-yarn-init" class="headerlink" title="2、创建配置文件 yarn init"></a>2、创建配置文件 yarn init</h4><p>（1）执行命令如下所示：<br><img src="http://note.youdao.com/favicon.ico" alt="image"></p>
 <p>（2）页面结构如下所示:</p>
 <p>（3）这是创建的package.json文件里的内容：</p>
@@ -1907,6 +1909,17 @@ gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
     </entry>
     
     <entry>
+      <title><![CDATA[相册]]></title>
+      <url>http://yoursite.com/photo/index.html</url>
+      <content type="html"><![CDATA[<p><link type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.css" rel="stylesheet"></p>
+<p><div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div></p>
+<script src="/source-src/js/photo.js"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/source-src/js/main.js" type="text/javascript"></script>
+]]></content>
+    </entry>
+    
+    <entry>
       <title></title>
       <url>http://yoursite.com/photo/output.json</url>
       <content type="html"><![CDATA[["61e1e24b5cf4a4f36fa8859e1dc35fb6.jpg","676501d6acd329b841ba4652f1a13bea.jpg","8cc6bf74cf842243e7779b1846f13d2d.jpg","a08c947d50eeb9bc7427a87ad58ef099.jpg","f39b5710f2086af425a1bace9e5b4321.jpg","u=66250564,3253305393&fm=23&gp=0.jpg"]]]></content>
@@ -1943,17 +1956,6 @@ fs.readdir(path, function (err, files) {
 });
 
 
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[相册]]></title>
-      <url>http://yoursite.com/photo/index.html</url>
-      <content type="html"><![CDATA[<p><link type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.css" rel="stylesheet"></p>
-<p><div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div></p>
-<script src="/source-src/js/photo.js"></script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/source-src/js/main.js" type="text/javascript"></script>
 ]]></content>
     </entry>
     
