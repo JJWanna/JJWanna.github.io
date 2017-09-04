@@ -4,6 +4,202 @@
   
     
     <entry>
+      <title><![CDATA[promise详解]]></title>
+      <url>http://yoursite.com/2017/09/04/promise%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h3 id="什么是promise"><a href="#什么是promise" class="headerlink" title="什么是promise?"></a>什么是promise?</h3><p>Promise是抽象异步处理对象以及对其进行各种操作的组件。<br>Promise最初被提出是在E语言中，它是基于并列/并行处理设计的一种编程语言。<br>现在Javascript也拥有了这种特性，这就是要介绍的javascript Promise。<br>如果说到基于javascript的异步处理，大多数都会想到利用回调函数。<br>使用了回调函数的异步处理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">getAsync(&quot;fileA.txt&quot;,function(error,result)&#123;</div><div class="line">    if(error)&#123; //取得失败时的处理</div><div class="line">        throw error;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //取得成功时的处理</div><div class="line">    </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>传给回调函数的参数为（error对象，执行结果）组合。<br>Node.js等则规定在javascript的回调函数的第一个参数为Error的对象，这也是它的一个惯例。</p>
+<p>像上面这样基于回调函数的异步处理如果统一参数使用规则的话，写法也会很明了。<br>但是，这也仅是编码规约而已，即使采用不用的写法依然不会出错。</p>
+<p>而promise则是把类似的异步处理对象和处理规则进行规范化，并按照采用统一的接口来编写，<br>而采取规定方法之外的写法都会出错。</p>
+<p>下面使用了Promise进行异步处理的一个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var promise = getAsyncPromise(&quot;fileA.txt&quot;);</div><div class="line">promise.then(function(result)&#123;</div><div class="line">    //获取文件内容成功时的处理</div><div class="line">&#125;).catch(function(error)&#123;</div><div class="line">    //获取文件内容失败时的处理</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>返回promise对象</p>
+<p>我们可以向这个预设了抽象化异步处理的promise对象，注册这个promise对象执行成功时和失败时相应的回调函数。</p>
+<p>###Promise简介<br>在es6 Promise标准中定义的API还不是很多。<br>目前大致有以下三种类型</p>
+<p>####Constructor<br>Promise类似于XMLHttpRequest，从构造函数Promise来创建一个新promise对象作为接口。<br>要想创建一个promise对象，可以使用new来调用Promise的构造器来进行实例化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise =<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">    <span class="comment">//异步处理</span></div><div class="line">    <span class="comment">//处理结束后、调用resolve或reject</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="Instance-Method"><a href="#Instance-Method" class="headerlink" title="Instance Method"></a>Instance Method</h4><p>对通过new生成的promise对象为了设置其值在resolve(成功)/reject（失败）时调用的回调函数可以使用<br>promise.then()实例方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.then(onFulfilled,onRejected)</div></pre></td></tr></table></figure>
+<p>resolve(成功)时<br>    onFulfilled会被调用<br>reject(失败)时<br>    onRejected会被调用<br>onFulfilled、onRejected两个都为可选参数。</p>
+<p>promise.then成功和失败时都可以使用。另外在想对异常进行处理时可以采用<br>promise.then(undefined,onRejected)这种方式，只指定reject时的回调函数即可。<br>不过这种情况下promise.catch(onRejected)应该是个更好的选择。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.catch(onRejected)</div></pre></td></tr></table></figure>
+<h4 id="Static-Method"><a href="#Static-Method" class="headerlink" title="Static Method"></a>Static Method</h4><p>像promise这样全局对象还拥有一些静态方法。<br>包括promise.all()还有Promise.resolve()等在内，主要都是一些对Promise进行操作的辅助方法。</p>
+<p>###Promise workflow</p>
+<p>promise-workflow.js</p>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncFunction</span><span class="params">()</span>&#123;</span></div><div class="line">    <span class="keyword">return</span> new Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span>&#123;</span></div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span>&#123;</span></div><div class="line">            resolve(<span class="string">'Async Hello world'</span>);</div><div class="line">        &#125;,<span class="number">16</span>);</div><div class="line">    &#125;)   </div><div class="line">&#125;</div><div class="line"></div><div class="line">asyncFunction().<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(value)</span>&#123;</span></div><div class="line">    console.<span class="built_in">log</span>(value);  <span class="comment">//=&gt; 'Async Hello world'</span></div><div class="line">&#125;).<span class="keyword">catch</span>(<span class="function"><span class="keyword">function</span><span class="params">(error)</span>&#123;</span></div><div class="line">    console.<span class="built_in">log</span>(<span class="built_in">error</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>new Promise构造器之后，会返回一个promise对象<br>为Promise对象用设置 .then调用返回值时的回调函数。<br>asyncFunction 这个函数会返回promise对象，对于这个promised对象，我们调用它的then方法<br>来设置resolve的回调函数，catch方法来设置发生错误时的回调函数。</p>
+<p>该promise对象会在setTimeout之后的16ms时被resolve，这时then的回调函数会被调用，并输出’Async Hello world’。<br>在这种情况下catch的回调函数并不会被执行（因为promise返回了resolve）,不过如果运行环境<br>没用提供setTimeout函数的话，那么上面代码在执行中就会产生异常，在catch中设置的回调函数就会被执行。</p>
+<p>像promise.then(onFulFilled,onRejected)的方法声明一样，如果不使用catch方法的话，如下所示的代码也能完成相同的工作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">asyncFunction().then(function(value)&#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;,function(error)&#123;</div><div class="line">    console.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="Promise的状态"><a href="#Promise的状态" class="headerlink" title="Promise的状态"></a>Promise的状态</h3><p>用new Promise实例化的promise对象有以下三个状态。</p>
+<p>“has-resolution”-Fulfilled<br>    resolve(成功)时。此时会调用onFulfilled</p>
+<p>“has-rejection”-Rejected<br>    reject(失败)时。此时会调用onRejected</p>
+<p>“unresolved”-Pending<br>    既不是resolve也不是reject状态。也就是promise对象刚被创建后的初始化状态等</p>
+<p>Promise对象的状态，从pending转换为Fulfilled或Rejected之后，这个promise对象的状态就不会再发生任何变化。</p>
+<p>promise与event等不同，在.then后执行的函数可以肯定地说只会被调用一次。<br>另外，Fulfilled和Rejected这两个中的任一状态都可以表示为settled(不变的)。</p>
+<p>Settled<br>    resolve(成功)或 reject(失败)</p>
+<h3 id="编写Promise代码"><a href="#编写Promise代码" class="headerlink" title="编写Promise代码"></a>编写Promise代码</h3><h4 id="创建promise对象"><a href="#创建promise对象" class="headerlink" title="创建promise对象"></a>创建promise对象</h4><p>创建promise对象的流程如下所示。</p>
+<ol>
+<li>new Promise(fn)返回一个promise对象</li>
+<li><p>在fn 中指定异步等处理</p>
+<ul>
+<li>处理结果正常的话，调用resolve(处理结果值)</li>
+<li>处理结果错误的话，调用reject(error对象)</li>
+</ul>
+</li>
+</ol>
+<p>我们的任务是用Promise来通过异步处理方式来获取XMLHttpRequest(XHR)的数据。</p>
+<p>####创建XHR的promise对象<br>首先，创建一个用Promise把XHR处理包装起来的名为getURL的函数。</p>
+<p>xhr-promise.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">function getURL(URL)&#123;</div><div class="line">    return new Promise(function(resolve,reject)&#123;</div><div class="line">        var req=new XMLHttpRequest();</div><div class="line">        req.open(&apos;GET&apos;,URL,true);</div><div class="line">        req.onload=function()&#123;</div><div class="line">            if(req.status===200)&#123;</div><div class="line">                resolve(req.responseText);</div><div class="line">            &#125;else&#123;</div><div class="line">                reject(new Error(req.statusText));</div><div class="line">            &#125;</div><div class="line">         &#125;;</div><div class="line">         req.onerror=function()&#123;</div><div class="line">            reject(new Error(req.statusText));</div><div class="line">         &#125;;</div><div class="line">         req.send();</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">//运行示例</div><div class="line">var URL=&quot;http://httpbin.org/get&quot;;</div><div class="line">getURL(URL).then(function onFulfilled(value)&#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;).catch(function onRejected(error)&#123;</div><div class="line">    console.error(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>getURL只有在通过XHR取得结果状态为200时才会调用resolve-也就是只有数据取得成功时，而其他情况（取得失败）<br>时则会调用reject方法。<br>resolve(req.responseText)在response的内容中加入了参数。<br>resolve方法的参数并内有特别的规则。基本上把要传给回调函数参数放进去就可以了。（then方法可以接收到这个参数值）<br>熟悉nondejs的人，经常会在写回调函数时将callback(error,response)的第一个参数设为error对象，而在Promise中resolve/reject则担当了这个职责（处理正常和异常的情况)，<br>所以在resolve方法中只传一个response参数是没有问题的。</p>
+<p>####reject函数</p>
+<p>XHR中onerror事件触发的时候就是发生错误时，所以理所当然调用reject。<br>发生错误时要像这样reject(new Error(req.statusText));,创建一个Error对象后再将具体的值传进去。<br>传给reject的参数也没有什么特殊的限制，一般只要是error对象(获取继承自error对象)就可以。</p>
+<p>传给reject的参数，其中一般是包含了reject原因的error对象。本次因为状态值不等于200而被reject,<br>所以reject中放入的是statusText。（这个参数的值可以被then方法的第二个参数或者catch方法中使用）</p>
+<p>###编写promise对象处理方法<br>让我们在实际中使用以下刚才创建的返回promise对象的函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getURL(&apos;http://example.com/&apos;); =&gt;返回promise对象</div></pre></td></tr></table></figure>
+<p>如果promises overview中做的简单介绍一样，promise对象拥有几个实例方法，我们使用这些<br>实例方法来为promise对象创建依赖于promise的具体状态，并且只会被执行一次的回调函数。</p>
+<p>为promise对象添加处理方法主要有以下两种：</p>
+<ul>
+<li>promise对象被resolve时的处理 （onFulfilled）</li>
+<li>promise对象被reject时的处理（onRejected）</li>
+</ul>
+<h3 id="promise-value-flow"><a href="#promise-value-flow" class="headerlink" title="promise value flow"></a>promise value flow</h3><p>首页，我们来尝试一下为getURL通信成功并取到值时添加的处理函数。<br>此时所谓的通信成功，指的就是在被resolve后，promise对象变为Fulfilled状态。<br>被resolve后的处理，可以在.then方法中传入想要的调用的函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var URL=&quot;http://httpbin.org/get&quot;;</div><div class="line">getURL(URL).then(function onFulfilled(value)&#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>为了方便理解我们把函数命名为onFulfilled<br>getURL函数中的resolve(req.responseText);会将promise对象变为resolve(Fulfilled)状态，同时使用其<br>值调用onFulfilled函数。<br>不过目前我们还没有对其中可能发生的错误做任何处理，接下来，我们就来为getURL函数添加发生错误时的异常处理。<br>此时，发生错误，指的也就是reject后promise对象变为Rejected状态。</p>
+<p>被reject后的处理，可以在 .then 的第二个参数 或者是在 .catch 方法中设置想要调用的 函数。</p>
+<p>把下面reject时的处理加入到刚才的代码，如下所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var URL=&quot;http://httpbin.org/status/500&quot;;</div><div class="line">getURL(URL).then(function onFulfilled(value)&#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;).catch(function onRejected(error)&#123;</div><div class="line">  console.error(error);  </div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>服务端返回的状态码为500<br>为了方便理解函数被命名为onRejected<br>在getURL的处理中发生任何异常，或者被明确reject的情况下，该异常原因（Error对象）会作为<br>.catch方法的参数被调用。<br>其实.catch只是promise.then(undefined,onRejected)的别名而已。如下代码也可以完成同样的功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getURL(URL).then(onFulfilled,onRejected);</div></pre></td></tr></table></figure>
+<p>onFulfilled,onRejected是和刚才相同的函数<br>一般来说，使用.catch来将resolve和reject处理分开来写是比较推荐的做法,这两者的区别会在then<br>和 catch的区别中再做详细介绍。</p>
+<p>总结：</p>
+<ul>
+<li><p>用new Promise方法创建promise对象</p>
+</li>
+<li><p>用 .then 或 .catch添加promise对象的处理函数</p>
+</li>
+</ul>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://yoursite.com/2017/08/10/koa%E5%AE%9E%E6%88%98/</url>
+      <content type="html"><![CDATA[<h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><ul>
+<li>yarn官网：<a href="https://yarnpkg.com/" target="_blank" rel="external">https://yarnpkg.com/</a></li>
+<li>安装yarn: npm install yarn -g</li>
+</ul>
+<h3 id="一：先搭整体页面结构"><a href="#一：先搭整体页面结构" class="headerlink" title="###一：先搭整体页面结构"></a>###一：先搭整体页面结构</h3><h4 id="1、搭建整体结构"><a href="#1、搭建整体结构" class="headerlink" title="1、搭建整体结构"></a>1、搭建整体结构</h4><p>备注：【简述各个目录下的作用】</p>
+<ol>
+<li>conf 是放置相关配置；</li>
+<li>controllers放置路由模块；</li>
+<li>midware 是放置中间件；</li>
+<li>node_modules是放置下载的模块；</li>
+<li>public下是放置静态资源；</li>
+<li>views是放置模板；</li>
+<li>models放置与数据打交道的模块；</li>
+<li>添加启动文件 app.js；</li>
+</ol>
+<h4 id="2、创建配置文件-yarn-init"><a href="#2、创建配置文件-yarn-init" class="headerlink" title="2、创建配置文件 yarn init"></a>2、创建配置文件 yarn init</h4><p>（1）执行命令如下所示：<br><img src="http://note.youdao.com/favicon.ico" alt="image"></p>
+<p>（2）页面结构如下所示:</p>
+<p>（3）这是创建的package.json文件里的内容：</p>
+<h4 id="备注："><a href="#备注：" class="headerlink" title="备注："></a>备注：</h4><p>npm init 创建的配置文件与 yarn init 创建的配置文件唯一的差别就是 npm init创建的配置文件 里多了个scripts；<br>scripts用来集成自定义命令；<br>所以在这里，为yarn init创建的配置文件添加 scripts一项；如下图所示：</p>
+<h4 id="3、安装koa2，命令：yarn-add-koa-next，如下图所示："><a href="#3、安装koa2，命令：yarn-add-koa-next，如下图所示：" class="headerlink" title="3、安装koa2，命令：yarn add koa@next，如下图所示："></a>3、安装koa2，命令：yarn add koa@next，如下图所示：</h4><p>（1）执行命令：</p>
+<p>（2）下载完后，可以看到在根目录里有这个yarn.lock文件，如下所示：</p>
+<h4 id="备注：yarn-lock就是保存了下载的插件的所有信息；当我们删除了模块时，再去下载，那么yarn就会根据这个文件进行下载，这时速度会快很多；因为有缓存；"><a href="#备注：yarn-lock就是保存了下载的插件的所有信息；当我们删除了模块时，再去下载，那么yarn就会根据这个文件进行下载，这时速度会快很多；因为有缓存；" class="headerlink" title="备注：yarn.lock就是保存了下载的插件的所有信息；当我们删除了模块时，再去下载，那么yarn就会根据这个文件进行下载，这时速度会快很多；因为有缓存；"></a>备注：yarn.lock就是保存了下载的插件的所有信息；当我们删除了模块时，再去下载，那么yarn就会根据这个文件进行下载，这时速度会快很多；因为有缓存；</h4><h4 id="4、编写conf目录下的config-js-配置端口，如下图所示："><a href="#4、编写conf目录下的config-js-配置端口，如下图所示：" class="headerlink" title="4、编写conf目录下的config.js,配置端口，如下图所示："></a>4、编写conf目录下的config.js,配置端口，如下图所示：</h4><h4 id="备注：将配置的信息，导出去；"><a href="#备注：将配置的信息，导出去；" class="headerlink" title="备注：将配置的信息，导出去；"></a>备注：将配置的信息，导出去；</h4><h4 id="5、编写app-js，如下图所示："><a href="#5、编写app-js，如下图所示：" class="headerlink" title="5、编写app.js，如下图所示："></a>5、编写app.js，如下图所示：</h4><h4 id="6、此时启动app-js，报错；是因为node不支持es6-所以此时要下载babel去转码，如下图所示："><a href="#6、此时启动app-js，报错；是因为node不支持es6-所以此时要下载babel去转码，如下图所示：" class="headerlink" title="6、此时启动app.js，报错；是因为node不支持es6,所以此时要下载babel去转码，如下图所示："></a>6、此时启动app.js，报错；是因为node不支持es6,所以此时要下载babel去转码，如下图所示：</h4><h3 id="二：配置babel"><a href="#二：配置babel" class="headerlink" title="二：配置babel"></a>二：配置babel</h3><h4 id="1、创建并配置-babelrc文件，如下图所示："><a href="#1、创建并配置-babelrc文件，如下图所示：" class="headerlink" title="1、创建并配置.babelrc文件，如下图所示："></a>1、创建并配置.babelrc文件，如下图所示：</h4><h4 id="2、通过yarn下载-babel-preset-es2015-和-babel-preset-stage-3，命令如下所示："><a href="#2、通过yarn下载-babel-preset-es2015-和-babel-preset-stage-3，命令如下所示：" class="headerlink" title="2、通过yarn下载 babel-preset-es2015 和 babel-preset-stage-3，命令如下所示："></a>2、通过yarn下载 babel-preset-es2015 和 babel-preset-stage-3，命令如下所示：</h4><ul>
+<li>yarn add babel-preset-es2015</li>
+<li>yarn add babel-preset-stage</li>
+<li>安装 babel-cli, 如下图所示：</li>
+</ul>
+<h4 id="5、windows下局部安装babel模块以后，无法直接使用babel命令，如何解决？"><a href="#5、windows下局部安装babel模块以后，无法直接使用babel命令，如何解决？" class="headerlink" title="5、windows下局部安装babel模块以后，无法直接使用babel命令，如何解决？"></a>5、windows下局部安装babel模块以后，无法直接使用babel命令，如何解决？</h4><p>==备注：创建babel.cmd，并将node .\node_modules\babel-cli\bin\babel.js %*粘贴到该文件里去。==</p>
+<h4 id="6、可以在package-json里配置文件，如下图所示："><a href="#6、可以在package-json里配置文件，如下图所示：" class="headerlink" title="6、可以在package.json里配置文件，如下图所示："></a>6、可以在package.json里配置文件，如下图所示：</h4><h4 id="7、输入npm-run-build-编译成功，如下图所示："><a href="#7、输入npm-run-build-编译成功，如下图所示：" class="headerlink" title="7、输入npm run build,编译成功，如下图所示："></a>7、输入npm run build,编译成功，如下图所示：</h4><p>（1）输入命令：</p>
+<p>（2）编译后的效果：</p>
+<p>备注：此时说明babel可以进行编译文件了；</p>
+<h4 id="三：关于路由这块的处理："><a href="#三：关于路由这块的处理：" class="headerlink" title="三：关于路由这块的处理："></a>三：关于路由这块的处理：</h4><h4 id="1、下载第三方路由插件-koa-simple-router-如下图所示："><a href="#1、下载第三方路由插件-koa-simple-router-如下图所示：" class="headerlink" title="1、下载第三方路由插件 koa-simple-router, 如下图所示："></a>1、下载第三方路由插件 koa-simple-router, 如下图所示：</h4><h4 id="2、在controller目录里开始编写路由模块，如下所示："><a href="#2、在controller目录里开始编写路由模块，如下所示：" class="headerlink" title="2、在controller目录里开始编写路由模块，如下所示："></a>2、在controller目录里开始编写路由模块，如下所示：</h4><ol>
+<li>这是目录结构：</li>
+<li>备注：创建了两个文件，第一个文件是controllerinit.js；第二个文件是indexcontroller.js;</li>
+<li>编写文件controllerinit.js里的内容，如下图所示：</li>
+<li>编写文件indexcontroller.js里的内容，如下图所示：</li>
+</ol>
+<h4 id="四：下载插件-koa-swig-和-co模块，如下图所示："><a href="#四：下载插件-koa-swig-和-co模块，如下图所示：" class="headerlink" title="四：下载插件 koa-swig 和 co模块，如下图所示："></a>四：下载插件 koa-swig 和 co模块，如下图所示：</h4><p>1、下载koa-swig, koa-swig的作用是渲染模板, 下载过程如下所示：</p>
+<p>2、下载co模块 , co的作用是将generator包一层，替它执行next()，下载过程如下所示:</p>
+<p>3、在config文件里配置模板路径，如下所示：</p>
+<p>4、在app.js里面koa-swig的模板渲染配置参数，如下所示：</p>
+<h4 id="五：接着下载第三方插件-koa-static-指定静态资源路径，配置渲染静态资源，如下图所示："><a href="#五：接着下载第三方插件-koa-static-指定静态资源路径，配置渲染静态资源，如下图所示：" class="headerlink" title="五：接着下载第三方插件 koa-static,  指定静态资源路径，配置渲染静态资源，如下图所示："></a>五：接着下载第三方插件 koa-static,  指定静态资源路径，配置渲染静态资源，如下图所示：</h4><h5 id="1、下载第三方模块-koa-static-如下所示："><a href="#1、下载第三方模块-koa-static-如下所示：" class="headerlink" title="1、下载第三方模块 koa-static,如下所示："></a>1、下载第三方模块 koa-static,如下所示：</h5><h5 id="2、在配置文件config-js里-配置-静态资源的路径，如下所示："><a href="#2、在配置文件config-js里-配置-静态资源的路径，如下所示：" class="headerlink" title="2、在配置文件config.js里 配置 静态资源的路径，如下所示："></a>2、在配置文件config.js里 配置 静态资源的路径，如下所示：</h5><h5 id="3、在启动文件里指明-静态资源所在位置-如下所示："><a href="#3、在启动文件里指明-静态资源所在位置-如下所示：" class="headerlink" title="3、在启动文件里指明 静态资源所在位置,如下所示："></a>3、在启动文件里指明 静态资源所在位置,如下所示：</h5><h5 id="4、第3步，用到了convert，koa-convert是koa1转换器，可以将koa1转换为koa2"><a href="#4、第3步，用到了convert，koa-convert是koa1转换器，可以将koa1转换为koa2" class="headerlink" title="4、第3步，用到了convert，koa-convert是koa1转换器，可以将koa1转换为koa2;"></a>4、第3步，用到了convert，koa-convert是koa1转换器，可以将koa1转换为koa2;</h5><h6 id="（1）-安装-koa-convert-第三方插件，如下所示："><a href="#（1）-安装-koa-convert-第三方插件，如下所示：" class="headerlink" title="（1） 安装 koa-convert 第三方插件，如下所示："></a>（1） 安装 koa-convert 第三方插件，如下所示：</h6><h6 id="（2）在启动文件里引入-koa-convert-如下所示："><a href="#（2）在启动文件里引入-koa-convert-如下所示：" class="headerlink" title="（2）在启动文件里引入 koa-convert,如下所示："></a>（2）在启动文件里引入 koa-convert,如下所示：</h6><h4 id="六：处理模板"><a href="#六：处理模板" class="headerlink" title="六：处理模板"></a>六：处理模板</h4><h4 id="1、在views里创建了两个模板index-html、layout-html"><a href="#1、在views里创建了两个模板index-html、layout-html" class="headerlink" title="1、在views里创建了两个模板index.html、layout.html;"></a>1、在views里创建了两个模板index.html、layout.html;</h4><h4 id="2、layout-html为基本模板，如下图所示："><a href="#2、layout-html为基本模板，如下图所示：" class="headerlink" title="2、layout.html为基本模板，如下图所示："></a>2、layout.html为基本模板，如下图所示：</h4><p>备注：node-swig的api地址：<a href="http://www.cnblogs.com/elementstorm/p/3142644.html" target="_blank" rel="external">http://www.cnblogs.com/elementstorm/p/3142644.html</a></p>
+<h3 id="3、index-html去继承layout-html，如下图所示："><a href="#3、index-html去继承layout-html，如下图所示：" class="headerlink" title="3、index.html去继承layout.html，如下图所示："></a>3、index.html去继承layout.html，如下图所示：</h3><h4 id="4、将配置文件下的config-js改为config-es-将启动文件app-es改为app-js，如下图所示："><a href="#4、将配置文件下的config-js改为config-es-将启动文件app-es改为app-js，如下图所示：" class="headerlink" title="4、将配置文件下的config.js改为config.es; 将启动文件app.es改为app.js，如下图所示："></a>4、将配置文件下的config.js改为config.es; 将启动文件app.es改为app.js，如下图所示：</h4><p>备注：因为node不支持es6的某些语法；所以需要编译；然后用编译后的文件；所以这里把源文件都用es格式；</p>
+<h4 id="5、在package-json里配置多任务，如下图所示："><a href="#5、在package-json里配置多任务，如下图所示：" class="headerlink" title="5、在package.json里配置多任务，如下图所示："></a>5、在package.json里配置多任务，如下图所示：</h4><p>备注：配置多个任务，就如同本例所示，babel里配置了多个任务，npm run 命令1 &amp;&amp; npm run 命令2</p>
+<h4 id="6、执行npm-run-babel命令以后，成功编译文件，如下图所示："><a href="#6、执行npm-run-babel命令以后，成功编译文件，如下图所示：" class="headerlink" title="6、执行npm run babel命令以后，成功编译文件，如下图所示："></a>6、执行npm run babel命令以后，成功编译文件，如下图所示：</h4><p>（1）执行命令：</p>
+<p>（2）页面结构图：</p>
+<h4 id="7、启动编译后的文件，此时服务已启动，如下图所示："><a href="#7、启动编译后的文件，此时服务已启动，如下图所示：" class="headerlink" title="7、启动编译后的文件，此时服务已启动，如下图所示："></a>7、启动编译后的文件，此时服务已启动，如下图所示：</h4><h4 id="8、客户端去访问服务端，如下图所示："><a href="#8、客户端去访问服务端，如下图所示：" class="headerlink" title="8、客户端去访问服务端，如下图所示："></a>8、客户端去访问服务端，如下图所示：</h4><p>备注：此时说明已访问成功</p>
+<h4 id="9、此时来渲染模板，和静态资源，那么就需要把编写路由的模块，进行编译："><a href="#9、此时来渲染模板，和静态资源，那么就需要把编写路由的模块，进行编译：" class="headerlink" title="9、此时来渲染模板，和静态资源，那么就需要把编写路由的模块，进行编译："></a>9、此时来渲染模板，和静态资源，那么就需要把编写路由的模块，进行编译：</h4><p>（1）配置文件里配置编译路由模块的任务，如下图所示：</p>
+<p>（2）将路由controllers目录下的文件改为es格式，如下图所示：</p>
+<p>（3）此时我们需要在启动文件里去调用编写路由模块的方法所示：</p>
+<p>（4）执行 npm run babel ,进行编译，出现错误，如下图所示：</p>
+<p>备注：<br>对于本步骤出现的错误，解决方案是：<br>第一步：下载 babel-polyfill 的方法： yarn add babel-polyfill<br>第二步：在启动文件里引入 这个编译插件，如下所示：</p>
+<p>备注：babel-polyfill主要解决编写的路由模块进行编译时的报错；<br>第三步：此时再去编译文件， npm run babel，就不会再报错；<br>（5）启动app.js文件，启动服务，如下图所示：</p>
+<p>（6）客户端进行访问，如下图所示：</p>
+<p>备注: 此时说明，后端的路由已配置成功，后端可以成功渲染模板；<br>七：将页面放置模板内，将js和css资源放置public下<br>1、public的scripts目录下放置js, stylesheet目录下放置css,如下图所示：</p>
+<p>备注：</p>
+<ul>
+<li>（1）scripts下的jquery.min.js是jquery库，用来把导出来的方法挂载到jquery插件下；</li>
+<li>（2）scripts下的system.js 是万能模块加载器，可以将模块加载进来，将方法导出来；</li>
+<li>（3）scripts下的main.js是我们编写自己的业务逻辑；</li>
+<li>（4）stylesheet下的animate.css和index.css 是页面响应的样式；<h4 id="2、将第一步所示的要编译的文件main-js改为main-es格式，如下图所示："><a href="#2、将第一步所示的要编译的文件main-js改为main-es格式，如下图所示：" class="headerlink" title="2、将第一步所示的要编译的文件main.js改为main.es格式，如下图所示："></a>2、将第一步所示的要编译的文件main.js改为main.es格式，如下图所示：</h4><h4 id="3、模板里引入这些文件，如下图所示："><a href="#3、模板里引入这些文件，如下图所示：" class="headerlink" title="3、模板里引入这些文件，如下图所示："></a>3、模板里引入这些文件，如下图所示：</h4></li>
+</ul>
+<h4 id="4、在配置文件package-json里配置相关任务，关于scripts下的main-es的编译，如下图所示："><a href="#4、在配置文件package-json里配置相关任务，关于scripts下的main-es的编译，如下图所示：" class="headerlink" title="4、在配置文件package.json里配置相关任务，关于scripts下的main.es的编译，如下图所示："></a>4、在配置文件package.json里配置相关任务，关于scripts下的main.es的编译，如下图所示：</h4><h5 id="5、输入编译命令-npm-run-babel-进行编译，如下图所示："><a href="#5、输入编译命令-npm-run-babel-进行编译，如下图所示：" class="headerlink" title="5、输入编译命令 npm run babel 进行编译，如下图所示："></a>5、输入编译命令 npm run babel 进行编译，如下图所示：</h5><h4 id="6、启动app-js，启动服务，客户端进行访问，如下图所示："><a href="#6、启动app-js，启动服务，客户端进行访问，如下图所示：" class="headerlink" title="6、启动app.js，启动服务，客户端进行访问，如下图所示："></a>6、启动app.js，启动服务，客户端进行访问，如下图所示：</h4><p>（1）启动服务：</p>
+<p>（2）客户端访问：</p>
+<h4 id="八：编写路由接收数据，将数据存储数据库操作"><a href="#八：编写路由接收数据，将数据存储数据库操作" class="headerlink" title="八：编写路由接收数据，将数据存储数据库操作"></a>八：编写路由接收数据，将数据存储数据库操作</h4><h4 id="1、在controllerinit-es文件里添加数据交互的路由，在indexcontroller-es文件里添加该路由的相关处理逻辑方法，如下图所示："><a href="#1、在controllerinit-es文件里添加数据交互的路由，在indexcontroller-es文件里添加该路由的相关处理逻辑方法，如下图所示：" class="headerlink" title="1、在controllerinit.es文件里添加数据交互的路由，在indexcontroller.es文件里添加该路由的相关处理逻辑方法，如下图所示："></a>1、在controllerinit.es文件里添加数据交互的路由，在indexcontroller.es文件里添加该路由的相关处理逻辑方法，如下图所示：</h4><h5 id="1-在controllerinit-es文件里添加数据交互的路由"><a href="#1-在controllerinit-es文件里添加数据交互的路由" class="headerlink" title="(1)在controllerinit.es文件里添加数据交互的路由"></a>(1)在controllerinit.es文件里添加数据交互的路由</h5><h5 id="2-在indexcontroller-es文件里添加该路由的相关处理逻辑方法"><a href="#2-在indexcontroller-es文件里添加该路由的相关处理逻辑方法" class="headerlink" title="(2)在indexcontroller.es文件里添加该路由的相关处理逻辑方法"></a>(2)在indexcontroller.es文件里添加该路由的相关处理逻辑方法</h5><h4 id="2、下载-mysql-promise-插件，命令：yarn-add-mysql-promise，如下图所示："><a href="#2、下载-mysql-promise-插件，命令：yarn-add-mysql-promise，如下图所示：" class="headerlink" title="2、下载 mysql-promise 插件，命令：yarn add mysql-promise，如下图所示："></a>2、下载 mysql-promise 插件，命令：yarn add mysql-promise，如下图所示：</h4><h4 id="3、启动数据库，建表，如下图所示："><a href="#3、启动数据库，建表，如下图所示：" class="headerlink" title="3、启动数据库，建表，如下图所示："></a>3、启动数据库，建表，如下图所示：</h4><p>备注：<br>（1）我在这里用了warmpserver里的phpadmin来建数据库；<br>（2）我建了数据库 db_yideng; 表zan; 表有两个字段，一个字段为id，int类型，主键; 一个字段为num,int类型；</p>
+<h4 id="4、在-model目录里-创建indexModel-es-文件，处理数据逻辑，如下图所示："><a href="#4、在-model目录里-创建indexModel-es-文件，处理数据逻辑，如下图所示：" class="headerlink" title="4、在 model目录里 创建indexModel.es 文件，处理数据逻辑，如下图所示："></a>4、在 model目录里 创建indexModel.es 文件，处理数据逻辑，如下图所示：</h4><p>备注：</p>
+<ul>
+<li>（1）model目录里是专门来处理数据的；controllers目录里就是专门来处理路由的；二者不要混淆一起，各自做各自的事情；</li>
+<li>（2）如本例所示：引入数据库模块 mysql-promise</li>
+<li>（3）如本例所示：连接数据库</li>
+<li>（4）如本例所示，编写模块indexModel, 在该模块里添加方法: data()，data里编写操作数据库部分；这里理下思路：<pre><code>第一：koa2支持async,所以async是同步的；所以在koa2里面不能出现任何异步东西，需要将异步的统统转化为同步；
+第二：async里的await 后面跟promise时，它会自动取回调函数里的值；这就相当于把异步变为同步；
+第三：在本例当中，我们计算值的时候，用到了定时器，而定时器也是异步，在第一节课的试卷分析里第二道题已详细讲述过；所以这里要把定时器写在promise里，通过await变为同步；
+第四：在本例当中，我用了async的自执行，并且return出去，这样，外面接到的这个async自执行实际上就是个promise,所以我们需要在路由模块 indexcontroller里引入此模块的方法时，需要用async包一层，然后用await来执行这个自执行的asnyc,这样我们才能拿到值；
+</code></pre>（5）操作数据库：<br>第一：先去查询表，看表里有没有数据；<br>第二：若表里没有数据，那么我们此时要向表里插入一条数据；<br>第三：若表里有数据，那么此时我们要去更新表里的数据；<br>第四：用mysql-promise操作数据库时，如本例所示，回调函数里，我用了affectedRows来判断，API里没有详细说明，需要我们自己去打印找出来这个字段来供我们作为判断的依据；<br>5、在配置文件package.json里添加编译任务，如下图所示：</li>
+</ul>
+<h4 id="6、启动-npm-run-babel，进行编译文件，如下图所示："><a href="#6、启动-npm-run-babel，进行编译文件，如下图所示：" class="headerlink" title="6、启动 npm run babel，进行编译文件，如下图所示："></a>6、启动 npm run babel，进行编译文件，如下图所示：</h4><h4 id="7、启动服务app-js，客户端进行访问，如下图所示："><a href="#7、启动服务app-js，客户端进行访问，如下图所示：" class="headerlink" title="7、启动服务app.js，客户端进行访问，如下图所示："></a>7、启动服务app.js，客户端进行访问，如下图所示：</h4><p>（1）启动服务，如下图所示：</p>
+<p>（2）客户端进行访问，如下图所示：</p>
+<p>（3）查看数据库的变化，如下图所示：</p>
+<p>备注：<br>第一：此时说明我们已做完后端的接口；<br>第二：本步骤中的第一步打印的值中的截图部分就是第四条最后的部分提示到的，判断数据库到底有没有数据的依据；<br>九：编写前端的数据交互<br>1、做事件稀释，防止不停地点赞，前一次还没操作完，后一次又触发了，如下所示：</p>
+<p>备注：<br>在main.es里做事件稀释；<br>本例当中定时器虽然设置为0，但实际上也是由一定的时间的；<br>在这个一定的时间内，如果点了n次，那么前n-1次被取消了；只有第n次才执行；<br>2、编写数据交互，使用axios库，如下所示：<br>（1）在views下的index.html模板里引入此资源：</p>
+<p>（2）在public下的scripts目录下的main.es里添加向后端提交数据，如下所示：</p>
+<p>（3）由于点赞的数目由后端计算，所以当后端操作数据库成功时，应该给前端返回该数据，如下图所示：</p>
+<p>3、此时编译文件，启动服务，客户端访问，如下所示：<br>（1）编译文件 npm run babel，如下所示：</p>
+<p>备注：太长，我只截取了一部分；<br>（2）启动服务 node app.js，如下所示：</p>
+<p>（3）客户端访问，如下所示：</p>
+<p>（4）点击按钮，查看后端数据库是否变化？如下所示：<br>第一步：点击按钮，提交数据，如下所示：</p>
+<p>第二步：查看数据库里的数据变化，如下所示：</p>
+<p>备注：<br>此时所有流程走通；接下来该做测试；<br>十：测试<br>1、前端测试【UI测试】：<br>（1）安装<br>第一步：全局安装karma,这样可以让karma在任何地方运行：npm install -g karma-cli<br>第二步 本地安装karma：yarn add karma<br>备注：本地安装karma<br>第三步 安装断言库和chrome启动器：yarn add karma-jasmine karma-chrome-launcher<br>备注： karma-jasmine是个断言库； karma-chrome-launcher是个chrome的启动器；<br>第四步：安装 jasmine-core 库：yarn add jasmine-core<br>备注：jasmine-core      断言库核心<br>第五步：安装 karma-phantomjs-launcher 和 phantomjs ：yarn add karma-phantomjs-launcher phantomjs<br>备注：<br>karma-phantomjs-launcher：   phantomjs的启动器<br>phantomjs：                              无界面浏览器，但是它包含了所有浏览器的功能；<br>如果要使用phantomjs，那么就没必要再去下载 chrome的启动器了；我们使用这个便可；<br>删除某个库  yarn remove;<br>在这里，我本打算下载phantomjs，下载中发生错误，下载不下来，所以我还是用chrome的启动器；<br>（2）配置<br>第一步：输入karma init，进行配置，如下所示，去选择相应的：</p>
+<p>第二步：此时生成 karma.conf.js,如下所示：</p>
+<p>第三步：我去修改配置文件 karma.conf.js,如下所示：</p>
+<p>备注：图中所圈的部分<br>basePath：表示 基本的路径配置；<br>frameworks：表示测试所依赖的库；<br>files：表示测试哪些文件；<br>exclude：表示排除哪些文件不测试；<br>browsers：表示karma选择哪个浏览器，由于我无法下载phantomjs,所以我这里用了chrome;<br>singleRun: 设置为true, 默认是false; true表示，如果我们用的是Chrome启动器，如果没有报错，那么当我们karma start时，自动打开谷歌浏览器，然后关闭；<br>第三步：创建目录 test , 去测试相应的文件，如下所示：<br>test目录下的文件，如下所示：</p>
+<p>public目录下的scripts下的index.js文件如下所示：</p>
+<p>（3）开始进行测试<br>输入karma start  , 测试如下所示：</p>
+<p>备注：这种情况表示无错误；若有错误提示，那就是我们写的东西有问题；<br>（4）public目录下的scripts下的index.js文件, 我主要用在这里：如下所示：</p>
+<p>2、后端单测(端对端)测试【unit测试】：<br>(1)安装 yarn add selenium-webdriver  如下图所示：</p>
+<p>备注：<br>此时说明node版本过于低下，需要下载大于6.9.0版本的node<br>更新node版本以后，继续下载，下载成功。</p>
+<p>（2）在test目录里创建e2e.js文件，如下所示：</p>
+<p>（3）进入test目录，输入node e2e.js 进行测试，如下所示：</p>
+<p>备注：<br>在第二步的forBrowser里设置的是firefox, 那么此处提示错误就该图所示，要去图中所示的网址去下载启动firefox的插件；<br>若在第二步的forBrowser里设置的是firefox, 那么此处提示要下载的网址就是：<a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="external">http://chromedriver.storage.googleapis.com/index.html</a><br>我这里选择了chrome;<br>（4）根据提示，去该网站上下载东西，如下所示：</p>
+<p>备注：<br>我选择的最新的版本 2.9，点击进去以后，选择图中所标志的选择 chromedriver_win32.zip 进行下载， 解压以后，将此文件放在 test目录下，与e2e平级，如下所示：</p>
+<p>（5）启动 app.js，启动服务，如下所示：</p>
+<p>（6）进入test目录，启动测试文件，如下所示：</p>
+<p>备注：<br>如果没有出错，那么完成测试以后，自动退出；<br>当我们启动node e2e.js时，它会自动去打开谷歌浏览器，模仿人的一系列操作；如果结果匹配成功，那么会自动关闭浏览器，回到这里来；然后退出e2e.js的测试；<br>3、后端 服务测试：<br>（1）全局安装mocha, 如下所示：</p>
+<p>（2）安装第三方模块 supertest, 如下所示：</p>
+<p>（3）在test目录下创建 service.js 文件，该文件里的内容，如下所示：</p>
+<p>（4）用mocha 进行测试，如下所示：</p>
+<p>备注：此时已完成。<br>4、在配置文件里，编写UI测试 、服务端测试、unit测试命令，并将三个命令合并在一起，进行测试，如下所示；</p>
+<p>备注：<br>（1）只有 UI测试 和 服务端测试命令可以合并在一起，同时测试；<br>        因为服务端测试时，不能启动app.js否则会报错；而unit测试，需要启动app.js，否则会报错；<br>（2）当我们在编写unit测试命令时，我们需要把test目录下的此文件放在与配置文件同级目录，否则执行unit测试的时候，会报错，提示我们去下载该插件；</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[React Flux架构]]></title>
       <url>http://yoursite.com/2017/04/20/React-Flux/</url>
       <content type="html"><![CDATA[<ul>
@@ -1654,12 +1850,6 @@ gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
     </entry>
     
     <entry>
-      <title><![CDATA[categories]]></title>
-      <url>http://yoursite.com/categories/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[相册]]></title>
       <url>http://yoursite.com/photo/index.html</url>
       <content type="html"><![CDATA[<p><link type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.css" rel="stylesheet"></p>
@@ -1668,6 +1858,12 @@ gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;css&apos;]);
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/source-src/js/main.js" type="text/javascript"></script>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[categories]]></title>
+      <url>http://yoursite.com/categories/index.html</url>
+      <content type="html"></content>
     </entry>
     
     <entry>
