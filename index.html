@@ -182,8 +182,7 @@
 <p>代码中，外部函数f1只执行了一次，变量N设为0，并将内部函数f2赋值给了变量result。由于外部函数f1已经执行完毕，其内部变量N应该在内存中被清除，然而事实并不是这样：我们每次调用result的时候，发现变量N一直在内存中，并且在累加。为什么呢？这就是闭包的神奇之处了！</p>
 <h3 id="3-使用闭包定义私有变量"><a href="#3-使用闭包定义私有变量" class="headerlink" title="3. 使用闭包定义私有变量"></a>3. 使用闭包定义私有变量</h3><p>通常，JavaScript开发者使用下划线作为私有变量的前缀。但是实际上，这些变量依然可以被访问和修改，并非真正的私有变量。这时，使用闭包可以定义真正的私有变量：<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span></span> <span class="built_in">Product</span>() &#123;    var <span class="keyword">name</span>;    this.setName = <span class="function"><span class="keyword">function</span><span class="params">(value)</span></span> &#123;</div><div class="line">        <span class="keyword">name</span> = <span class="keyword">value</span>;</div><div class="line">    &#125;;    this.getName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span> &#123;        <span class="keyword">return</span> <span class="keyword">name</span>;</div><div class="line">    &#125;;</div><div class="line">&#125;var p = new <span class="built_in">Product</span>();</div><div class="line">p.setName(<span class="string">"Fundebug"</span>);console.<span class="built_in">log</span>(p.<span class="keyword">name</span>); // 输出undefinedconsole.<span class="built_in">log</span>(p.getName()); // 输出Fundebug</div></pre></td></tr></table></figure></p>
 <p>代码中，对象p的name属性为私有属性，使用p.name不能直接访问。</p>
-<h3 id="4-prototype"><a href="#4-prototype" class="headerlink" title="4. prototype"></a>4. prototype</h3><p>每个JavaScript构造函数都有一个prototype属性，用于设置所有实例对象需要共享的属性和方法。prototype属性不能列举。JavaScript仅支持通过prototype属性进行继承属性和方法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle</span>(<span class="params">x, y</span>)</span>&#123;    <span class="keyword">this</span>._length = x;    <span class="keyword">this</span>._breadth = y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Rectangle.prototype.getDimensions = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">length</span>: <span class="keyword">this</span>._length,</div><div class="line">        <span class="attr">breadth</span>: <span class="keyword">this</span>._breadth</div><div class="line">    &#125;;</div><div class="line">&#125;;<span class="keyword">var</span> x = <span class="keyword">new</span> Rectangle(<span class="number">3</span>, <span class="number">4</span>);<span class="keyword">var</span> y = <span class="keyword">new</span> Rectangle(<span class="number">4</span>, <span class="number">3</span>);<span class="built_in">console</span>.log(x.getDimensions()); <span class="comment">// &#123; length: 3, breadth: 4 &#125;console.log(y.getDimensions()); // &#123; length: 4, breadth: 3 &#125;</span></div><div class="line"></div><div class="line"><span class="string">``</span><span class="string">`    </span></div><div class="line">代码中，x和y都是构造函数Rectangle创建的对象实例，它们通过prototype继承了getDimensions方法。</div><div class="line"></div><div class="line">### 5. 模块化</div><div class="line">JavaScript并非模块化编程语言，至少ES6落地之前都不是。然而对于一个复杂的Web应用，模块化编程是一个最基本的要求。这时，可以使用立即执行函数来实现模块化，正如很多JS库比如jQuery以及我们Fundebug都是这样实现的。</div></pre></td></tr></table></figure>
+<h3 id="4-prototype"><a href="#4-prototype" class="headerlink" title="4. prototype"></a>4. prototype</h3><p>每个JavaScript构造函数都有一个prototype属性，用于设置所有实例对象需要共享的属性和方法。prototype属性不能列举。JavaScript仅支持通过prototype属性进行继承属性和方法。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle</span>(<span class="params">x, y</span>)</span>&#123;    <span class="keyword">this</span>._length = x;    <span class="keyword">this</span>._breadth = y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Rectangle.prototype.getDimensions = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">length</span>: <span class="keyword">this</span>._length,</div><div class="line">        <span class="attr">breadth</span>: <span class="keyword">this</span>._breadth</div><div class="line">    &#125;;</div><div class="line">&#125;;<span class="keyword">var</span> x = <span class="keyword">new</span> Rectangle(<span class="number">3</span>, <span class="number">4</span>);<span class="keyword">var</span> y = <span class="keyword">new</span> Rectangle(<span class="number">4</span>, <span class="number">3</span>);<span class="built_in">console</span>.log(x.getDimensions()); <span class="comment">// &#123; length: 3, breadth: 4 &#125;console.log(y.getDimensions()); // &#123; length: 4, breadth: 3 &#125;</span></div><div class="line"></div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line">代码中，x和y都是构造函数Rectangle创建的对象实例，它们通过prototype继承了getDimensions方法。</div><div class="line"></div><div class="line"></div><div class="line">### 5. 模块化</div><div class="line"></div><div class="line">JavaScript并非模块化编程语言，至少ES6落地之前都不是。然而对于一个复杂的Web应用，模块化编程是一个最基本的要求。这时，可以使用立即执行函数来实现模块化，正如很多JS库比如jQuery以及我们Fundebug都是这样实现的。</div></pre></td></tr></table></figure></p>
 <p>var module = (function() {    var N = 5;    function print(x) {        console.log(“The result is: “ + x);<br>    }    function add(a) {        var x = a + N;<br>        print(x);<br>    }    return {<br>        description: “This is description”,<br>        add: add<br>    };<br>})();console.log(module.description); // 输出”this is description” module.add(5); // 输出“The result is: 10”</p>
 <figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">所谓模块化，就是根据需要控制模块内属性与方法的可访问性，即私有或者公开。在代码中，<span class="keyword">module</span>为一个独立的模块，N为其私有属性，print为其私有方法，decription为其公有属性，add为其共有方法。</div><div class="line"></div><div class="line">### <span class="number">6.</span> 变量提升</div><div class="line"></div><div class="line">JavaScript会将所有变量和函数声明移动到它的作用域的最前面，这就是所谓的变量提升(Hoisting)。也就是说，无论你在什么地方声明变量和函数，解释器都会将它们移动到作用域的最前面。因此我们可以先使用变量和函数，而后声明它们。</div><div class="line">    </div><div class="line">但是，仅仅是变量声明被提升了，而变量赋值不会被提升。如果你不明白这一点，有时则会出错：</div></pre></td></tr></table></figure>
 <p>console.log(y);  // 输出undefinedy = 2; // 初始化y</p>
@@ -561,19 +560,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Redux Store</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react flux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
+                <a href="javascript:void(0)" class="js-tag color2">Redux Store</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">css工作流 css预处理器 css后处理器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,15 +588,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端架构构建  前端集成</a>
               </li>
             
             <div class="clearfix"></div>
