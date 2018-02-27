@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-04T08:07:49.000Z</updated>
+  <updated>2018-02-27T01:23:44.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>promise#then</title>
+    <title>10个JavaScript难点</title>
+    <link href="http://yoursite.com/2018/02/27/10%E4%B8%AAJavaScript%E9%9A%BE%E7%82%B9/"/>
+    <id>http://yoursite.com/2018/02/27/10个JavaScript难点/</id>
+    <published>2018-02-27T01:22:57.000Z</published>
+    <updated>2018-02-27T01:23:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-立即执行函数"><a href="#1-立即执行函数" class="headerlink" title="1. 立即执行函数"></a>1. 立即执行函数</h3><pre><code>立即执行函数，即Immediately Invoked Function Expression (IIFE)，正如它的名字，就是创建函数的同时立即执行。它没有绑定任何事件，也无需等待任何异步操作：
+
+``
+    (function() {     // 代码
+         // ...})();
+``
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-立即执行函数&quot;&gt;&lt;a href=&quot;#1-立即执行函数&quot; class=&quot;headerlink&quot; title=&quot;1. 立即执行函数&quot;&gt;&lt;/a&gt;1. 立即执行函数&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;立即执行函数，即Immediately Invoked Function
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>promise-then</title>
     <link href="http://yoursite.com/2017/09/04/promise-then/"/>
     <id>http://yoursite.com/2017/09/04/promise-then/</id>
     <published>2017-09-04T07:54:26.000Z</published>
-    <updated>2017-09-04T08:07:49.000Z</updated>
+    <updated>2018-02-27T01:10:46.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="Promise可以写成方法链的形式"><a href="#Promise可以写成方法链的形式" class="headerlink" title="Promise可以写成方法链的形式"></a>Promise可以写成方法链的形式</h4><p>在promise里可以将任意个方法连在一起作为一个方法链（method chain）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">aPromise.then(function taskA(value)&#123;</div><div class="line">    //task A</div><div class="line">&#125;).then(function taskB(value)&#123;</div><div class="line">    //taskB</div><div class="line">&#125;).catch(function onRejected(error)&#123;</div><div class="line">    console.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>如果把在then中注册的每个回调函数成为task的话，那么我们就可以通过Promise方法链方式来编写能以taskA-&gt;taskB这种流程进行处理的逻辑了。<br>Promise方法链这种叫法有点长，因此简化为promise chain。<br>Promise之所以适合编写异步处理较多的应用，promise chain可以算得上是其中一个原因。</p>
@@ -194,14 +218,13 @@
     <link href="http://yoursite.com/2017/08/16/koa%E5%AE%9E%E6%88%98/"/>
     <id>http://yoursite.com/2017/08/16/koa实战/</id>
     <published>2017-08-15T16:00:00.000Z</published>
-    <updated>2017-09-04T07:50:37.000Z</updated>
+    <updated>2017-09-04T08:11:43.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><ul>
 <li>yarn官网：<a href="https://yarnpkg.com/" target="_blank" rel="external">https://yarnpkg.com/</a></li>
 <li>安装yarn: npm install yarn -g</li>
 </ul>
-<p>##＃ 一：先搭整体页面结构</p>
-<h4 id="1、搭建整体结构"><a href="#1、搭建整体结构" class="headerlink" title="1、搭建整体结构"></a>1、搭建整体结构</h4><p>备注：【简述各个目录下的作用】</p>
+<h3 id="先搭整体页面结构"><a href="#先搭整体页面结构" class="headerlink" title="先搭整体页面结构"></a>先搭整体页面结构</h3><h4 id="1、搭建整体结构"><a href="#1、搭建整体结构" class="headerlink" title="1、搭建整体结构"></a>1、搭建整体结构</h4><p>备注：【简述各个目录下的作用】</p>
 <ol>
 <li>conf 是放置相关配置；</li>
 <li>controllers放置路由模块；</li>
@@ -314,8 +337,7 @@
 &lt;li&gt;yarn官网：&lt;a href=&quot;https://yarnpkg.com/&quot;&gt;https://yarnpkg.com/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;安装yarn: npm install yarn -g&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;##＃ 一：先搭整体页面结构&lt;/p&gt;
-&lt;h4 id=&quot;1、搭建整体结构&quot;&gt;&lt;a href=&quot;#1、搭建整体结构&quot; class=&quot;headerlink&quot; title=&quot;1、搭建整体结构&quot;&gt;&lt;/a&gt;1、搭建整体结构&lt;/h4&gt;&lt;p&gt;备注：【简述各个目录下的作用】&lt;/p&gt;
+&lt;h3 id=&quot;先搭整体页面结构&quot;&gt;&lt;a href=&quot;#先搭整体页面结构&quot; class=&quot;headerlink&quot; title=&quot;先搭整体页面结构&quot;&gt;&lt;/a&gt;先搭整体页面结构&lt;/h3&gt;&lt;h4 id=&quot;1、搭建整体结构&quot;&gt;&lt;a href=&quot;#1、搭建整体结构&quot; class=&quot;headerlink&quot; title=&quot;1、搭建整体结构&quot;&gt;&lt;/a&gt;1、搭建整体结构&lt;/h4&gt;&lt;p&gt;备注：【简述各个目录下的作用】&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;conf 是放置相关配置；&lt;/li&gt;
 &lt;li&gt;controllers放置路由模块；&lt;/li&gt;
