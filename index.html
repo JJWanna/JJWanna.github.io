@@ -155,6 +155,66 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-深入贯彻闭包思想，全面理解JS闭包形成过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/27/深入贯彻闭包思想，全面理解JS闭包形成过程/">深入贯彻闭包思想，全面理解JS闭包形成过程</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/27/深入贯彻闭包思想，全面理解JS闭包形成过程/" class="archive-article-date">
+  	<time datetime="2018-02-27T02:32:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>谈起闭包，它可是JavaScript两个核心技术之一(异步和闭包),在面试以及实际应用当中，我们都离不开它们，甚至可以说它们是衡量js工程师实力的一个重要指标。下面我们就罗列闭包的几个常见问题，从回答问题的角度来理解和定义你们心中的闭包。</p>
+<p>问题如下:</p>
+<p>1.什么是闭包?<br>2.闭包的原理可不可以说一下？<br>3.你是怎样使用闭包的？</p>
+<h3 id="闭包的介绍"><a href="#闭包的介绍" class="headerlink" title="闭包的介绍"></a>闭包的介绍</h3><p>我们先看看几本书中的大致介绍:</p>
+<p>1.闭包是指有权访问另一个函数作用域中的变量的函数</p>
+<p>2.函数对象可以通过作用域关联起来，函数体内的变量都可以保存在函数作用域内，这在计算机科学文献中称为“闭包”,所有的javascirpt函数都是闭包</p>
+<p>3.闭包是基于词法作用域书写代码时所产生的必然结果。</p>
+<p>4.函数可以通过作用域链相互关联起来，函数内部的变量可以保存在其他函数作用域内，这种特性在计算机科学文献中称为闭包。</p>
+<p>可见，它们各有各自的定义，但要说明的意思大同小异。笔者在这之前对它是知其然而不知其所以然，最后用了一天的时间从词法作用域到作用域链的概念再到闭包的形成做了一次总的梳理，发现做人好清晰了…。</p>
+<p>下面让我们抛开这些抽象而又晦涩难懂的表述，从头开始理解，内化最后总结出自己的一段关于闭包的句子。我想这对面试以及充实开发者自身的理论知识非常有帮助。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/27/深入贯彻闭包思想，全面理解JS闭包形成过程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-10个JavaScript难点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -403,84 +463,6 @@
 
 
   
-    <article id="post-koa实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/koa实战/">KOA实战</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/16/koa实战/" class="archive-article-date">
-  	<time datetime="2017-08-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><ul>
-<li>yarn官网：<a href="https://yarnpkg.com/">https://yarnpkg.com/</a></li>
-<li>安装yarn: npm install yarn -g</li>
-</ul>
-<h3 id="先搭整体页面结构"><a href="#先搭整体页面结构" class="headerlink" title="先搭整体页面结构"></a>先搭整体页面结构</h3><h4 id="1、搭建整体结构"><a href="#1、搭建整体结构" class="headerlink" title="1、搭建整体结构"></a>1、搭建整体结构</h4><p>备注：【简述各个目录下的作用】</p>
-<ol>
-<li>conf 是放置相关配置；</li>
-<li>controllers放置路由模块；</li>
-<li>midware 是放置中间件；</li>
-<li>node_modules是放置下载的模块；</li>
-<li>public下是放置静态资源；</li>
-<li>views是放置模板；</li>
-<li>models放置与数据打交道的模块；</li>
-<li>添加启动文件 app.js；</li>
-</ol>
-        
-          <a class="article-more-a" href="/2017/08/16/koa实战/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/koa实战/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -575,11 +557,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redux</a>
+                <a href="javascript:void(0)" class="js-tag color2">Redux Store</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Redux Store</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redux</a>
               </li>
              
               <li class="article-tag-list-item">
